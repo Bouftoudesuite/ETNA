@@ -1,10 +1,10 @@
 #!/usr/bin/env php
 <?php
 // type.php for  in /home/habi/Piscine1/PHP/Jour01/type
-// 
+//
 // Made by HABI Acal
 // Login   <habi_a@etna-alternance.net>
-// 
+//
 // Started on  Mon Oct  9 18:24:26 2017 HABI Acal
 // Last update Mon Oct  9 18:24:30 2017 HABI Acal
 //
@@ -23,13 +23,9 @@ if ($argv[2] == "bool")
 {
 	$bool = (bool)$argv[1];
 	if ($bool == 1) 
-	{
 		$bool = "true";
-	}
 	else
-	{
 		$bool = "false";
-	}
 	echo "{$argv[2]}({$bool})\n";
 }
 if ($argv[2] == "float")
