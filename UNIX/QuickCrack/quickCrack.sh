@@ -39,7 +39,6 @@ do
 		cd ..
 		chmod 700 *
 		ssh -i id_ssh liquid_z@$1
-		find . -type f -exec grep ';;' {} \; -newer 7
 fi
 done
 
