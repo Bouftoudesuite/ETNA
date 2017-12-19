@@ -1,0 +1,6 @@
+#!/bin/bash
+nb=$(find $1 -type d | wc -l)
+nb2=$(find $1 -type f | wc -l)
+rs=0
+let "rs=nb+nb2-2"
+echo $rs

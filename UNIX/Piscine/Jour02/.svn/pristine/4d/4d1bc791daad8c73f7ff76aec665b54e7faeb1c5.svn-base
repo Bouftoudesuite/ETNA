@@ -1,0 +1,2 @@
+#!/bin/bash
+cat passwd | grep -e "etna1|prof" | sed -e 's/etna1/newbee/g' -e 's/prof/gentil/g' && grep "newbee|gentil" passwd

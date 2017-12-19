@@ -1,0 +1,2 @@
+#!/bin/bash
+cat passwd | grep "shells/etna" | cut -f1 -n -d: | sed -n '1p; 2~2p' | rev | sort -r | sed -n "$MY_LINE1, $MY_LINE2 p"| tr '\n' ',' | sed 's/.$/.\n/g'
