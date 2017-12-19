@@ -1,27 +1,27 @@
 #!/usr/bin/env php
 <?php
 // microshell.php for  in /home/habi/Piscine1/PHP/micro_shell
-// 
+//
 // Made by HABI Acal
 // Login   <habi_a@etna-alternance.net>
-// 
+//
 // Started on  Fri Oct 13 13:36:07 2017 HABI Acal
 // Last update Fri Oct 13 13:36:46 2017 HABI Acal
 //
-	require_once("init.php");
-	require_once("check.php");
-	require_once("function.php");
-	require_once("globals.php");
-	require_once("function_bis.php");
-	require_once("spe_functions.php");
+require_once("init.php");
+require_once("check.php");
+require_once("function.php");
+require_once("globals.php");
+require_once("function_bis.php");
+require_once("spe_functions.php");
 
-	$boolExit = false;
-	if ($handle = fopen("php://stdin", "r"))
+$boolExit = false;
+if ($handle = fopen("php://stdin", "r"))
 	{
 		clear_php();
 		cat_php("draw.txt");
 		echo "Hellooooo !   :)\n\n";
-		while (!$boolExit) 
+		while (!$boolExit)
 		{
 			$emptyCommand = false;
 			my_shell();
