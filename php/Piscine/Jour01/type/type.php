@@ -22,7 +22,7 @@ if ($argv[2] == "int")
 if ($argv[2] == "bool")
 {
 	$bool = (bool)$argv[1];
-	if ($bool == 1) 
+	if ($bool == 1)
 		$bool = "true";
 	else
 		$bool = "false";
@@ -34,7 +34,5 @@ if ($argv[2] == "float")
 	echo "{$argv[2]}({$float})\n";
 }
 if ($argv[2] == "string")
-{
 	echo "{$argv[2]}({$length}) \"{$argv[1]}\"\n";
-}
 ?>
