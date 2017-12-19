@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 <?php
 // microshell.php for  in /home/habi/Piscine1/PHP/micro_shell
-<<<<<<< HEAD
 //
 // Made by HABI Acal
 // Login   <habi_a@etna-alternance.net>
@@ -18,33 +17,11 @@ require_once("spe_functions.php");
 
 $boolExit = false;
 if ($handle = fopen("php://stdin", "r"))
-=======
-// 
-// Made by HABI Acal
-// Login   <habi_a@etna-alternance.net>
-// 
-// Started on  Fri Oct 13 13:36:07 2017 HABI Acal
-// Last update Fri Oct 13 13:36:46 2017 HABI Acal
-//
-	require_once("init.php");
-	require_once("check.php");
-	require_once("function.php");
-	require_once("globals.php");
-	require_once("function_bis.php");
-	require_once("spe_functions.php");
-
-	$boolExit = false;
-	if ($handle = fopen("php://stdin", "r"))
->>>>>>> b252211eb32bfffafc97433c7117824224e54952
 	{
 		clear_php();
 		cat_php("draw.txt");
 		echo "Hellooooo !   :)\n\n";
-<<<<<<< HEAD
 		while (!$boolExit)
-=======
-		while (!$boolExit) 
->>>>>>> b252211eb32bfffafc97433c7117824224e54952
 		{
 			$emptyCommand = false;
 			my_shell();
@@ -82,8 +59,4 @@ if ($handle = fopen("php://stdin", "r"))
 		}
 		fclose($handle);
 	}
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> b252211eb32bfffafc97433c7117824224e54952
+	?>
