@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Webdows 95</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <input class="icon" data-js="opencomplex" type="image" src="image/mycom.png">
+  <input class="icon" data-js="openfractal" type="image" src="image/fractal.png">
+
+  <br>
+  <span>Complex Manager</span>
+  <span>Pimp My Fractal</span>
+
+  </div>
+
+
+  <div class="complex" style="display: none;">
+    <div class="win95">
+      <div class="bluebar">
+        <p class="title">Complex Manager</p>
+        <button name="close" class="close">X</button>
+      </div>
+      <form action="result.php" method="POST">
+        <label for="reel">Partie reelle:</label>
+        <input class="input95" type="text" name="reel" autocomplete="off" placeholder="a"> <br>
+        <label for="imaginaire ">Partie imaginaire:</label>
+        <input class="input95" type="text" name="imaginaire" autocomplete="off" placeholder="b"> <br>
+        <input class="midbtn" type="submit" name="submit" value="Execute">
+      </form>
+    </div>
+  </div>
+
+
+  <div class="fractal" style="display: none;">
+    <div class="win95">
+      <div class="bluebar">
+        <p class="title">Pimp My Fractal</p>
+        <button name="close" class="close">X</button>
+      </div>
+      <form action="result_fractal.php" method="POST">
+        <label for="iter">Iteration :</label>
+        <input class="input95" type="text" name="iteration" autocomplete="off" placeholder="Iteration"> <br>
+        <label for="deg">Degré :</label>
+        <input class="input95" type="text" name="degre" autocomplete="off" placeholder="Degré"> <br>
+        <input class="midbtn" type="submit" name="submit" value="Execute">
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <div class="downbar">
+    <div class="start"><img src="image/winlogo.png" style="
+    width: 30px;
+    height: 18px;">Démarrer</div>
+    <div class="startMenu">
+      <div class="left">
+        <div class="webdo">
+          Webdows
+          <span class="num95">95</span>
+        </div>
+      </div>
+      <div class="menuItem deroul">Programmes</div>
+      <div class="menuItem deroul">Mes documents</div>
+      <div class="menuItem deroul">Paramètres</div>
+      <div class="menuItem">Terminal</div>
+      <br>
+      <br>
+      <br>
+      <div class="sepa"></div>
+
+      <div class="menuItem">Eteindre</div>
+    </div>
+  </div>
+
+  </div>
+  <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js" integrity="sha256-PsB+5ZEsBlDx9Fi/GXc1bZmC7wEQzZK4bM/VwNm1L6c=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="js/taskbar.js"></script>
+  <script src="js/konami.js"></script>
+
+
+  </div class="window">
+</body>
+
+</html>
