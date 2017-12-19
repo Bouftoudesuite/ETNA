@@ -82,6 +82,6 @@ function check_command($command)
 	elseif ($command == "unsetenv")
 		return (true);
 	else
-		return(false);
+		return (false);
 }
 ?>
