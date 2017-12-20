@@ -7,6 +7,6 @@ void my_printf(char* str)
 {
     int* positions = my_pos_pourcent(str);
     char* lettres = my_check_pourcent(str, positions);
-    str = my_str_replace(str, positions, lettres);
-    my_putstr(str);
+    char* newstr = my_str_replace(str, positions, lettres);
+    my_putstr(newstr);
 }

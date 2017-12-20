@@ -1,12 +1,14 @@
 #include <stdlib.h>
 
 void my_putstr(char* str);
+int my_strlen(char* str);
 
 char* my_check_pourcent(char* str, int* positions)
 {
     int i = 0;
     int j = 0;
-    char* variables;
+    int size = my_strlen(str) + 1;
+    char variables[size];
     int tmp_pos = 0;
 
     while (positions[i] != -1)

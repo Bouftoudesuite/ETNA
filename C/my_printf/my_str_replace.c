@@ -1,22 +1,28 @@
+int my_strlen(char* str);
+void my_putchar(char c);
+
 char* my_str_replace(char* str, int* positions, char* lettres)
 {
     int i = 0;
     int j = 0;
     int k = 0;
-    char* newstr;
+    int size = my_strlen(str) + 1;
+    char newstr[size];
 
-    while (str[i] != -1)
+    while (str[i] != '\0')
     {
         if (i == positions[k])
-            i++;
-        else if (i == positions[k] + 1)
         {
             newstr[j] = 'X';
             i++;
             j++;
             k++;
         }
-        newstr[j] = str[i];
+        else
+        {
+            newstr[j] = str[i];
+            j++;
+        }
         i++;
     }
     return newstr;
