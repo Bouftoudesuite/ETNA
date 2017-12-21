@@ -1,7 +1,9 @@
-void my_printf(char* str);
+void my_printf(char* str, ...);
 
 int main(int argc, char const *argv[])
 {
-    my_printf("Bonjour je suis %c, et jai %d ans.");
+    char lettre_pref = 'D';
+    int age = 5;
+    my_printf("Bonjour, ma lettre prefere est %c, et jai %d ans.", lettre_pref, age);
     return 0;
 }

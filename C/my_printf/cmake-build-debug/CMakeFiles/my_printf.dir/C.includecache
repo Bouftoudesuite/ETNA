@@ -13,8 +13,16 @@ stdlib.h
 -
 
 /Users/habi_a/Documents/ETNA/C/my_printf/my_pos_pourcent.c
+stdlib.h
+-
 
 /Users/habi_a/Documents/ETNA/C/my_printf/my_printf.c
+stdlib.h
+-
+stdarg.h
+-
+
+/Users/habi_a/Documents/ETNA/C/my_printf/my_put_nbr.c
 
 /Users/habi_a/Documents/ETNA/C/my_printf/my_putchar.c
 unistd.h
@@ -22,7 +30,9 @@ unistd.h
 
 /Users/habi_a/Documents/ETNA/C/my_printf/my_putstr.c
 
-/Users/habi_a/Documents/ETNA/C/my_printf/my_str_replace.c
+/Users/habi_a/Documents/ETNA/C/my_printf/my_str_print.c
+stdarg.h
+-
 
 /Users/habi_a/Documents/ETNA/C/my_printf/my_strlen.c
 

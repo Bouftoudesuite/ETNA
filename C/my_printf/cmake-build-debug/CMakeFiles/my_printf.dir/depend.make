@@ -9,11 +9,13 @@ CMakeFiles/my_printf.dir/my_pos_pourcent.c.o: ../my_pos_pourcent.c
 
 CMakeFiles/my_printf.dir/my_printf.c.o: ../my_printf.c
 
+CMakeFiles/my_printf.dir/my_put_nbr.c.o: ../my_put_nbr.c
+
 CMakeFiles/my_printf.dir/my_putchar.c.o: ../my_putchar.c
 
 CMakeFiles/my_printf.dir/my_putstr.c.o: ../my_putstr.c
 
-CMakeFiles/my_printf.dir/my_str_replace.c.o: ../my_str_replace.c
+CMakeFiles/my_printf.dir/my_str_print.c.o: ../my_str_print.c
 
 CMakeFiles/my_printf.dir/my_strlen.c.o: ../my_strlen.c
 

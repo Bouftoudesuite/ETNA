@@ -201,33 +201,57 @@ CMakeFiles/my_printf.dir/my_putstr.c.o.provides: CMakeFiles/my_printf.dir/my_put
 CMakeFiles/my_printf.dir/my_putstr.c.o.provides.build: CMakeFiles/my_printf.dir/my_putstr.c.o
 
 
-CMakeFiles/my_printf.dir/my_str_replace.c.o: CMakeFiles/my_printf.dir/flags.make
-CMakeFiles/my_printf.dir/my_str_replace.c.o: ../my_str_replace.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/my_printf.dir/my_str_replace.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/my_printf.dir/my_str_replace.c.o   -c /Users/habi_a/Documents/ETNA/C/my_printf/my_str_replace.c
+CMakeFiles/my_printf.dir/my_put_nbr.c.o: CMakeFiles/my_printf.dir/flags.make
+CMakeFiles/my_printf.dir/my_put_nbr.c.o: ../my_put_nbr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/my_printf.dir/my_put_nbr.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/my_printf.dir/my_put_nbr.c.o   -c /Users/habi_a/Documents/ETNA/C/my_printf/my_put_nbr.c
 
-CMakeFiles/my_printf.dir/my_str_replace.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_printf.dir/my_str_replace.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/habi_a/Documents/ETNA/C/my_printf/my_str_replace.c > CMakeFiles/my_printf.dir/my_str_replace.c.i
+CMakeFiles/my_printf.dir/my_put_nbr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_printf.dir/my_put_nbr.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/habi_a/Documents/ETNA/C/my_printf/my_put_nbr.c > CMakeFiles/my_printf.dir/my_put_nbr.c.i
 
-CMakeFiles/my_printf.dir/my_str_replace.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_printf.dir/my_str_replace.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/habi_a/Documents/ETNA/C/my_printf/my_str_replace.c -o CMakeFiles/my_printf.dir/my_str_replace.c.s
+CMakeFiles/my_printf.dir/my_put_nbr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_printf.dir/my_put_nbr.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/habi_a/Documents/ETNA/C/my_printf/my_put_nbr.c -o CMakeFiles/my_printf.dir/my_put_nbr.c.s
 
-CMakeFiles/my_printf.dir/my_str_replace.c.o.requires:
+CMakeFiles/my_printf.dir/my_put_nbr.c.o.requires:
 
-.PHONY : CMakeFiles/my_printf.dir/my_str_replace.c.o.requires
+.PHONY : CMakeFiles/my_printf.dir/my_put_nbr.c.o.requires
 
-CMakeFiles/my_printf.dir/my_str_replace.c.o.provides: CMakeFiles/my_printf.dir/my_str_replace.c.o.requires
-	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_replace.c.o.provides.build
-.PHONY : CMakeFiles/my_printf.dir/my_str_replace.c.o.provides
+CMakeFiles/my_printf.dir/my_put_nbr.c.o.provides: CMakeFiles/my_printf.dir/my_put_nbr.c.o.requires
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_put_nbr.c.o.provides.build
+.PHONY : CMakeFiles/my_printf.dir/my_put_nbr.c.o.provides
 
-CMakeFiles/my_printf.dir/my_str_replace.c.o.provides.build: CMakeFiles/my_printf.dir/my_str_replace.c.o
+CMakeFiles/my_printf.dir/my_put_nbr.c.o.provides.build: CMakeFiles/my_printf.dir/my_put_nbr.c.o
+
+
+CMakeFiles/my_printf.dir/my_str_print.c.o: CMakeFiles/my_printf.dir/flags.make
+CMakeFiles/my_printf.dir/my_str_print.c.o: ../my_str_print.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/my_printf.dir/my_str_print.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/my_printf.dir/my_str_print.c.o   -c /Users/habi_a/Documents/ETNA/C/my_printf/my_str_print.c
+
+CMakeFiles/my_printf.dir/my_str_print.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/my_printf.dir/my_str_print.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/habi_a/Documents/ETNA/C/my_printf/my_str_print.c > CMakeFiles/my_printf.dir/my_str_print.c.i
+
+CMakeFiles/my_printf.dir/my_str_print.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_printf.dir/my_str_print.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/habi_a/Documents/ETNA/C/my_printf/my_str_print.c -o CMakeFiles/my_printf.dir/my_str_print.c.s
+
+CMakeFiles/my_printf.dir/my_str_print.c.o.requires:
+
+.PHONY : CMakeFiles/my_printf.dir/my_str_print.c.o.requires
+
+CMakeFiles/my_printf.dir/my_str_print.c.o.provides: CMakeFiles/my_printf.dir/my_str_print.c.o.requires
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_print.c.o.provides.build
+.PHONY : CMakeFiles/my_printf.dir/my_str_print.c.o.provides
+
+CMakeFiles/my_printf.dir/my_str_print.c.o.provides.build: CMakeFiles/my_printf.dir/my_str_print.c.o
 
 
 CMakeFiles/my_printf.dir/my_strlen.c.o: CMakeFiles/my_printf.dir/flags.make
 CMakeFiles/my_printf.dir/my_strlen.c.o: ../my_strlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/my_printf.dir/my_strlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/my_printf.dir/my_strlen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/my_printf.dir/my_strlen.c.o   -c /Users/habi_a/Documents/ETNA/C/my_printf/my_strlen.c
 
 CMakeFiles/my_printf.dir/my_strlen.c.i: cmake_force
@@ -257,7 +281,8 @@ my_printf_OBJECTS = \
 "CMakeFiles/my_printf.dir/my_printf.c.o" \
 "CMakeFiles/my_printf.dir/my_putchar.c.o" \
 "CMakeFiles/my_printf.dir/my_putstr.c.o" \
-"CMakeFiles/my_printf.dir/my_str_replace.c.o" \
+"CMakeFiles/my_printf.dir/my_put_nbr.c.o" \
+"CMakeFiles/my_printf.dir/my_str_print.c.o" \
 "CMakeFiles/my_printf.dir/my_strlen.c.o"
 
 # External object files for target my_printf
@@ -269,11 +294,12 @@ my_printf: CMakeFiles/my_printf.dir/my_pos_pourcent.c.o
 my_printf: CMakeFiles/my_printf.dir/my_printf.c.o
 my_printf: CMakeFiles/my_printf.dir/my_putchar.c.o
 my_printf: CMakeFiles/my_printf.dir/my_putstr.c.o
-my_printf: CMakeFiles/my_printf.dir/my_str_replace.c.o
+my_printf: CMakeFiles/my_printf.dir/my_put_nbr.c.o
+my_printf: CMakeFiles/my_printf.dir/my_str_print.c.o
 my_printf: CMakeFiles/my_printf.dir/my_strlen.c.o
 my_printf: CMakeFiles/my_printf.dir/build.make
 my_printf: CMakeFiles/my_printf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable my_printf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/habi_a/Documents/ETNA/C/my_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable my_printf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_printf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -287,7 +313,8 @@ CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_pos_pourcent.c.o.
 CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_printf.c.o.requires
 CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_putchar.c.o.requires
 CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_putstr.c.o.requires
-CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_str_replace.c.o.requires
+CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_put_nbr.c.o.requires
+CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_str_print.c.o.requires
 CMakeFiles/my_printf.dir/requires: CMakeFiles/my_printf.dir/my_strlen.c.o.requires
 
 .PHONY : CMakeFiles/my_printf.dir/requires

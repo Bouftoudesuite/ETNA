@@ -231,6 +231,33 @@ my_printf.c.s:
 	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_printf.c.s
 .PHONY : my_printf.c.s
 
+my_put_nbr.o: my_put_nbr.c.o
+
+.PHONY : my_put_nbr.o
+
+# target to build an object file
+my_put_nbr.c.o:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_put_nbr.c.o
+.PHONY : my_put_nbr.c.o
+
+my_put_nbr.i: my_put_nbr.c.i
+
+.PHONY : my_put_nbr.i
+
+# target to preprocess a source file
+my_put_nbr.c.i:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_put_nbr.c.i
+.PHONY : my_put_nbr.c.i
+
+my_put_nbr.s: my_put_nbr.c.s
+
+.PHONY : my_put_nbr.s
+
+# target to generate assembly for a file
+my_put_nbr.c.s:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_put_nbr.c.s
+.PHONY : my_put_nbr.c.s
+
 my_putchar.o: my_putchar.c.o
 
 .PHONY : my_putchar.o
@@ -285,32 +312,32 @@ my_putstr.c.s:
 	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_putstr.c.s
 .PHONY : my_putstr.c.s
 
-my_str_replace.o: my_str_replace.c.o
+my_str_print.o: my_str_print.c.o
 
-.PHONY : my_str_replace.o
+.PHONY : my_str_print.o
 
 # target to build an object file
-my_str_replace.c.o:
-	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_replace.c.o
-.PHONY : my_str_replace.c.o
+my_str_print.c.o:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_print.c.o
+.PHONY : my_str_print.c.o
 
-my_str_replace.i: my_str_replace.c.i
+my_str_print.i: my_str_print.c.i
 
-.PHONY : my_str_replace.i
+.PHONY : my_str_print.i
 
 # target to preprocess a source file
-my_str_replace.c.i:
-	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_replace.c.i
-.PHONY : my_str_replace.c.i
+my_str_print.c.i:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_print.c.i
+.PHONY : my_str_print.c.i
 
-my_str_replace.s: my_str_replace.c.s
+my_str_print.s: my_str_print.c.s
 
-.PHONY : my_str_replace.s
+.PHONY : my_str_print.s
 
 # target to generate assembly for a file
-my_str_replace.c.s:
-	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_replace.c.s
-.PHONY : my_str_replace.c.s
+my_str_print.c.s:
+	$(MAKE) -f CMakeFiles/my_printf.dir/build.make CMakeFiles/my_printf.dir/my_str_print.c.s
+.PHONY : my_str_print.c.s
 
 my_strlen.o: my_strlen.c.o
 
@@ -360,15 +387,18 @@ help:
 	@echo "... my_printf.o"
 	@echo "... my_printf.i"
 	@echo "... my_printf.s"
+	@echo "... my_put_nbr.o"
+	@echo "... my_put_nbr.i"
+	@echo "... my_put_nbr.s"
 	@echo "... my_putchar.o"
 	@echo "... my_putchar.i"
 	@echo "... my_putchar.s"
 	@echo "... my_putstr.o"
 	@echo "... my_putstr.i"
 	@echo "... my_putstr.s"
-	@echo "... my_str_replace.o"
-	@echo "... my_str_replace.i"
-	@echo "... my_str_replace.s"
+	@echo "... my_str_print.o"
+	@echo "... my_str_print.i"
+	@echo "... my_str_print.s"
 	@echo "... my_strlen.o"
 	@echo "... my_strlen.i"
 	@echo "... my_strlen.s"

@@ -94,13 +94,19 @@
 		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_printf.c">
 			<Option target="my_printf"/>
 		</Unit>
+		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_printf.h">
+			<Option target="my_printf"/>
+		</Unit>
+		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_put_nbr.c">
+			<Option target="my_printf"/>
+		</Unit>
 		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_putchar.c">
 			<Option target="my_printf"/>
 		</Unit>
 		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_putstr.c">
 			<Option target="my_printf"/>
 		</Unit>
-		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_str_replace.c">
+		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_str_print.c">
 			<Option target="my_printf"/>
 		</Unit>
 		<Unit filename="/Users/habi_a/Documents/ETNA/C/my_printf/my_strlen.c">

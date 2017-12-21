@@ -8,7 +8,8 @@ char* my_check_pourcent(char* str, int* positions)
     int i = 0;
     int j = 0;
     int size = my_strlen(str) + 1;
-    char variables[size];
+    char* lettres = NULL;
+    lettres = malloc(sizeof(char) * size);
     int tmp_pos = 0;
 
     while (positions[i] != -1)
@@ -16,7 +17,7 @@ char* my_check_pourcent(char* str, int* positions)
         tmp_pos = positions[i] + 1;
         if (str[tmp_pos] != 'e')
         {
-            variables[j] = str[tmp_pos];
+            lettres[j] = str[tmp_pos];
             j++;
         }
         else
@@ -26,5 +27,6 @@ char* my_check_pourcent(char* str, int* positions)
         }
         i++;
     }
-    return variables;
+    lettres[j] = '\0';
+    return lettres;
 }
