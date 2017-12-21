@@ -1,0 +1,34 @@
+/*
+** my_strcat.c for  in /home/habi/Piscine1/C/Jour04/my_strcat
+** 
+** Made by HABI Acal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Thu Sep 28 16:06:12 2017 HABI Acal
+** Last update Thu Sep 28 16:14:19 2017 HABI Acal
+*/
+int     my_strlen(char *str)
+{
+    int i;
+
+    i = 0;
+    while (*(str + i) != '\0')
+    {
+        ++i;
+    }
+    return (i);
+}
+
+char    *my_strcat(char *dest, char *src)
+{
+    int i;
+
+    i = 0;
+    while (*(src + i))
+    {
+        *(dest + my_strlen(dest) + i) = *(src + i);
+        ++i;
+    }
+    *(dest + my_strlen(dest) + i) = '\0';
+    return (dest);
+}
