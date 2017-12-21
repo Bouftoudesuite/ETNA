@@ -1,9 +1,9 @@
 #include <stdlib.h>
 
-void my_putstr(char* str);
-int my_strlen(char* str);
+void my_putstr(const char * restrict str);
+int my_strlen(const char * restrict str);
 
-char* my_check_pourcent(char* str, int* positions)
+char* my_check_pourcent(const char * restrict str, int* positions)
 {
     int i = 0;
     int j = 0;

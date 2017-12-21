@@ -1,6 +1,6 @@
 void my_putchar(char c);
 
-void my_putstr(char* str)
+void my_putstr(const char * restrict str)
 {
     int i = 0;
     while (str[i] != '\0')

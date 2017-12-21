@@ -1,4 +1,4 @@
-int my_strlen(char* str)
+int my_strlen(const char * restrict str)
 {
     int i;
 

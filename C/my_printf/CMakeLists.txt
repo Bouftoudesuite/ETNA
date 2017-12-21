@@ -11,4 +11,4 @@ add_executable(my_printf
         my_putchar.c
         my_putstr.c
         my_put_nbr.c
-        my_str_print.c my_strlen.c my_printf.h)
+        my_str_print.c my_strlen.c)
