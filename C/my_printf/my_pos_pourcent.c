@@ -2,8 +2,7 @@
 
 int my_strlen(const char * restrict str);
 
-// Renvoie les positions de toutes les lettres après pourcent
-int* my_pos_pourcent(char* str)
+int* my_pos_pourcent(const char * restrict str);
 {
     int size = my_strlen(str);
     int* positions = NULL;
