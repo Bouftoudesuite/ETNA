@@ -7,24 +7,19 @@ char* my_check_pourcent(const char * restrict str, int* positions)
 {
     int i = 0;
     int j = 0;
-    int size = my_strlen(str) + 1;
+    int size;
     char* lettres = NULL;
-    lettres = malloc(sizeof(char) * size);
-    int tmp_pos = 0;
+    int tmp_pos;
 
+    i = 0;
+    j = 0;
+    size = my_strlen(str) + 1;
+    lettres = malloc(sizeof(char) * size);
     while (positions[i] != -1)
     {
         tmp_pos = positions[i] + 1;
-        if (str[tmp_pos] != 'e')
-        {
-            lettres[j] = str[tmp_pos];
-            j++;
-        }
-        else
-        {
-            my_putstr("revoir usage");
-            return NULL;
-        }
+        lettres[j] = str[tmp_pos];
+        j++;
         i++;
     }
     lettres[j] = '\0';

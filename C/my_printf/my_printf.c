@@ -22,6 +22,6 @@ int my_printf(const char * restrict str, ...)
     return_print = my_str_print(str, positions, lettres, variables);
     free(lettres);
     free(positions);
-
+    va_end(variables);
     return return_print;
 }

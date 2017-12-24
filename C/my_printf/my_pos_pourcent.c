@@ -2,14 +2,17 @@
 
 int my_strlen(const char * restrict str);
 
-int* my_pos_pourcent(const char * restrict str);
+int* my_pos_pourcent(const char * restrict str)
 {
-    int size = my_strlen(str);
+    int size;
     int* positions = NULL;
-    positions = malloc(sizeof(int) * size);
-    int i = 0;
-    int j = 0;
+    int i;
+    int j;
 
+    i = 0;
+    j = 0;
+    size = my_strlen(str);
+    positions = malloc(sizeof(int) * size);
     while (str[i] != '\0')
     {
         if (str[i] == '%')
@@ -20,6 +23,5 @@ int* my_pos_pourcent(const char * restrict str);
         positions[j] = -1;
         i++;
     }
-
     return positions;
 }
