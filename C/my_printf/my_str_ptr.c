@@ -24,9 +24,8 @@ int my_str_ptr(int compteur, char lettre, va_list variables)
     }
     else if (lettre == 's')
     {
-        str = va_arg(variables, char*);
-        my_putstr(str);
-        compteur += my_strlen(str);
+        my_putstr(va_arg(variables, char*));
+        compteur ++;
     }
     else
         compteur = my_str_ptr_bis(compteur, lettre, variables);
