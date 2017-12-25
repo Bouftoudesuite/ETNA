@@ -1,5 +1,5 @@
-#ifndef     _MY_PTR_FUNC_H_
-#define     _MY_PTR_FUNC_H_
+#ifndef		_MY_PTR_FUNC_H_
+#define		_MY_PTR_FUNC_H_
 
 #include <stdarg.h>
 
@@ -13,7 +13,8 @@ int my_put_u(va_list variables, int compteur, int j);
 int my_put_x(va_list variables, int compteur, int j);
 int my_put_X(va_list variables, int compteur, int j);
 
-int (*ptr_func[9])(va_list, int, int) = {
+int (*ptr_func[9])(va_list, int, int) =
+{
     my_put_no_flag,
     my_put_c,
     my_put_s,
@@ -25,4 +26,4 @@ int (*ptr_func[9])(va_list, int, int) = {
     my_put_X
 };
 
-#endif      /* !_MY_PTR_FUNC_H_ */
+#endif		/* !_MY_PTR_FUNC_H_ */

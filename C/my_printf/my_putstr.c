@@ -1,8 +1,8 @@
-void        my_putchar(char c);
+void		my_putchar(char c);
 
-void        my_putstr(const char *str)
+void		my_putstr(const char *str)
 {
-    int     i;
+    int		i;
 
     i = 0;
     while (str[i] != '\0')

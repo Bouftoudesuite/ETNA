@@ -1,14 +1,14 @@
 #include "my_ptr_func.h"
 
-void        my_putchar(char c);
-int         my_convert_letter_into_nb(char lettre);
+void		my_putchar(char c);
+int		my_convert_letter_into_nb(char lettre);
 
-int         my_str_print(const char *str, int *positions, char *lettres,
-                            va_list variables)
+int		my_str_print(const char *str, int *positions, char *lettres,
+			     va_list variables)
 {
-    int     i;
-    int     j;
-    int     compteur;
+    int		i;
+    int		j;
+    int		compteur;
 
     i = 0;
     j = 0;

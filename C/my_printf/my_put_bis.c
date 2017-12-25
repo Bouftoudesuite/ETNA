@@ -1,14 +1,14 @@
 #include <stdarg.h>
 
-void        my_put_un_nbr(unsigned int n);
-void        my_put_nbr_base(int n, char* base);
-int         my_nbrlen(int n);
+void		my_put_un_nbr(unsigned int n);
+void		my_put_nbr_base(int n, char* base);
+int		my_nbrlen(int n);
 
-int         my_put_o(va_list variables, int compteur, int j)
+int		my_put_o(va_list variables, int compteur, int j)
 {
-    int     i;
-    int     var;
-    int     size;
+    int		i;
+    int		var;
+    int		size;
 
     i = 0;
     var = 0;
@@ -23,11 +23,11 @@ int         my_put_o(va_list variables, int compteur, int j)
     return (compteur);
 }
 
-int         my_put_u(va_list variables, int compteur, int j)
+int		my_put_u(va_list variables, int compteur, int j)
 {
-    int     i;
-    int     var;
-    int     size;
+    int		i;
+    int		var;
+    int		size;
 
     i = 0;
     var = 0;
@@ -42,11 +42,11 @@ int         my_put_u(va_list variables, int compteur, int j)
     return (compteur);
 }
 
-int         my_put_x(va_list variables, int compteur, int j)
+int		my_put_x(va_list variables, int compteur, int j)
 {
-    int     i;
-    int     var;
-    int     size;
+    int		i;
+    int		var;
+    int		size;
 
     i = 0;
     var = 0;
@@ -61,11 +61,11 @@ int         my_put_x(va_list variables, int compteur, int j)
     return (compteur);
 }
 
-int         my_put_X(va_list variables, int compteur, int j)
+int		my_put_X(va_list variables, int compteur, int j)
 {
-    int     i;
-    int     var;
-    int     size;
+    int		i;
+    int		var;
+    int		size;
 
     i = 0;
     var = 0;

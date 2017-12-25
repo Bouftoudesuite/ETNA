@@ -1,12 +1,12 @@
 #include <stdlib.h>
 
-int         my_strlen(const char *str);
-int         *my_pos_pourcent_bis(const char *str, int *positions);
+int		my_strlen(const char *str);
+int		*my_pos_pourcent_bis(const char *str, int *positions);
 
-int         *my_pos_pourcent(const char *str)
+int		*my_pos_pourcent(const char *str)
 {
-    int     size;
-    int*    positions;
+    int		size;
+    int		*positions;
 
     size = my_strlen(str);
     positions = malloc(sizeof(int) * (size + 1));
@@ -16,10 +16,10 @@ int         *my_pos_pourcent(const char *str)
     return (positions);
 }
 
-int         *my_pos_pourcent_bis(const char *str, int *positions)
+int		*my_pos_pourcent_bis(const char *str, int *positions)
 {
-    int     i;
-    int     j;
+    int		i;
+    int		j;
 
     i = 0;
     j = 0;

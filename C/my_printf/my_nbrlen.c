@@ -1,6 +1,6 @@
-int     my_nbrlen(int n)
+int	my_nbrlen(int n)
 {
-    int i;
+    int	i;
 
     i = 1;
     while (n > 9)
