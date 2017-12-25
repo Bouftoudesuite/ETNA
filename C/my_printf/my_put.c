@@ -68,11 +68,11 @@ int		my_put_i(va_list variables, int compteur, int j)
     return (compteur);
 }
 
-int         my_put_s(va_list variables, int compteur, int j)
+int		my_put_s(va_list variables, int compteur, int j)
 {
-    int     i;
-    char*   var;
-    int     size;
+    int		i;
+    char*	var;
+    int		size;
 
     i = 0;
     var = 0;
