@@ -12,4 +12,3 @@ int		my_convert_letter_into_nb(char lettre)
     }
     return (-1);
 }
-

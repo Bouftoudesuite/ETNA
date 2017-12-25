@@ -12,7 +12,7 @@ int		my_printf(const char *format, ...)
     char	*lettres;
     int		ret_print;
     va_list	variables;
-    
+
     va_start(variables, format);
     positions = my_pos_pourcent(format);
     lettres = my_check_pourcent(format, positions);

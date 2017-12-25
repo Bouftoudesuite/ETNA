@@ -10,4 +10,3 @@ int	my_nbrlen(int n)
     }
     return (i);
 }
-
