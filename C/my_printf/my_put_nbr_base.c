@@ -1,10 +1,10 @@
-void    my_putchar(char c);
-int     my_strlen(char *str);
+void        my_putchar(char c);
+int         my_strlen(char *str);
 
-void    my_put_nbr_base(int n, char *base)
+void        my_put_nbr_base(int n, char *base)
 {
-    int i;
-    int j;
+    int     i;
+    int     j;
 
     if (n < 0)
     {

@@ -1,5 +1,5 @@
-#ifndef MY_PRINTF_MY_PTR_FUNC_H
-#define MY_PRINTF_MY_PTR_FUNC_H
+#ifndef     _MY_PTR_FUNC_H_
+#define     _MY_PTR_FUNC_H_
 
 #include <stdarg.h>
 
@@ -25,4 +25,4 @@ int (*ptr_func[9])(va_list, int, int) = {
     my_put_X
 };
 
-#endif //MY_PRINTF_MY_PTR_FUNC_H
+#endif      /* !_MY_PTR_FUNC_H_ */

@@ -1,4 +1,4 @@
-int my_nbrlen(int n)
+int     my_nbrlen(int n)
 {
     int i;
 
@@ -8,6 +8,6 @@ int my_nbrlen(int n)
         n /= 10;
         i++;
     }
-    return i;
+    return (i);
 }
 

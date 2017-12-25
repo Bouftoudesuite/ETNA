@@ -1,14 +1,15 @@
 #include "my_ptr_func.h"
 
-void my_putchar(char c);
-int my_convert_letter_into_nb(char lettre);
+void        my_putchar(char c);
+int         my_convert_letter_into_nb(char lettre);
 
-int my_str_print(const char * restrict str, int* positions, char* lettres, va_list variables)
+int         my_str_print(const char *str, int *positions, char *lettres,
+                            va_list variables)
 {
-    int i;
-    int j;
-    int compteur;
-    int nb_function;
+    int     i;
+    int     j;
+    int     compteur;
+
     i = 0;
     j = 0;
     compteur = 0;
@@ -16,8 +17,8 @@ int my_str_print(const char * restrict str, int* positions, char* lettres, va_li
     {
         if (i == positions[j])
         {
-            nb_function = my_convert_letter_into_nb(lettres[j]);
-            compteur = ptr_func[nb_function](variables, compteur, j);
+            compteur = ptr_func[my_convert_letter_into_nb(lettres[j])]
+                    (variables, compteur, j);
             i++;
             j++;
         }
@@ -28,5 +29,5 @@ int my_str_print(const char * restrict str, int* positions, char* lettres, va_li
         }
         i++;
     }
-    return compteur;
+    return (compteur);
 }

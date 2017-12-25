@@ -1,15 +1,15 @@
 #include <stdlib.h>
 
-void my_putstr(const char * restrict str);
-int my_strlen(const char * restrict str);
+void        my_putstr(const char *str);
+int         my_strlen(const char *str);
 
-char* my_check_pourcent(const char * restrict str, int* positions)
+char        *my_check_pourcent(const char *str, int *positions)
 {
-    int i = 0;
-    int j = 0;
-    int size;
-    char* lettres = NULL;
-    int tmp_pos;
+    int     i = 0;
+    int     j = 0;
+    int     size;
+    char*   lettres = NULL;
+    int     tmp_pos;
 
     i = 0;
     j = 0;
@@ -25,5 +25,5 @@ char* my_check_pourcent(const char * restrict str, int* positions)
         i++;
     }
     lettres[j] = '\0';
-    return lettres;
+    return (lettres);
 }
