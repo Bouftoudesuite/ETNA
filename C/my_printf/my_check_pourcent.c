@@ -15,6 +15,8 @@ char* my_check_pourcent(const char * restrict str, int* positions)
     j = 0;
     size = my_strlen(str) + 1;
     lettres = malloc(sizeof(char) * size);
+    if (lettres == NULL)
+        exit(0);
     while (positions[i] != -1)
     {
         tmp_pos = positions[i] + 1;
