@@ -12,13 +12,10 @@ void my_putchar(char c);
 int my_printf(const char * restrict str, ...)
 {
     va_list variables;
-
+    va_start(variables, str);
     int* positions = my_pos_pourcent(str);
     char* lettres = my_check_pourcent(str, positions);
-    int nb_args = my_strlen(lettres);
     int return_print;
-
-    va_start(variables, nb_args);
     return_print = my_str_print(str, positions, lettres, variables);
     free(lettres);
     free(positions);
