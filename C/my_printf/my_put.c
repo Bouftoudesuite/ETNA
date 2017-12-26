@@ -8,12 +8,7 @@
 ** Last update Tue Dec 26 13:40:50 2017 HABI Açal
 */
 #include <stdarg.h>
-
-void		my_putchar(char c);
-void		my_putstr(const char *str);
-void		my_put_nbr(int n);
-int		my_strlen(char* str);
-int		my_nbrlen(int n);
+#include "my_printf.h"
 
 int		my_put_no_flag(va_list variables, int compteur, int j)
 {

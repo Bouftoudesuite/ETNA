@@ -8,9 +8,7 @@
 ** Last update Tue Dec 26 13:24:34 2017 HABI Açal
 */
 #include "my_ptr_func.h"
-
-void		my_putchar(char c);
-int		my_convert_letter_into_nb(char lettre);
+#include "my_printf.h"
 
 int		my_str_print(const char *str, int *positions, char *lettres,
 			     va_list variables)

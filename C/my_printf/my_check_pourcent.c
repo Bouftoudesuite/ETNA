@@ -8,9 +8,7 @@
 ** Last update Tue Dec 26 13:27:47 2017 HABI Açal
 */
 #include <stdlib.h>
-
-void		my_putstr(const char *str);
-int		my_strlen(const char *str);
+#include "my_printf.h"
 
 char		*my_check_pourcent(const char *str, int *positions)
 {

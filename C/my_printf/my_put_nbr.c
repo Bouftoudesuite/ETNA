@@ -7,7 +7,7 @@
 ** Started on  Tue Dec 26 13:19:21 2017 HABI Açal
 ** Last update Tue Dec 26 13:25:16 2017 HABI Açal
 */
-void		my_putchar(char c);
+#include "my_printf.h"
 
 void		my_put_un_nbr(unsigned int n)
 {

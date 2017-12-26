@@ -8,10 +8,7 @@
 ** Last update Tue Dec 26 13:47:19 2017 HABI Açal
 */
 #include <stdarg.h>
-
-void		my_put_un_nbr(unsigned int n);
-void		my_put_nbr_base(int n, char *base);
-int		my_nbrlen(int n);
+#include "my_printf.h"
 
 int		my_put_o(va_list variables, int compteur, int j)
 {

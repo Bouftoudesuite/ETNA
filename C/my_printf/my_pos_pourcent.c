@@ -8,9 +8,7 @@
 ** Last update Tue Dec 26 13:23:29 2017 HABI Açal
 */
 #include <stdlib.h>
-
-int		my_strlen(const char *str);
-int		*my_pos_pourcent_bis(const char *str, int *positions);
+#include "my_printf.h"
 
 int		*my_pos_pourcent(const char *str)
 {

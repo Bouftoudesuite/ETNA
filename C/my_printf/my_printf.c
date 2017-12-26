@@ -9,11 +9,7 @@
 */
 #include <stdlib.h>
 #include <stdarg.h>
-
-char		*my_check_pourcent(const char *str, int *positions);
-int		*my_pos_pourcent(const char *str);
-int		my_str_print(const char *str, int *positions, char *lettres,
-			     va_list variables);
+#include "my_printf.h"
 
 int		my_printf(const char *format, ...)
 {
