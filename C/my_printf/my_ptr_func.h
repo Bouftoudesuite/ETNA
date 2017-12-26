@@ -5,24 +5,24 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:21:22 2017 HABI Açal
-** Last update Tue Dec 26 13:21:56 2017 HABI Açal
+** Last update Tue Dec 26 14:54:27 2017 HABI Açal
 */
 #ifndef		_MY_PTR_FUNC_H_
 #define		_MY_PTR_FUNC_H_
 
-#include <stdarg.h>
+#include	<stdarg.h>
 
-int my_put_no_flag(va_list variables, int compteur, int j);
-int my_put_c(va_list variables, int compteur, int j);
-int my_put_i(va_list variables, int compteur, int j);
-int my_put_d(va_list variables, int compteur, int j);
-int my_put_s(va_list variables, int compteur, int j);
-int my_put_o(va_list variables, int compteur, int j);
-int my_put_u(va_list variables, int compteur, int j);
-int my_put_x(va_list variables, int compteur, int j);
-int my_put_X(va_list variables, int compteur, int j);
+int		my_put_no_flag(va_list variables, int compteur, int j);
+int		my_put_c(va_list variables, int compteur, int j);
+int		my_put_i(va_list variables, int compteur, int j);
+int		my_put_d(va_list variables, int compteur, int j);
+int		my_put_s(va_list variables, int compteur, int j);
+int		my_put_o(va_list variables, int compteur, int j);
+int		my_put_u(va_list variables, int compteur, int j);
+int		my_put_x(va_list variables, int compteur, int j);
+int		my_put_X(va_list variables, int compteur, int j);
 
-int (*ptr_func[9])(va_list, int, int) =
+int		(*ptr_func[9])(va_list, int, int) =
 {
     my_put_no_flag,
     my_put_c,

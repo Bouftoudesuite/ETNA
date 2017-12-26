@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 14:17:41 2017 HABI Açal
-** Last update Tue Dec 26 14:36:24 2017 HABI Açal
+** Last update Tue Dec 26 14:52:51 2017 HABI Açal
 */
 #ifndef		_MY_PRINTF_H_
 #define		_MY_PRINTF_H_
@@ -19,7 +19,8 @@ int		my_convert_letter_into_nb(char lettre);
 int		*my_pos_pourcent(const char *str);
 char		*my_check_pourcent(const char *str, int *positions);
 int		*my_pos_pourcent_bis(const char *str, int *positions);
-int		my_str_print(const char *str, int *positions, char *lettres, va_list variables);
+int		my_str_print(const char *str, int *positions, char *lettres,
+			     va_list variables);
 int		my_printf(const char *format, ...);
 void		my_putchar(char c);
 void		my_putstr(const char *str);
