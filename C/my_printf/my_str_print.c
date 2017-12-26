@@ -1,3 +1,12 @@
+/*
+** my_str_print.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Tue Dec 26 13:20:41 2017 HABI Açal
+** Last update Tue Dec 26 13:24:34 2017 HABI Açal
+*/
 #include "my_ptr_func.h"
 
 void		my_putchar(char c);

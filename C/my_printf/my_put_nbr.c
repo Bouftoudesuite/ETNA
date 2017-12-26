@@ -1,11 +1,11 @@
 /*
-** my_put_nbr.c for  in /home/habi/Piscine1/C/Jour05-06/my_put_nbr
+** my_put_nbr.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
 ** 
-** Made by HABI Acal
+** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
 ** 
-** Started on  Fri Sep 29 14:19:52 2017 HABI Acal
-** Last update Fri Sep 29 14:19:53 2017 HABI Acal
+** Started on  Tue Dec 26 13:19:21 2017 HABI Açal
+** Last update Tue Dec 26 13:25:16 2017 HABI Açal
 */
 void		my_putchar(char c);
 

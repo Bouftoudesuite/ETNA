@@ -1,3 +1,12 @@
+/*
+** my_put_bis.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Tue Dec 26 13:22:11 2017 HABI Açal
+** Last update Tue Dec 26 13:22:14 2017 HABI Açal
+*/
 #include <stdarg.h>
 
 void		my_put_un_nbr(unsigned int n);

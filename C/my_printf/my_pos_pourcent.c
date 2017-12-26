@@ -1,3 +1,12 @@
+/*
+** my_pos_pourcent.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Tue Dec 26 13:21:04 2017 HABI Açal
+** Last update Tue Dec 26 13:23:29 2017 HABI Açal
+*/
 #include <stdlib.h>
 
 int		my_strlen(const char *str);

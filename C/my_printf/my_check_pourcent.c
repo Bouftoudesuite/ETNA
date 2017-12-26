@@ -1,3 +1,12 @@
+/*
+** my_check_pourcent.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Tue Dec 26 13:18:09 2017 HABI Açal
+** Last update Tue Dec 26 13:27:47 2017 HABI Açal
+*/
 #include <stdlib.h>
 
 void		my_putstr(const char *str);
