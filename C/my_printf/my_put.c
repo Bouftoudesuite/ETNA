@@ -5,12 +5,12 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:19:03 2017 HABI Açal
-** Last update Tue Dec 26 13:26:04 2017 HABI Açal
+** Last update Tue Dec 26 13:32:20 2017 HABI Açal
 */
 #include <stdarg.h>
 
 void		my_putchar(char c);
-void		my_putstr(const char * restrict str);
+void		my_putstr(const char *str);
 void		my_put_nbr(int n);
 int		my_strlen(char* str);
 int		my_nbrlen(int n);
@@ -31,7 +31,7 @@ int		my_put_c(va_list variables, int compteur, int j)
     var = '\0';
     while (i <= j)
     {
-        var = (char) va_arg(variables, int);
+        var = (char)va_arg(variables, int);
         i++;
     }
     my_putchar(var);
@@ -80,7 +80,7 @@ int		my_put_i(va_list variables, int compteur, int j)
 int		my_put_s(va_list variables, int compteur, int j)
 {
     int		i;
-    char*	var;
+    char	*var;
     int		size;
 
     i = 0;
