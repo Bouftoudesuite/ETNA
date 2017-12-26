@@ -5,13 +5,11 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Dec 26 13:24:00 2017 HABI Açal
-## Last update Tue Dec 26 13:55:07 2017 HABI Açal
+## Last update Tue Dec 26 14:01:21 2017 HABI Açal
 ##
-CC      =   	gcc
+CC	=	gcc
 
-RM      =   	rm -rf
-
-NAME    =   	my_printf
+NAME	=	my_printf.a
 
 SRC     =   	my_check_pourcent.c \
 		my_pos_pourcent.c \
@@ -28,25 +26,25 @@ SRC     =   	my_check_pourcent.c \
 		my_nbrlen.c \
 		my_put_bis.c
 
-OBJ     =   	$(SRC:.c=.o)
+CFLAGS 	 = 	-Wall -Werror -I./
 
-CFLAGS 	=   	-Wall -Werror -I./
+LDFLAGS  = 	-lmy
 
-LDFLAGS = 	-lmy
+RM	 =	rm -f
 
-all:		$(NAME)
+create:
+		$(CC) $(CFLAGS) $(LDFLAGS) -c $(SRC)
+		ar rc $(NAME) *.o
+		ranlib $(NAME)  
 
-$(NAME): $(OBJ)
-		$(CC) $(CDFLAGS) -o $(NAME) $(SRC)
-		ar r libmy.a $(OBJ)
-		ranlib libmy.a
+clean:			
+		$(RM) *.o
 
-clean:
-		$(RM) $(OBJ)
-
-fclean:	clean
+fclean:		clean
 		$(RM) $(NAME)
 
-re:	fclean all
+all:		create clean
 
-.PHONY:	all clean fclean re
+re:		fclean all
+
+.PHONY:		all re clean fclean
