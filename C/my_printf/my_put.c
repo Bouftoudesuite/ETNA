@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:19:03 2017 HABI Açal
-** Last update Tue Dec 26 13:32:20 2017 HABI Açal
+** Last update Tue Dec 26 13:40:50 2017 HABI Açal
 */
 #include <stdarg.h>
 
@@ -18,6 +18,7 @@ int		my_nbrlen(int n);
 int		my_put_no_flag(va_list variables, int compteur, int j)
 {
     my_putchar('%');
+    j += va_arg(variables, int);
     compteur++;
     return (compteur);
 }
