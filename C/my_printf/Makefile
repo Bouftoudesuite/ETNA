@@ -5,47 +5,47 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Dec 26 13:24:00 2017 HABI Açal
-## Last update Tue Dec 26 13:24:16 2017 HABI Açal
+## Last update Tue Dec 26 13:55:07 2017 HABI Açal
 ##
-CC      =   cc
+CC      =   	gcc
 
-RM      =   rm -rf
+RM      =   	rm -rf
 
-NAME    =   my_printf
+NAME    =   	my_printf
 
-SRC     =   my_check_pourcent.c \
-            my_pos_pourcent.c \
-            my_printf.c \
-            my_put_nbr.c \
-            my_putchar.c \
-            my_putstr.c \
-            my_str_print.c \
-            my_strlen.c \
-            my_put_nbr_base.c \
-            my_put.c \
-            my_convert_letter_into_nb.c \
-            my_ptr_func.h \
-            my_nbrlen.c \
-            my_put_bis.c
+SRC     =   	my_check_pourcent.c \
+		my_pos_pourcent.c \
+		my_printf.c \
+		my_put_nbr.c \
+		my_putchar.c \
+		my_putstr.c \
+		my_str_print.c \
+		my_strlen.c \
+		my_put_nbr_base.c \
+		my_put.c \
+		my_convert_letter_into_nb.c \
+		my_ptr_func.h \
+		my_nbrlen.c \
+		my_put_bis.c
 
-OBJ     =   $(SRC:.c=.o)
+OBJ     =   	$(SRC:.c=.o)
 
-CFLAGS 	= 	-Wall -Werror -I./
+CFLAGS 	=   	-Wall -Werror -I./
 
 LDFLAGS = 	-lmy
 
-all:    $(NAME)
+all:		$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CDFLAGS) -o $(NAME) $(SRC)
-	ar r libmy.a $(OBJ)
-	ranlib libmy.a
+		$(CC) $(CDFLAGS) -o $(NAME) $(SRC)
+		ar r libmy.a $(OBJ)
+		ranlib libmy.a
 
 clean:
-	$(RM) $(OBJ)
+		$(RM) $(OBJ)
 
 fclean:	clean
-	$(RM) $(NAME)
+		$(RM) $(NAME)
 
 re:	fclean all
 
