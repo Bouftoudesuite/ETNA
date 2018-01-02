@@ -14,15 +14,15 @@
 int		my_printf(const char *format, ...)
 {
     int		*positions;
-    char	*lettres;
+    char	*letters;
     int		ret_print;
     va_list	variables;
 
     va_start(variables, format);
     positions = my_pos_pourcent(format);
-    lettres = my_check_pourcent(format, positions);
-    ret_print = my_str_print(format, positions, lettres, variables);
-    free(lettres);
+    letters = my_check_pourcent(format, positions);
+    ret_print = my_str_print(format, positions, letters, variables);
+    free(letters);
     free(positions);
     va_end(variables);
     return (ret_print);

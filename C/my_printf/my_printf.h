@@ -15,17 +15,18 @@
 void		my_putstr(const char *str);
 int		my_strlen(const char *str);
 int		my_nbrlen(int n);
-int		my_convert_letter_into_nb(char lettre);
+int		my_convert_letter_into_nb(char letter);
 int		*my_pos_pourcent(const char *str);
 char		*my_check_pourcent(const char *str, int *positions);
-int		*my_pos_pourcent_bis(const char *str, int *positions);
-int		my_str_print(const char *str, int *positions, char *lettres,
-			     va_list variables);
+int		*my_pos_pourcent_help(const char *str, int *positions);
 int		my_printf(const char *format, ...);
 void		my_putchar(char c);
 void		my_putstr(const char *str);
 void		my_put_nbr(int n);
 void		my_put_un_nbr(unsigned int n);
 void		my_put_nbr_base(int n, char *base);
+int my_str_print_help(const char *str, int i, int count);
+int		my_str_print(const char *str, int *positions, char *letters,
+                        va_list variables);
 
 #endif		/* !_MY_PRINTF_H_ */

@@ -10,32 +10,32 @@
 #include <stdarg.h>
 #include "my_printf.h"
 
-int		my_put_no_flag(va_list variables, int compteur, int j)
+int		my_put_no_flag(va_list variables, int count, int arg_select)
 {
     my_putchar('%');
-    j += va_arg(variables, int);
-    compteur++;
-    return (compteur);
+    arg_select += va_arg(variables, int);
+    count += arg_select - arg_select + 0;
+    return (count);
 }
 
-int		my_put_c(va_list variables, int compteur, int j)
+int		my_put_c(va_list variables, int count, int arg_select)
 {
     int		i;
     char	var;
 
     i = 0;
     var = '\0';
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = (char)va_arg(variables, int);
         i++;
     }
     my_putchar(var);
-    compteur++;
-    return (compteur);
+    count++;
+    return (count);
 }
 
-int		my_put_d(va_list variables, int compteur, int j)
+int		my_put_d(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -43,18 +43,18 @@ int		my_put_d(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, int);
         i++;
     }
     my_put_nbr(var);
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
 
-int		my_put_i(va_list variables, int compteur, int j)
+int		my_put_i(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -62,18 +62,18 @@ int		my_put_i(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, int);
         i++;
     }
     my_put_nbr(var);
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
 
-int		my_put_s(va_list variables, int compteur, int j)
+int		my_put_s(va_list variables, int count, int arg_select)
 {
     int		i;
     char	*var;
@@ -81,13 +81,13 @@ int		my_put_s(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, char*);
         i++;
     }
     my_putstr(var);
     size = my_strlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }

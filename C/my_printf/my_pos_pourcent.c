@@ -19,11 +19,11 @@ int		*my_pos_pourcent(const char *str)
     positions = malloc(sizeof(int) * (size + 1));
     if (positions == NULL)
         exit(0);
-    positions = my_pos_pourcent_bis(str, positions);
+    positions = my_pos_pourcent_help(str, positions);
     return (positions);
 }
 
-int		*my_pos_pourcent_bis(const char *str, int *positions)
+int		*my_pos_pourcent_help(const char *str, int *positions)
 {
     int		i;
     int		j;

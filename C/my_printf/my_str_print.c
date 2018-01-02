@@ -10,31 +10,39 @@
 #include "my_ptr_func.h"
 #include "my_printf.h"
 
-int		my_str_print(const char *str, int *positions, char *lettres,
+int		my_str_print(const char *str, int *positions, char *letters,
 			     va_list variables)
 {
     int		i;
     int		j;
-    int		compteur;
+    int		count;
+    int     arg_select;
 
     i = 0;
     j = 0;
-    compteur = 0;
+    count = 0;
+    arg_select = 0;
     while (str[i] != '\0')
     {
         if (i == positions[j])
         {
-            compteur = ptr_func[my_convert_letter_into_nb(lettres[j])]
-                    (variables, compteur, j);
+            count = ptr_func[my_convert_letter_into_nb(letters[j])]
+                    (variables, count, arg_select);
+            if (letters[j] != '%')
+                arg_select++;
             i++;
             j++;
         }
         else
-        {
-            my_putchar(str[i]);
-            compteur++;
-        }
+            count = my_str_print_help(str, i, count);
         i++;
     }
-    return (compteur);
+    return (count);
+}
+
+int my_str_print_help(const char *str, int i, int count)
+{
+    my_putchar(str[i]);
+    count++;
+    return (count);
 }

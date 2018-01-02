@@ -12,15 +12,15 @@
 
 #include	<stdarg.h>
 
-int		my_put_no_flag(va_list variables, int compteur, int j);
-int		my_put_c(va_list variables, int compteur, int j);
-int		my_put_i(va_list variables, int compteur, int j);
-int		my_put_d(va_list variables, int compteur, int j);
-int		my_put_s(va_list variables, int compteur, int j);
-int		my_put_o(va_list variables, int compteur, int j);
-int		my_put_u(va_list variables, int compteur, int j);
-int		my_put_x(va_list variables, int compteur, int j);
-int		my_put_X(va_list variables, int compteur, int j);
+int		my_put_no_flag(va_list variables, int count, int arg_select);
+int		my_put_c(va_list variables, int count, int arg_select);
+int		my_put_i(va_list variables, int count, int arg_select);
+int		my_put_d(va_list variables, int count, int arg_select);
+int		my_put_s(va_list variables, int count, int arg_select);
+int		my_put_o(va_list variables, int count, int arg_select);
+int		my_put_u(va_list variables, int count, int arg_select);
+int		my_put_x(va_list variables, int count, int arg_select);
+int		my_put_X(va_list variables, int count, int arg_select);
 
 int		(*ptr_func[9])(va_list, int, int) =
 {

@@ -7,7 +7,7 @@
 ** Started on  Tue Dec 26 13:20:53 2017 HABI Açal
 ** Last update Tue Dec 26 13:23:42 2017 HABI Açal
 */
-int		my_convert_letter_into_nb(char lettre)
+int		my_convert_letter_into_nb(char letter)
 {
     int		i;
     char	flags[9] = {'%', 'c', 's', 'd', 'i', 'o', 'u', 'x', 'X'};
@@ -15,7 +15,7 @@ int		my_convert_letter_into_nb(char lettre)
     i = 0;
     while (flags[i] != '\0')
     {
-        if (flags[i] == lettre)
+        if (flags[i] == letter)
             return (i);
         i++;
     }

@@ -10,7 +10,7 @@
 #include <stdarg.h>
 #include "my_printf.h"
 
-int		my_put_o(va_list variables, int compteur, int j)
+int		my_put_o(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -18,18 +18,18 @@ int		my_put_o(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, int);
         i++;
     }
     my_put_nbr_base(var, "01234567");
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
 
-int		my_put_u(va_list variables, int compteur, int j)
+int		my_put_u(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -37,18 +37,18 @@ int		my_put_u(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, unsigned int);
         i++;
     }
     my_put_un_nbr(var);
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
 
-int		my_put_x(va_list variables, int compteur, int j)
+int		my_put_x(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -56,18 +56,18 @@ int		my_put_x(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, int);
         i++;
     }
     my_put_nbr_base(var, "0123456789ABCDEF");
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
 
-int		my_put_X(va_list variables, int compteur, int j)
+int		my_put_X(va_list variables, int count, int arg_select)
 {
     int		i;
     int		var;
@@ -75,13 +75,13 @@ int		my_put_X(va_list variables, int compteur, int j)
 
     i = 0;
     var = 0;
-    while (i <= j)
+    while (i <= arg_select)
     {
         var = va_arg(variables, int);
         i++;
     }
     my_put_nbr_base(var, "0123456789ABCDEF");
     size = my_nbrlen(var);
-    compteur += size;
-    return (compteur);
+    count += size;
+    return (count);
 }
