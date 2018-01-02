@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:20:41 2017 HABI Açal
-** Last update Tue Dec 26 13:24:34 2017 HABI Açal
+** Last update Tue Jan  2 21:11:22 2018 HABI Açal
 */
 #include "my_ptr_func.h"
 #include "my_printf.h"
@@ -16,7 +16,7 @@ int		my_str_print(const char *str, int *positions, char *letters,
     int		i;
     int		j;
     int		count;
-    int     arg_select;
+    int		arg_select;
 
     i = 0;
     j = 0;
@@ -40,7 +40,7 @@ int		my_str_print(const char *str, int *positions, char *letters,
     return (count);
 }
 
-int my_str_print_help(const char *str, int i, int count)
+int		my_str_print_help(const char *str, int i, int count)
 {
     my_putchar(str[i]);
     count++;

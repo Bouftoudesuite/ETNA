@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:20:53 2017 HABI Açal
-** Last update Tue Dec 26 13:23:42 2017 HABI Açal
+** Last update Tue Jan  2 21:10:11 2018 HABI Açal
 */
 int		my_convert_letter_into_nb(char letter)
 {
@@ -19,5 +19,5 @@ int		my_convert_letter_into_nb(char letter)
             return (i);
         i++;
     }
-    return (-1);
+    return (9);
 }
