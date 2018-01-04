@@ -5,13 +5,13 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:22:53 2017 HABI Açal
-** Last update Tue Dec 26 13:22:55 2017 HABI Açal
+** Last update Thu Jan  4 21:07:40 2018 HABI Açal
 */
 #include "my_printf.h"
 
-void		my_putstr(const char *str)
+void	my_putstr(const char *str)
 {
-    int		i;
+    int i;
 
     i = 0;
     while (str[i] != '\0')

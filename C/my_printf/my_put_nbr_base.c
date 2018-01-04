@@ -5,14 +5,14 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:22:38 2017 HABI Açal
-** Last update Tue Dec 26 13:22:39 2017 HABI Açal
+** Last update Thu Jan  4 21:06:55 2018 HABI Açal
 */
 #include "my_printf.h"
 
-void		my_put_nbr_base(int n, char *base)
+void	my_put_nbr_base(int n, char *base)
 {
-    int		i;
-    int		j;
+    int	i;
+    int	j;
 
     if (n < 0)
     {

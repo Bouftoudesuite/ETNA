@@ -5,16 +5,15 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:22:11 2017 HABI Açal
-** Last update Tue Dec 26 13:47:19 2017 HABI Açal
+** Last update Thu Jan  4 21:06:30 2018 HABI Açal
 */
-#include <stdarg.h>
 #include "my_printf.h"
 
-int		my_put_o(va_list variables, int count, int arg_select)
+int	my_put_o(va_list variables, int count, int arg_select)
 {
-    int		i;
-    int		var;
-    int		size;
+    int	i;
+    int	var;
+    int	size;
 
     i = 0;
     var = 0;
@@ -29,11 +28,11 @@ int		my_put_o(va_list variables, int count, int arg_select)
     return (count);
 }
 
-int		my_put_u(va_list variables, int count, int arg_select)
+int	my_put_u(va_list variables, int count, int arg_select)
 {
-    int		i;
-    int		var;
-    int		size;
+    int	i;
+    int	var;
+    int	size;
 
     i = 0;
     var = 0;
@@ -48,11 +47,11 @@ int		my_put_u(va_list variables, int count, int arg_select)
     return (count);
 }
 
-int		my_put_x(va_list variables, int count, int arg_select)
+int	my_put_x(va_list variables, int count, int arg_select)
 {
-    int		i;
-    int		var;
-    int		size;
+    int	i;
+    int	var;
+    int	size;
 
     i = 0;
     var = 0;
@@ -67,18 +66,18 @@ int		my_put_x(va_list variables, int count, int arg_select)
     return (count);
 }
 
-int		my_put_X(va_list variables, int count, int arg_select)
+int	my_put_X(va_list variables, int count, int arg_select)
 {
-    int		i;
-    int		var;
-    int		size;
+    int	i;
+    int	var;
+    int	size;
 
     i = 0;
     var = 0;
     while (i <= arg_select)
     {
-        var = va_arg(variables, int);
-        i++;
+      var = va_arg(variables, int);
+      i++;
     }
     my_put_nbr_base(var, "0123456789ABCDEF");
     size = my_nbrlen(var);

@@ -8,7 +8,6 @@
 ** Last update Tue Dec 26 13:26:34 2017 HABI Açal
 */
 #include <stdlib.h>
-#include <stdarg.h>
 #include "my_printf.h"
 
 int		my_printf(const char *format, ...)

@@ -5,18 +5,16 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:20:41 2017 HABI Açal
-** Last update Tue Jan  2 21:11:22 2018 HABI Açal
+** Last update Thu Jan  4 21:24:40 2018 HABI Açal
 */
-#include "my_ptr_func.h"
 #include "my_printf.h"
 
-int		my_str_print(const char *str, int *positions, char *letters,
-			     va_list variables)
+int	my_str_print(const char *str, int *positions, char *letters, va_list variables)
 {
-    int		i;
-    int		j;
-    int		count;
-    int		arg_select;
+    int	i;
+    int	j;
+    int	count;
+    int	arg_select;
 
     i = 0;
     j = 0;
@@ -26,8 +24,7 @@ int		my_str_print(const char *str, int *positions, char *letters,
     {
         if (i == positions[j])
         {
-            count = ptr_func[my_convert_letter_into_nb(letters[j])]
-                    (variables, count, arg_select);
+            count = my_ptr_func(variables, count, arg_select, letters[j]);
             if (letters[j] != '%')
                 arg_select++;
             i++;
@@ -40,7 +37,7 @@ int		my_str_print(const char *str, int *positions, char *letters,
     return (count);
 }
 
-int		my_str_print_help(const char *str, int i, int count)
+int	my_str_print_help(const char *str, int i, int count)
 {
     my_putchar(str[i]);
     count++;

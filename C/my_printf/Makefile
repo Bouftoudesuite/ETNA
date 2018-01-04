@@ -5,7 +5,7 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Dec 26 13:24:00 2017 HABI Açal
-## Last update Tue Dec 26 14:01:21 2017 HABI Açal
+## Last update Thu Jan  4 21:25:15 2018 HABI Açal
 ##
 CC	=	gcc
 
@@ -17,16 +17,16 @@ SRC     =   	my_check_pourcent.c \
 		my_put_nbr.c \
 		my_putchar.c \
 		my_putstr.c \
+		my_ptr_func.c \
 		my_str_print.c \
 		my_strlen.c \
 		my_put_nbr_base.c \
 		my_put.c \
 		my_convert_letter_into_nb.c \
-		my_ptr_func.h \
 		my_nbrlen.c \
 		my_put_bis.c
 
-CFLAGS 	 = 	-Wall -Werror -I./
+CFLAGS 	 = 	-Wall -Werror -pedantic -I./
 
 LDFLAGS  = 	-lmy
 

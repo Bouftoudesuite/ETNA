@@ -5,14 +5,14 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:19:21 2017 HABI Açal
-** Last update Tue Dec 26 13:25:16 2017 HABI Açal
+** Last update Thu Jan  4 21:21:39 2018 HABI Açal
 */
 #include "my_printf.h"
 
-void		my_put_un_nbr(unsigned int n)
+void	my_put_un_nbr(unsigned int n)
 {
-    int		i;
-    int		divisible;
+    int	i;
+    int	divisible;
 
     divisible = n / 10;
     i = n % 10;
@@ -23,7 +23,7 @@ void		my_put_un_nbr(unsigned int n)
     my_putchar(i + '0');
 }
 
-void		my_put_nbr(int n)
+void	my_put_nbr(int n)
 {
     if (n < 0)
     {

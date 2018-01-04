@@ -5,15 +5,15 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:21:04 2017 HABI Açal
-** Last update Tue Dec 26 13:23:29 2017 HABI Açal
+** Last update Thu Jan  4 21:15:08 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "my_printf.h"
 
-int		*my_pos_pourcent(const char *str)
+int	*my_pos_pourcent(const char *str)
 {
-    int		size;
-    int		*positions;
+    int	size;
+    int	*positions;
 
     size = my_strlen(str);
     positions = malloc(sizeof(int) * (size + 1));
@@ -23,10 +23,10 @@ int		*my_pos_pourcent(const char *str)
     return (positions);
 }
 
-int		*my_pos_pourcent_help(const char *str, int *positions)
+int	*my_pos_pourcent_help(const char *str, int *positions)
 {
-    int		i;
-    int		j;
+    int	i;
+    int	j;
 
     i = 0;
     j = 0;
