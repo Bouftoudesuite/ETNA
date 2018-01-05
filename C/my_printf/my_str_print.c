@@ -25,7 +25,7 @@ int	my_str_print(const char *str, int *positions, char *letters, va_list variabl
         if (i == positions[j])
         {
             count = my_ptr_func(variables, count, arg_select, letters[j]);
-            if (letters[j] != '%')
+            if (my_convert_letter_into_nb(letters[j]) != 0 && my_convert_letter_into_nb(letters[j]) != 9)
                 arg_select++;
             i++;
             j++;

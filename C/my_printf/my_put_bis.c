@@ -84,3 +84,10 @@ int	my_put_X(va_list variables, int count, int arg_select)
     count += size;
     return (count);
 }
+
+int my_put_error(va_list variables, int count, int arg_select)
+{
+    arg_select += va_arg(variables, int);
+    count += arg_select - arg_select + 0;
+    return (count);
+}
