@@ -17,7 +17,6 @@ int	my_ptr_func(va_list variables, int count, int arg_select,
     ptr_func[8] = my_put_X;
     ptr_func[9] = my_put_error;
     function_to_call = my_convert_letter_into_nb(letter);
-    count = ptr_func[function_to_call]
-      (variables, count, arg_select);
+    count = ptr_func[function_to_call](variables, count, arg_select);
     return (count);
 }
