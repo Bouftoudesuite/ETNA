@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:18:38 2017 HABI Açal
-** Last update Tue Dec 26 13:27:07 2017 HABI Açal
+** Last update Sat Jan  6 22:34:59 2018 HABI Açal
 */
 int	my_nbrlen(int n)
 {
