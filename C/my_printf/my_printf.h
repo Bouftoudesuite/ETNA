@@ -5,14 +5,13 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 14:17:41 2017 HABI Açal
-** Last update Sat Jan  6 21:32:44 2018 HABI Açal
+** Last update Sat Jan  6 22:22:54 2018 HABI Açal
 */
 #ifndef		_MY_PRINTF_H_
 #define		_MY_PRINTF_H_
 
 #include	<stdarg.h>
 
-void		my_putstr(const char *str);
 int		my_strlen(const char *str);
 int		my_nbrlen(int n);
 int		my_convert_letter_into_nb(char letter);
@@ -37,7 +36,8 @@ int		my_put_x(va_list variables, int count, int arg_select);
 int		my_put_X(va_list variables, int count, int arg_select);
 int		my_put_error(va_list variables, int count, int arg_select);
 int		my_ptr_func(va_list variables, int count, int arg_select, char letter);
-int		my_printf_help_bis(const char *str, int i, int count);
+int		my_printf_help_bis(char letter, int arg_select);
+int		my_printf_help_tri(const char *str, int i, int count);
 int		my_printf_help(const char *str, int *positions, char *letters,
 			       va_list variables);
 

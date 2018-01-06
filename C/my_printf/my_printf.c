@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:18:50 2017 HABI Açal
-** Last update Sat Jan  6 21:36:52 2018 HABI Açal
+** Last update Sat Jan  6 22:26:18 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "my_printf.h"
@@ -44,20 +44,27 @@ int		my_printf_help(const char *str, int *positions, char *letters,
         if (i == positions[j])
         {
             count = my_ptr_func(variables, count, arg_select, letters[j]);
-            if (my_convert_letter_into_nb(letters[j]) != 0 &&
-		my_convert_letter_into_nb(letters[j]) != 9)
-                arg_select++;
+            arg_select = my_printf_help_bis(letters[j], arg_select);
             i++;
             j++;
         }
         else
-            count = my_printf_help_bis(str, i, count);
+            count = my_printf_help_tri(str, i, count);
         i++;
     }
     return (count);
 }
 
-int		my_printf_help_bis(const char *str, int i, int count)
+int		my_printf_help_bis(char letter, int arg_select)
+{
+    if (my_convert_letter_into_nb(letter) != 0 &&
+	my_convert_letter_into_nb(letter) != 9)
+        arg_select++;
+    return (arg_select);
+}
+
+
+int		my_printf_help_tri(const char *str, int i, int count)
 {
     my_putchar(str[i]);
     count++;
