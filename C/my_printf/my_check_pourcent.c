@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:18:09 2017 HABI Açal
-** Last update Tue Dec 26 13:27:47 2017 HABI Açal
+** Last update Sat Jan  6 22:38:03 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "my_printf.h"
@@ -24,7 +24,7 @@ char		*my_check_pourcent(const char *str, int *positions)
     letters = malloc(sizeof(char) * size);
     if (letters == NULL)
 	exit(0);
-    while (positions[i] != -1)
+    while (positions[i] != -42)
     {
         tmp_pos = positions[i] + 1;
         letters[j] = str[tmp_pos];

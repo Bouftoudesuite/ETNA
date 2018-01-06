@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:21:04 2017 HABI Açal
-** Last update Thu Jan  4 21:15:08 2018 HABI Açal
+** Last update Sat Jan  6 22:38:15 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "my_printf.h"
@@ -45,6 +45,6 @@ int	*my_pos_pourcent_help(const char *str, int *positions)
         }
         i++;
     }
-    positions[j] = -1;
+    positions[j] = -42;
     return (positions);
 }
