@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:22:11 2017 HABI Açal
-** Last update Thu Jan  4 21:06:30 2018 HABI Açal
+** Last update Sat Jan  6 21:33:12 2018 HABI Açal
 */
 #include "my_printf.h"
 
@@ -85,7 +85,7 @@ int	my_put_X(va_list variables, int count, int arg_select)
     return (count);
 }
 
-int my_put_error(va_list variables, int count, int arg_select)
+int	my_put_error(va_list variables, int count, int arg_select)
 {
     arg_select += va_arg(variables, int);
     count += arg_select - arg_select + 0;

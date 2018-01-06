@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 14:17:41 2017 HABI Açal
-** Last update Thu Jan  4 21:39:27 2018 HABI Açal
+** Last update Sat Jan  6 21:32:44 2018 HABI Açal
 */
 #ifndef		_MY_PRINTF_H_
 #define		_MY_PRINTF_H_
@@ -35,10 +35,10 @@ int		my_put_o(va_list variables, int count, int arg_select);
 int		my_put_u(va_list variables, int count, int arg_select);
 int		my_put_x(va_list variables, int count, int arg_select);
 int		my_put_X(va_list variables, int count, int arg_select);
-int my_put_error(va_list variables, int count, int arg_select);
+int		my_put_error(va_list variables, int count, int arg_select);
 int		my_ptr_func(va_list variables, int count, int arg_select, char letter);
-int		my_str_print_help(const char *str, int i, int count);
-int		my_str_print(const char *str, int *positions, char *letters,
-			     va_list variables);
+int		my_printf_help_bis(const char *str, int i, int count);
+int		my_printf_help(const char *str, int *positions, char *letters,
+			       va_list variables);
 
 #endif		/* !_MY_PRINTF_H_ */

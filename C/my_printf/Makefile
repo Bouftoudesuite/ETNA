@@ -18,7 +18,6 @@ SRC     =   	my_check_pourcent.c \
 		my_putchar.c \
 		my_putstr.c \
 		my_ptr_func.c \
-		my_str_print.c \
 		my_strlen.c \
 		my_put_nbr_base.c \
 		my_put.c \
@@ -26,7 +25,7 @@ SRC     =   	my_check_pourcent.c \
 		my_nbrlen.c \
 		my_put_bis.c
 
-CFLAGS 	 = 	-Wall -Werror -pedantic -I./
+CFLAGS 	 = 	-W -Wall -Werror -pedantic -I./
 
 LDFLAGS  = 	-lmy
 
