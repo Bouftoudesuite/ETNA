@@ -40,7 +40,7 @@ function	func_check_path($argc, $argv)
 
 function	func_count_number(&$struct)
 {
-    if (preg_match("#\w+\s+\w+\s*\([^)]*\)({)?$#", $struct['lines']))
+    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
         $struct['function_number']++;
 }
 
@@ -95,22 +95,42 @@ function	func_double_jump(&$struct)
     }
 }
 
+function    func_function_argument(&$struct)
+{
+    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
+    {
+        $i = 0;
+        preg_match_all("#,#", $struct['lines'], $matches);
+        while (isset($matches[0][$i]))
+        {
+            $i++;
+        }
+        if ($i >= 4)
+        {
+            echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
+                        $struct['line'] .
+                        ":\e[0;m fonction avec plus de 4 arguments\n";
+            $struct['nb_error']++;
+        }
+    }
+}
+
 function	func_function_line(&$struct)
 {
     if ($struct['bracket'] != 0 && $struct['function'] == true)
         $struct['function_line']++;
-    if (preg_match("#\w+\s+\w+\s*\([^)]*\)$#", $struct['lines']))
+    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?$#", $struct['lines']))
         $struct['function'] = true;
-    else if (preg_match("#\w+\s+\w+\s*\([^)]*\)({)?$#", $struct['lines']))
+    elseif (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
     {
         $struct['function'] = true;
         $struct['bracket']++;
     }
-    else if (trim($struct['lines']) == '{' && $struct['function'] == true)
+    elseif (trim($struct['lines']) == '{' && $struct['function'] == true)
         $struct['bracket']++;
-    else if (trim($struct['lines']) == '}' && $struct['function'] == true)
+    elseif (trim($struct['lines']) == '}' && $struct['function'] == true)
         $struct['bracket']--;
-    else if ($struct['bracket'] == 0 && $struct['function'] == true)
+    elseif ($struct['bracket'] == 0 && $struct['function'] == true)
     {
         if ($struct['function_line'] >= 21)
         {
@@ -136,7 +156,7 @@ function	func_function_number($struct)
 
 function	func_include(&$struct)
 {
-    if (preg_match("@#include@", $struct['lines']))
+    if (preg_match("@#(\s+)?(include)@", $struct['lines']))
     {
         $pattern = "@#include\s\"\w+.h\"|#include\s<\w+.h>@";
         if (!preg_match($pattern, $struct['lines']))
@@ -195,6 +215,7 @@ function	func_scan_file($file, $handle, &$struct)
         func_declare($struct);
         func_define($struct);
         func_double_jump($struct);
+        func_function_argument($struct);
         func_function_line($struct);
         func_include($struct);
         func_space_end($struct);
