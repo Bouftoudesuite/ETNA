@@ -5,11 +5,11 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Mon Sep 25 13:27:20 2017 HABI Acal
-** Last update Mon Sep 25 13:28:48 2017 HABI Acal
+** Last update Sat Jan 20 23:13:57 2018 HABI Açal
 */
 #include <unistd.h>
 
-void    my_putchar(char c)
+void	my_putchar(char c)
 {
     write(1, &c, 1);
 }

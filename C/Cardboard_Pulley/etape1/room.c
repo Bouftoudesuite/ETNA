@@ -1,14 +1,23 @@
+/*
+** room.c for Cardboard_Pulley in /cygdrive/c/Users/Habi/Documents/ETNA/C/Cardboard_Pulley/etape1
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Sat Jan 20 23:16:19 2018 HABI Açal
+** Last update Sat Jan 20 23:34:25 2018 HABI Açal
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "struct.h"
 
-void prepare_room(t_room *room, char *path)
+void		prepare_room(t_room *room, char *path)
 {
-    int i;
-    int j;
-    char *line;
-    FILE *file;
-    size_t count;
+    int		i;
+    int		j;
+    char	*line;
+    FILE	*file;
+    size_t	count;
 
     line = malloc(sizeof(*line) * 100);
     file = fopen(path, "r");
@@ -33,13 +42,13 @@ void prepare_room(t_room *room, char *path)
     fclose(file);
 }
 
-void create_room(t_room *room, t_char *player, char *path)
+void		create_room(t_room *room, t_char *player, char *path)
 {
-    int i;
-    int j;
-    char *line;
-    FILE *file;
-    size_t count;
+    int		i;
+    int		j;
+    char	*line;
+    FILE	*file;
+    size_t	count;
 
     line = malloc(sizeof(*line) * 100);
     file = fopen(path, "r");
@@ -67,10 +76,10 @@ void create_room(t_room *room, t_char *player, char *path)
     fclose(file);
 }
 
-void my_print_room(t_room *room)
+void		my_print_room(t_room *room)
 {
-    int k;
-    int l;
+    int		k;
+    int		l;
 
     my_putchar('\n');
     l = 0;

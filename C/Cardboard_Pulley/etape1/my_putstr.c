@@ -1,8 +1,8 @@
 #include "struct.h"
 
-void    my_putstr(char *str)
+void	my_putstr(char *str)
 {
-    int i;
+    int	i;
 
     i = 0;
     while (str[i] != '\0')

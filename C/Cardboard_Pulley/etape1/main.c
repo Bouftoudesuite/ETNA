@@ -1,19 +1,28 @@
+/*
+** main.c for Cardboard_Pulley in /cygdrive/c/Users/Habi/Documents/ETNA/C/Cardboard_Pulley/etape1
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Sat Jan 20 23:33:17 2018 HABI Açal
+** Last update Sat Jan 20 23:33:33 2018 HABI Açal
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include "struct.h"
 
-int main()
+int			main()
 {
-    int playing;
-    char user_input;
-    char *path;
-    t_room *room;
-    t_char *player;
-    func_ptr_move move_to[4];
-    func_ptr_move check_move_to[4];
+    int			playing;
+    char		user_input;
+    char		*path;
+    t_room		*room;
+    t_char		*player;
+    t_func_ptr_move	move_to[4];
+    t_func_ptr_move	check_move_to[4];
 
     playing = 1;
-    path = "Maps/Inner_Hell/cargo_dock.map";
+    path = "../Maps/Inner_Hell/cargo_dock.map";
     player = malloc(sizeof(*player));
     room = malloc(sizeof(*room));
     if (player == NULL || room == NULL)
@@ -72,5 +81,5 @@ int main()
     }
     free(player);
     free(room);
-    return 0;
+    return (0);
 }

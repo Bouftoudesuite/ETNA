@@ -5,11 +5,11 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Thu Oct  5 20:15:57 2017 HABI Acal
-** Last update Thu Oct  5 20:15:58 2017 HABI Acal
+** Last update Sat Jan 20 23:33:57 2018 HABI Açal
 */
 #include "struct.h"
 
-int 	up_m(t_char *target, t_room *room)
+int	up_m(t_char *target, t_room *room)
 {
     room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
     room->map[target->coord[E_X]][target->coord[E_Y] - 1] = 'i';
@@ -20,7 +20,7 @@ int 	up_m(t_char *target, t_room *room)
     return (0);
 }
 
-int 	down_m(t_char *target, t_room *room)
+int	down_m(t_char *target, t_room *room)
 {
     room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
     room->map[target->coord[E_X]][target->coord[E_Y] + 1] = 'i';
@@ -31,7 +31,7 @@ int 	down_m(t_char *target, t_room *room)
     return (0);
 }
 
-int 	left_m(t_char *target, t_room *room)
+int	left_m(t_char *target, t_room *room)
 {
     room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
     room->map[target->coord[E_X] - 1][target->coord[E_Y]] = 'i';
@@ -42,7 +42,7 @@ int 	left_m(t_char *target, t_room *room)
     return (0);
 }
 
-int 	right_m(t_char *target, t_room *room)
+int	right_m(t_char *target, t_room *room)
 {
     room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
     room->map[target->coord[E_X] + 1][target->coord[E_Y]] = 'i';
@@ -53,8 +53,8 @@ int 	right_m(t_char *target, t_room *room)
     return (0);
 }
 
-int 	move(t_char	*target, t_room *room, func_ptr_move *move_to, t_direction dir)
+int	move(t_char *target, t_room *room, t_func_ptr_move *move_to, t_direction dir)
 {
-    return((dir >= 0 && dir < 4) ? move_to[dir](target, room) : (-1));
+    return ((dir >= 0 && dir < 4) ? move_to[dir](target, room) : (-1));
 }
 
