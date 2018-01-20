@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Sat Jan 20 23:33:17 2018 HABI Açal
-** Last update Sat Jan 20 23:33:33 2018 HABI Açal
+** Last update Sat Jan 20 23:54:52 2018 HABI Açal
 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -75,7 +75,7 @@ int			main()
         }
         if (check_win(player))
         {
-            my_putstr("You Win!\n");
+            my_putstr("To be continued...\n");
             break;
         }
     }
