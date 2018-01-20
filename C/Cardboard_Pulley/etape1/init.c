@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Sat Jan 20 23:32:11 2018 HABI Açal
-** Last update Sat Jan 20 23:32:25 2018 HABI Açal
+** Last update Sat Jan 20 23:42:22 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "struct.h"
@@ -28,9 +28,6 @@ void	init_player(t_char *player)
     player->name = "Chicken";
     player->coord[E_X] = 0;
     player->coord[E_Y] = 0;
-    player->type = E_PLAYER;
-    player->etat = E_GET_UP;
-    player->azimut = E_SOUTH;
 }
 
 void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to)
