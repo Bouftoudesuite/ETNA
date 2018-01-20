@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/Cardboard_Pulley.dir/main.c.o CMakeFiles/Cardboard_Pulley.dir/move.c.o CMakeFiles/Cardboard_Pulley.dir/input.c.o CMakeFiles/Cardboard_Pulley.dir/my_putstr.c.o CMakeFiles/Cardboard_Pulley.dir/my_putchar.c.o  -o Cardboard_Pulley.exe -Wl,--out-implib,libCardboard_Pulley.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

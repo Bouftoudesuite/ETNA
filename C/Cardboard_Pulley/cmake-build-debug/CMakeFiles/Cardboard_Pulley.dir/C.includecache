@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/input.c
+stdio.h
+-
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/main.c
+stdlib.h
+-
+struct.h
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/struct.h
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/move.c
+struct.h
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/struct.h
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/my_putchar.c
+unistd.h
+-
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/my_putstr.c
+
+/cygdrive/c/Users/Habi/Document/ETNA/C/Cardboard_Pulley/struct.h
+

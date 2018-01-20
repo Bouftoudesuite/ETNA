@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Tue Dec 26 13:18:50 2017 HABI Açal
-** Last update Sat Jan  6 22:26:18 2018 HABI Açal
+** Last update Tue Jan  9 22:20:26 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "my_printf.h"
@@ -62,7 +62,6 @@ int		my_printf_help_bis(char letter, int arg_select)
         arg_select++;
     return (arg_select);
 }
-
 
 int		my_printf_help_tri(const char *str, int i, int count)
 {
