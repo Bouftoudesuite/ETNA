@@ -58,7 +58,7 @@ typedef struct						s_char
 {
 	unsigned int 			id;
 	char 				*name;
-	e_coord		 		coord[2];
+	int		 		coord[2];
 	e_char	 			type;
 	t_action			etat;
 	t_cardinal_point 	 	azimut;
@@ -67,30 +67,39 @@ typedef struct						s_char
 
 typedef struct                      s_room
 {
-    char         **map;
-    struct room  *next;
-}                           t_room;
+    char                **map;
+    int             size[2];
+    struct s_room         *next;
+}                                   t_room;
 
 typedef struct						s_item
 {
 	unsigned int 			id;
 	e_item		 		type;
 	char 				*name;
-	e_coord				coord[2];
+	int				coord[2];
 	struct s_item 			*next;
 }							t_item;
 
-typedef int (*func_ptr)(t_char *);
+typedef int (*func_ptr_move)(t_char *, t_room *);
+typedef int (*func_ptr_bis)(t_char *, t_item *);
+
+
 
 void my_putchar(char c);
 void my_putstr(char *str);
 void my_put_nbr(int n);
-int move(t_char *target, func_ptr *move_to, t_direction dir);
-int up_m(t_char *target);
-int down_m(t_char *target);
-int left_m(t_char *target);
-int right_m(t_char *target);
-int look(t_char *target, func_ptr *look_to, t_cardinal_point cardinal_point);
+int move(t_char *target, t_room *room, func_ptr_move *check_move_to, t_direction dir);
+int up_m(t_char *target, t_room *room);
+int down_m(t_char *target, t_room *room);
+int left_m(t_char *target, t_room *room);
+int right_m(t_char *target, t_room *room);
+int check_move(t_char *target, t_room *room, func_ptr_move *check_move_to, t_direction dir);
+int check_up_m(t_char *target, t_room *room);
+int check_down_m(t_char *target, t_room *room);
+int check_left_m(t_char *target, t_room *room);
+int check_right_m(t_char *target, t_room *room);
+/*int look(t_char *target, func_ptr *look_to, t_cardinal_point cardinal_point);
 int up_s(t_char *target);
 int down_s(t_char *target);
 int left_s(t_char *target);
@@ -103,10 +112,16 @@ t_item *initialisation();
 t_item *new_item(unsigned int id, e_item type, char *name, int pos_x, int pos_y, t_item *item);
 t_item *get_item(t_item *begin, unsigned int id_ref);
 int set_item(unsigned int id_ref, unsigned int new_id, e_item new_type, char *new_name, int new_pos_x, int new_pos_y, t_item *begin);
-int my_del_item(t_item *begin, unsigned int id_ref);
+int my_del_item(t_item *begin, unsigned int id_ref);*/
 char input();
 char my_char_upcase(char user_input_case);
-char readline();
-
+void init_room(t_room *room, char *path);
+void init_player(t_char *player);
+void init_func_ptr(func_ptr_move *move_to, func_ptr_move *check_move_to);
+void prepare_room(t_room *room, char *path);
+void create_room(t_room *room, t_char *player, char *path);
+void my_print_room(t_room *room);
+void clear_screen();
+int check_win(t_char *player);
 
 #endif

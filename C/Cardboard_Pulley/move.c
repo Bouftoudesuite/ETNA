@@ -9,8 +9,10 @@
 */
 #include "struct.h"
 
-int 	up_m(t_char *target)
+int 	up_m(t_char *target, t_room *room)
 {
+    room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
+    room->map[target->coord[E_X]][target->coord[E_Y] - 1] = 'i';
     target->coord[E_Y] += (-1);
     my_putstr(target->name);
     my_putstr(" moves to the top.");
@@ -18,8 +20,10 @@ int 	up_m(t_char *target)
     return (0);
 }
 
-int 	down_m(t_char *target)
+int 	down_m(t_char *target, t_room *room)
 {
+    room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
+    room->map[target->coord[E_X]][target->coord[E_Y] + 1] = 'i';
     target->coord[E_Y] += 1;
     my_putstr(target->name);
     my_putstr(" moves to the bottom");
@@ -27,8 +31,10 @@ int 	down_m(t_char *target)
     return (0);
 }
 
-int 	left_m(t_char *target)
+int 	left_m(t_char *target, t_room *room)
 {
+    room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
+    room->map[target->coord[E_X] - 1][target->coord[E_Y]] = 'i';
     target->coord[E_X] += (-1);
     my_putstr(target->name);
     my_putstr(" moves to the left.");
@@ -36,8 +42,10 @@ int 	left_m(t_char *target)
     return (0);
 }
 
-int 	right_m(t_char *target)
+int 	right_m(t_char *target, t_room *room)
 {
+    room->map[target->coord[E_X]][target->coord[E_Y]] = ' ';
+    room->map[target->coord[E_X] + 1][target->coord[E_Y]] = 'i';
     target->coord[E_X] += 1;
     my_putstr(target->name);
     my_putstr(" moves to the right.");
@@ -45,8 +53,8 @@ int 	right_m(t_char *target)
     return (0);
 }
 
-int 	move(t_char	*target, func_ptr *move_to, t_direction dir)
+int 	move(t_char	*target, t_room *room, func_ptr_move *move_to, t_direction dir)
 {
-    return((dir >= 0 && dir < 4) ? move_to[dir](target) : (-1));
+    return((dir >= 0 && dir < 4) ? move_to[dir](target, room) : (-1));
 }
 

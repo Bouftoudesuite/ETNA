@@ -1,40 +1,76 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "struct.h"
 
 int main()
 {
+    int playing;
     char user_input;
+    char *path;
+    t_room *room;
     t_char *player;
-    func_ptr move_to[4];
+    func_ptr_move move_to[4];
+    func_ptr_move check_move_to[4];
 
+    playing = 1;
+    path = "Maps/Inner_Hell/cargo_dock.map";
     player = malloc(sizeof(*player));
-    if (player == NULL)
+    room = malloc(sizeof(*room));
+    if (player == NULL || room == NULL)
         return (-1);
-    player->id = 1;
-    player->name = "Joueur";
-    player->coord[E_X] = 1;
-    player->coord[E_Y] = 1;
-    player->type = E_PLAYER;
-    player->etat = E_GET_UP;
-    player->azimut = E_SOUTH;
-    move_to[0] = &up_m;
-    move_to[1] = &down_m;
-    move_to[2] = &left_m;
-    move_to[3] = &right_m;
-    my_putstr("HELLO IN MY GAME\n");
-    while (1)
+    init_player(player);
+    init_func_ptr(move_to, check_move_to);
+    init_room(room, path);
+    create_room(room, player, path);
+    clear_screen();
+    my_putstr("Find the exit!\n");
+    my_print_room(room);
+    while (playing)
     {
         user_input = input();
         if (user_input == 'W')
-            move(player, move_to, E_FORWARD);
+        {
+            clear_screen();
+            if (check_move(player, room, check_move_to, E_FORWARD))
+                move(player, room, move_to, E_FORWARD);
+            my_print_room(room);
+        }
         else if (user_input == 'S')
-            move(player, move_to, E_BACKWARD);
+        {
+            clear_screen();
+            if (check_move(player, room, check_move_to, E_BACKWARD))
+                move(player, room, move_to, E_BACKWARD);
+            my_print_room(room);
+        }
         else if (user_input == 'A')
-            move(player, move_to, E_LEFT);
+        {
+            clear_screen();
+            if (check_move(player, room, check_move_to, E_LEFT))
+                move(player, room, move_to, E_LEFT);
+            my_print_room(room);
+        }
         else if (user_input == 'D')
-            move(player, move_to, E_RIGHT);
+        {
+            clear_screen();
+            if (check_move(player, room, check_move_to, E_RIGHT))
+                move(player, room, move_to, E_RIGHT);
+            my_print_room(room);
+        }
+        else if (user_input == 'Q')
+            playing = 0;
         else if (user_input != '\n')
+        {
+            clear_screen();
             my_putstr("Mauvaise touche\n");
+            my_print_room(room);
+        }
+        if (check_win(player))
+        {
+            my_putstr("You Win!\n");
+            break;
+        }
     }
+    free(player);
+    free(room);
     return 0;
 }
