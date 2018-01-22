@@ -11,9 +11,9 @@
 
 int	up_m(t_char *target, t_room *room)
 {
-    room->map[target->coord[E_X]][target->coord[E_Y]] = target->on_char;
+    room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_Y] -= 1;
-    target->on_char = room->map[target->coord[E_X]][target->coord[E_Y]];
+    target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
     my_putstr(" moves to the top.");
     my_putchar('\n');
@@ -22,9 +22,9 @@ int	up_m(t_char *target, t_room *room)
 
 int	down_m(t_char *target, t_room *room)
 {
-    room->map[target->coord[E_X]][target->coord[E_Y]] = target->on_char;
+    room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_Y] += 1;
-    target->on_char = room->map[target->coord[E_X]][target->coord[E_Y]];
+    target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
     my_putstr(" moves to the bottom");
     my_putchar('\n');
@@ -33,9 +33,9 @@ int	down_m(t_char *target, t_room *room)
 
 int	left_m(t_char *target, t_room *room)
 {
-    room->map[target->coord[E_X]][target->coord[E_Y]] = target->on_char;
+    room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_X] -= 1;
-    target->on_char = room->map[target->coord[E_X]][target->coord[E_Y]];
+    target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
     my_putstr(" moves to the left.");
     my_putchar('\n');
@@ -44,9 +44,9 @@ int	left_m(t_char *target, t_room *room)
 
 int	right_m(t_char *target, t_room *room)
 {
-    room->map[target->coord[E_X]][target->coord[E_Y]] = target->on_char;
+    room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_X] += 1;
-    target->on_char = room->map[target->coord[E_X]][target->coord[E_Y]];
+    target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
     my_putstr(" moves to the right.");
     my_putchar('\n');

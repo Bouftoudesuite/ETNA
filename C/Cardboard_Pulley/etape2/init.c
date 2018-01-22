@@ -27,12 +27,13 @@ void	init_room(t_room *room, char *path, int x, int y)
 
 void	init_player(t_char *player, t_room *room)
 {
-    player->id = 1;
+    player->nb_key = 0;
     player->name = "Chicken";
     player->etat = E_GET_UP;
     player->coord[E_X] = room->coord[E_X];
     player->coord[E_Y] = room->coord[E_Y];
-    player->on_char = ' ';
+    player->old_char = ' ';
+    player->current_char = 'i';
 }
 
 void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to)
@@ -47,4 +48,6 @@ void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_f
     check_move_to[3] = &check_right_m;
     perform_to[0] = &lie_down_p;
     perform_to[1] = &get_up_p;
+    perform_to[2] = &take_p;
+    perform_to[3] = &open_p;
 }

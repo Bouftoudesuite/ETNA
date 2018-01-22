@@ -40,8 +40,9 @@ typedef enum			e_action
 
 typedef struct			s_char
 {
-	unsigned int		id;
-	char 			on_char;
+    int             nb_key;
+	char 			old_char;
+	char 			current_char;
 	char			*name;
 	int			coord[2];
 	t_action 	etat;
@@ -74,6 +75,8 @@ int				check_right_m(t_char *target, t_room *room);
 int 	        perform(t_char *player, t_room *room, t_func_ptr_move *perform_to, t_action action);
 int 	        lie_down_p(t_char *player, t_room *room);
 int 	        get_up_p(t_char *player, t_room *room);
+int 	        take_p(t_char *player, t_room *room);
+int 			open_p(t_char *player, t_room *room);
 char				input();
 char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);

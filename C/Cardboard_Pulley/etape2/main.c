@@ -21,7 +21,7 @@ int			main()
     t_room *next_room;
     t_char *player;
     t_func_ptr_move move_to[4];
-    t_func_ptr_move perform_to[2];
+    t_func_ptr_move perform_to[4];
     t_func_ptr_move check_move_to[4];
 
     playing = 1;
@@ -82,6 +82,18 @@ int			main()
         {
             clear_screen();
             perform(player, room, perform_to, E_GET_UP);
+            my_print_room(room, player);
+        }
+        else if (user_input == ' ')
+        {
+            clear_screen();
+            perform(player, room, perform_to, E_TAKE);
+            my_print_room(room, player);
+        }
+        else if (user_input == 'E')
+        {
+            clear_screen();
+            perform(player, room, perform_to, E_OPEN);
             my_print_room(room, player);
         }
         else if (user_input == 'Q')
