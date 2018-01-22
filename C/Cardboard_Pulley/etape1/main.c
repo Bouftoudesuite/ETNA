@@ -1,9 +1,9 @@
 /*
 ** main.c for Cardboard_Pulley in /cygdrive/c/Users/Habi/Documents/ETNA/C/Cardboard_Pulley/etape1
-** 
+**
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
-** 
+**
 ** Started on  Sat Jan 20 23:33:17 2018 HABI Açal
 ** Last update Sat Jan 20 23:54:52 2018 HABI Açal
 */
@@ -36,7 +36,7 @@ int			main()
     my_print_room(room);
     while (playing)
     {
-        user_input = input();
+        user_input = readline();
         if (user_input == 'W')
         {
             clear_screen();

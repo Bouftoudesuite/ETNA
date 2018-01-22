@@ -54,7 +54,7 @@ int				check_up_m(t_char *target, t_room *room);
 int				check_down_m(t_char *target, t_room *room);
 int				check_left_m(t_char *target, t_room *room);
 int				check_right_m(t_char *target, t_room *room);
-char				input();
+char				readline();
 char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path);
 void				init_player(t_char *player);

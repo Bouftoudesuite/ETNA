@@ -77,7 +77,7 @@ int 	        lie_down_p(t_char *player, t_room *room);
 int 	        get_up_p(t_char *player, t_room *room);
 int 	        take_p(t_char *player, t_room *room);
 int 			open_p(t_char *player, t_room *room);
-char				input();
+char		    readline(void);
 char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);
 void				init_player(t_char *player, t_room *room);

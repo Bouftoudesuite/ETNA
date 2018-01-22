@@ -7,7 +7,8 @@
 ** Started on  Sat Jan 20 23:32:37 2018 HABI Açal
 ** Last update Sat Jan 20 23:33:02 2018 HABI Açal
 */
-#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 char		my_char_upcase(char user_input_case)
 {
@@ -16,12 +17,20 @@ char		my_char_upcase(char user_input_case)
     return (user_input_case);
 }
 
-char		input()
-{
-    char	user_input_case;
-    char	user_input_icase;
 
-    user_input_case = getchar();
-    user_input_icase = my_char_upcase(user_input_case);
-    return (user_input_icase);
+char		readline(void)
+{
+    ssize_t	ret;
+    char	*buff;
+
+    if ((buff = malloc((50 + 1) * sizeof(char))) == NULL)
+        return ('\0');
+    if ((ret = read(0, buff, 50)) > 1)
+    {
+        buff[ret - 1] = '\0';
+        buff[0] = my_char_upcase(buff[0]);
+        return (buff[0]);
+    }
+    free(buff);
+    return ('\0');
 }

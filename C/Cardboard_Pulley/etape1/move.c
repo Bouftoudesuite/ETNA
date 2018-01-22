@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Thu Oct  5 20:15:57 2017 HABI Acal
-** Last update Sat Jan 20 23:33:57 2018 HABI Açal
+** Last update Mon Jan 22 14:27:28 2018 HABI Açal
 */
 #include "struct.h"
 
@@ -55,6 +55,6 @@ int	right_m(t_char *target, t_room *room)
 
 int	move(t_char *target, t_room *room, t_func_ptr_move *move_to, t_direction dir)
 {
-    return ((dir >= 0 && dir < 4) ? move_to[dir](target, room) : (-1));
+    return (move_to[dir](target, room));
 }
 

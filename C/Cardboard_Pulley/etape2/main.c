@@ -25,16 +25,16 @@ int			main()
     t_func_ptr_move check_move_to[4];
 
     playing = 1;
-    path = "../Maps/Inner_Hell/holding_cells.map";
-    next_path = "../Maps/Inner_Hell/holding_cells2.map";
+    path = "../Maps/Inner_Hell/cargo_dock.map";
+    next_path = "../Maps/Inner_Hell/holding_cells.map";
     player = malloc(sizeof(*player));
     room = malloc(sizeof(*room));
     next_room = malloc(sizeof(*next_room));
     if (player == NULL || room == NULL || next_room == NULL)
         return (-1);
     init_func_ptr(move_to, check_move_to, perform_to);
-    init_room(room, path, 0, 3);
-    init_room(next_room, next_path, 0, 6);
+    init_room(room, path, 2, 9);
+    init_room(next_room, next_path, 0, 3);
     room->next = next_room;
     init_player(player, room);
     create_room(room);
@@ -43,7 +43,7 @@ int			main()
     my_print_room(room, player);
     while (playing)
     {
-        user_input = input();
+        user_input = readline();
         if (user_input == 'W')
         {
             clear_screen();
