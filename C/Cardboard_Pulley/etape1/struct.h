@@ -26,7 +26,7 @@ typedef enum			e_direction
 
 typedef struct			s_char
 {
-	unsigned int		id;
+	char			old_char;
 	char			*name;
 	int			coord[2];
 	struct s_char		*next;
@@ -34,8 +34,10 @@ typedef struct			s_char
 
 typedef struct			s_room
 {
+	char 			*path;
 	char			**map;
 	int			size[2];
+	int		coord[2];
 	struct s_room		*next;
 }				t_room;
 
@@ -56,13 +58,14 @@ int				check_left_m(t_char *target, t_room *room);
 int				check_right_m(t_char *target, t_room *room);
 char				readline();
 char				my_char_upcase(char user_input_case);
-void				init_room(t_room *room, char *path);
-void				init_player(t_char *player);
+void			init_room(t_room *room, char *path, int x, int y);
+void			init_player(t_char *player, t_room *room);
 void				init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to);
-void				prepare_room(t_room *room, char *path);
-void				create_room(t_room *room, t_char *player, char *path);
-void				my_print_room(t_room *room);
+void		prepare_room(t_room *room);
+void		create_room(t_room *room);
+void		my_print_room(t_room *room, t_char *player);
 void				clear_screen();
 int				check_win(t_char *player);
+char		*readmap(int fd);
 
 #endif

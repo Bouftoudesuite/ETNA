@@ -27,13 +27,13 @@ int			main()
     room = malloc(sizeof(*room));
     if (player == NULL || room == NULL)
         return (-1);
-    init_player(player);
     init_func_ptr(move_to, check_move_to);
-    init_room(room, path);
-    create_room(room, player, path);
+    init_room(room, path, 2, 9);
+    init_player(player, room);
+    create_room(room);
     clear_screen();
     my_putstr("Find the exit!\n");
-    my_print_room(room);
+    my_print_room(room, player);
     while (playing)
     {
         user_input = readline();
@@ -42,28 +42,28 @@ int			main()
             clear_screen();
             if (check_move(player, room, check_move_to, E_FORWARD))
                 move(player, room, move_to, E_FORWARD);
-            my_print_room(room);
+            my_print_room(room, player);
         }
         else if (user_input == 'S')
         {
             clear_screen();
             if (check_move(player, room, check_move_to, E_BACKWARD))
                 move(player, room, move_to, E_BACKWARD);
-            my_print_room(room);
+            my_print_room(room, player);
         }
         else if (user_input == 'A')
         {
             clear_screen();
             if (check_move(player, room, check_move_to, E_LEFT))
                 move(player, room, move_to, E_LEFT);
-            my_print_room(room);
+            my_print_room(room, player);
         }
         else if (user_input == 'D')
         {
             clear_screen();
             if (check_move(player, room, check_move_to, E_RIGHT))
                 move(player, room, move_to, E_RIGHT);
-            my_print_room(room);
+            my_print_room(room, player);
         }
         else if (user_input == 'Q')
             playing = 0;
@@ -71,7 +71,7 @@ int			main()
         {
             clear_screen();
             my_putstr("Mauvaise touche\n");
-            my_print_room(room);
+            my_print_room(room, player);
         }
         if (check_win(player))
         {

@@ -1,33 +1,36 @@
 /*
 ** init.c for Cardboard_Pulley in /cygdrive/c/Users/Habi/Documents/ETNA/C/Cardboard_Pulley/etape1
-** 
+**
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
-** 
+**
 ** Started on  Sat Jan 20 23:32:11 2018 HABI Açal
 ** Last update Sat Jan 20 23:42:22 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "struct.h"
 
-void	init_room(t_room *room, char *path)
+void	init_room(t_room *room, char *path, int x, int y)
 {
     room->map = NULL;
+    room->path = path;
     room->size[E_X] = 0;
     room->size[E_Y] = 0;
+    room->coord[E_X] = x;
+    room->coord[E_Y] = y;
     room->next = NULL;
-    prepare_room(room, path);
+    prepare_room(room);
     room->map = (char**) malloc(50 * sizeof(char*));
     for (int i = 0; i < room->size[E_X]; i++)
         room->map[i] = (char*) malloc(50 * sizeof(char));
 }
 
-void	init_player(t_char *player)
+void	init_player(t_char *player, t_room *room)
 {
-    player->id = 1;
     player->name = "Chicken";
-    player->coord[E_X] = 0;
-    player->coord[E_Y] = 0;
+    player->coord[E_X] = room->coord[E_X];
+    player->coord[E_Y] = room->coord[E_Y];
+    player->old_char = ' ';
 }
 
 void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to)
