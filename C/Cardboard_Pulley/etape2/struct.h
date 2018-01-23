@@ -82,10 +82,11 @@ char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);
 void				init_player(t_char *player, t_room *room);
 void				init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to);
-void				prepare_room(t_room *room, char *path);
+void				prepare_room(t_room *room);
 void				create_room(t_room *room);
 void				my_print_room(t_room *room, t_char *player);
 void				clear_screen();
 int				check_win(t_char *player);
+char		*readmap(int fd);
 
 #endif

@@ -19,7 +19,7 @@ void	init_room(t_room *room, char *path, int x, int y)
     room->coord[E_X] = x;
     room->coord[E_Y] = y;
     room->next = NULL;
-    prepare_room(room, path);
+    prepare_room(room);
     room->map = (char**) malloc(50 * sizeof(char*));
     for (int i = 0; i < room->size[E_X]; i++)
         room->map[i] = (char*) malloc(50 * sizeof(char));
