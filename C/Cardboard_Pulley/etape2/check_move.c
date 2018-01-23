@@ -94,6 +94,7 @@ int	check_right_m(t_char *target, t_room *room)
         my_putstr("Mur\n");
     else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'x')
         my_putstr("Porte fermé\n");
+
     else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'H' && target->etat == E_GET_UP)
         my_putstr("Vous devez être allongé pour passer\n");
     else

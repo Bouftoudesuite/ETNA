@@ -11,6 +11,11 @@
 
 int 	lie_down_p(t_char *player, t_room *room)
 {
+    char *old_path;
+
+    old_path = room->path;
+    room->path = " ";
+    room->path = old_path;
     player->etat = E_LIE_DOWN;
     my_putstr(player->name);
     my_putstr(" is lying down.");
@@ -20,7 +25,11 @@ int 	lie_down_p(t_char *player, t_room *room)
 
 int 	get_up_p(t_char *player, t_room *room)
 {
+    char *old_path;
 
+    old_path = room->path;
+    room->path = " ";
+    room->path = old_path;
     player->etat = E_GET_UP;
     my_putstr(player->name);
     my_putstr(" is standing.");
