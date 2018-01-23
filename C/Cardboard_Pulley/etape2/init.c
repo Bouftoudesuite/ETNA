@@ -28,6 +28,7 @@ void	init_room(t_room *room, char *path, int x, int y)
 void	init_player(t_char *player, t_room *room)
 {
     player->nb_key = 0;
+    player->win = 0;
     player->name = "Chicken";
     player->etat = E_GET_UP;
     player->coord[E_X] = room->coord[E_X];

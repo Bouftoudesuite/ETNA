@@ -103,7 +103,9 @@ void		my_print_room(t_room *room, t_char *player)
     int		k;
     int		l;
 
-    if (player->etat == E_GET_UP)
+    if (player->win)
+        room->map[player->coord[E_X]][player->coord[E_Y]] = ' ';
+    else if (player->etat == E_GET_UP)
         room->map[player->coord[E_X]][player->coord[E_Y]] = 'i';
     else if (player->etat == E_LIE_DOWN)
         room->map[player->coord[E_X]][player->coord[E_Y]] = '_';

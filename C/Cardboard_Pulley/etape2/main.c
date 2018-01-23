@@ -16,9 +16,11 @@ int			main()
     int playing;
     char user_input;
     char *path;
-    char *next_path;
+    char *path_two;
+    char *path_three;
     t_room *room;
-    t_room *next_room;
+    t_room *room_two;
+    t_room *room_three;
     t_char *player;
     t_func_ptr_move move_to[4];
     t_func_ptr_move perform_to[4];
@@ -26,16 +28,21 @@ int			main()
 
     playing = 1;
     path = "../Maps/Inner_Hell/cargo_dock.map";
-    next_path = "../Maps/Inner_Hell/holding_cells.map";
+    path_two = "../Maps/Inner_Hell/holding_cells.map";
+    path_three = "../Maps/Inner_Hell/holding_cells2.map";
     player = malloc(sizeof(*player));
     room = malloc(sizeof(*room));
-    next_room = malloc(sizeof(*next_room));
-    if (player == NULL || room == NULL || next_room == NULL)
+    room_two = malloc(sizeof(*room_two));
+    room_three = malloc(sizeof(*room_three));
+    if (player == NULL || room == NULL || room_two == NULL || room_three == NULL)
         return (-1);
     init_func_ptr(move_to, check_move_to, perform_to);
     init_room(room, path, 2, 9);
-    init_room(next_room, next_path, 0, 3);
-    room->next = next_room;
+    init_room(room_two, path_two, 0, 3);
+    init_room(room_three, path_three, 18, 2);
+    room->next = room_two;
+    room_two->next = room_three;
+    room_three->next = NULL;
     init_player(player, room);
     create_room(room);
     clear_screen();
@@ -104,7 +111,7 @@ int			main()
             my_putstr("Mauvaise touche\n");
             my_print_room(room, player);
         }
-        if (check_win(player))
+        if (player->win)
         {
             if (room->next != NULL)
             {

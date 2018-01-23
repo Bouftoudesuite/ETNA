@@ -11,6 +11,16 @@
 
 int	check_up_m(t_char *target, t_room *room)
 {
+    if (target->coord[E_Y] - 1 < 0 && target->coord[E_Y] != room->coord[E_Y])
+    {
+        target->win = 1;
+        return (0);
+    }
+    else if (target->coord[E_Y] - 1 < 0)
+    {
+        my_putstr("Vous ne pouvez pas revenir en arriere\n");
+        return (0);
+    }
     if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'X')
         my_putstr("Mur\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'x')
@@ -24,6 +34,16 @@ int	check_up_m(t_char *target, t_room *room)
 
 int	check_down_m(t_char *target, t_room *room)
 {
+    if (target->coord[E_Y] + 1 < 0 && target->coord[E_Y] != room->coord[E_Y])
+    {
+        target->win = 1;
+        return (0);
+    }
+    else if (target->coord[E_Y] + 1 < 0)
+    {
+        my_putstr("Vous ne pouvez pas revenir en arriere\n");
+        return (0);
+    }
     if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'X')
         my_putstr("Mur\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'x')
@@ -37,6 +57,16 @@ int	check_down_m(t_char *target, t_room *room)
 
 int	check_left_m(t_char *target, t_room *room)
 {
+    if (target->coord[E_X] - 1 < 0 && target->coord[E_X] != room->coord[E_X])
+    {
+        target->win = 1;
+        return (0);
+    }
+    else if (target->coord[E_X] - 1 < 0)
+    {
+        my_putstr("Vous ne pouvez pas revenir en arriere\n");
+        return (0);
+    }
     if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'X')
         my_putstr("Mur\n");
     else if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'x')
@@ -50,6 +80,16 @@ int	check_left_m(t_char *target, t_room *room)
 
 int	check_right_m(t_char *target, t_room *room)
 {
+    if (target->coord[E_X] + 1 < 0 && target->coord[E_X] != room->coord[E_X])
+    {
+        target->win = 1;
+        return (0);
+    }
+    else if (target->coord[E_X] + 1 < 0)
+    {
+        my_putstr("Vous ne pouvez pas revenir en arriere\n");
+        return (0);
+    }
     if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'X')
         my_putstr("Mur\n");
     else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'x')

@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Thu Oct  5 19:24:11 2017 HABI Acal
-** Last update Sat Jan 20 23:46:20 2018 HABI Açal
+** Last update Tue Jan 23 14:49:22 2018 HABI Açal
 */
 #ifndef __MY_STRUCT_H__
 # define __MY_STRUCT_H__
@@ -40,12 +40,13 @@ typedef enum			e_action
 
 typedef struct			s_char
 {
-    int             nb_key;
+	int			nb_key;
+	int		       	win;
 	char 			old_char;
 	char 			current_char;
 	char			*name;
 	int			coord[2];
-	t_action 	etat;
+	t_action		etat;
 	struct s_char		*next;
 }				t_char;
 
@@ -72,12 +73,12 @@ int				check_up_m(t_char *target, t_room *room);
 int				check_down_m(t_char *target, t_room *room);
 int				check_left_m(t_char *target, t_room *room);
 int				check_right_m(t_char *target, t_room *room);
-int 	        perform(t_char *player, t_room *room, t_func_ptr_move *perform_to, t_action action);
-int 	        lie_down_p(t_char *player, t_room *room);
-int 	        get_up_p(t_char *player, t_room *room);
-int 	        take_p(t_char *player, t_room *room);
-int 			open_p(t_char *player, t_room *room);
-char		    readline(void);
+int				perform(t_char *player, t_room *room, t_func_ptr_move *perform_to, t_action action);
+int				lie_down_p(t_char *player, t_room *room);
+int				get_up_p(t_char *player, t_room *room);
+int				take_p(t_char *player, t_room *room);
+int				open_p(t_char *player, t_room *room);
+char				readline(void);
 char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);
 void				init_player(t_char *player, t_room *room);
@@ -87,6 +88,6 @@ void				create_room(t_room *room);
 void				my_print_room(t_room *room, t_char *player);
 void				clear_screen();
 int				check_win(t_char *player);
-char		*readmap(int fd);
+char				*readmap(int fd);
 
 #endif
