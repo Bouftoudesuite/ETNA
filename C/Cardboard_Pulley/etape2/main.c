@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Sat Jan 20 23:33:17 2018 HABI Açal
-** Last update Sat Jan 20 23:54:52 2018 HABI Açal
+** Last update Wed Jan 24 18:09:24 2018 HABI Açal
 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -105,7 +105,7 @@ int			main()
         }
         else if (user_input == 'Q')
             playing = 0;
-        else if (user_input != '\n')
+        else if (user_input != '\0')
         {
             clear_screen();
             my_putstr("Mauvaise touche\n");
