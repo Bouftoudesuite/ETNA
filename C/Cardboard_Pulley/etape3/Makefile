@@ -5,18 +5,21 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Jan 23 17:05:52 2018 HABI Açal
-## Last update Wed Jan 24 19:48:01 2018 HABI Açal
+## Last update Wed Jan 24 19:23:01 2018 HABI Açal
 ##
 CC	=	gcc
 
 NAME	=	not_mg
 
 SRC	=	check_move.c \
+		check_die.c \
 		clear_screen.c \
+		ennemy.c \
 		init.c \
 		input.c \
 		main.c \
 		move.c \
+		look.c \
 		my_putchar.c \
 		my_putstr.c \
 		room.c \
