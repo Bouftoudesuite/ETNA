@@ -5,7 +5,7 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Jan 23 17:05:52 2018 HABI Açal
-## Last update Tue Jan 23 17:05:54 2018 HABI Açal
+## Last update Wed Jan 24 15:39:33 2018 HABI Açal
 ##
 CC	=	gcc
 
@@ -26,7 +26,7 @@ RM	=	rm -f
 
 OBJS	=	$(SRC:%.c=%.o)
 
-CFLAGS	=	-Wall -Werror -Wextra -pedantic
+CFLAGS	=	-Wall -Werror -Wextra -pedantic -I./
 
 all	:	$(NAME)
 
