@@ -22,6 +22,8 @@ int	up_m(t_char *target, t_room *room)
 
 int	down_m(t_char *target, t_room *room)
 {
+    if (target->old_char == '<' || target->old_char == '>' || target->old_char == '^' || target->old_char == 'v')
+        target->old_char = ' ';
     room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_Y] += 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
@@ -33,6 +35,8 @@ int	down_m(t_char *target, t_room *room)
 
 int	left_m(t_char *target, t_room *room)
 {
+    if (target->old_char == '<' || target->old_char == '>' || target->old_char == '^' || target->old_char == 'v')
+        target->old_char = ' ';
     room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_X] -= 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
@@ -44,6 +48,8 @@ int	left_m(t_char *target, t_room *room)
 
 int	right_m(t_char *target, t_room *room)
 {
+    if (target->old_char == '<' || target->old_char == '>' || target->old_char == '^' || target->old_char == 'v')
+        target->old_char = ' ';
     room->map[target->coord[E_X]][target->coord[E_Y]] = target->old_char;
     target->coord[E_X] += 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];

@@ -21,9 +21,9 @@ void	init_room(t_room *room, char *path, int x, int y)
     room->coord[E_Y] = y;
     room->next = NULL;
     prepare_room(room);
-    room->map = (char**) malloc(50 * sizeof(char*));
+    room->map = (char **) malloc(50 * sizeof(char *));
     for (int i = 0; i < room->size[E_X]; i++)
-        room->map[i] = (char*) malloc(50 * sizeof(char));
+        room->map[i] = (char *) malloc(50 * sizeof(char));
 }
 
 void	init_player(t_char *player, t_room *room)

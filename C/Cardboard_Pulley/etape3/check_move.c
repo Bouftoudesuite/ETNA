@@ -80,7 +80,7 @@ int	check_left_m(t_char *target, t_room *room)
 
 int	check_right_m(t_char *target, t_room *room)
 {
-    if ((target->coord[E_X] + 1 < 0  || target->coord[E_X] + 1 > room->size[E_X]) && target->coord[E_X] != room->coord[E_X])
+    if ((target->coord[E_X] + 1 < 0  || target->coord[E_X] + 1 >= room->size[E_X]) && target->coord[E_X] != room->coord[E_X])
     {
         target->win = 1;
         return (0);

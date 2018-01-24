@@ -121,9 +121,9 @@ void		my_print_room(t_room *room, t_char *player, t_char *ennemy)
             room->map[ennemy->coord[E_X]][ennemy->coord[E_Y]] = 'v';
         else if (ennemy->azimut == E_SOUTH)
             room->map[ennemy->coord[E_X]][ennemy->coord[E_Y]] = '^';
-        else if (ennemy->azimut == E_LEFT)
+        else if (ennemy->azimut == E_WEST)
             room->map[ennemy->coord[E_X]][ennemy->coord[E_Y]] = '>';
-        else if (ennemy->azimut == E_RIGHT)
+        else if (ennemy->azimut == E_EAST)
             room->map[ennemy->coord[E_X]][ennemy->coord[E_Y]] = '<';
     }
     my_putchar('\n');
