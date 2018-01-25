@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Sat Oct  7 11:34:47 2017 HABI Acal
-** Last update Thu Jan 25 18:47:02 2018 HABI Açal
+** Last update Thu Jan 25 22:19:54 2018 HABI Açal
 */
 #include "struct.h"
 
@@ -34,10 +34,10 @@ int		get_up_p(t_char *player, t_room *room)
     {
         player->etat = E_GET_UP;
         my_putstr(player->name);
-        my_putstr(" \033[0;34mis standing.\033[0m\n");
+        my_putstr(" is standing.\n");
     }
     else
-      my_putstr("\033[0;34mYou can't get up here.\033[0m\n");
+      my_putstr("You can't get up here.\n");
 
     return (0);
 }
@@ -60,7 +60,7 @@ int		take_p(t_char *player, t_room *room)
     }
     else if (player->etat != E_GET_UP)
     {
-        my_putstr(" you must be standing to take the key");
+        my_putstr("you must be standing to take the key");
         my_putchar('\n');
     }
     else
