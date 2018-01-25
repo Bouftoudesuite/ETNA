@@ -22,9 +22,9 @@ int	check_up_m(t_char *target, t_room *room)
         return (0);
     }
     if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'X')
-        my_putstr("\033[0;31mMur\n");
+        my_putstr("\033[0;31mMur\033[0m\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'x')
-        my_putstr("\033[0;31mPorte fermé\n");
+        my_putstr("\033[0;31mPorte fermé\033[0m\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'H' && target->etat == E_GET_UP)
         my_putstr("\033[0;31mVous devez être allongé pour passer\033[0m\n");
     else

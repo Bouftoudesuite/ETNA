@@ -12,7 +12,12 @@
 
 void	init_room(t_room *room, char *path, int x, int y)
 {
+    int i;
+
+    i = 0;
     room->time = 0;
+    room->time_two = 0;
+    room->nb_ennemy = 0;
     room->map = NULL;
     room->path = path;
     room->size[E_X] = 0;
@@ -22,8 +27,11 @@ void	init_room(t_room *room, char *path, int x, int y)
     room->next = NULL;
     prepare_room(room);
     room->map = (char **) malloc(50 * sizeof(char *));
-    for (int i = 0; i < room->size[E_X]; i++)
+    while (i < room->size[E_X])
+    {
         room->map[i] = (char *) malloc(50 * sizeof(char));
+        i++;
+    }
 }
 
 void	init_player(t_char *player, t_room *room)
@@ -38,7 +46,6 @@ void	init_player(t_char *player, t_room *room)
     player->coord[E_X] = room->coord[E_X];
     player->coord[E_Y] = room->coord[E_Y];
     player->old_char = ' ';
-    player->current_char = 'i';
 }
 
 void	init_ennemy(t_char *ennemy)
@@ -51,7 +58,6 @@ void	init_ennemy(t_char *ennemy)
     ennemy->type = E_GUARD;
     ennemy->azimut = E_WEST;
     ennemy->old_char = ' ';
-    ennemy->current_char = '>';
 }
 
 void	init_ennemy_two(t_char *ennemy)
@@ -64,7 +70,6 @@ void	init_ennemy_two(t_char *ennemy)
     ennemy->type = E_GUARD;
     ennemy->azimut = E_WEST;
     ennemy->old_char = ' ';
-    ennemy->current_char = '>';
 }
 
 void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to, t_func_ptr_look *look_to)

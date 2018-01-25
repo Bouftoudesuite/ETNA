@@ -73,7 +73,7 @@ int			main()
     clear_screen();
     my_putstr("\033[0;32mFind the exit!\033[0m\n");
     move_ennemy(ennemy, room, move_to, look_to);
-    move_ennemy(ennemy_two, room, move_to, look_to);
+    move_ennemy_two(ennemy_two, room, move_to, look_to);
     my_print_room(room, player, ennemy, ennemy_two);
     while (playing)
     {
@@ -84,7 +84,7 @@ int			main()
             if (check_move(player, room, check_move_to, E_FORWARD))
                 move(player, room, move_to, E_FORWARD);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'S')
@@ -93,7 +93,7 @@ int			main()
             if (check_move(player, room, check_move_to, E_BACKWARD))
                 move(player, room, move_to, E_BACKWARD);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'A')
@@ -102,7 +102,7 @@ int			main()
             if (check_move(player, room, check_move_to, E_LEFT))
                 move(player, room, move_to, E_LEFT);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'D')
@@ -111,7 +111,7 @@ int			main()
             if (check_move(player, room, check_move_to, E_RIGHT))
                 move(player, room, move_to, E_RIGHT);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'C' && player->etat == E_GET_UP)
@@ -119,7 +119,7 @@ int			main()
             clear_screen();
             perform(player, room, perform_to, E_LIE_DOWN);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'C' && player->etat == E_LIE_DOWN)
@@ -127,7 +127,7 @@ int			main()
             clear_screen();
             perform(player, room, perform_to, E_GET_UP);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == ' ')
@@ -135,7 +135,7 @@ int			main()
             clear_screen();
             perform(player, room, perform_to, E_TAKE);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'E')
@@ -143,7 +143,7 @@ int			main()
             clear_screen();
             perform(player, room, perform_to, E_OPEN);
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else if (user_input == 'Q')
@@ -154,7 +154,7 @@ int			main()
             my_putstr(player->name);
             my_putstr(" \033[0;31mdo nothing\033[0m\n");
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         else
@@ -162,7 +162,7 @@ int			main()
             clear_screen();
             my_putstr("\033[0;31mMauvaise touche\033[0m\n");
             move_ennemy(ennemy, room, move_to, look_to);
-            move_ennemy(ennemy_two, room, move_to, look_to);
+            move_ennemy_two(ennemy_two, room, move_to, look_to);
             my_print_room(room, player, ennemy, ennemy_two);
         }
         if (check_die(player, ennemy, room) || check_die(player, ennemy_two, room))
@@ -176,6 +176,7 @@ int			main()
             {
                 room = room->next;
                 room->time = 0;
+                room->time_two++;
                 init_player(player, room);
                 init_ennemy(ennemy);
                 init_ennemy_two(ennemy_two);
@@ -183,7 +184,7 @@ int			main()
                 clear_screen();
                 my_putstr("\033[0;32mFind the exit!\033[0m\n");
                 move_ennemy(ennemy, room, move_to, look_to);
-                move_ennemy(ennemy_two, room, move_to, look_to);
+                move_ennemy_two(ennemy_two, room, move_to, look_to);
                 my_print_room(room, player, ennemy, ennemy_two);
             }
             else
@@ -193,9 +194,11 @@ int			main()
             }
         }
         room->time++;
+        room->time_two++;
     }
     free(player);
     free(ennemy);
+    free(ennemy_two);
     free(room);
     return (0);
 }

@@ -30,10 +30,14 @@ int 	get_up_p(t_char *player, t_room *room)
     old_path = room->path;
     room->path = " ";
     room->path = old_path;
-    player->etat = E_GET_UP;
-    my_putstr(player->name);
-    my_putstr(" \033[0;34mis standing.\033[0m");
-    my_putchar('\n');
+    if (player->old_char != 'H')
+    {
+        player->etat = E_GET_UP;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mis standing.\033[0m\n");
+    }
+    else
+        my_putstr(" \033[0;34mYou can't get up here.\033[0m\n");
     return (0);
 }
 

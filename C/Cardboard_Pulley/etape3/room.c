@@ -46,6 +46,8 @@ void		prepare_room(t_room *room)
         map_string = readmap(fd);
         while (map_string[k] != '\0')
         {
+            if (map_string[k] == '<' || map_string[k] == '>' || map_string[k] == '^' || map_string[k] == 'v')
+                room->nb_ennemy++;
             if (map_string[k] != '\n')
             {
                 i++;
@@ -84,7 +86,7 @@ void		create_room(t_room *room, t_char *ennemy, t_char *ennemy_two)
         {
             if (map_string[k] == '<' || map_string[k] == '>' || map_string[k] == '^' || map_string[k] == 'v')
             {
-                if (!ennemy->exist)
+                if (room->nb_ennemy == 1)
                 {
                     ennemy->exist = 1;
                     ennemy->coord[E_X] = i;
@@ -92,9 +94,18 @@ void		create_room(t_room *room, t_char *ennemy, t_char *ennemy_two)
                 }
                 else
                 {
-                    ennemy_two->exist = 1;
-                    ennemy_two->coord[E_X] = i;
-                    ennemy_two->coord[E_Y] = j;
+                    if (!ennemy_two->exist)
+                    {
+                        ennemy_two->exist = 1;
+                        ennemy_two->coord[E_X] = i;
+                        ennemy_two->coord[E_Y] = j;
+                    }
+                    else
+                    {
+                        ennemy->exist = 1;
+                        ennemy->coord[E_X] = i;
+                        ennemy->coord[E_Y] = j;
+                    }
                 }
             }
             if (map_string[k] != '\n')

@@ -60,7 +60,6 @@ typedef struct			s_char
 	int			nb_key;
 	int		       	win;
 	char 			old_char;
-	char 			current_char;
 	char			*name;
 	int			coord[2];
 	t_action		etat;
@@ -77,6 +76,8 @@ typedef struct			s_room
 	int			size[2];
 	int			coord[2];
 	int 		time;
+	int			time_two;
+	int 		nb_ennemy;
 	struct s_room		*next;
 }				t_room;
 
@@ -114,7 +115,7 @@ void				init_ennemy(t_char *ennemy);
 void				init_ennemy_two(t_char *ennemy);
 void				init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to, t_func_ptr_look *look_to);
 void				prepare_room(t_room *room);
-void				create_room(t_room *room, t_char *ennemy, t_char *ennemy_two);
+void			create_room(t_room *room, t_char *ennemy, t_char *ennemy_two);
 void				my_print_room(t_room *room, t_char *player, t_char *ennemy, t_char *ennemy_two);
 void        		my_print_info(t_room *room, t_char *player);
 void				clear_screen();
