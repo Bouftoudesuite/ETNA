@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Sat Oct  7 11:34:47 2017 HABI Acal
-** Last update Thu Jan 25 18:26:06 2018 HABI Açal
+** Last update Thu Jan 25 18:47:02 2018 HABI Açal
 */
 #include "struct.h"
 
@@ -30,10 +30,15 @@ int		get_up_p(t_char *player, t_room *room)
     old_path = room->path;
     room->path = " ";
     room->path = old_path;
-    player->etat = E_GET_UP;
-    my_putstr(player->name);
-    my_putstr(" is standing.");
-    my_putchar('\n');
+    if (player->old_char != 'H')
+    {
+        player->etat = E_GET_UP;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mis standing.\033[0m\n");
+    }
+    else
+      my_putstr("\033[0;34mYou can't get up here.\033[0m\n");
+
     return (0);
 }
 
