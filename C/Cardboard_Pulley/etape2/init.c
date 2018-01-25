@@ -5,13 +5,16 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Sat Jan 20 23:32:11 2018 HABI Açal
-** Last update Sat Jan 20 23:42:22 2018 HABI Açal
+** Last update Thu Jan 25 18:22:29 2018 HABI Açal
 */
 #include <stdlib.h>
 #include "struct.h"
 
 void	init_room(t_room *room, char *path, int x, int y)
 {
+    int i;
+
+    i = 0;
     room->map = NULL;
     room->path = path;
     room->size[E_X] = 0;
@@ -21,8 +24,11 @@ void	init_room(t_room *room, char *path, int x, int y)
     room->next = NULL;
     prepare_room(room);
     room->map = (char**) malloc(50 * sizeof(char*));
-    for (int i = 0; i < room->size[E_X]; i++)
+    while(i < room->size[E_X])
+    {
         room->map[i] = (char*) malloc(50 * sizeof(char));
+	i++;
+    }
 }
 
 void	init_player(t_char *player, t_room *room)
@@ -34,7 +40,6 @@ void	init_player(t_char *player, t_room *room)
     player->coord[E_X] = room->coord[E_X];
     player->coord[E_Y] = room->coord[E_Y];
     player->old_char = ' ';
-    player->current_char = 'i';
 }
 
 void	init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to)

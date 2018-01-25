@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Thu Oct  5 19:24:11 2017 HABI Acal
-** Last update Tue Jan 23 14:49:22 2018 HABI Açal
+** Last update Thu Jan 25 18:27:12 2018 HABI Açal
 */
 #ifndef __MY_STRUCT_H__
 # define __MY_STRUCT_H__
@@ -43,7 +43,6 @@ typedef struct			s_char
 	int			nb_key;
 	int		       	win;
 	char 			old_char;
-	char 			current_char;
 	char			*name;
 	int			coord[2];
 	t_action		etat;

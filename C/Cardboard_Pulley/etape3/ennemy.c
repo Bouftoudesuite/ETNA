@@ -1,6 +1,15 @@
+/*
+** ennemy.c for Cardboard Pulley in /Users/habi_a/Documents/ETNA/C/Cardboard_Pulley/etape3
+** 
+** Made by HABI Açal
+** Login   <habi_a@etna-alternance.net>
+** 
+** Started on  Thu Jan 25 18:29:59 2018 HABI Açal
+** Last update Thu Jan 25 18:30:13 2018 HABI Açal
+*/
 #include "struct.h"
 
-void move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to)
+void	move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to)
 {
     if (ennemy->exist)
     {
@@ -39,7 +48,7 @@ void move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_
     }
 }
 
-void move_ennemy_two(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to)
+void	move_ennemy_two(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to)
 {
     if (ennemy->exist)
     {

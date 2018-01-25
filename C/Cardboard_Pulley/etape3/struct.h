@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Thu Oct  5 19:24:11 2017 HABI Acal
-** Last update Tue Jan 23 14:49:22 2018 HABI Açal
+** Last update Thu Jan 25 18:43:02 2018 HABI Açal
 */
 #ifndef __MY_STRUCT_H__
 # define __MY_STRUCT_H__
@@ -75,9 +75,9 @@ typedef struct			s_room
 	char 			*path;
 	int			size[2];
 	int			coord[2];
-	int 		time;
+	int			time;
 	int			time_two;
-	int 		nb_ennemy;
+	int			nb_ennemy;
 	struct s_room		*next;
 }				t_room;
 
@@ -102,11 +102,11 @@ int				lie_down_p(t_char *player, t_room *room);
 int				get_up_p(t_char *player, t_room *room);
 int				take_p(t_char *player, t_room *room);
 int				open_p(t_char *player, t_room *room);
-int 			look(t_char	*target, t_func_ptr_look *look_to, t_cardinal cardinal_point);
-int 			up_s(t_char *target);
-int 			down_s(t_char *target);
-int 			left_s(t_char *target);
-int 			right_s(t_char *target);
+int				look(t_char	*target, t_func_ptr_look *look_to, t_cardinal cardinal_point);
+int				up_s(t_char *target);
+int				down_s(t_char *target);
+int				left_s(t_char *target);
+int				right_s(t_char *target);
 char				readline(void);
 char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);
@@ -115,14 +115,14 @@ void				init_ennemy(t_char *ennemy);
 void				init_ennemy_two(t_char *ennemy);
 void				init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to, t_func_ptr_look *look_to);
 void				prepare_room(t_room *room);
-void			create_room(t_room *room, t_char *ennemy, t_char *ennemy_two);
+void				create_room(t_room *room, t_char *ennemy, t_char *ennemy_two);
 void				my_print_room(t_room *room, t_char *player, t_char *ennemy, t_char *ennemy_two);
-void        		my_print_info(t_room *room, t_char *player);
+void				my_print_info(t_room *room, t_char *player);
 void				clear_screen();
 int				check_win(t_char *player);
 char				*readmap(int fd);
 void 				move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to);
 void 				move_ennemy_two(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to);
-int 			check_die(t_char *player, t_char *ennemy, t_room *room);
+int				check_die(t_char *player, t_char *ennemy, t_room *room);
 
 #endif

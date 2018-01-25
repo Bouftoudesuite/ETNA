@@ -5,13 +5,13 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Sat Oct  7 11:34:47 2017 HABI Acal
-** Last update Sat Oct  7 11:34:52 2017 HABI Acal
+** Last update Thu Jan 25 18:41:49 2018 HABI Açal
 */
 #include "struct.h"
 
-int 	lie_down_p(t_char *player, t_room *room)
+int		lie_down_p(t_char *player, t_room *room)
 {
-    char *old_path;
+    char	*old_path;
 
     old_path = room->path;
     room->path = " ";
@@ -23,9 +23,9 @@ int 	lie_down_p(t_char *player, t_room *room)
     return (0);
 }
 
-int 	get_up_p(t_char *player, t_room *room)
+int		get_up_p(t_char *player, t_room *room)
 {
-    char *old_path;
+    char	*old_path;
 
     old_path = room->path;
     room->path = " ";
@@ -41,9 +41,9 @@ int 	get_up_p(t_char *player, t_room *room)
     return (0);
 }
 
-int 	take_p(t_char *player, t_room *room)
+int		take_p(t_char *player, t_room *room)
 {
-    char *old_path;
+    char	*old_path;
 
     old_path = room->path;
     room->path = " ";
@@ -78,7 +78,6 @@ int 	open_p(t_char *player, t_room *room)
     next_char[1] = room->map[player->coord[E_X] + 1][player->coord[E_Y]];
     next_char[2] = room->map[player->coord[E_X]][player->coord[E_Y] - 1];
     next_char[3] = room->map[player->coord[E_X]][player->coord[E_Y] + 1];
-
     if ((next_char[0] == 'x' || next_char[1] == 'x'  || next_char[2] == 'x' || next_char[3] == 'x') && player->etat == E_GET_UP)
     {
         int i;

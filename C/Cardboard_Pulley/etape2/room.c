@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Sat Jan 20 23:16:19 2018 HABI Açal
-** Last update Sat Jan 20 23:34:25 2018 HABI Açal
+** Last update Thu Jan 25 18:26:39 2018 HABI Açal
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,8 +33,8 @@ void		prepare_room(t_room *room)
 {
     int		i;
     int		j;
-    int     k;
-    int     fd;
+    int		k;
+    int		fd;
     char	*map_string;
 
     i = 0;
@@ -69,8 +69,8 @@ void		create_room(t_room *room)
 {
     int		i;
     int		j;
-    int     k;
-    int     fd;
+    int		k;
+    int		fd;
     char	*map_string;
 
     i = 0;

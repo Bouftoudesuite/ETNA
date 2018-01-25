@@ -5,14 +5,14 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Sep 29 14:19:52 2017 HABI Acal
-** Last update Fri Sep 29 14:19:53 2017 HABI Acal
+** Last update Thu Jan 25 18:31:15 2018 HABI Açal
 */
 #include "struct.h"
 
-void    my_put_un_nbr(unsigned int n)
+void	my_put_un_nbr(unsigned int n)
 {
-    int i;
-    int divisible;
+    int	i;
+    int	divisible;
 
     divisible = n / 10;
     i = n % 10;
@@ -23,7 +23,7 @@ void    my_put_un_nbr(unsigned int n)
     my_putchar(i + '0');
 }
 
-void    my_put_nbr(int n)
+void	my_put_nbr(int n)
 {
     if (n < 0)
     {
