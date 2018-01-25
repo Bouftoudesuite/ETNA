@@ -72,6 +72,7 @@ typedef struct			s_char
 typedef struct			s_room
 {
 	char			**map;
+	char			*name;
 	char 			*path;
 	int			size[2];
 	int			coord[2];
@@ -84,6 +85,7 @@ typedef int			(*t_func_ptr_look)(t_char *);
 
 void				my_putchar(char c);
 void				my_putstr(char *str);
+void    			my_put_nbr(int n);
 int				move(t_char *target, t_room *room, t_func_ptr_move *check_move_to, t_direction dir);
 int				up_m(t_char *target, t_room *room);
 int				down_m(t_char *target, t_room *room);
@@ -109,14 +111,17 @@ char				my_char_upcase(char user_input_case);
 void				init_room(t_room *room, char *path, int x, int y);
 void				init_player(t_char *player, t_room *room);
 void				init_ennemy(t_char *ennemy);
+void				init_ennemy_two(t_char *ennemy);
 void				init_func_ptr(t_func_ptr_move *move_to, t_func_ptr_move *check_move_to, t_func_ptr_move *perform_to, t_func_ptr_look *look_to);
 void				prepare_room(t_room *room);
-void				create_room(t_room *room, t_char *ennemy);
-void				my_print_room(t_room *room, t_char *player, t_char *ennemy);
+void				create_room(t_room *room, t_char *ennemy, t_char *ennemy_two);
+void				my_print_room(t_room *room, t_char *player, t_char *ennemy, t_char *ennemy_two);
+void        		my_print_info(t_room *room, t_char *player);
 void				clear_screen();
 int				check_win(t_char *player);
 char				*readmap(int fd);
 void 				move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to);
-int 			check_die(t_char *player, t_char *ennemy);
+void 				move_ennemy_two(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_ptr_look *look_to);
+int 			check_die(t_char *player, t_char *ennemy, t_room *room);
 
 #endif

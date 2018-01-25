@@ -13,7 +13,7 @@ int 	up_s(t_char *target)
 {
 	target->azimut = E_NORTH;
 	my_putstr(target->name);
-	my_putstr(" looks north.");
+	my_putstr(" \033[0;35mlooks north.\033[0m");
 	my_putchar('\n');
 	return (0);
 }
@@ -22,7 +22,7 @@ int 	down_s(t_char *target)
 {
 	target->azimut = E_SOUTH;
 	my_putstr(target->name);
-	my_putstr(" looks south.");
+	my_putstr(" \033[0;35mlooks south.\033[0m");
 	my_putchar('\n');
 	return (0);
 }
@@ -31,7 +31,7 @@ int 	left_s(t_char *target)
 {
 	target->azimut = E_WEST;
 	my_putstr(target->name);
-	my_putstr(" looks west.");
+	my_putstr(" \033[0;35mlooks west.\033[0m");
 	my_putchar('\n');
 	return (0);
 }
@@ -40,7 +40,7 @@ int 	right_s(t_char *target)
 {
 	target->azimut = E_EAST;
 	my_putstr(target->name);
-	my_putstr(" looks east.");
+	my_putstr(" \033[0;35mlooks east.\033[0m");
 	my_putchar('\n');
 	return (0);
 }

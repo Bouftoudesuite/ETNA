@@ -15,7 +15,7 @@ int	up_m(t_char *target, t_room *room)
     target->coord[E_Y] -= 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
-    my_putstr(" moves to the top.");
+    my_putstr(" \033[0;33mmoves to the top.\033[0m");
     my_putchar('\n');
     return (0);
 }
@@ -28,7 +28,7 @@ int	down_m(t_char *target, t_room *room)
     target->coord[E_Y] += 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
-    my_putstr(" moves to the bottom");
+    my_putstr(" \033[0;33mmoves to the bottom\033[0m");
     my_putchar('\n');
     return (0);
 }
@@ -41,7 +41,7 @@ int	left_m(t_char *target, t_room *room)
     target->coord[E_X] -= 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
-    my_putstr(" moves to the left.");
+    my_putstr(" \033[0;33mmoves to the left\033[0m");
     my_putchar('\n');
     return (0);
 }
@@ -54,7 +54,7 @@ int	right_m(t_char *target, t_room *room)
     target->coord[E_X] += 1;
     target->old_char = room->map[target->coord[E_X]][target->coord[E_Y]];
     my_putstr(target->name);
-    my_putstr(" moves to the right.");
+    my_putstr(" \033[0;33mmoves to the right.\033[0m");
     my_putchar('\n');
     return (0);
 }

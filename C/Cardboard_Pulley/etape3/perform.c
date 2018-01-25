@@ -18,7 +18,7 @@ int 	lie_down_p(t_char *player, t_room *room)
     room->path = old_path;
     player->etat = E_LIE_DOWN;
     my_putstr(player->name);
-    my_putstr(" is lying down.");
+    my_putstr(" \033[0;34mis lying down.\033[0m");
     my_putchar('\n');
     return (0);
 }
@@ -32,7 +32,7 @@ int 	get_up_p(t_char *player, t_room *room)
     room->path = old_path;
     player->etat = E_GET_UP;
     my_putstr(player->name);
-    my_putstr(" is standing.");
+    my_putstr(" \033[0;34mis standing.\033[0m");
     my_putchar('\n');
     return (0);
 }
@@ -49,18 +49,18 @@ int 	take_p(t_char *player, t_room *room)
         player->old_char = ' ';
         player->nb_key++;
         my_putstr(player->name);
-        my_putstr(" takes the key.");
+        my_putstr(" \033[0;34mtakes the key.\033[0m");
         my_putchar('\n');
         return (0);
     }
     else if (player->etat != E_GET_UP)
     {
-        my_putstr(" you must be standing to take the key");
+        my_putstr("\033[0;31myou must be standing to take the key\033[0m");
         my_putchar('\n');
     }
     else
     {
-        my_putstr("there is no key");
+        my_putstr("\033[0;31mthere is no key\033[0m");
         my_putchar('\n');
     }
     return (-1);
@@ -96,11 +96,11 @@ int 	open_p(t_char *player, t_room *room)
                     if (i == 3)
                         room->map[player->coord[E_X]][player->coord[E_Y] + 1] = ' ';
                     my_putstr(player->name);
-                    my_putstr(" opens the door.");
+                    my_putstr(" \033[0;34mopens the door.\033[0m");
                     my_putchar('\n');
                     return (0);
                 }
-                my_putstr("you must have a key to open the door.");
+                my_putstr("\033[0;31myou must have a key to open the door.\033[0m");
                 my_putchar('\n');
             }
             i++;
@@ -108,12 +108,12 @@ int 	open_p(t_char *player, t_room *room)
     }
     else if (player->etat == E_LIE_DOWN)
     {
-        my_putstr("you must be standing to open the door");
+        my_putstr("\033[0;31myou must be standing to open the door\033[0m");
         my_putchar('\n');
     }
     else
     {
-        my_putstr("there is no door.");
+        my_putstr("\033[0;31mthere is no door.\033[0m");
         my_putchar('\n');
     }
     return (-1);

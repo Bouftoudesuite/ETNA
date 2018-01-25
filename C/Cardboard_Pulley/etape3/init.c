@@ -46,7 +46,20 @@ void	init_ennemy(t_char *ennemy)
     ennemy->exist = 0;
     ennemy->nb_key = 0;
     ennemy->win = 0;
-    ennemy->name = "Guard";
+    ennemy->name = "Guard1";
+    ennemy->etat = E_GET_UP;
+    ennemy->type = E_GUARD;
+    ennemy->azimut = E_WEST;
+    ennemy->old_char = ' ';
+    ennemy->current_char = '>';
+}
+
+void	init_ennemy_two(t_char *ennemy)
+{
+    ennemy->exist = 0;
+    ennemy->nb_key = 0;
+    ennemy->win = 0;
+    ennemy->name = "Guard2";
     ennemy->etat = E_GET_UP;
     ennemy->type = E_GUARD;
     ennemy->azimut = E_WEST;

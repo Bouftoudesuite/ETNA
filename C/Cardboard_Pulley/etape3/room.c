@@ -65,7 +65,7 @@ void		prepare_room(t_room *room)
     close(fd);
 }
 
-void		create_room(t_room *room, t_char *ennemy)
+void		create_room(t_room *room, t_char *ennemy, t_char *ennemy_two)
 {
     int		i;
     int		j;
@@ -84,9 +84,18 @@ void		create_room(t_room *room, t_char *ennemy)
         {
             if (map_string[k] == '<' || map_string[k] == '>' || map_string[k] == '^' || map_string[k] == 'v')
             {
-                ennemy->exist = 1;
-                ennemy->coord[E_X] = i;
-                ennemy->coord[E_Y] = j;
+                if (!ennemy->exist)
+                {
+                    ennemy->exist = 1;
+                    ennemy->coord[E_X] = i;
+                    ennemy->coord[E_Y] = j;
+                }
+                else
+                {
+                    ennemy_two->exist = 1;
+                    ennemy_two->coord[E_X] = i;
+                    ennemy_two->coord[E_Y] = j;
+                }
             }
             if (map_string[k] != '\n')
             {
@@ -104,11 +113,12 @@ void		create_room(t_room *room, t_char *ennemy)
     close(fd);
 }
 
-void		my_print_room(t_room *room, t_char *player, t_char *ennemy)
+void		my_print_room(t_room *room, t_char *player, t_char *ennemy, t_char *ennemy_two)
 {
     int		k;
     int		l;
 
+    my_putstr("\033[0;36m");
     if (player->win)
         room->map[player->coord[E_X]][player->coord[E_Y]] = ' ';
     else if (player->etat == E_GET_UP)
@@ -126,6 +136,17 @@ void		my_print_room(t_room *room, t_char *player, t_char *ennemy)
         else if (ennemy->azimut == E_EAST)
             room->map[ennemy->coord[E_X]][ennemy->coord[E_Y]] = '<';
     }
+    if (ennemy_two->exist)
+    {
+        if (ennemy_two->azimut == E_NORTH)
+            room->map[ennemy_two->coord[E_X]][ennemy_two->coord[E_Y]] = 'v';
+        else if (ennemy_two->azimut == E_SOUTH)
+            room->map[ennemy_two->coord[E_X]][ennemy_two->coord[E_Y]] = '^';
+        else if (ennemy_two->azimut == E_WEST)
+            room->map[ennemy_two->coord[E_X]][ennemy_two->coord[E_Y]] = '>';
+        else if (ennemy_two->azimut == E_EAST)
+            room->map[ennemy_two->coord[E_X]][ennemy_two->coord[E_Y]] = '<';
+    }
     my_putchar('\n');
     l = 0;
     while (l < room->size[E_Y] + 1)
@@ -139,4 +160,19 @@ void		my_print_room(t_room *room, t_char *player, t_char *ennemy)
         my_putchar('\n');
         l++;
     }
+    my_putstr("\033[0m\n");
+    my_print_info(room, player);
+}
+
+void        my_print_info(t_room *room, t_char *player)
+{
+    my_putstr("\033[0;35mRoom: \033[0m");
+    my_putstr(room->name);
+    my_putstr("\n\033[0;35mCoordonnées Chicken: \tx: \033[0m");
+    my_put_nbr(player->coord[E_X]);
+    my_putstr("\t\033[0;35my: \033[0m");
+    my_put_nbr(player->coord[E_Y]);
+    my_putstr("\n\033[0;35mNombre de clé: \033[0m");
+    my_put_nbr(player->nb_key);
+    my_putstr("\n\n");
 }
