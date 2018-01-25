@@ -5,7 +5,7 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Jan 23 17:05:52 2018 HABI Açal
-## Last update Wed Jan 24 19:23:01 2018 HABI Açal
+## Last update Thu Jan 25 11:18:39 2018 HABI Açal
 ##
 CC	=	gcc
 
@@ -22,6 +22,7 @@ SRC	=	check_move.c \
 		look.c \
 		my_putchar.c \
 		my_putstr.c \
+		my_put_nbr.c \
 		room.c \
 		perform.c
 
