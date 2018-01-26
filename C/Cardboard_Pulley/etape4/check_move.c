@@ -23,7 +23,7 @@ int	check_up_m(t_char *target, t_room *room)
     }
     if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'X')
         my_putstr("\033[0;31mMur\033[0m\n");
-    else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'x')
+    else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'x' || room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'Y')
         my_putstr("\033[0;31mPorte fermé\033[0m\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] - 1] == 'H' && target->etat == E_GET_UP)
         my_putstr("\033[0;31mVous devez être allongé pour passer\033[0m\n");
@@ -46,7 +46,7 @@ int	check_down_m(t_char *target, t_room *room)
     }
     if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'X')
         my_putstr("\033[0;31mMur\033[0m\n");
-    else if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'x')
+    else if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'x'|| room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'Y')
         my_putstr("\033[0;31mPorte fermé\033[0m\n");
     else if (room->map[target->coord[E_X]][target->coord[E_Y] + 1] == 'H' && target->etat == E_GET_UP)
         my_putstr("\033[0;31mVous devez être allongé pour passer\033[0m\n");
@@ -69,7 +69,7 @@ int	check_left_m(t_char *target, t_room *room)
     }
     if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'X')
         my_putstr("\033[0;31mMur\033[0m\n");
-    else if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'x')
+    else if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'x' || room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'Y')
         my_putstr("\033[0;31mPorte fermé\033[0m\n");
     else if (room->map[target->coord[E_X] - 1][target->coord[E_Y]] == 'H' && target->etat == E_GET_UP)
         my_putstr("\033[0;31mVous devez être allongé pour passer\033[0m\n");
@@ -92,9 +92,8 @@ int	check_right_m(t_char *target, t_room *room)
     }
     if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'X')
         my_putstr("\033[0;31mMur\033[0m\n");
-    else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'x')
+    else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'x' || room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'Y')
         my_putstr("\033[0;31mPorte fermé\033[0m\n");
-
     else if (room->map[target->coord[E_X] + 1][target->coord[E_Y]] == 'H' && target->etat == E_GET_UP)
         my_putstr("\033[0;31mVous devez être allongé pour passer\033[0m\n");
     else

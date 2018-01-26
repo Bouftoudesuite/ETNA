@@ -149,7 +149,7 @@ int 	open_p(t_char *player, t_room *room)
             i++;
         }
     }
-    if ((next_char[0] == 'Y' || next_char[1] == 'Y'  || next_char[2] == 'Y' || next_char[3] == 'Y') && player->etat == E_GET_UP)
+    else if ((next_char[0] == 'Y' || next_char[1] == 'Y'  || next_char[2] == 'Y' || next_char[3] == 'Y') && player->etat == E_GET_UP)
     {
         int i;
 
