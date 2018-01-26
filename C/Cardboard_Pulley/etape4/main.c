@@ -26,7 +26,7 @@ int			main()
     t_func_ptr_move check_move_to[4];
 
     playing = 1;
-    path = "../Maps/Inner_Hell/holding_cells2.map";
+    path = "../Maps/Inner_Hell/my_map.map";
     player = malloc(sizeof(*player));
     ennemy = malloc(sizeof(*ennemy));
     ennemy_two = malloc(sizeof(*ennemy_two));
@@ -35,7 +35,7 @@ int			main()
         return (-1);
     init_func_ptr(move_to, check_move_to, perform_to, look_to);
     init_room(room, path, 18, 2);
-    room->name = "Holding Cells 2";
+    room->name = "My Map";
     room->next = NULL;
     init_player(player, room);
     init_ennemy(ennemy);

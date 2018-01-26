@@ -99,12 +99,12 @@ int		take_p(t_char *player, t_room *room)
     }
     else if (player->etat != E_GET_UP)
     {
-        my_putstr("\033[0;31myou must be standing to take the key\033[0m");
+        my_putstr("\033[0;31mYou must be standing to take the key\033[0m");
         my_putchar('\n');
     }
     else
     {
-        my_putstr("\033[0;31mthere is no key\033[0m");
+        my_putstr("\033[0;31mThere is no key\033[0m");
         my_putchar('\n');
     }
     return (-1);
@@ -149,14 +149,39 @@ int 	open_p(t_char *player, t_room *room)
             i++;
         }
     }
+    if ((next_char[0] == 'Y' || next_char[1] == 'Y'  || next_char[2] == 'Y' || next_char[3] == 'Y') && player->etat == E_GET_UP)
+    {
+        int i;
+
+        i = 0;
+        while (i < 4)
+        {
+            if (next_char[i] == 'Y')
+            {
+                if (i == 0)
+                    room->map[player->coord[E_X] - 1][player->coord[E_Y]] = ' ';
+                if (i == 1)
+                    room->map[player->coord[E_X] + 1][player->coord[E_Y]] = ' ';
+                if (i == 2)
+                    room->map[player->coord[E_X]][player->coord[E_Y] - 1] = ' ';
+                if (i == 3)
+                    room->map[player->coord[E_X]][player->coord[E_Y] + 1] = ' ';
+                my_putstr(player->name);
+                my_putstr(" \033[0;34mopens the magnetics door.\033[0m");
+                my_putchar('\n');
+                return (0);
+            }
+            i++;
+        }
+    }
     else if (player->etat == E_LIE_DOWN)
     {
-        my_putstr("\033[0;31myou must be standing to open the door\033[0m");
+        my_putstr("\033[0;31mYou must be standing to open the door\033[0m");
         my_putchar('\n');
     }
     else
     {
-        my_putstr("\033[0;31mthere is no door.\033[0m");
+        my_putstr("\033[0;31mThere is no door.\033[0m");
         my_putchar('\n');
     }
     return (-1);
