@@ -35,13 +35,14 @@ CFLAGS	=	-W -Wall -Werror -Wextra -pedantic -I./
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-		$(CC) $(SRC) -o $(NAME)
+		$(CC) $(OBJS) -o $(NAME)
 
 clean	:
-		$(RM) -f $(OBJS)
+		$(RM) $(OBJS)
+		$(RM) *~
 
 fclean	:	clean
-		$(RM) -f $(NAME)
+		$(RM) $(NAME)
 
 re	:	fclean all
 
