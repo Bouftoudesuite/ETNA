@@ -7,29 +7,34 @@
 ## Started on  Thu Jan 25 21:45:31 2018 HABI Açal
 ## Last update Thu Jan 25 22:26:03 2018 HABI Açal
 ##
-MAKE	=	make
+MAKE	=	make -C
 
-all	:
-		$(MAKE) -C etape1 all
-		$(MAKE) -C etape2 all
-		$(MAKE) -C etape3 all
+all     :
+		$(MAKE) etape1 all
+		$(MAKE) etape2 all
+		$(MAKE) etape3 all
+		$(MAKE) etape4 all
 
-clean	:
-		$(MAKE) -C etape1 clean 
-		$(MAKE) -C etape2 clean
-		$(MAKE) -C etape3 clean
+clean   :
+		$(MAKE) etape1 clean 
+		$(MAKE) etape2 clean
+		$(MAKE) etape3 clean
+		$(MAKE) etape4 clean
 
 fclean	:
-		$(MAKE) -C etape1 fclean
-		$(MAKE) -C etape2 fclean
-		$(MAKE) -C etape3 fclean
+		$(MAKE) etape1 fclean
+		$(MAKE) etape2 fclean
+		$(MAKE) etape3 fclean
+		$(MAKE) etape4 fclean
 
 re	:
-		$(MAKE) -C etape1 re
-		$(MAKE) -C etape2 re
-		$(MAKE) -C etape3 re
+		$(MAKE) etape1 re
+		$(MAKE) etape2 re
+		$(MAKE) etape3 re
+		$(MAKE) etape4 re
 
 .PHONY	:
-		$(MAKE) -C etape1 .PHONY
-		$(MAKE) -C etape2 .PHONY
-		$(MAKE) -C etape3 .PHONY
+		$(MAKE) etape1 .PHONY
+		$(MAKE) etape2 .PHONY
+		$(MAKE) etape3 .PHONY
+		$(MAKE) etape4 .PHONY
