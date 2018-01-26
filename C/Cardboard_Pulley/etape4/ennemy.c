@@ -1,9 +1,9 @@
 /*
 ** ennemy.c for Cardboard Pulley in /Users/habi_a/Documents/ETNA/C/Cardboard_Pulley/etape3
-** 
+**
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
-** 
+**
 ** Started on  Thu Jan 25 18:29:59 2018 HABI Açal
 ** Last update Thu Jan 25 18:30:13 2018 HABI Açal
 */
@@ -23,17 +23,18 @@ void	move_ennemy(t_char *ennemy, t_room *room, t_func_ptr_move *move_to, t_func_
                 move(ennemy, room, move_to, E_BACKWARD);
             else if (room->time == (9 * 2))
                 look(ennemy, look_to, E_EAST);
-            else if (room->time >= (10 * 2) && room->time <= (14 * 2))
+            else if (room->time >= (10 * 2) && room->time <= (18 * 2))
                 move(ennemy, room, move_to, E_RIGHT);
-            else if (room->time == (15 * 2))
-                look(ennemy, look_to, E_NORTH);
-            else if (room->time >= (16 * 2) && room->time <= (18 * 2))
-                move(ennemy, room, move_to, E_FORWARD);
             else if (room->time == (19 * 2))
-            {
+                look(ennemy, look_to, E_NORTH);
+            else if (room->time >= (20 * 2) && room->time <= (22 * 2))
+                move(ennemy, room, move_to, E_FORWARD);
+            else if (room->time == (23 * 2))
                 look(ennemy, look_to, E_WEST);
-                room->time = (-1) * 2;
-            }
+            else if (room->time >= (24 * 2) && room->time <= (28 * 2))
+                move(ennemy, room, move_to, E_LEFT);
+            if (room->time == (28 * 2))
+                room->time = (0) * 2;
         }
         else
         {

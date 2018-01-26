@@ -57,6 +57,46 @@ int		take_p(t_char *player, t_room *room)
         my_putchar('\n');
         return (0);
     }
+    else if (room->map[player->coord[E_X]][player->coord[E_Y] - 1] == 'x' &&
+        (room->map[player->coord[E_X]][player->coord[E_Y] - 2] == '<' || room->map[player->coord[E_X]][player->coord[E_Y] - 2] == '>' ||
+        room->map[player->coord[E_X]][player->coord[E_Y] - 2] == '^' || room->map[player->coord[E_X]][player->coord[E_Y] - 2] == 'v') && player->etat == E_GET_UP)
+    {
+        player->nb_key++;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mtakes the key.\033[0m");
+        my_putchar('\n');
+        return (0);
+    }
+    else if (room->map[player->coord[E_X]][player->coord[E_Y] + 1] == 'x' &&
+        (room->map[player->coord[E_X]][player->coord[E_Y] + 2] == '<' || room->map[player->coord[E_X]][player->coord[E_Y] + 2] == '>' ||
+        room->map[player->coord[E_X]][player->coord[E_Y] + 2] == '^' || room->map[player->coord[E_X]][player->coord[E_Y] + 2] == 'v') && player->etat == E_GET_UP)
+    {
+        player->nb_key++;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mtakes the key.\033[0m");
+        my_putchar('\n');
+        return (0);
+    }
+    else if (room->map[player->coord[E_X] - 1][player->coord[E_Y]] == 'x' &&
+        (room->map[player->coord[E_X] - 2][player->coord[E_Y]] == '<' || room->map[player->coord[E_X] - 2][player->coord[E_Y]] == '>' ||
+        room->map[player->coord[E_X] - 2][player->coord[E_Y]] == '^' || room->map[player->coord[E_X] - 2][player->coord[E_Y]] == 'v') && player->etat == E_GET_UP)
+    {
+        player->nb_key++;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mtakes the key.\033[0m");
+        my_putchar('\n');
+        return (0);
+    }
+    else if (room->map[player->coord[E_X] + 1][player->coord[E_Y]] == 'x' &&
+        (room->map[player->coord[E_X] + 2][player->coord[E_Y]] == '<' || room->map[player->coord[E_X] + 2][player->coord[E_Y]] == '>' ||
+        room->map[player->coord[E_X] + 2][player->coord[E_Y]] == '^' || room->map[player->coord[E_X] + 2][player->coord[E_Y]] == 'v') && player->etat == E_GET_UP)
+    {
+        player->nb_key++;
+        my_putstr(player->name);
+        my_putstr(" \033[0;34mtakes the key.\033[0m");
+        my_putchar('\n');
+        return (0);
+    }
     else if (player->etat != E_GET_UP)
     {
         my_putstr("\033[0;31myou must be standing to take the key\033[0m");
