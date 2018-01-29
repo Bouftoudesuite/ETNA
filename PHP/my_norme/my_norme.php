@@ -1,4 +1,13 @@
+#!/usr/bin/env php
 <?php
+// my_norme.php for my_norme in /Users/habi_a/PhpstormProjects/my_norme
+//
+// Made by HABI Acal
+// Login   <habi_a@etna-alternance.net>
+//
+// Started on  Wed Jan 10 16:16:26 2018 HABI Acal
+// Last update Wed Jan 10 16:16:59 2018 HABI Acal
+//
 function	func_check_extension($file)
 {
     if (!preg_match("#\w+[/\w+[.][c|h?]\z#", $file))
@@ -14,33 +23,33 @@ function	func_check_path($argc, $argv)
 {
     if ($argc != 2)
     {
-	    echo "\e[0;31m" . "Usage" . ":\e[0;m php my_norme.php <path>.\n";
+	    echo "\e[0;35m" . "Usage" . ":\e[0;m php my_norme.php 'path'.\n";
 	    return (false);
     }
     else if (!file_exists($argv[1]))
     {
-        echo "\e[0;37m" . "$argv[1]" .
+        echo "\e[0;35m" . "$argv[1]" .
             ":\e[0;m Le chemin spécifié est un introuvable.\n";
         return (false);
     }
     else if (!is_dir($argv[1]))
     {
-        echo "\e[0;37m" . "$argv[1]" .
+        echo "\e[0;35m" . "$argv[1]" .
             ":\e[0;m Le chemin spécifié n'est pas un dossier.\n";
         return (false);
     }
     else if (!is_readable($argv[1]))
     {
-        echo "\e[0;37m" . "$argv[1]" .
+        echo "\e[0;35m" . "$argv[1]" .
             ":\e[0;m L'accès au chemin spécifié est refusé.\n";
         return (false);
     }
     return (true);
 }
 
-function	func_count_number(&$struct)
+function	func_count_function(&$struct)
 {
-    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
+    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?#", $struct['lines']))
         $struct['function_number']++;
 }
 
@@ -70,7 +79,7 @@ function	func_define(&$struct)
 
 function	func_declare(&$struct)
 {
-    $pattern = "#\w+\s+\w+(\s+)?=(\s+)?('|\")?\w+(\"|')?(\s+)?;$#";
+    $pattern = "#\w+\s+\w+(\s+)?=(\s+)?('|\")?\w+(\"|')?(\s+)?;(\s+)?$#";
     if (preg_match($pattern,$struct['lines']))
     {
         echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
@@ -80,16 +89,38 @@ function	func_declare(&$struct)
     }
 }
 
+function	func_declare_jump(&$struct)
+{
+    $pattern = "#\w+\s+\w+(\s+)?;(\s+)?$|" .
+        "\w+\s+\w+(\s+)?=(\s+)?('|\")?\w+(\"|')?(\s+)?;(\s+)?$#";
+    if (preg_match($pattern, $struct['lines']))
+        $struct['declare'] = true;
+    else
+    {
+        if ($struct['declare'])
+        {
+            if (trim($struct['lines']) != '')
+            {
+                echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
+                    $struct['line'] .
+                    ":\e[0;m saut de ligne manquant après les déclarations\n";
+                $struct['nb_error']++;
+            }
+            $struct['declare'] = false;
+        }
+    }
+}
+
 function	func_double_jump(&$struct)
 {
-    if (trim($struct['lines']) != '' && $struct['jump'] == true)
+    if (trim($struct['lines']) != '' && $struct['jump'])
         $struct['jump'] = false;
-    else if (trim($struct['lines']) == '' && $struct['jump'] == false)
+    else if (trim($struct['lines']) == '' && !$struct['jump'])
         $struct['jump'] = true;
-    else if (trim($struct['lines']) == '' && $struct['jump'] == true)
+    else if (trim($struct['lines']) == '' && $struct['jump'])
     {
         echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
-            $struct['line'] . ":\e[0;m double saut de ligne\n";
+            $struct['line'] . ":\e[0;m double retour à la ligne\n";
         $struct['nb_error']++;
         $struct['jump'] = false;
     }
@@ -109,7 +140,7 @@ function    func_function_argument(&$struct)
         {
             echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
                         $struct['line'] .
-                        ":\e[0;m fonction avec plus de 4 arguments\n";
+                        ":\e[0;m fonction avec plus de 4 paramètres\n";
             $struct['nb_error']++;
         }
     }
@@ -117,22 +148,15 @@ function    func_function_argument(&$struct)
 
 function	func_function_line(&$struct)
 {
-    if ($struct['bracket'] != 0 && $struct['function'] == true)
+    if ($struct['bracket'] != 0 && $struct['function'])
         $struct['function_line']++;
-    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?$#", $struct['lines']))
-        $struct['function'] = true;
-    elseif (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
-    {
-        $struct['function'] = true;
+    if (trim($struct['lines']) == '{' && $struct['function'])
         $struct['bracket']++;
-    }
-    elseif (trim($struct['lines']) == '{' && $struct['function'] == true)
-        $struct['bracket']++;
-    elseif (trim($struct['lines']) == '}' && $struct['function'] == true)
+    elseif (trim($struct['lines']) == '}' && $struct['function'])
         $struct['bracket']--;
-    elseif ($struct['bracket'] == 0 && $struct['function'] == true)
+    elseif ($struct['bracket'] == 0 && $struct['function'])
     {
-        if ($struct['function_line'] >= 21)
+        if ($struct['function_line'] >= 26)
         {
             echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
                 $struct['line'] . ":\e[0;m fonction de plus de 25 lignes\n";
@@ -140,11 +164,33 @@ function	func_function_line(&$struct)
         }
         $struct['function_line'] = 0;
         $struct['function'] = false;
+        $struct['function_end'] = true;
     }
-
+    if (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?$#", $struct['lines']))
+        $struct['function'] = true;
+    elseif (preg_match("#\w+\s+\w+\s*\([^)]*\)(\s+)?({)?$#", $struct['lines']))
+    {
+        $struct['function'] = true;
+        $struct['bracket']++;
+    }
 }
 
-function	func_function_number($struct)
+function	func_function_return(&$struct)
+{
+    if ($struct['function_end'])
+    {
+        if (trim($struct['lines']) != '')
+        {
+            echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
+                $struct['line'] .
+                ":\e[0;m retour à la ligne après fonction manquant\n";
+            $struct['nb_error']++;
+        }
+        $struct['function_end'] = false;
+    }
+}
+
+function	func_function_number(&$struct)
 {
     if ($struct['function_number'] >= 6)
     {
@@ -154,15 +200,106 @@ function	func_function_number($struct)
     }
 }
 
+function	func_header(&$struct)
+{
+
+    if ($struct['line'] == 1)
+    {
+        if(!preg_match("#^(\/\*)$#", $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 2)
+    {
+        $pattern_two = "#^\*\* \w+[.][c|h] for \S+ in \S+$#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 3)
+    {
+        $pattern_two = "#^(\*\*) $#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    func_header_two($struct);
+}
+
+function	func_header_two(&$struct)
+{
+    if ($struct['line'] == 4)
+    {
+        if(!preg_match("#^(\*\*) Made by .+$#", $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 5)
+    {
+        $pattern_two = "#^(\*\*) Login   <\S+[_]\S+[@]etna-alternance.net>$#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 6)
+    {
+        $pattern_two = "#^(\*\*) $#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    func_header_three($struct);
+}
+
+function	func_header_three(&$struct)
+{
+    if ($struct['line'] == 7)
+    {
+        $pattern = "#^(\*\*) Started on  \w{3} \w{3}(\s)+[0-9]+ " .
+            "[0-9]{2}[:][0-9]{2}[:][0-9]{2} [0-9]{4} .+$#";
+        if(!preg_match($pattern, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 8)
+    {
+        $pattern_two = "#^(\*\*) Last update \w{3} \w{3}(\s)+[0-9]+ " .
+            "[0-9]{2}[:][0-9]{2}[:][0-9]{2} [0-9]{4} .+$#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    if ($struct['line'] == 9)
+    {
+        $pattern_two = "#^(\*\/)$#";
+        if(!preg_match($pattern_two, $struct['lines']))
+            $struct['bad_header'] = true;
+    }
+    func_header_four($struct);
+}
+
+function	func_header_four(&$struct)
+{
+    if ($struct['line'] == 10)
+    {
+        $struct['end_header'] = true;
+        $struct['stop_header'] = true;
+    }
+    if ($struct['bad_header'] && !$struct['stop_header'])
+    {
+        echo "\e[0;31mTRICHE: MAUVAIS HEADER\e[0;m\n";
+        $struct['nb_error']++;
+        $struct['bad_header'] = false;
+        $struct['stop_header'] = true;
+    }
+}
+
 function	func_include(&$struct)
 {
-    if (preg_match("@#(\s+)?(include)@", $struct['lines']))
+    if ($struct['end_header'])
     {
-        $pattern = "@#include\s\"\w+.h\"|#include\s<\w+.h>@";
-        if (!preg_match($pattern, $struct['lines']))
+        if(trim($struct['lines']) != '' &&
+            !preg_match("@#(\s+)?(include)@", $struct['lines']))
+            $struct['end_header'] = false;
+    }
+    else
+    {
+        if (preg_match("@#(\s+)?(include)@", $struct['lines']))
         {
             echo "\e[0;31mErreur:\e[0;34m " . $struct['file'] . ": ligne " .
-                $struct['line'] . ":\e[0;m mauvais include\n";
+                $struct['line'] . ":\e[0;m ordonnancement des includes\n";
             $struct['nb_error']++;
         }
     }
@@ -175,9 +312,14 @@ function	func_initialise_struct(&$struct, $file)
     $struct['lines'] = '';
     $struct['jump'] = false;
     $struct['function'] = false;
+    $struct['function_end'] = false;
     $struct['function_line'] = 0;
     $struct['function_number'] = 0;
+    $struct['declare'] = 0;
     $struct['bracket'] = 0;
+    $struct['bad_header'] = false;
+    $struct['stop_header'] = false;
+    $struct['end_header'] = false;
 }
 
 function	func_keywords()
@@ -194,7 +336,7 @@ function	func_print_result(&$struct)
 {
     if (isset($struct['nb_error']))
     {
-	if ($struct['nb_error'] == 0)
+        if ($struct['nb_error'] == 0)
            echo "Vous avez fait \e[0;32m" . $struct['nb_error'] .
             "\e[0;m faute de norme.\n";
     	else
@@ -210,17 +352,24 @@ function	func_scan_file($file, $handle, &$struct)
     while (!feof($handle))
     {
         $struct['lines'] = fgets($handle);
-        func_column($struct);
-        func_count_number($struct);
-        func_declare($struct);
-        func_define($struct);
-        func_double_jump($struct);
-        func_function_argument($struct);
-        func_function_line($struct);
-        func_include($struct);
-        func_space_end($struct);
-        func_space_keyword($struct);
-        func_tab_declare($struct);
+        func_header($struct);
+        //var_dump($struct);
+        if ($struct['line'] > 9)
+        {
+            func_column($struct);
+            func_count_function($struct);
+            func_declare($struct);
+            func_declare_jump($struct);
+            func_define($struct);
+            func_double_jump($struct);
+            func_function_argument($struct);
+            func_function_line($struct);
+            func_function_return($struct);
+            func_include($struct);
+            func_space_end($struct);
+            func_space_keyword($struct);
+            func_tab_declare($struct);
+        }
         $struct['line']++;
     }
     func_function_number($struct);
@@ -234,7 +383,7 @@ function	func_space_end(&$struct)
             $struct['line'] . ":\e[0;m espace en fin de ligne\n";
         $struct['nb_error']++;
     }
-}	
+}
 
 function	func_space_keyword(&$struct)
 {
@@ -269,9 +418,14 @@ function	func_struct()
         'nb_error' => 0,
         'jump' => false,
         'function' => false,
+        'function_end' => false,
         'function_line' => 0,
         'function_number' => 0,
-        'bracket' => 0
+        'declare' => false,
+        'bracket' => 0,
+        'bad_header' => false,
+        'stop_header' => false,
+        'end_header' =>false
     ];
     return ($struct);
 }
@@ -307,12 +461,13 @@ function	func_tab_declare(&$struct)
 if (func_check_path($argc, $argv))
 {
     $i = 2;
-    $files = scandir($argv[1]);
+    $path = $argv[1];
+    $files = scandir($path);
     $struct = func_struct();
     while (isset($files[$i]))
     {
         $file = $files[$i];
-        $full_file = "./" . $argv[1] . $file;
+        $full_file = "./" . $path . $file;
         if (func_check_extension($file))
         {
             $handle = fopen($full_file, "r");
@@ -322,10 +477,7 @@ if (func_check_path($argc, $argv))
                  ":\e[0;m Echec lors de l'ouverture du fichier.\n";
             }
             else
-            {
-                // On commence le scan du fichier
                 func_scan_file($file, $handle, $struct);
-            }
             fclose($handle);
         }
         $i++;
