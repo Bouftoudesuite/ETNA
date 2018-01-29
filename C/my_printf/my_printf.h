@@ -1,14 +1,14 @@
 /*
 ** my_printf.h for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
-** 
+**
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
-** 
+**
 ** Started on  Tue Dec 26 14:17:41 2017 HABI Açal
-** Last update Sat Jan  6 22:22:54 2018 HABI Açal
+** Last update Mon Jan 29 22:37:49 2018 HABI Açal
 */
 #ifndef		_MY_PRINTF_H_
-#define		_MY_PRINTF_H_
+# define	_MY_PRINTF_H_
 
 #include	<stdarg.h>
 

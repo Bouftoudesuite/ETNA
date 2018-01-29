@@ -5,7 +5,7 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Tue Dec 26 13:24:00 2017 HABI Açal
-## Last update Thu Jan  4 21:25:15 2018 HABI Açal
+## Last update Mon Jan 29 22:05:06 2018 HABI Açal
 ##
 CC	=	gcc
 
@@ -25,24 +25,25 @@ SRC     =   	my_check_pourcent.c \
 		my_nbrlen.c \
 		my_put_bis.c
 
-CFLAGS 	 = 	-W -Wall -Werror -pedantic -I./
+CFLAGS 	 = 	-W -Wall -Werror -Wextra -pedantic -I./
 
 LDFLAGS  = 	-lmy
 
 RM	 =	rm -f
 
+all:		create
+
 create:
 		$(CC) $(CFLAGS) $(LDFLAGS) -c $(SRC)
 		ar rc $(NAME) *.o
-		ranlib $(NAME)  
+		ranlib $(NAME)
 
 clean:			
 		$(RM) *.o
+		$(RM) *~
 
 fclean:		clean
 		$(RM) $(NAME)
-
-all:		create clean
 
 re:		fclean all
 
