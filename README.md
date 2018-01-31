@@ -1,2 +1,1 @@
-Pour les exercices de piscine, je commit seulement ceux pour lesquels je fus validé.
-Attention aux fautes de norme...
+Projets et exercices réalisés au sein de mon école.
