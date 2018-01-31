@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-int		main(int argc, char *argv[])
+int		main()
 {
-  int		i;
+  unsigned int	i;
   std::string	str;
 
   std::cin >> str;

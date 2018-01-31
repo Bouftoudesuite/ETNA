@@ -6,12 +6,10 @@ SRC = main.cpp
 
 CFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
 
-OBJ = $(SRC:%.cpp=%.o)
-
 all	:	$(NAME)
 
-$(NAME)	:	$(OBJ)
-		$(CC) $(OBJ) -o $(NAME)
+$(NAME)	:	$(SRC)
+		$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean	:
 		$(RM) $(OBJ)
