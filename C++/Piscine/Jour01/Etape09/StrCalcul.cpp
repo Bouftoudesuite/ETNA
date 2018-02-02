@@ -22,7 +22,8 @@ std::string	StrFirst(std::string operation)
   std::string	str_first;
 
   i = 0;
-  while (operation[i] != '+')
+  while (operation[i] != '+' && operation[i] != '-' && operation[i] != '*'
+	 && operation[i] != '/')
   {
     str_first.push_back(operation[i]);
     i++;
@@ -36,7 +37,8 @@ std::string	StrSecond(std::string operation)
   std::string	str_second;
 
   i = 0;
-  while (operation[i] != '+')
+  while (operation[i] != '+' && operation[i] != '-' && operation[i] != '*'
+	 && operation[i] != '/')
     i++;
   i++;
   while (i < operation.size())
@@ -47,17 +49,40 @@ std::string	StrSecond(std::string operation)
   return (str_second);
 }
 
+char		FindOperator(std::string operation)
+{
+  unsigned int	i;
+
+  i = 0;
+  while (i < operation.size())
+  {
+    if (operation[i] == '+' || operation[i] == '-' || operation[i] == '*'
+	|| operation[i] == '/')
+      return (operation[i]);
+    i++;
+  }
+  return ('\0');
+}
+
 int		StrCalcul(std::string operation)
 {
+  char		signe;
   unsigned int  nb_first;
   unsigned int  nb_second;
-  std::string	str_first;
-  std::string	str_second;
 
   operation = StrTrim(operation);
-  str_first = StrFirst(operation);
-  str_second = StrSecond(operation);
-  nb_first = std::stoi(str_first);
-  nb_second = std::stoi(str_second);
-  return (nb_first + nb_second);
+  signe = FindOperator(operation);
+  nb_first = std::stoi(StrFirst(operation));
+  nb_second = std::stoi(StrSecond(operation));
+  if (signe == '+')
+    return (nb_first + nb_second);
+  else if (signe == '-')
+    return (nb_first - nb_second);
+  else if (signe == '*')
+    return (nb_first * nb_second);
+  else if (signe == '/' && nb_second != 0)
+    return (nb_first / nb_second);
+  else if (signe == '/' && nb_second == 0)
+    std::cout << "Error" << std::endl;
+  return (0);
 }

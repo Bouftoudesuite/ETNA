@@ -51,13 +51,9 @@ int		StrAdd(std::string operation)
 {
   unsigned int  nb_first;
   unsigned int  nb_second;
-  std::string	str_first;
-  std::string	str_second;
 
   operation = StrTrim(operation);
-  str_first = StrFirst(operation);
-  str_second = StrSecond(operation);
-  nb_first = std::stoi(str_first);
-  nb_second = std::stoi(str_second);
+  nb_first = std::stoi(StrFirst(operation));
+  nb_second = std::stoi(StrSecond(operation));
   return (nb_first + nb_second);
 }

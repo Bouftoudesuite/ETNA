@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 int		StrCountChar(std::string str, char c)

@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 bool		StrContains(std::string str, char c)
