@@ -1,40 +1,49 @@
 ##
-## Makefile for Cardboard_Pulley in /cygdrive/c/Users/Habi/Documents/ETNA/C/Cardboard_Pulley
+## Makefile for Cardboard Pulley in /Users/habi_a/Documents/ETNA/C/Cardboard_Pulley/etape2
 ## 
 ## Made by HABI Açal
 ## Login   <habi_a@etna-alternance.net>
 ## 
-## Started on  Thu Jan 25 21:45:31 2018 HABI Açal
-## Last update Thu Jan 25 22:26:03 2018 HABI Açal
+## Started on  Tue Jan 23 17:05:52 2018 HABI Açal
+## Last update Thu Jan 25 11:18:39 2018 HABI Açal
 ##
-MAKE	=	make -C
+CC	=	gcc
 
-all     :
-		$(MAKE) etape1 all
-		$(MAKE) etape2 all
-		$(MAKE) etape3 all
-		$(MAKE) etape4 all
+NAME	=	not_mg
 
-clean   :
-		$(MAKE) etape1 clean 
-		$(MAKE) etape2 clean
-		$(MAKE) etape3 clean
-		$(MAKE) etape4 clean
+SRC	=	src/check_move.c \
+		src/check_die.c \
+		src/clear_screen.c \
+		src/ennemy.c \
+		src/init.c \
+		src/input.c \
+		src/main.c \
+		src/move.c \
+		src/look.c \
+		src/my_putchar.c \
+		src/my_putstr.c \
+		src/my_put_nbr.c \
+		src/room.c \
+		src/perform.c
 
-fclean	:
-		$(MAKE) etape1 fclean
-		$(MAKE) etape2 fclean
-		$(MAKE) etape3 fclean
-		$(MAKE) etape4 fclean
+RM	=	rm -f
 
-re	:
-		$(MAKE) etape1 re
-		$(MAKE) etape2 re
-		$(MAKE) etape3 re
-		$(MAKE) etape4 re
+OBJS	=	$(SRC:%.c=%.o)
 
-.PHONY	:
-		$(MAKE) etape1 .PHONY
-		$(MAKE) etape2 .PHONY
-		$(MAKE) etape3 .PHONY
-		$(MAKE) etape4 .PHONY
+CFLAGS	=	-W -Wall -Werror -Wextra -pedantic -I./
+
+all	:	$(NAME)
+
+$(NAME)	:	$(OBJS)
+		$(CC) $(OBJS) -o $(NAME)
+
+clean	:
+		$(RM) $(OBJS)
+		$(RM) *~
+
+fclean	:	clean
+		$(RM) $(NAME)
+
+re	:	fclean all
+
+.PHONY : 	clean fclean all re
