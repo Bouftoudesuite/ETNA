@@ -1,4 +1,4 @@
-<h1>Programmation elementaire en langage-C</h1>
+<h1>Programmation élementaire en langage C</h1>
 <ul>
 <li>Cardboard Pulley est un jeu en ligne de commande simulant une infriltration dans une forteresse ennemie.</li>
 <li>Colle permet de générer un carré de la taille et motif souhaitée sur un terminal.</li>
