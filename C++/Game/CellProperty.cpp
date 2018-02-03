@@ -1,5 +1,5 @@
 CellProperty::CellProperty() :
-    _walkable(false);
+    _walkable(false),
     _swimmable(false),
     _flyable(false),
     _event(false),
@@ -72,9 +72,3 @@ void CellProperty::setNotMonster()
 {
     this->_monster = false;
 }
-
-bool _walkable;
-bool _swimmable;
-bool _flyable;
-bool _event;
-bool _monster;
