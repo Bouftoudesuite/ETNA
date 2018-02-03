@@ -30,7 +30,7 @@ RM	=	rm -f
 
 OBJS	=	$(SRC:%.c=%.o)
 
-CFLAGS	=	-W -Wall -Werror -Wextra -pedantic -I./
+CFLAGS	=	-W -Wall -Werror -Wextra -pedantic -I/src
 
 all	:	$(NAME)
 
