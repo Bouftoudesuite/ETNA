@@ -6,6 +6,14 @@ CellProperty::CellProperty() :
     _monster(false)
 {}
 
+CellProperty::CellProperty(CellType newCellType) :
+    _walkable(false),
+    _swimmable(false),
+    _flyable(false),
+    _event(false),
+    _monster(false)
+{}
+
 bool CellProperty::isWalkable() const
 {
     return (this->_walkable);

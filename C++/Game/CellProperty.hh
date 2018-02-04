@@ -2,6 +2,7 @@ class CellProperty
 {
 public:
     CellProperty();
+    CellProperty(CellType newCellType);
     bool isWalkable() const;
     bool isSwimmable() const;
     bool isFlyable() const;
