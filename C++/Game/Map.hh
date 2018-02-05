@@ -1,3 +1,6 @@
+#include "CellType.hh"
+#include "CellProperty.hh"
+
 class Map
 {
 public:

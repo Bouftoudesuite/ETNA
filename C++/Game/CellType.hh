@@ -3,10 +3,10 @@
 
 enum CellType
 {
-	GrassCell = 'G',
-	WaterCell = 'W',
-	RockCell = 'R',
-	MountainCell = 'M'
+	G,
+	W,
+	R,
+	M
 };
 
 CellType** parseMap();
