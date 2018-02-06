@@ -1,4 +1,8 @@
+#ifndef _CELLPROPERTY_H_
+# define _CELLPROPERTY_H_
+
 #include "CellType.hh"
+
 #define NO_FLAG 0
 #define FLYABLE 1
 #define WALKABLE 2
@@ -33,3 +37,5 @@ private:
 };
 
 int getCellFlags(CellType type);
+
+#endif

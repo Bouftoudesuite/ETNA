@@ -3,7 +3,7 @@
 #include "Map.hh"
 #include "CellType.hh"
 
-CellType** parseMap()
+CellType** parseMap(int* width, int* height)
 {
     char tmp;
     unsigned int i;
@@ -16,21 +16,17 @@ CellType** parseMap()
 
     i = 0;
     k = 0;
-    std::cin >> column;
-    std::cin >> row;
-    if (row <= 0 || column <= 0)
-        return (NULL);
-    _cells = new CellType*[column];
-    while (i < column)
+    _cells = new CellType*[width];
+    while (i < width)
     {
-        _cells[i] = new CellType[row];
+        _cells[i] = new CellType[height];
         i++;
     }
     j = 0;
-    while (j < row)
+    while (j < height)
     {
         i = 0;
-        while (i < column)
+        while (i < width)
         {
             std::cin >> tmp;
             if (tmp == 'G')
@@ -55,5 +51,5 @@ CellType** parseMap()
         }
         j++;
     }
-    return _cells;
+    return (_cells);
 }

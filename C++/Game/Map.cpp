@@ -2,28 +2,100 @@
 #include "CellType.hh"
 #include "CellProperty.hh"
 
-Map::Map() : _cells(parseMap())
+Map::Map(const int width, const int height) :
+    _width(width),
+    _height(height),
+    _cells(parseMap(_width, _height))
 {}
 
-Map::~Map(column)
+Map::Map(const Map& M) : _width(M._width), _height(M._height), _cells(M._cells)
+{}
+
+Map::Map(Map && M) : _width(M._width), _height(M._height), _cells(M._cells)
 {
     unsigned int i;
 
     i = 0;
-    while (i < column)
+    while (i < this->_width)
     {
-        delete[] this->_cells[column];
+        delete[] this->_cells[this->width];
+        i++;
+    }
+    delete[] this->_cells;
+    M._width = 0;
+    M._height = 0;
+    M._cells = NULL;
+}
+
+Map& Map::operator=(const Map& M)
+{
+    if (this != M)
+    {
+        unsigned int i;
+
+        i = 0;
+        while (i < this->_width)
+        {
+            delete[] this->_cells[this->width];
+            i++;
+        }
+        delete[] this->_cells;
+        _width = M._width;
+        _height = M._height;
+        _cells = M._cells;
+    }
+    return *this;
+}
+
+Map& Mapp::operator=(Map && M)
+{
+    if (this != M)
+    {
+        unsigned int i;
+
+        i = 0;
+        while (i < this->_width)
+        {
+            delete[] this->_cells[this->width];
+            i++;
+        }
+        delete[] this->_cells;
+        _width = M._width;
+        _height = M._height;
+        _cells = M._cells;
+        i = 0;
+        while (i < this->_width)
+        {
+            delete[] this->_cells[this->width];
+            i++;
+        }
+        delete[] this->_cells;
+        M._width = 0;
+        M._height = 0;
+        M._cells = NULL;
+    }
+    return *this;
+}
+
+Map::~Map()
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < this->_width)
+    {
+        delete[] this->_cells[this->width];
         i++;
     }
     delete[] this->_cells;
 }
 
-CellType Map::getCell(int x, int y) const
+CellType Map::getCell(const int x, const int y) const
 {
     return (this->_cells[x][y]);
 }
 
-CellProperty Map::getCellProperties(int x, int y) const
+CellProperty Map::getCellProperties(const int x, const int y) const
 {
     int i;
     CellProperty cell();

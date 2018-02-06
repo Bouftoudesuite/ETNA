@@ -1,3 +1,4 @@
+#include "Map.hh"
 #include "CellProperty.hh"
 #include "CellType.hh"
 
@@ -14,11 +15,6 @@ int getCellFlags(CellType type)
     return (NO_FLAG);
 }
 
-bool hasFlag(CellType type, CellProperty property)
-{
-    ;
-}
-
 CellProperty::CellProperty() :
     _walkable(false),
     _swimmable(false),
@@ -33,7 +29,35 @@ CellProperty::CellProperty(CellType newCellType) :
     _flyable(false),
     _event(false),
     _monster(false)
-{}
+{
+    if (Map::getCellFlags(newCellType) == FLYABLE)
+        _flyable = true;
+    else if (Map::getCellFlags(newCellType) == WALKABLE)
+        _walkable = true;
+    else if (Map::getCellFlags(newCellType) == SWIMMABLE)
+        _swimmable = true;
+    else if (Map::getCellFlags(newCellType) == (FLYABLE | WALKABLE)
+    {
+        _flyable = true;
+        _walkable = true;
+    }
+    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
+    {
+        _swimmable = true;
+        _flyable = true;
+    }
+    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
+    {
+        _swimmable = true;
+        _walkable = true;
+    }
+    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
+    {
+        _swimmable = true;
+        _walkable = true;
+        _flyable = true;
+    }
+}
 
 bool CellProperty::isWalkable() const
 {
