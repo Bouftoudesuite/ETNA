@@ -4,6 +4,7 @@
 class Map
 {
 public:
+    Map();
     ~Map();
     CellType getCell(int x, int y) const;
     CellProperty getCellProperties(int x, int y) const;

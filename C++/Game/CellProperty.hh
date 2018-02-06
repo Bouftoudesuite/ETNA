@@ -1,3 +1,9 @@
+#include "CellType.hh"
+#define NO_FLAG 0
+#define FLYABLE 1
+#define WALKABLE 2
+#define SWIMMABLE 4
+
 class CellProperty
 {
 public:
@@ -25,3 +31,5 @@ private:
     bool _event;
     bool _monster;
 };
+
+int getCellFlags(CellType type);

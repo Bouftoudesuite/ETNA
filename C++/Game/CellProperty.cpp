@@ -1,3 +1,24 @@
+#include "CellProperty.hh"
+#include "CellType.hh"
+
+int getCellFlags(CellType type)
+{
+    if (type == GrassCell)
+        return (SWIMMABLE | FLYABLE);
+    else if (type == WaterCell)
+        return (SWIMMABLE | WALKABLE);
+    else if (type == RockCell)
+        return (FLYABLE);
+    else if (type == MountainCell)
+        return (NO_FLAG);
+    return (NO_FLAG);
+}
+
+bool hasFlag(CellType type, CellProperty property)
+{
+    ;
+}
+
 CellProperty::CellProperty() :
     _walkable(false),
     _swimmable(false),
@@ -28,7 +49,7 @@ bool CellProperty::isFlyable() const
 }
 bool CellProperty::isEvent() const
 {
-    return (this->_event)
+    return (this->_event);
 }
 bool CellProperty::isMonster() const
 {
