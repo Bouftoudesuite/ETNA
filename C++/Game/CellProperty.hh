@@ -37,5 +37,7 @@ private:
 };
 
 int getCellFlags(CellType type);
+bool operator==(CellProperty const& a, CellProperty const& b);
+bool operator!=(CellProperty const& a, CellProperty const& b);
 
 #endif

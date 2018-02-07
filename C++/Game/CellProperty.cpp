@@ -30,28 +30,28 @@ CellProperty::CellProperty(CellType newCellType) :
     _event(false),
     _monster(false)
 {
-    if (this.getCellFlags(newCellType) == FLYABLE)
+    if (CellProperty::getCellFlags(newCellType) == FLYABLE)
         _flyable = true;
-    else if (this.getCellFlags(newCellType) == WALKABLE)
+    else if (CellProperty::getCellFlags(newCellType) == WALKABLE)
         _walkable = true;
-    else if (this.getCellFlags(newCellType) == SWIMMABLE)
+    else if (CellProperty::getCellFlags(newCellType) == SWIMMABLE)
         _swimmable = true;
-    else if (this.getCellFlags(newCellType) == (FLYABLE | WALKABLE)
+    else if (CellProperty::getCellFlags(newCellType) == (FLYABLE | WALKABLE)
     {
         _flyable = true;
         _walkable = true;
     }
-    else if (this.getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
+    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
     {
         _swimmable = true;
         _flyable = true;
     }
-    else if (this.getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
+    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
     {
         _swimmable = true;
         _walkable = true;
     }
-    else if (this.getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
+    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
     {
         _swimmable = true;
         _walkable = true;
@@ -124,4 +124,24 @@ void CellProperty::setMonster()
 void CellProperty::setNotMonster()
 {
     _monster = false;
+}
+
+bool operator==(CellProperty const& a, CellProperty const& b)
+{
+    if (a._walkable == b._walkable && a.swimmable == b._swimmable
+        && a.flyable == b._flyable && a.event == b._event
+        && a.monster == b._monster)
+            return (true);
+        else
+            return (false);
+}
+
+bool operator!=(CellProperty const& a, CellProperty const& b)
+{
+    if (a._walkable != b._walkable || a.swimmable != b._swimmable
+        || a.flyable != b._flyable || a.event != b._event
+        || a.monster != b._monster)
+        return (true);
+    else
+        return (false);
 }

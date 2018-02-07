@@ -3,7 +3,7 @@
 Unit::Unit(const int x, const int y) : _x(x), _y(y)
 {}
 
-UnitField Unit::getField()
+UnitField Unit::getField() const
 {
     return (Ground);
 }

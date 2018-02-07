@@ -1,6 +1,8 @@
-#include "map.hh"
-#include "CellType.hh"
 #include "CellProperty.hh"
+#include "CellType.hh"
+#include "Map.hh"
+#include "Unit.hh"
+#include "UnitField.hh"
 
 Map::Map(const int width, const int height) :
     _width(6),
@@ -95,12 +97,12 @@ CellType Map::getCell(const int x, const int y) const
     return (_cells[x][y]);
 }
 
-CellProperty Map::getCellProperties(const int x, const int y) const
+CellProperty Map::getCellProperties(const int x, const int y)
 {
     int i;
     CellProperty cell();
 
-    i = getCellFlags(this.getCell(x, y));
+    i = getCellFlags(Map::getCell(x, y));
     if (i == FLYABLE)
         cell._flyable = true;
     else if (i == WALKABLE)
@@ -134,7 +136,17 @@ CellProperty Map::getCellProperties(const int x, const int y) const
 bool Map::canGo(int x, int y, const Unit& unit)
 {
     UnitField field;
+    CellProperty property;
 
-    field = unit.getField();
-    return;
+    property = this->Map::getCellProperties(x, y);
+    field = unit.Unit::getField();
+
+    if (field == Sky && property._flyable)
+        return (true);
+    else if (field == Ground && property._walkable)
+        return (true);
+    else if (field == Water && property._swimmable)
+        return (true);
+    else
+        return (false);
 }

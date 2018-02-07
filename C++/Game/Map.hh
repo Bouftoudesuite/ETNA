@@ -11,10 +11,10 @@ public:
     Map(Map && M);
     Map& operator=(const Map& A);
     Map& operator=(Map && M);
-    ~Map();
     CellType getCell(const int x, const int y) const;
-    CellProperty getCellProperties(const int x, const int y) const;
+    CellProperty getCellProperties(const int x, const int y);
     bool canGo(int x, int y, Unit const&);
+    ~Map();
 private:
     int _width;
     int _height;
