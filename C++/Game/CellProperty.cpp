@@ -30,28 +30,28 @@ CellProperty::CellProperty(CellType newCellType) :
     _event(false),
     _monster(false)
 {
-    if (Map::getCellFlags(newCellType) == FLYABLE)
+    if (this.getCellFlags(newCellType) == FLYABLE)
         _flyable = true;
-    else if (Map::getCellFlags(newCellType) == WALKABLE)
+    else if (this.getCellFlags(newCellType) == WALKABLE)
         _walkable = true;
-    else if (Map::getCellFlags(newCellType) == SWIMMABLE)
+    else if (this.getCellFlags(newCellType) == SWIMMABLE)
         _swimmable = true;
-    else if (Map::getCellFlags(newCellType) == (FLYABLE | WALKABLE)
+    else if (this.getCellFlags(newCellType) == (FLYABLE | WALKABLE)
     {
         _flyable = true;
         _walkable = true;
     }
-    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
+    else if (this.getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
     {
         _swimmable = true;
         _flyable = true;
     }
-    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
+    else if (this.getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
     {
         _swimmable = true;
         _walkable = true;
     }
-    else if (Map::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
+    else if (this.getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
     {
         _swimmable = true;
         _walkable = true;
@@ -61,67 +61,67 @@ CellProperty::CellProperty(CellType newCellType) :
 
 bool CellProperty::isWalkable() const
 {
-    return (this->_walkable);
+    return (_walkable);
 }
 bool CellProperty::isSwimmable() const
 {
-    return (this->_swimmable);
+    return (_swimmable);
 }
 bool CellProperty::isFlyable() const
 {
-    return (this->_flyable);
+    return (_flyable);
 }
 bool CellProperty::isEvent() const
 {
-    return (this->_event);
+    return (_event);
 }
 bool CellProperty::isMonster() const
 {
-    return (this->_monster);
+    return (_monster);
 }
 void CellProperty::setWalkable()
 {
-    this->_walkable = true;
+    _walkable = true;
 }
 void CellProperty::setNotWalkable()
 {
-    this->_walkable = false;
+    _walkable = false;
 }
 void CellProperty::setSwimmable()
 {
-    this->_swimmable = true;
+    _swimmable = true;
 }
 void CellProperty::setNotSwimmable()
 {
-    this->_swimmable = false;
+    _swimmable = false;
 }
 
 void CellProperty::setFlyable()
 {
-    this->_flyable = true;
+    _flyable = true;
 }
 
 void CellProperty::setNotFlyable()
 {
-    this->_flyable = false;
+    _flyable = false;
 }
 
 void CellProperty::setEvent()
 {
-    this->_event = true;
+    _event = true;
 }
 
 void CellProperty::setNotEvent()
 {
-    this->_event = false;
+    _event = false;
 }
 
 void CellProperty::setMonster()
 {
-    this->_monster = true;
+    _monster = true;
 }
 
 void CellProperty::setNotMonster()
 {
-    this->_monster = false;
+    _monster = false;
 }

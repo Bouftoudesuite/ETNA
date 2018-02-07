@@ -55,17 +55,17 @@ Castle(const std::string& name) : _nbTowers(0), _name(name)
 
 int Castle::GetNbTowers() const
 {
-    return (this->_nbTowers);
+    return (_nbTowers);
 }
 
 const std::string& Castle::GetName() const
 {
-    return (this->_name);
+    return (_name);
 }
 
 void Castle::SetNbTowers(const int nbTowers)
 {
-    this->_nbTowers = nbTowers;
+    _nbTowers = nbTowers;
 }
 
 void Castle::CloseGates()
