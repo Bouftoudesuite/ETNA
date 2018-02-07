@@ -12,7 +12,7 @@ public:
 private:
     int _nbTowers;
     const std::string _name;
-}
+};
 
 bool operator==(Castle const& a, Castle const& b);
 bool operator!=(Castle const& a, Castle const& b);

@@ -4,7 +4,7 @@ class Unit
 {
 public:
     Unit(const int x, const int y);
-    UnitField getField() const;
+    virtual UnitField getField() const;
 private:
     int _x;
     int _y;
