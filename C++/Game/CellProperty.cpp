@@ -128,20 +128,14 @@ void CellProperty::setNotMonster()
 
 bool operator==(CellProperty const& a, CellProperty const& b)
 {
-    if (a._walkable == b._walkable && a.swimmable == b._swimmable
-        && a.flyable == b._flyable && a.event == b._event
-        && a.monster == b._monster)
-            return (true);
-        else
-            return (false);
+    return (a._walkable == b._walkable && a._swimmable == b._swimmable
+        && a._flyable == b._flyable && a._event == b._event
+        && a._monster == b._monster);
 }
 
 bool operator!=(CellProperty const& a, CellProperty const& b)
 {
-    if (a._walkable != b._walkable || a.swimmable != b._swimmable
-        || a.flyable != b._flyable || a.event != b._event
-        || a.monster != b._monster)
-        return (true);
-    else
-        return (false);
+    return (a._walkable != b._walkable || a._swimmable != b._swimmable
+        || a._flyable != b._flyable || a._event != b._event
+        || a._monster != b._monster);
 }

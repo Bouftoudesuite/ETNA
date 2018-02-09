@@ -3,10 +3,10 @@
 class Castle
 {
 public:
-    Castle(const std::string& name);
+    explicit Castle(const std::string& name);
     int GetNbTowers() const;
     const std::string& GetName() const;
-    void SetNbTowers(const int nbTowers);
+    void SetNbTowers(int nbTowers);
     void CloseGates();
     void CloseGates(int nbDoors);
 private:

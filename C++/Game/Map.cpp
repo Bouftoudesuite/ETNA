@@ -1,19 +1,20 @@
+#include <string>
 #include "CellProperty.hh"
 #include "CellType.hh"
 #include "Map.hh"
 #include "Unit.hh"
 #include "UnitField.hh"
 
-Map::Map(const int width, const int height) :
+Map::Map(int *width, int *height) :
     _width(6),
     _height(5),
-    _cells(parseMap(_width, _height))
+    _cells(parseMap(&_width, &_height))
 {}
 
-Map::Map(const Map& M) : _width(M._width), _height(M._height), _cells(M._cells)
+Map::Map(const Map& M) noexcept : _width(M._width), _height(M._height), _cells(M._cells)
 {}
 
-Map::Map(Map && M) : _width(M._width), _height(M._height), _cells(M._cells)
+Map::Map(Map && M) noexcept : _width(M._width), _height(M._height), _cells(M._cells)
 {
     unsigned int i;
 
@@ -26,56 +27,50 @@ Map::Map(Map && M) : _width(M._width), _height(M._height), _cells(M._cells)
     delete[] _cells;
     M._width = 0;
     M._height = 0;
-    M._cells = NULL;
+    M._cells = nullptr;
 }
 
 Map& Map::operator=(const Map& M)
 {
-    if (this != M)
-    {
-        unsigned int i;
+    unsigned int i;
 
-        i = 0;
-        while (i < _width)
-        {
-            delete[] _cells[_width];
-            i++;
-        }
-        delete[] _cells;
-        _width = M._width;
-        _height = M._height;
-        _cells = M._cells;
+    i = 0;
+    while (i < _width)
+    {
+        delete[] _cells[_width];
+        i++;
     }
+    delete[] _cells;
+    _width = M._width;
+    _height = M._height;
+    _cells = M._cells;
     return (*this);
 }
 
-Map& Mapp::operator=(Map && M)
+Map& Map::operator=(Map && M) noexcept
 {
-    if (this != M)
-    {
-        unsigned int i;
+    unsigned int i;
 
-        i = 0;
-        while (i < _width)
-        {
-            delete[] _cells[_width];
-            i++;
-        }
-        delete[] _cells;
-        _width = M._width;
-        _height = M._height;
-        _cells = M._cells;
-        i = 0;
-        while (i < _width)
-        {
-            delete[] _cells[_width];
-            i++;
-        }
-        delete[] _cells;
-        M._width = 0;
-        M._height = 0;
-        M._cells = NULL;
+    i = 0;
+    while (i < _width)
+    {
+        delete[] _cells[_width];
+        i++;
     }
+    delete[] _cells;
+    _width = M._width;
+    _height = M._height;
+    _cells = M._cells;
+    i = 0;
+    while (i < _width)
+    {
+        delete[] _cells[_width];
+        i++;
+    }
+    delete[] _cells;
+    M._width = 0;
+    M._height = 0;
+    M._cells = nullptr;
     return (*this);
 }
 
@@ -100,35 +95,35 @@ CellType Map::getCell(const int x, const int y) const
 CellProperty Map::getCellProperties(const int x, const int y)
 {
     int i;
-    CellProperty cell();
+    CellProperty cell;
 
     i = getCellFlags(Map::getCell(x, y));
     if (i == FLYABLE)
-        cell._flyable = true;
+        cell.CellProperty::setFlyable();
     else if (i == WALKABLE)
-        cell._walkable = true;
+        cell.setWalkable();
     else if (i == SWIMMABLE)
-        cell._swimmable = true;
-    else if (i == (FLYABLE | WALKABLE)
+        cell.setSwimmable();
+    else if (i == (FLYABLE | WALKABLE))
     {
-        cell._flyable = true;
-        cell._walkable = true;
+        cell.setFlyable();
+        cell.setWalkable();
     }
     else if (i == (SWIMMABLE | FLYABLE))
     {
-        cell._swimmable = true;
-        cell._flyable = true;
+        cell.setSwimmable();
+        cell.setFlyable();
     }
     else if (i == (SWIMMABLE | WALKABLE))
     {
-        cell._swimmable = true;
-        cell._walkable = true;
+        cell.setSwimmable();
+        cell.setWalkable();
     }
     else if (i == (SWIMMABLE | WALKABLE | FLYABLE))
     {
-        cell._swimmable = true;
-        cell._walkable = true;
-        cell._flyable = true;
+        cell.setSwimmable();
+        cell.setWalkable();
+        cell.setFlyable();
     }
     return (cell);
 }
@@ -138,15 +133,13 @@ bool Map::canGo(int x, int y, const Unit& unit)
     UnitField field;
     CellProperty property;
 
-    property = this->Map::getCellProperties(x, y);
-    field = unit.Unit::getField();
-
-    if (field == Sky && property._flyable)
+    property = this->getCellProperties(x, y);
+    field = unit.getField();
+    if (field == Sky && property.isFlyable())
         return (true);
-    else if (field == Ground && property._walkable)
+    else if (field == Ground && property.isWalkable())
         return (true);
-    else if (field == Water && property._swimmable)
+    else if (field == Water && property.isSwimmable())
         return (true);
-    else
-        return (false);
+    return (false);
 }

@@ -3,16 +3,18 @@
 
 #include "CellType.hh"
 #include "CellProperty.hh"
+#include "Unit.hh"
 
 class Map
 {
 public:
+    Map::Map(int *width, int *height);
     Map(const Map& M);
-    Map(Map && M);
+    Map(Map && M) noexcept ;
     Map& operator=(const Map& A);
-    Map& operator=(Map && M);
-    CellType getCell(const int x, const int y) const;
-    CellProperty getCellProperties(const int x, const int y);
+    Map& operator=(Map && M) noexcept ;
+    CellType getCell(int x, int y) const;
+    CellProperty getCellProperties(int x, int y);
     bool canGo(int x, int y, Unit const&);
     ~Map();
 private:
@@ -21,5 +23,4 @@ private:
     CellType **_cells;
 };
 
-Map& A::operator=(Map &&);
 #endif

@@ -4,5 +4,5 @@
 class Marine : public Unit
 {
 public:
-    virtual UnitField getField() const;
+    UnitField getField() const override;
 };

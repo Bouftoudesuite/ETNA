@@ -9,24 +9,21 @@ CellType** parseMap(int* width, int* height)
     unsigned int i;
     unsigned int j;
     unsigned int k;
-    unsigned int l;
-    unsigned column;
-    unsigned row;
     CellType** _cells;
 
     i = 0;
     k = 0;
-    _cells = new CellType*[width];
-    while (i < width)
+    _cells = new CellType*[*width];
+    while (i < *width)
     {
-        _cells[i] = new CellType[height];
+        _cells[i] = new CellType[*height];
         i++;
     }
     j = 0;
-    while (j < height)
+    while (j < *height)
     {
         i = 0;
-        while (i < width)
+        while (i < *width)
         {
             std::cin >> tmp;
             if (tmp == 'G')
@@ -45,7 +42,7 @@ CellType** parseMap(int* width, int* height)
                     k++;
                 }
                 delete[] _cells;
-                return (NULL);
+                return (nullptr);
             }
             i++;
         }

@@ -4,53 +4,35 @@
 
 bool operator==(Castle const& a, Castle const& b)
 {
-    if (a._name == b._name && a._nbTowers == b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._name == b._name && a._nbTowers == b._nbTowers);
 }
 
 bool operator!=(Castle const& a, Castle const& b)
 {
-    if (a._name != b._name || a._nbTowers != b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._name != b._name || a._nbTowers != b._nbTowers);
 }
 
 bool operator>(Castle const& a, Castle const& b)
 {
-    if (a._nbTowers > b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._nbTowers > b._nbTowers);
 }
 
 bool operator<(Castle const& a, Castle const& b)
 {
-    if (a._nbTowers < b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._nbTowers < b._nbTowers);
 }
 
 bool operator>=(Castle const& a, Castle const& b)
 {
-    if (a._nbTowers >= b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._nbTowers >= b._nbTowers);
 }
 
 bool operator<=(Castle const& a, Castle const& b)
 {
-    if (a._nbTowers <= b._nbTowers)
-        return (true);
-    else
-        return (false);
+    return (a._nbTowers <= b._nbTowers);
 }
 
-Castle(const std::string& name) : _nbTowers(0), _name(name)
+Castle::Castle(const std::string& name) : _nbTowers(0), _name(name)
 {}
 
 int Castle::GetNbTowers() const
