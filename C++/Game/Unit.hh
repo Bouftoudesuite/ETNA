@@ -1,3 +1,6 @@
+#ifndef _UNIT_HH_
+# define _UNIT_HH_
+
 #include "UnitField.hh"
 
 class Unit
@@ -12,3 +15,5 @@ private:
     int _x;
     int _y;
 };
+
+#endif

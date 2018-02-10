@@ -4,32 +4,32 @@
 
 bool operator==(Castle const& a, Castle const& b)
 {
-    return (a._name == b._name && a._nbTowers == b._nbTowers);
+    return (a.GetName() == b.GetName() && a.GetNbTowers() == b.GetNbTowers());
 }
 
 bool operator!=(Castle const& a, Castle const& b)
 {
-    return (a._name != b._name || a._nbTowers != b._nbTowers);
+    return (a.GetName() != b.GetName() || a.GetNbTowers() != b.GetNbTowers());
 }
 
 bool operator>(Castle const& a, Castle const& b)
 {
-    return (a._nbTowers > b._nbTowers);
+    return (a.GetNbTowers() > b.GetNbTowers());
 }
 
 bool operator<(Castle const& a, Castle const& b)
 {
-    return (a._nbTowers < b._nbTowers);
+    return (a.GetNbTowers() < b.GetNbTowers());
 }
 
 bool operator>=(Castle const& a, Castle const& b)
 {
-    return (a._nbTowers >= b._nbTowers);
+    return (a.GetNbTowers() >= b.GetNbTowers());
 }
 
 bool operator<=(Castle const& a, Castle const& b)
 {
-    return (a._nbTowers <= b._nbTowers);
+    return (a.GetNbTowers() <= b.GetNbTowers());
 }
 
 Castle::Castle(const std::string& name) : _nbTowers(0), _name(name)

@@ -30,28 +30,28 @@ CellProperty::CellProperty(CellType newCellType) :
     _event(false),
     _monster(false)
 {
-    if (CellProperty::getCellFlags(newCellType) == FLYABLE)
+    if (getCellFlags(newCellType) == FLYABLE)
         _flyable = true;
-    else if (CellProperty::getCellFlags(newCellType) == WALKABLE)
+    else if (getCellFlags(newCellType) == WALKABLE)
         _walkable = true;
-    else if (CellProperty::getCellFlags(newCellType) == SWIMMABLE)
+    else if (getCellFlags(newCellType) == SWIMMABLE)
         _swimmable = true;
-    else if (CellProperty::getCellFlags(newCellType) == (FLYABLE | WALKABLE)
+    else if (getCellFlags(newCellType) == (FLYABLE | WALKABLE))
     {
         _flyable = true;
         _walkable = true;
     }
-    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
+    else if (getCellFlags(newCellType) == (SWIMMABLE | FLYABLE))
     {
         _swimmable = true;
         _flyable = true;
     }
-    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
+    else if (getCellFlags(newCellType) == (SWIMMABLE | WALKABLE))
     {
         _swimmable = true;
         _walkable = true;
     }
-    else if (CellProperty::getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
+    else if (getCellFlags(newCellType) == (SWIMMABLE | WALKABLE | FLYABLE))
     {
         _swimmable = true;
         _walkable = true;
@@ -128,14 +128,14 @@ void CellProperty::setNotMonster()
 
 bool operator==(CellProperty const& a, CellProperty const& b)
 {
-    return (a._walkable == b._walkable && a._swimmable == b._swimmable
-        && a._flyable == b._flyable && a._event == b._event
-        && a._monster == b._monster);
+    return (a.isWalkable() == b.isWalkable() && a.isSwimmable() == b.isSwimmable()
+        && a.isFlyable() == b.isFlyable() && a.isEvent() == b.isEvent()
+        && a.isMonster() == b.isMonster());
 }
 
 bool operator!=(CellProperty const& a, CellProperty const& b)
 {
-    return (a._walkable != b._walkable || a._swimmable != b._swimmable
-        || a._flyable != b._flyable || a._event != b._event
-        || a._monster != b._monster);
+    return (a.isWalkable() != b.isWalkable() || a.isSwimmable() != b.isSwimmable()
+        || a.isFlyable() != b.isFlyable() || a.isEvent() != b.isEvent()
+        || a.isMonster() != b.isMonster());
 }

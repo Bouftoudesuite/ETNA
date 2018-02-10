@@ -8,8 +8,8 @@
 class Map
 {
 public:
-    Map::Map(int *width, int *height);
-    Map(const Map& M);
+    Map(int *width, int *height);
+    Map(const Map& M) noexcept ;
     Map(Map && M) noexcept ;
     Map& operator=(const Map& A);
     Map& operator=(Map && M) noexcept ;
