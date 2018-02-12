@@ -1,6 +1,4 @@
 #include "Map.hh"
-#include "CellProperty.hh"
-#include "CellType.hh"
 
 int getCellFlags(CellType type)
 {

@@ -1,7 +1,4 @@
 #include "Game.hh"
-#include "Unit.hh"
-#include "UnitField.hh"
-#include "Map.hh"
 
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
 {
@@ -25,6 +22,19 @@ bool Game::placeUnit(Unit* unit)
     {
         _units.push_back(unit);
         return (true);
+    }
+    return (false);
+}
+
+bool Game::addUnit(Unit* unit)
+{
+    if (unit->getOwner().getBudget() >= unit->getCost())
+    {
+        if (placeUnit(unit))
+        {
+            unit->getOwner().setBudget(unit->getOwner().getBudget() - unit->getCost());
+            return (true);
+        }
     }
     return (false);
 }

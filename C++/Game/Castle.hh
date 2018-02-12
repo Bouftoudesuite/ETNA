@@ -3,7 +3,7 @@
 class Castle
 {
 public:
-    explicit Castle(const std::string& name);
+    explicit Castle(std::string const& name);
     int GetNbTowers() const;
     const std::string& GetName() const;
     void SetNbTowers(int nbTowers);

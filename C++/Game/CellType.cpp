@@ -1,7 +1,5 @@
 #include <iostream>
-#include <string>
 #include "Map.hh"
-#include "CellType.hh"
 
 CellType** parseMap(int* width, int* height)
 {

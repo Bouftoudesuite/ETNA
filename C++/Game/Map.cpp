@@ -1,9 +1,5 @@
-#include <string>
 #include "CellProperty.hh"
-#include "CellType.hh"
 #include "Map.hh"
-#include "Unit.hh"
-#include "UnitField.hh"
 
 Map::Map(int *width, int *height) :
     _width(6),

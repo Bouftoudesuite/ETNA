@@ -1,7 +1,11 @@
 #include "Roach.hh"
-#include "UnitField.hh"
 
 UnitField Roach::getField() const
 {
     return (Ground);
+}
+
+int Roach::getCost() const
+{
+    return (150);
 }

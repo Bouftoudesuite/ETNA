@@ -9,10 +9,10 @@ class Map
 {
 public:
     Map(int *width, int *height);
-    Map(const Map& M) noexcept ;
-    Map(Map && M) noexcept ;
+    Map(const Map& M) noexcept;
+    Map(Map && M) noexcept;
     Map& operator=(const Map& A);
-    Map& operator=(Map && M) noexcept ;
+    Map& operator=(Map && M) noexcept;
     CellType getCell(int x, int y) const;
     CellProperty getCellProperties(int x, int y);
     bool canGo(int x, int y, Unit const&);

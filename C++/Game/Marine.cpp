@@ -1,7 +1,11 @@
 #include "Marine.hh"
-#include "UnitField.hh"
 
 UnitField Marine::getField() const
 {
     return (Ground);
+}
+
+int Marine::getCost() const
+{
+    return (50);
 }

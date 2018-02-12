@@ -1,10 +1,6 @@
-#include "UnitField.hh"
 #include "Unit.hh"
 
-Unit::Unit() : _x(0), _y(0)
-{}
-
-Unit::Unit(const int x, const int y) : _x(x), _y(y)
+Unit::Unit(const int x, const int y, Player& player) : _x(x), _y(y), _player(player)
 {}
 
 int Unit::getX() const
@@ -17,7 +13,7 @@ int Unit::getY() const
     return (_y);
 }
 
-UnitField Unit::getField() const
+Player& Unit::getOwner()
 {
-    return (Ground);
+    return (_player);
 }

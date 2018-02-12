@@ -1,7 +1,11 @@
 #include "Stalker.hh"
-#include "UnitField.hh"
 
 UnitField Stalker::getField() const
 {
     return (Ground);
+}
+
+int Stalker::getCost() const
+{
+    return (100);
 }

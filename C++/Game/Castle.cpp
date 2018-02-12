@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "Castle.hh"
 
 bool operator==(Castle const& a, Castle const& b)
@@ -32,7 +31,7 @@ bool operator<=(Castle const& a, Castle const& b)
     return (a.GetNbTowers() <= b.GetNbTowers());
 }
 
-Castle::Castle(const std::string& name) : _nbTowers(0), _name(name)
+Castle::Castle(std::string const& name) : _nbTowers(0), _name(name)
 {}
 
 int Castle::GetNbTowers() const
