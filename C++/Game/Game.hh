@@ -2,6 +2,7 @@
 #include "Map.hh"
 #include "Unit.hh"
 #include "Player.hh"
+#include "Direction.hh"
 
 class Game
 {
@@ -12,6 +13,7 @@ public:
     void resetUnits();
     void newTurn();
     bool didLose(Player const& player);
+    void moveUnit(Unit& unit, Direction direction, int n);
 private:
     Map _map;
     std::vector<Unit*> _units;

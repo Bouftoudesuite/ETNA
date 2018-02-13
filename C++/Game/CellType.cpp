@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Map.hh"
 
 CellType** parseMap(int* width, int* height)
@@ -24,23 +25,30 @@ CellType** parseMap(int* width, int* height)
         while (i < *width)
         {
             std::cin >> tmp;
-            if (tmp == 'G')
-                _cells[i][j] = GrassCell;
-            else if (tmp == 'W')
-                _cells[i][j] = WaterCell;
-            else if (tmp == 'R')
-                _cells[i][j] = RockCell;
-            else if (tmp == 'M')
-                _cells[i][j] = MountainCell;
-            else
+            try
             {
-                while (k < i)
-  	            {
-                    delete[] _cells[k];
-                    k++;
+                if (tmp == 'G')
+                    _cells[i][j] = GrassCell;
+                else if (tmp == 'W')
+                    _cells[i][j] = WaterCell;
+                else if (tmp == 'R')
+                    _cells[i][j] = RockCell;
+                else if (tmp == 'M')
+                    _cells[i][j] = MountainCell;
+                else
+                {
+                    while (k < i)
+                    {
+                        delete[] _cells[k];
+                        k++;
+                    }
+                    delete[] _cells;
+                    throw std::runtime_error("invalid map data");
                 }
-                delete[] _cells;
-                return (nullptr);
+            }
+            catch (std::runtime_error &error)
+            {
+                std::cout << error.what() << std::endl;
             }
             i++;
         }

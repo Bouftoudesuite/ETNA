@@ -1,3 +1,6 @@
+#include <iostream>
+#include <exception>
+#include <stdexcept>
 #include "CellProperty.hh"
 #include "Map.hh"
 
@@ -85,7 +88,16 @@ Map::~Map()
 
 CellType Map::getCell(const int x, const int y) const
 {
-    return (_cells[x][y]);
+    try
+    {
+        if (x <= 0 || y <= 0)
+            throw std::runtime_error("invalid cell coordinates");
+        return (_cells[x][y]);
+    }
+    catch (std::runtime_error &error)
+    {
+        std::cout << error.what() << std::endl;
+    }
 }
 
 CellProperty Map::getCellProperties(const int x, const int y)

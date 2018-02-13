@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <stdexcept>
 #include "Game.hh"
 
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
@@ -83,4 +84,14 @@ bool Game::didLose(Player const& player)
 bool my_predicate(const Unit& item)
 {
     return (item.getHp() <= 0);
+}
+
+void Game::moveUnit(Unit& unit, Direction direction, int n)
+{
+    /*try
+    {
+        if (unit.getMp() < n)
+            throw std::runtime_error("invalid move: mp");
+    }*/
+
 }
