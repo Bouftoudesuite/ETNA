@@ -135,7 +135,7 @@ bool Map::canGo(int x, int y, const Unit& unit)
         return (true);
     else if (field == Ground && property.isWalkable())
         return (true);
-    else if (field == Water && property.isSwimmable())
+    else if (field == Water && property.isFlyable())
         return (true);
     return (false);
 }

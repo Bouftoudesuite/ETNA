@@ -38,3 +38,27 @@ bool Game::addUnit(Unit* unit)
     }
     return (false);
 }
+
+void Game::resetUnits()
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < _units.size())
+    {
+        _units[i]->resetStats();
+        i++;
+    }
+}
+
+void Game::newTurn()
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < _units.size())
+    {
+        _units[i]->resetStats();
+        i++;
+    }
+}
