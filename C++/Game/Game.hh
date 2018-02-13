@@ -14,3 +14,5 @@ private:
     Map _map;
     std::vector<Unit*> _units;
 };
+
+bool my_predicate(const Unit& item);

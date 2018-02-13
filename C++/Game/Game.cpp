@@ -56,9 +56,15 @@ void Game::newTurn()
     unsigned int i;
 
     i = 0;
+    _units.erase(std::remove_if(_units.begin(), _units.end(), my_predicate), _units.end());
     while (i < _units.size())
     {
         _units[i]->resetStats();
         i++;
     }
+}
+
+bool my_predicate(const Unit& item)
+{
+    return (item.getHp() <= 0);
 }
