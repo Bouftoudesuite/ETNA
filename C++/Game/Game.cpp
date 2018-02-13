@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Game.hh"
 
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
@@ -63,6 +64,21 @@ void Game::newTurn()
         i++;
     }
 }
+
+bool Game::didLose(Player const& player)
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < _units.size())
+    {
+        if (_units[i]->getOwner().getName() == player.getName())
+            return (false);
+        i++;
+    }
+    return (true);
+}
+
 
 bool my_predicate(const Unit& item)
 {

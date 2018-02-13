@@ -5,7 +5,7 @@ class Castle
 public:
     explicit Castle(std::string const& name);
     int GetNbTowers() const;
-    const std::string& GetName() const;
+    const std::string& getName() const;
     void SetNbTowers(int nbTowers);
     void CloseGates();
     void CloseGates(int nbDoors);

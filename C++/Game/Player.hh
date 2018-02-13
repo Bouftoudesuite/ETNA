@@ -8,6 +8,7 @@ class Player
 public:
     Player(std::string const& name, int budget);
     int getBudget() const;
+    const std::string& getName() const;
     void setBudget(int budget);
 private:
     std::string _name;

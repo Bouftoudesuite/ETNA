@@ -39,7 +39,7 @@ int Castle::GetNbTowers() const
     return (_nbTowers);
 }
 
-const std::string& Castle::GetName() const
+const std::string& Castle::getName() const
 {
     return (_name);
 }
