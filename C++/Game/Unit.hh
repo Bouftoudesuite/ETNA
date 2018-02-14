@@ -19,6 +19,11 @@ public:
     Player& getOwner();
     virtual UnitField getField() const = 0;
     virtual int getCost() const = 0;
+    virtual int getAttackRange() const = 0;
+    virtual int getAttackMinRange() const = 0;
+    virtual int getAttackArea() const = 0;
+    void setX(int x);
+    void setY(int y);
     void setHp(int hp);
     void setPp(int pp);
     void setAp(int ap);

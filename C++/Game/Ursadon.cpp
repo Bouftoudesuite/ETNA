@@ -10,6 +10,21 @@ int Ursadon::getCost() const
     return (30);
 }
 
+int Ursadon::getAttackRange() const
+{
+    return (10);
+}
+
+int Ursadon::getAttackMinRange() const
+{
+    return (1);
+}
+
+int Ursadon::getAttackArea() const
+{
+    return (2);
+}
+
 Stats const& Ursadon::getBaseStats()
 {
     static Stats stats {300, 2, 6, 3};

@@ -43,6 +43,16 @@ Player& Unit::getOwner()
     return (_player);
 }
 
+void Unit::setX(int x)
+{
+    _x = x;
+}
+
+void Unit::setY(int y)
+{
+    _y = y;
+}
+
 void Unit::setHp(int hp)
 {
     _stats._hp = hp;

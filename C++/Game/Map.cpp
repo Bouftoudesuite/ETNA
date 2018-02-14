@@ -1,12 +1,12 @@
 #include <iostream>
-#include <exception>
-#include <stdexcept>
+#include <fstream>
+#include <cmath>
 #include "CellProperty.hh"
 #include "Map.hh"
 
-Map::Map(int *width, int *height) :
-    _width(6),
-    _height(5),
+Map::Map(int width, int height) :
+    _width(width),
+    _height(height),
     _cells(parseMap(&_width, &_height))
 {}
 
@@ -88,16 +88,10 @@ Map::~Map()
 
 CellType Map::getCell(const int x, const int y) const
 {
-    try
-    {
-        if (x <= 0 || y <= 0)
-            throw std::runtime_error("invalid cell coordinates");
-        return (_cells[x][y]);
-    }
-    catch (std::runtime_error &error)
-    {
-        std::cout << error.what() << std::endl;
-    }
+
+    if (x < 0 || y < 0)
+        std::cout << "invalid cell coordinates" << std::endl;
+    return (_cells[x][y]);
 }
 
 CellProperty Map::getCellProperties(const int x, const int y)
@@ -150,4 +144,71 @@ bool Map::canGo(int x, int y, const Unit& unit)
     else if (field == Water && property.isFlyable())
         return (true);
     return (false);
+}
+
+CellType** parseMap(int* width, int* height)
+{
+    char tmp;
+    unsigned int i;
+    unsigned int j;
+    unsigned int k;
+    CellType** _cells;
+
+    std::ifstream file("map.txt", std::ios::in);
+    if(file)
+    {
+        i = 0;
+        k = 0;
+        _cells = new CellType*[*width];
+        while (i < *width)
+        {
+            _cells[i] = new CellType[*height];
+            i++;
+        }
+        j = 0;
+        while (j < *height)
+        {
+            i = 0;
+            while (i < *width)
+            {
+                file.get(tmp);
+                if (tmp == 'G')
+                    _cells[i][j] = GrassCell;
+                else if (tmp == 'W')
+                    _cells[i][j] = WaterCell;
+                else if (tmp == 'R')
+                    _cells[i][j] = RockCell;
+                else if (tmp == 'M')
+                    _cells[i][j] = MountainCell;
+                else
+                {
+                    while (k < i)
+                    {
+                        delete[] _cells[k];
+                        k++;
+                    }
+                    delete[] _cells;
+                    std::cerr << "invalid map data" << std::endl;
+                    return (nullptr);
+                }
+                i++;
+            }
+            j++;
+        }
+        file.close();
+        return (_cells);
+    }
+    else
+    {
+        std::cerr << "Cannot open file !" << std::endl;
+        return (nullptr);
+    }
+}
+
+int Map::getDistanceBetween(int firstX, int firstY, int secondX, int secondY)
+{
+    int distance;
+
+    distance = abs(firstX - firstY) + abs(secondX - secondY);
+    return (distance);
 }

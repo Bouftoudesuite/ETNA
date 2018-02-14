@@ -14,6 +14,7 @@ public:
     void newTurn();
     bool didLose(Player const& player);
     void moveUnit(Unit& unit, Direction direction, int n);
+    std::vector<Unit*> getInRange(int x, int y, int rangeMin, int rangeMax, UnitField field);
 private:
     Map _map;
     std::vector<Unit*> _units;

@@ -10,6 +10,21 @@ int Marine::getCost() const
     return (50);
 }
 
+int Marine::getAttackRange() const
+{
+    return (1);
+}
+
+int Marine::getAttackMinRange() const
+{
+    return (1);
+}
+
+int Marine::getAttackArea() const
+{
+    return (1);
+}
+
 Stats const& Marine::getBaseStats()
 {
     static Stats stats {50, 5, 6, 3};

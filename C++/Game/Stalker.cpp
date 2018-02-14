@@ -10,6 +10,21 @@ int Stalker::getCost() const
     return (100);
 }
 
+int Stalker::getAttackRange() const
+{
+    return (3);
+}
+
+int Stalker::getAttackMinRange() const
+{
+    return (1);
+}
+
+int Stalker::getAttackArea() const
+{
+    return (1);
+}
+
 Stats const& Stalker::getBaseStats()
 {
     static Stats stats {100, 10, 6, 3};

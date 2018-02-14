@@ -10,6 +10,21 @@ int Corruptor::getCost() const
     return (200);
 }
 
+int Corruptor::getAttackRange() const
+{
+    return (2);
+}
+
+int Corruptor::getAttackMinRange() const
+{
+    return (1);
+}
+
+int Corruptor::getAttackArea() const
+{
+    return (2);
+}
+
 Stats const& Corruptor::getBaseStats()
 {
     static Stats stats {150, 15, 6, 3};

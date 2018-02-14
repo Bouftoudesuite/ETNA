@@ -9,6 +9,4 @@ enum CellType
 	MountainCell = 'M'
 };
 
-CellType** parseMap(int* width, int* height);
-
 #endif

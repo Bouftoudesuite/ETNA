@@ -8,7 +8,7 @@
 class Map
 {
 public:
-    Map(int *width, int *height);
+    Map(int width, int height);
     Map(const Map& M) noexcept;
     Map(Map && M) noexcept;
     Map& operator=(const Map& A);
@@ -16,11 +16,14 @@ public:
     CellType getCell(int x, int y) const;
     CellProperty getCellProperties(int x, int y);
     bool canGo(int x, int y, Unit const&);
+    static int getDistanceBetween(int firstX, int firstY, int secondX, int secondY);
     ~Map();
 private:
     int _width;
     int _height;
     CellType **_cells;
 };
+
+CellType** parseMap(int* width, int* height);
 
 #endif

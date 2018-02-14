@@ -3,38 +3,38 @@
 
 bool operator==(Castle const& a, Castle const& b)
 {
-    return (a.GetName() == b.GetName() && a.GetNbTowers() == b.GetNbTowers());
+    return (a.getName() == b.getName() && a.getNbTowers() == b.getNbTowers());
 }
 
 bool operator!=(Castle const& a, Castle const& b)
 {
-    return (a.GetName() != b.GetName() || a.GetNbTowers() != b.GetNbTowers());
+    return (a.getName() != b.getName() || a.getNbTowers() != b.getNbTowers());
 }
 
 bool operator>(Castle const& a, Castle const& b)
 {
-    return (a.GetNbTowers() > b.GetNbTowers());
+    return (a.getNbTowers() > b.getNbTowers());
 }
 
 bool operator<(Castle const& a, Castle const& b)
 {
-    return (a.GetNbTowers() < b.GetNbTowers());
+    return (a.getNbTowers() < b.getNbTowers());
 }
 
 bool operator>=(Castle const& a, Castle const& b)
 {
-    return (a.GetNbTowers() >= b.GetNbTowers());
+    return (a.getNbTowers() >= b.getNbTowers());
 }
 
 bool operator<=(Castle const& a, Castle const& b)
 {
-    return (a.GetNbTowers() <= b.GetNbTowers());
+    return (a.getNbTowers() <= b.getNbTowers());
 }
 
 Castle::Castle(std::string const& name) : _nbTowers(0), _name(name)
 {}
 
-int Castle::GetNbTowers() const
+int Castle::getNbTowers() const
 {
     return (_nbTowers);
 }

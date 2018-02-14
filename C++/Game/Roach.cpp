@@ -10,6 +10,21 @@ int Roach::getCost() const
     return (150);
 }
 
+int Roach::getAttackRange() const
+{
+    return (2);
+}
+
+int Roach::getAttackMinRange() const
+{
+    return (1);
+}
+
+int Roach::getAttackArea() const
+{
+    return (1);
+}
+
 Stats const& Roach::getBaseStats()
 {
     static Stats stats {200, 5, 6, 3};
