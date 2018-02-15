@@ -9,22 +9,22 @@ template<class T>
 class Attack
 {
 public:
-    Attack(Game const& game, Unit& unit);
+    Attack(Game const& game, T& unit);
     void perform(int x, int y);
 private:
     Game _game;
-    Unit& _unit;
+    T& _unit;
 };
 
-template<class T>
+template<>
 class Attack<Tank>
 {
 public:
-    Attack(Game const& game, Unit& unit);
+    Attack(Game const& game, Tank& unit);
     void perform(int x, int y);
 private:
     Game _game;
-    Unit& _unit;
+    Tank& _unit;
 };
 
 #endif
