@@ -27,24 +27,28 @@ int Corruptor::getAttackArea() const
 
 Stats const& Corruptor::getBaseStats()
 {
-    static Stats stats {150, 15, 6, 3};
+    static Stats stats {150, 15, 6, 3, 150, 15, 6, 3};
     return (stats);
 }
 
 void Corruptor::resetStats()
 {
-    Stats stats {0 , 0, 0, 0};
+    Stats stats {0, 0, 0, 0, 0, 0, 0, 0};
 
     stats = getBaseStats();
     setHp(stats._hp);
     setPp(stats._pp);
     setAp(stats._ap);
     setMp(stats._mp);
+    setHpMax(stats._hpMax);
+    setPpMax(stats._ppMax);
+    setApMax(stats._apMax);
+    setMpMax(stats._mpMax);
 }
 
 void Corruptor::resetActions()
 {
-    static Stats stats {0 , 0, 0, 0};
+    static Stats stats {0, 0, 0, 0, 0, 0, 0};
 
     stats = getBaseStats();
     setAp(stats._ap);

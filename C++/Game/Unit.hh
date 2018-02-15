@@ -16,6 +16,10 @@ public:
     int getPp() const;
     int getAp() const;
     int getMp() const;
+    int getHpMax() const;
+    int getPpMax() const;
+    int getApMax() const;
+    int getMpMax() const;
     Player& getOwner();
     virtual UnitField getField() const = 0;
     virtual int getCost() const = 0;
@@ -28,6 +32,10 @@ public:
     void setPp(int pp);
     void setAp(int ap);
     void setMp(int mp);
+    void setHpMax(int hp);
+    void setPpMax(int pp);
+    void setApMax(int ap);
+    void setMpMax(int mp);
     virtual void resetStats() = 0;
     virtual void resetActions() = 0;
 private:

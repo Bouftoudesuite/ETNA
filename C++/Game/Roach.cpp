@@ -27,24 +27,28 @@ int Roach::getAttackArea() const
 
 Stats const& Roach::getBaseStats()
 {
-    static Stats stats {200, 5, 6, 3};
+    static Stats stats {200, 5, 6, 3, 200, 5, 6, 3};
     return (stats);
 }
 
 void Roach::resetStats()
 {
-    Stats stats {0 , 0, 0, 0};
+    Stats stats {0, 0, 0, 0, 0, 0, 0, 0};
 
     stats = getBaseStats();
     setHp(stats._hp);
     setPp(stats._pp);
     setAp(stats._ap);
     setMp(stats._mp);
+    setHpMax(stats._hpMax);
+    setPpMax(stats._ppMax);
+    setApMax(stats._apMax);
+    setMpMax(stats._mpMax);
 }
 
 void Roach::resetActions()
 {
-    static Stats stats {0 , 0, 0, 0};
+    static Stats stats {0, 0, 0, 0, 0, 0, 0, 0};
 
     stats = getBaseStats();
     setAp(stats._ap);

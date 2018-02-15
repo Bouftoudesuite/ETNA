@@ -38,6 +38,26 @@ int Unit::getMp() const
     return (_stats._mp);
 }
 
+int Unit::getHpMax() const
+{
+    return (_stats._hpMax);
+}
+
+int Unit::getPpMax() const
+{
+    return (_stats._ppMax);
+}
+
+int Unit::getApMax() const
+{
+    return (_stats._apMax);
+}
+
+int Unit::getMpMax() const
+{
+    return (_stats._mpMax);
+}
+
 Player& Unit::getOwner()
 {
     return (_player);
@@ -71,4 +91,24 @@ void Unit::setAp(int ap)
 void Unit::setMp(int mp)
 {
     _stats._mp = mp;
+}
+
+void Unit::setHpMax(int hp)
+{
+    _stats._hpMax = hp;
+}
+
+void Unit::setPpMax(int pp)
+{
+    _stats._ppMax = pp;
+}
+
+void Unit::setApMax(int ap)
+{
+    _stats._apMax = ap;
+}
+
+void Unit::setMpMax(int mp)
+{
+    _stats._mpMax = mp;
 }
