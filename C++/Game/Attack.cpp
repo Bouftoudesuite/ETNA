@@ -14,12 +14,18 @@ void Attack<T>::perform(int x, int y)
 
     i = 0;
     if (_unit.isDead())
+    {
         std::cout << "dead units can't attack" << std::endl;
+    }
     else if (_unit.getAp() <= 0)
+    {
         std::cout << "no more actions can be performed" << std::endl;
+    }
     else if (Map::getDistanceBetween(_unit.getX(), _unit.getY(), x, y) > _unit.getAttackRange()
              || Map::getDistanceBetween(_unit.getX(), _unit.getY(), x, y) < _unit.getAttackMinRange())
+    {
         std::cout << "out of range" << std::endl;
+    }
     else
     {
         _unit.setAp(_unit.getAp() - 1);
@@ -44,12 +50,18 @@ void Attack<Tank>::perform(int x, int y)
 
     i = 0;
     if (_unit.isDead())
+    {
         std::cout << "dead units can't attack" << std::endl;
+    }
     else if (_unit.getAp() <= 0)
+    {
         std::cout << "no more actions can be performed" << std::endl;
+    }
     else if (Map::getDistanceBetween(_unit.getX(), _unit.getY(), x, y) > _unit.getAttackRange()
              || Map::getDistanceBetween(_unit.getX(), _unit.getY(), x, y) < _unit.getAttackMinRange())
+    {
         std::cout << "out of range" << std::endl;
+    }
     else
     {
         _unit.setAp(_unit.getAp() - 1);
@@ -58,7 +70,9 @@ void Attack<Tank>::perform(int x, int y)
         {
             pourcent = 20;
             if (Map::getDistanceBetween(x, y, toAttack[i]->getX(), toAttack[i]->getY()) < 2)
+            {
                 pourcent += 20;
+            }
             toAttack[i]->setHp(_unit.getHpMax() * (1 - pourcent / 100));
             i++;
         }

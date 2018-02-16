@@ -13,7 +13,9 @@ bool Game::canPlaceUnit(int x, int y, Unit const& unit)
     while (i < _units.size())
     {
         if (_units[i]->getField() == field && _units[i]->getX() == x && _units[i]->getY() == y)
+        {
             return (false);
+        }
         i++;
     }
     return (_map.canGo(x, y, unit));
@@ -64,7 +66,9 @@ void Game::newTurn()
     while (i < _units.size())
     {
         if (_units[i]->getHp() <= 0)
+        {
             toRemove.push_back(i - 1);
+        }
         i++;
     }
 
@@ -98,7 +102,9 @@ bool Game::didLose(Player const& player)
     while (i < _units.size())
     {
         if (_units[i]->getOwner().getName() == player.getName())
+        {
             return (false);
+        }
         i++;
     }
     return (true);
@@ -120,13 +126,21 @@ void Game::moveUnit(Unit& unit, Direction direction, int n)
     while (i < n)
     {
         if (direction == North)
+        {
             tmp_y -= 1;
+        }
         else if (direction == South)
+        {
             tmp_y += 1;
+        }
         else if (direction == East)
+        {
             tmp_x -= 1;
+        }
         else if (direction == West)
+        {
             tmp_x += 1;
+        }
         while (j < _units.size())
         {
             if (_units[j]->getOwner().getName() != unit.getOwner().getName() && _units[j]->getField() == unit.getField()
@@ -145,11 +159,17 @@ void Game::moveUnit(Unit& unit, Direction direction, int n)
         i++;
     }
     if (unit.getMp() < n && !stop)
+    {
         std::cout << "invalid move: mp" << std::endl;
+    }
     else if ((tmp_x < 0 || tmp_y < 0) && !stop)
+    {
         std::cout << "invalid move: oob" << std::endl;
+    }
     else if (canPlaceUnit(tmp_x, tmp_y, unit) && !stop)
+    {
         std::cout << "invalid move: cell occupied" << std::endl;
+    }
     else if (!stop)
     {
         unit.setMp(unit.getMp() - n);
@@ -167,13 +187,17 @@ std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, Un
     while (i < _units.size())
     {
         if (rangeMin < 0 || rangeMax < 0 || rangeMax < rangeMin)
+        {
             std::cout << "invalid range" << std::endl;
+        }
         else if (((_units[i]->getX() >= x + rangeMin && _units[i]->getX() <= x + rangeMax) // x en bas
                     || (_units[i]->getX() <= x - rangeMin && _units[i]->getX() >= x - rangeMax))  // x en haut
                  && ((_units[i]->getY() >= y + rangeMin && _units[i]->getY() <= y + rangeMax) // y en bas
                     || (_units[i]->getY() <= y - rangeMin && _units[i]->getY() >= y - rangeMax))  // y en haut
                  && _units[i]->getField() == field) // field
+        {
             inRange.push_back(_units[i]);
+        }
         i++;
     }
     return (inRange);

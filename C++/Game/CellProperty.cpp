@@ -29,11 +29,17 @@ CellProperty::CellProperty(CellType newCellType) :
     _monster(false)
 {
     if (getCellFlags(newCellType) == FLYABLE)
+    {
         _flyable = true;
+    }
     else if (getCellFlags(newCellType) == WALKABLE)
+    {
         _walkable = true;
+    }
     else if (getCellFlags(newCellType) == SWIMMABLE)
+    {
         _swimmable = true;
+    }
     else if (getCellFlags(newCellType) == (FLYABLE | WALKABLE))
     {
         _flyable = true;

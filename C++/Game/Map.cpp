@@ -90,7 +90,9 @@ CellType Map::getCell(const int x, const int y) const
 {
 
     if (x < 0 || y < 0)
+    {
         std::cout << "invalid cell coordinates" << std::endl;
+    }
     return (_cells[x][y]);
 }
 
@@ -101,11 +103,17 @@ CellProperty Map::getCellProperties(const int x, const int y)
 
     i = getCellFlags(Map::getCell(x, y));
     if (i == FLYABLE)
+    {
         cell.CellProperty::setFlyable();
+    }
     else if (i == WALKABLE)
+    {
         cell.setWalkable();
+    }
     else if (i == SWIMMABLE)
+    {
         cell.setSwimmable();
+    }
     else if (i == (FLYABLE | WALKABLE))
     {
         cell.setFlyable();
@@ -138,11 +146,17 @@ bool Map::canGo(int x, int y, const Unit& unit)
     property = this->getCellProperties(x, y);
     field = unit.getField();
     if (field == Sky && property.isFlyable())
+    {
         return (true);
+    }
     else if (field == Ground && property.isWalkable())
+    {
         return (true);
+    }
     else if (field == Water && property.isFlyable())
+    {
         return (true);
+    }
     return (false);
 }
 
@@ -200,7 +214,7 @@ CellType** parseMap(int* width, int* height)
     }
     else
     {
-        std::cerr << "Cannot open file !" << std::endl;
+        std::cout << "Cannot open file !" << std::endl;
         return (nullptr);
     }
 }
