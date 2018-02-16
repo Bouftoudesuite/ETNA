@@ -1,5 +1,3 @@
-#include <exception>
-#include <algorithm>
 #include <iostream>
 #include "Game.hh"
 
