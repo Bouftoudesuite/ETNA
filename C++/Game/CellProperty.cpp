@@ -3,13 +3,17 @@
 int getCellFlags(CellType type)
 {
     if (type == GrassCell)
+    {
         return (SWIMMABLE | FLYABLE);
+    }
     else if (type == WaterCell)
+    {
         return (SWIMMABLE | WALKABLE);
+    }
     else if (type == RockCell)
+    {
         return (FLYABLE);
-    else if (type == MountainCell)
-        return (NO_FLAG);
+    }
     return (NO_FLAG);
 }
 
