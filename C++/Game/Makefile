@@ -1,8 +1,8 @@
 CXX		=	g++
 
-NAME	=	Game
+NAME		=	Game
 
-SRC		= 	src/Attack.cpp \
+SRC		=	src/Attack.cpp \
 			src/Carrier.cpp \
 			src/Castle.cpp \
 			src/CellProperty.cpp \
@@ -19,26 +19,26 @@ SRC		= 	src/Attack.cpp \
 			src/Unit.cpp \
 			src/Ursadon.cpp
 
-OBJS 	=	$(SRC:%.cpp=%.o)
+OBJS 		=	$(SRC:%.cpp=%.o)
 
-MODULES	=	-lsfml-graphics -lsfml-window -lsfml-system
+MODULES		=	-lsfml-graphics -lsfml-window -lsfml-system
 
-CXXFLAGS=	-std=c++14
+CXXFLAGS	=	-std=c++14
 
 RM		=	rm -f
 
 all		:	$(NAME)
 
-$(NAME)	:	$(OBJS)
+$(NAME)		:	$(OBJS)
 			$(CXX) $(OBJS) -o $(NAME) $(MODULES)
 
-clean	:
+clean		:
 			$(RM) $(OBJS)
 			$(RM) *~
 
-fclean	:	clean
+fclean		:	clean
 			$(RM) $(NAME)
 
 re		:	fclean all
 
-.PHONY 	:	clean fclean all re
+.PHONY 		:	clean fclean all re

@@ -24,7 +24,6 @@ int main()
                             menu.MoveDown();
                             break;
                     }
-                    break;
                 case sf::Event::Closed:
                     window.close();
                     break;
