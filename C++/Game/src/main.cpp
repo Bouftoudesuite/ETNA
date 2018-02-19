@@ -10,7 +10,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1600,1000), "Final_Game");
 
     Menu menu(window.getSize().x, window.getSize().y);
-	action = menu.Run(window);
+    action = menu.Run(window);
 
     if (action == PLAY)
     {
