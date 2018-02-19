@@ -2,10 +2,10 @@
 # define _MENU_HH_
 
 #include <SFML/Graphics.hpp>
-
+#include "Cscreen.hh"
 #define MAX_PLAYER 7
 
-class Menu
+class Menu : public Cscreen
 {
 public:
     Menu(float width, float height);
@@ -14,6 +14,7 @@ public:
     void draw(sf::RenderWindow &window);
     void MoveUp();
     void MoveDown();
+    int Run (sf::RenderWindow &window) override;
 private:
     int _selectedItemIndex;
     sf::Font _font;

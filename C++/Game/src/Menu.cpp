@@ -90,3 +90,42 @@ void Menu::MoveDown()
     }
     _menu[_selectedItemIndex].setColor(sf::Color::Red);
 }
+
+int Menu::Run(sf::RenderWindow &window)
+{
+    bool Running;
+
+    Running = true;
+    while (Running)
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                window.close();
+                return (-1);
+            }
+            else if (event.type == sf::Event::KeyPressed)
+            {
+                switch (event.key.code)
+                {
+                    case sf::Keyboard::Up:
+                        MoveUp();
+                        break;
+
+                    case sf::Keyboard::Down:
+                        MoveDown();
+                        break;
+
+                    case sf::Keyboard::Return:
+                        return (1);
+                }
+            }
+        }
+        window.clear();
+        draw(window);
+        window.display();
+    }
+    return (-1);
+}
