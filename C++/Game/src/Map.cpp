@@ -6,9 +6,9 @@
 #include "CellProperty.hh"
 #include "Map.hh"
 
-Map::Map(int width, int height) :
-    _width(width),
-    _height(height),
+Map::Map() :
+    _width(20),
+    _height(20),
     _cells(parseMap(&_width, &_height))
 {}
 
@@ -107,7 +107,7 @@ CellType** parseMap(int* width, int* height)
     unsigned int k;
     CellType** _cells;
 
-    std::ifstream file("map.txt", std::ios::in);
+    std::ifstream file("map/map.txt", std::ios::in);
     if(file)
     {
         i = 0;
@@ -133,6 +133,8 @@ CellType** parseMap(int* width, int* height)
                     _cells[i][j] = RockCell;
                 else if (tmp == 'M')
                     _cells[i][j] = MountainCell;
+                else if (tmp == '\n')
+                    i--;
                 else
                 {
                     while (k < i)

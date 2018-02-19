@@ -8,7 +8,7 @@
 class Map
 {
 public:
-    Map(int width, int height);
+    Map();
     CellType getCell(int x, int y) const;
     CellProperty getCellProperties(int x, int y);
     bool canGo(int x, int y, Unit const&);

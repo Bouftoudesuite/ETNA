@@ -1,20 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "Game.hh"
 #include "Menu.hh"
 #include "Cscreen.hh"
 
 int main()
 {
-    int nScreen;
-    std::vector<Cscreen*> screens;
+    int action;
     sf::RenderWindow window(sf::VideoMode(1600,1000), "Final_Game");
-    Menu menu(window.getSize().x, window.getSize().y);
-    screens.push_back(&menu);
 
-    nScreen = 0;
-    while (nScreen >= 0)
-	{
-		nScreen = screens[nScreen]->Run(window);
-	}
+    Menu menu(window.getSize().x, window.getSize().y);
+	action = menu.Run(window);
+
+    if (action == PLAY)
+    {
+        Game game(window.getSize().x, window.getSize().y, menu.getSelectedItem() + 2);
+        game.Run(window);
+    }
+
+    window.close();
     return (0);
 }

@@ -1,6 +1,17 @@
 #include <iostream>
 #include "Game.hh"
 
+Game::Game(float width, float height, int nbPlayer) : _width(width), _height(height), _nbPlayer(nbPlayer)
+{}
+
+Game::~Game()
+{}
+
+void Game::setMap(Map map)
+{
+    _map = map;
+}
+
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
 {
     unsigned int i;
@@ -199,4 +210,33 @@ std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, Un
         i++;
     }
     return (inRange);
+}
+
+int Game::Run(sf::RenderWindow &window)
+{
+    bool Running;
+
+    Running = true;
+    while (Running)
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                return (CLOSE);
+            }
+            else if (event.type == sf::Event::KeyPressed)
+            {
+                switch (event.key.code)
+                {
+                    case sf::Keyboard::Return:
+                        return (CLOSE);
+                }
+            }
+        }
+        window.clear();
+        window.display();
+    }
+    return (CLOSE);
 }

@@ -103,8 +103,7 @@ int Menu::Run(sf::RenderWindow &window)
         {
             if (event.type == sf::Event::Closed)
             {
-                window.close();
-                return (-1);
+                return (CLOSE);
             }
             else if (event.type == sf::Event::KeyPressed)
             {
@@ -119,7 +118,7 @@ int Menu::Run(sf::RenderWindow &window)
                         break;
 
                     case sf::Keyboard::Return:
-                        return (1);
+                        return (PLAY);
                 }
             }
         }
@@ -127,5 +126,5 @@ int Menu::Run(sf::RenderWindow &window)
         draw(window);
         window.display();
     }
-    return (-1);
+    return (CLOSE);
 }

@@ -3,6 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 #include "Cscreen.hh"
+
+#define PLAY 1
+#define CLOSE 2
 #define MAX_PLAYER 7
 
 class Menu : public Cscreen
