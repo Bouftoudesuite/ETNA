@@ -1,5 +1,5 @@
-#ifndef _CELLPROPERTY_H_
-# define _CELLPROPERTY_H_
+#ifndef _CELLPROPERTY_HH_
+# define _CELLPROPERTY_HH_
 
 #include "CellType.hh"
 

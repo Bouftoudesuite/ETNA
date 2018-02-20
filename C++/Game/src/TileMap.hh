@@ -1,3 +1,6 @@
+#ifndef _TILEMAP_HH_
+# define _TILEMAP_HH_
+
 #include <SFML/Graphics.hpp>
 #include "Map.hh"
 
@@ -10,3 +13,5 @@ private:
     sf::VertexArray _vertices;
     sf::Texture _tileset;
 };
+
+#endif

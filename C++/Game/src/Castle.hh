@@ -1,3 +1,6 @@
+#ifndef _CASTLE_HH_
+# define _CASTLE_HH_
+
 #include <string>
 
 class Castle
@@ -20,3 +23,5 @@ bool operator>(Castle const& a, Castle const& b);
 bool operator<(Castle const& a, Castle const& b);
 bool operator>=(Castle const& a, Castle const& b);
 bool operator<=(Castle const& a, Castle const& b);
+
+#endif

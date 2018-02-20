@@ -1,5 +1,5 @@
-#ifndef _MAP_H_
-# define _MAP_H_
+#ifndef _MAP_HH_
+# define _MAP_HH_
 
 #include "CellType.hh"
 #include "CellProperty.hh"

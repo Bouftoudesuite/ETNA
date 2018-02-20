@@ -1,3 +1,6 @@
+#ifndef _CORRUPTOR_HH_
+# define _CORRUPTOR_HH_
+
 #include "UnitField.hh"
 #include "Unit.hh"
 #include "Stats.hh"
@@ -14,3 +17,5 @@ public:
     void resetStats() override;
     void resetActions() override;
 };
+
+#endif

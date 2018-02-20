@@ -8,9 +8,9 @@ SRC		=	src/Attack.cpp \
 			src/CellProperty.cpp \
 			src/Corruptor.cpp \
 			src/Game.cpp \
-			src/main.cpp \
 			src/Map.cpp \
 			src/Marine.cpp \
+			src/main.cpp \
 			src/Menu.cpp \
 			src/Player.cpp \
 			src/Roach.cpp \

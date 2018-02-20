@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Game.hh"
+#include "TileMap.hh"
+#include "Menu.hh"
 
 Game::Game(float width, float height, int nbPlayer) : _width(width), _height(height), _nbPlayer(nbPlayer)
 {}
@@ -20,11 +22,29 @@ void Game::setMap(Map map)
 void Game::createPlayers()
 {
     int i;
+    int tmp_x;
+    int tmp_y;
 
     i = 0;
     while (i < getNbPlayer())
     {
         _players.push_back(new Player("Joueur" + std::to_string(i + 1), 1000));
+        i++;
+    }
+
+    i = 0;
+    while (i < _players.size())
+    {
+
+        tmp_x = rand() % _map.getWidth() + 0;
+        tmp_y = rand() % _map.getHeight() + 0;
+        while (!canPlacePlayer(tmp_x, tmp_y))
+        {
+            tmp_x = rand() % _map.getWidth() + 0;
+            tmp_y = rand() % _map.getHeight() + 0;
+        }
+        _players[i]->setX(tmp_x);
+        _players[i]->setY(tmp_y);
         i++;
     }
 }
@@ -55,6 +75,26 @@ bool Game::placeUnit(Unit* unit)
         return (true);
     }
     return (false);
+}
+
+
+bool Game::canPlacePlayer(int i, int j)
+{
+    unsigned int k;
+
+    k = 0;
+    while (k < _players.size())
+    {
+        if (_map.getCell(i, j) == GrassCell && !(_players[k]->getX() == i && _players[k]->getY() == j))
+        {
+            k++;
+        }
+        else
+        {
+            return (false);
+        }
+    }
+    return (true);
 }
 
 bool Game::addUnit(Unit* unit)
@@ -232,15 +272,27 @@ std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, Un
 int Game::Run(sf::RenderWindow &window)
 {
     int i;
+    int posPlayer[2];
     bool Running;
     TileMap tilemap;
 
-    if (!tilemap.load("image/Pack02/32x32/Aset_.png", sf::Vector2u(34, 34), _map, _map.getWidth(), _map.getHeight()))
+    Running = true;
+    createPlayers();
+    if (!tilemap.load("image/Map.png", sf::Vector2u(32, 32), _map, _map.getWidth(), _map.getHeight()))
     {
         return (CLOSE);
     }
-    Running = true;
-    createPlayers();
+
+    i = 0;
+    while (i < _players.size())
+    {
+        if (!_players[i]->load("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+        {
+            return (CLOSE);
+        }
+        i++;
+    }
+
     while (Running)
     {
         sf::Event event;
@@ -261,6 +313,12 @@ int Game::Run(sf::RenderWindow &window)
         }
         window.clear();
         window.draw(tilemap);
+        i = 0;
+        while (i < _players.size())
+        {
+            window.draw(*_players[i]);
+            i++;
+        }
         window.display();
     }
     return (CLOSE);

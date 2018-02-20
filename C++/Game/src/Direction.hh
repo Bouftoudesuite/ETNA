@@ -1,5 +1,5 @@
 #ifndef _DIRECTION_HH_
-#define _DIRECTION_HH_
+# define _DIRECTION_HH_
 
 enum Direction
 {

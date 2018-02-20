@@ -1,12 +1,13 @@
+#ifndef _GAME_HH_
+# define _GAME_HH_
+
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Cscreen.hh"
 #include "Map.hh"
-#include "Menu.hh"
 #include "Unit.hh"
 #include "Player.hh"
 #include "Direction.hh"
-#include "TileMap.hh"
 
 class Game : public Cscreen
 {
@@ -17,6 +18,7 @@ public:
     void setMap(Map map);
     void createPlayers();
     bool canPlaceUnit(int x, int y, Unit const& unit);
+    bool canPlacePlayer(int x, int y);
     bool placeUnit(Unit* unit);
     bool addUnit(Unit* unit);
     void resetUnits();
@@ -34,4 +36,4 @@ private:
     std::vector<Unit*> _units;
 };
 
-bool my_predicate(const Unit& item);
+#endif /*_GAME_HH_*/

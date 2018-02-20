@@ -1,14 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include <iostream>
 #include "Game.hh"
 #include "Menu.hh"
-#include "Cscreen.hh"
 
 int main()
 {
     int action;
-    sf::RenderWindow window(sf::VideoMode(680,680), "Final_Game");
+    sf::RenderWindow window(sf::VideoMode(638, 638), "Final_Game");
 
     Menu menu(window.getSize().x, window.getSize().y);
     action = menu.Run(window);

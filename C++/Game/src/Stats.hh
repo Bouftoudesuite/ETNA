@@ -1,5 +1,5 @@
 #ifndef _STATS_HH_
-#define _STATS_HH_
+# define _STATS_HH_
 
 
 struct Stats

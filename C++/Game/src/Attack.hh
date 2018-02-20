@@ -1,5 +1,5 @@
 #ifndef _ATTACK_HH_
-#define _ATTACK_HH_
+# define _ATTACK_HH_
 
 #include "Game.hh"
 #include "Unit.hh"

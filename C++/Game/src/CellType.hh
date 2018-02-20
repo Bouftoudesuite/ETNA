@@ -1,12 +1,12 @@
-#ifndef		__CELLTYPE_HH__
-# define	__CELLTYPE_HH__
+#ifndef		_CELLTYPE_HH_
+# define	_CELLTYPE_HH_
 
 enum CellType
 {
 	GrassCell = 5,
-	WaterCell = 200,
-	RockCell = 12,
-	MountainCell = 109
+	WaterCell = 0,
+	RockCell = 6,
+	MountainCell = 81
 };
 
 #endif

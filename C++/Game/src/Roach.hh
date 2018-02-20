@@ -1,3 +1,6 @@
+#ifndef _ROACH_HH_
+# define _ROACH_HH_
+
 #include "Unit.hh"
 #include "Stats.hh"
 
@@ -13,3 +16,5 @@ public:
     void resetStats() override;
     void resetActions() override;
 };
+
+#endif
