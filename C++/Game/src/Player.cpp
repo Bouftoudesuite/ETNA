@@ -3,6 +3,9 @@
 Player::Player(std::string const& name, int budget) : _name(name), _budget(budget)
 {}
 
+Player::~Player()
+{}
+
 int Player::getBudget() const
 {
     return (_budget);

@@ -7,9 +7,26 @@ Game::Game(float width, float height, int nbPlayer) : _width(width), _height(hei
 Game::~Game()
 {}
 
+int Game::getNbPlayer() const
+{
+    return (_nbPlayer);
+}
+
 void Game::setMap(Map map)
 {
     _map = map;
+}
+
+void Game::createPlayers()
+{
+    int i;
+
+    i = 0;
+    while (i < getNbPlayer())
+    {
+        _players.push_back(new Player("Joueur" + std::to_string(i + 1), 1000));
+        i++;
+    }
 }
 
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
@@ -214,9 +231,16 @@ std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, Un
 
 int Game::Run(sf::RenderWindow &window)
 {
+    int i;
     bool Running;
+    TileMap tilemap;
 
+    if (!tilemap.load("image/Pack02/32x32/Aset_.png", sf::Vector2u(34, 34), _map, _map.getWidth(), _map.getHeight()))
+    {
+        return (CLOSE);
+    }
     Running = true;
+    createPlayers();
     while (Running)
     {
         sf::Event event;
@@ -236,6 +260,7 @@ int Game::Run(sf::RenderWindow &window)
             }
         }
         window.clear();
+        window.draw(tilemap);
         window.display();
     }
     return (CLOSE);

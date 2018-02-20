@@ -13,16 +13,16 @@ Map::Map() :
 {}
 
 Map::~Map()
-{
-    unsigned int i;
+{}
 
-    i = 0;
-    while (i < _width)
-    {
-        delete[] _cells[_width];
-        i++;
-    }
-    delete[] _cells;
+int Map::getWidth() const
+{
+    return (_width);
+}
+
+int Map::getHeight() const
+{
+    return (_height);
 }
 
 CellType Map::getCell(const int x, const int y) const

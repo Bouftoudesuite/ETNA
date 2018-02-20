@@ -6,15 +6,16 @@
 #include "Unit.hh"
 #include "Player.hh"
 #include "Direction.hh"
+#include "TileMap.hh"
 
 class Game : public Cscreen
 {
 public:
     Game(float width, float height, int nbPlayer);
     ~Game();
-    void setWidth(Map map);
-    void setHeight(Map map);
+    int getNbPlayer() const;
     void setMap(Map map);
+    void createPlayers();
     bool canPlaceUnit(int x, int y, Unit const& unit);
     bool placeUnit(Unit* unit);
     bool addUnit(Unit* unit);
@@ -29,7 +30,7 @@ private:
     float _width;
     float _height;
     Map _map;
-    std::vector<Player*> _player;
+    std::vector<Player*> _players;
     std::vector<Unit*> _units;
 };
 

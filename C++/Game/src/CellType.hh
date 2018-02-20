@@ -3,10 +3,10 @@
 
 enum CellType
 {
-	GrassCell = 'G',
-	WaterCell = 'W',
-	RockCell = 'R',
-	MountainCell = 'M'
+	GrassCell = 5,
+	WaterCell = 200,
+	RockCell = 12,
+	MountainCell = 109
 };
 
 #endif

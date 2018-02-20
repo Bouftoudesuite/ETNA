@@ -9,6 +9,8 @@ class Map
 {
 public:
     Map();
+    int getWidth() const;
+    int getHeight() const;
     CellType getCell(int x, int y) const;
     CellProperty getCellProperties(int x, int y);
     bool canGo(int x, int y, Unit const&);
