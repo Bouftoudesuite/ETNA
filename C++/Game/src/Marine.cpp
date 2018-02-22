@@ -5,22 +5,22 @@ UnitField Marine::getField() const
     return (Ground);
 }
 
-int Marine::getCost() const
+unsigned int Marine::getCost() const
 {
     return (50);
 }
 
-int Marine::getAttackRange() const
+unsigned int Marine::getAttackRange() const
 {
     return (1);
 }
 
-int Marine::getAttackMinRange() const
+unsigned int Marine::getAttackMinRange() const
 {
     return (1);
 }
 
-int Marine::getAttackArea() const
+unsigned int Marine::getAttackArea() const
 {
     return (1);
 }

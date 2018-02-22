@@ -5,22 +5,22 @@ UnitField Ursadon::getField() const
     return (Water);
 }
 
-int Ursadon::getCost() const
+unsigned int Ursadon::getCost() const
 {
     return (30);
 }
 
-int Ursadon::getAttackRange() const
+unsigned int Ursadon::getAttackRange() const
 {
     return (10);
 }
 
-int Ursadon::getAttackMinRange() const
+unsigned int Ursadon::getAttackMinRange() const
 {
     return (1);
 }
 
-int Ursadon::getAttackArea() const
+unsigned int Ursadon::getAttackArea() const
 {
     return (2);
 }

@@ -5,22 +5,22 @@ UnitField Stalker::getField() const
     return (Ground);
 }
 
-int Stalker::getCost() const
+unsigned int Stalker::getCost() const
 {
     return (100);
 }
 
-int Stalker::getAttackRange() const
+unsigned int Stalker::getAttackRange() const
 {
     return (3);
 }
 
-int Stalker::getAttackMinRange() const
+unsigned int Stalker::getAttackMinRange() const
 {
     return (1);
 }
 
-int Stalker::getAttackArea() const
+unsigned int Stalker::getAttackArea() const
 {
     return (1);
 }

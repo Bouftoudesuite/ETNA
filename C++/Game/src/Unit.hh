@@ -1,46 +1,62 @@
 #ifndef _UNIT_HH_
 # define _UNIT_HH_
 
+#include <SFML/Graphics.hpp>
 #include "UnitField.hh"
 #include "Player.hh"
 #include "Stats.hh"
 
-class Unit
+class Unit : public sf::Drawable, public sf::Transformable
 {
 public:
-    Unit(int x, int y, Player& player);
-    bool isDead() const;
-    int getX() const;
-    int getY() const;
-    int getHp() const;
-    int getPp() const;
-    int getAp() const;
-    int getMp() const;
-    int getHpMax() const;
-    int getPpMax() const;
-    int getApMax() const;
-    int getMpMax() const;
+	Unit(unsigned int x, unsigned int y, Player &player);
+	bool isDead() const;
+    unsigned int getX() const;
+	unsigned int getY() const;
+	unsigned int getHp() const;
+	unsigned int getPp() const;
+	unsigned int getAp() const;
+	unsigned int getMp() const;
+	unsigned int getHpMax() const;
+	unsigned int getPpMax() const;
+	unsigned int getApMax() const;
+	unsigned int getMpMax() const;
     Player& getOwner();
     virtual UnitField getField() const = 0;
-    virtual int getCost() const = 0;
-    virtual int getAttackRange() const = 0;
-    virtual int getAttackMinRange() const = 0;
-    virtual int getAttackArea() const = 0;
-    void setX(int x);
-    void setY(int y);
-    void setHp(int hp);
-    void setPp(int pp);
-    void setAp(int ap);
-    void setMp(int mp);
-    void setHpMax(int hp);
-    void setPpMax(int pp);
-    void setApMax(int ap);
-    void setMpMax(int mp);
+    virtual unsigned int getCost() const = 0;
+    virtual unsigned int getAttackRange() const = 0;
+    virtual unsigned int getAttackMinRange() const = 0;
+    virtual unsigned int getAttackArea() const = 0;
+    void setX(unsigned int x);
+    void setY(unsigned int y);
+    void setHp(unsigned int hp);
+    void setPp(unsigned int pp);
+    void setAp(unsigned int ap);
+    void setMp(unsigned int mp);
+    void setHpMax(unsigned int hp);
+    void setPpMax(unsigned int pp);
+    void setApMax(unsigned int ap);
+    void setMpMax(unsigned int mp);
+    void setOwner(Player& player)
+    {
+        _player = player;
+    }
+
     virtual void resetStats() = 0;
     virtual void resetActions() = 0;
+    virtual bool load(const std::string& tileset, sf::Vector2u tileSize, int width, int height) = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
+    {
+        states.transform *= getTransform();
+        states.texture = &_tileset;
+        target.draw(_vertices, states);
+    }
+protected:
+    sf::VertexArray _vertices;
+    sf::Texture _tileset;
 private:
-    int _x;
-    int _y;
+    unsigned int _x;
+    unsigned int _y;
     Player& _player;
     Stats _stats;
 };

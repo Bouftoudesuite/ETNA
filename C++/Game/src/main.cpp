@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "Game.hh"
 #include "Menu.hh"
+#include <ctime>
 
 int main()
 {
     int action;
+    std::srand(std::time(nullptr));
     sf::RenderWindow window(sf::VideoMode(638, 638), "Final_Game");
 
     Menu menu(window.getSize().x, window.getSize().y);

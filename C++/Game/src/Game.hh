@@ -12,25 +12,25 @@
 class Game : public Cscreen
 {
 public:
-    Game(float width, float height, int nbPlayer);
+    Game(unsigned int width, unsigned int height, unsigned int nbPlayer);
     ~Game();
-    int getNbPlayer() const;
+    unsigned int getNbPlayer() const;
     void setMap(Map map);
-    void createPlayers();
+    void initPlayers();
     bool canPlaceUnit(int x, int y, Unit const& unit);
-    bool canPlacePlayer(int x, int y);
     bool placeUnit(Unit* unit);
     bool addUnit(Unit* unit);
     void resetUnits();
     void newTurn();
     bool didLose(Player const& player);
-    void moveUnit(Unit& unit, Direction direction, int n);
-    std::vector<Unit*> getInRange(int x, int y, int rangeMin, int rangeMax, UnitField field);
+    void moveUnit(Unit& unit, Direction direction, unsigned int n);
+    std::vector<Unit*> getInRange(unsigned int x, unsigned int y, unsigned int rangeMin, unsigned int rangeMax, UnitField field);
+    void drawItems(sf::RenderWindow &window);
     int Run(sf::RenderWindow &window) override;
 private:
-    int _nbPlayer;
-    float _width;
-    float _height;
+    unsigned int _nbPlayer;
+    unsigned int _width;
+    unsigned int _height;
     Map _map;
     std::vector<Player*> _players;
     std::vector<Unit*> _units;

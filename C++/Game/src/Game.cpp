@@ -1,15 +1,16 @@
 #include <iostream>
 #include "Game.hh"
+#include "Hero.hh"
 #include "TileMap.hh"
 #include "Menu.hh"
 
-Game::Game(float width, float height, int nbPlayer) : _width(width), _height(height), _nbPlayer(nbPlayer)
+Game::Game(unsigned int width, unsigned int height, unsigned int nbPlayer) : _width(width), _height(height), _nbPlayer(nbPlayer)
 {}
 
 Game::~Game()
 {}
 
-int Game::getNbPlayer() const
+unsigned int Game::getNbPlayer() const
 {
     return (_nbPlayer);
 }
@@ -17,36 +18,6 @@ int Game::getNbPlayer() const
 void Game::setMap(Map map)
 {
     _map = map;
-}
-
-void Game::createPlayers()
-{
-    int i;
-    int tmp_x;
-    int tmp_y;
-
-    i = 0;
-    while (i < getNbPlayer())
-    {
-        _players.push_back(new Player("Joueur" + std::to_string(i + 1), 1000));
-        i++;
-    }
-
-    i = 0;
-    while (i < _players.size())
-    {
-
-        tmp_x = rand() % _map.getWidth() + 0;
-        tmp_y = rand() % _map.getHeight() + 0;
-        while (!canPlacePlayer(tmp_x, tmp_y))
-        {
-            tmp_x = rand() % _map.getWidth() + 0;
-            tmp_y = rand() % _map.getHeight() + 0;
-        }
-        _players[i]->setX(tmp_x);
-        _players[i]->setY(tmp_y);
-        i++;
-    }
 }
 
 bool Game::canPlaceUnit(int x, int y, Unit const& unit)
@@ -75,26 +46,6 @@ bool Game::placeUnit(Unit* unit)
         return (true);
     }
     return (false);
-}
-
-
-bool Game::canPlacePlayer(int i, int j)
-{
-    unsigned int k;
-
-    k = 0;
-    while (k < _players.size())
-    {
-        if (_map.getCell(i, j) == GrassCell && !(_players[k]->getX() == i && _players[k]->getY() == j))
-        {
-            k++;
-        }
-        else
-        {
-            return (false);
-        }
-    }
-    return (true);
 }
 
 bool Game::addUnit(Unit* unit)
@@ -127,7 +78,6 @@ void Game::newTurn()
     std::vector<int> toRemove;
     unsigned int i;
 
-    /* Find what to remove */
     i = 0;
     while (i < _units.size())
     {
@@ -138,7 +88,6 @@ void Game::newTurn()
         i++;
     }
 
-    /* Remove */
     i = 0;
     while (i < toRemove.size())
     {
@@ -146,7 +95,6 @@ void Game::newTurn()
         i++;
     }
 
-    /* Reset */
     i = 0;
     while (i < _units.size())
     {
@@ -176,10 +124,10 @@ bool Game::didLose(Player const& player)
     return (true);
 }
 
-void Game::moveUnit(Unit& unit, Direction direction, int n)
+void Game::moveUnit(Unit& unit, Direction direction, unsigned int n)
 {
-    int i;
-    int j;
+    unsigned int i;
+    unsigned int j;
     int tmp_x;
     int tmp_y;
     bool stop;
@@ -244,9 +192,9 @@ void Game::moveUnit(Unit& unit, Direction direction, int n)
     }
 }
 
-std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, UnitField field)
+std::vector<Unit*> Game::getInRange(unsigned int x, unsigned int y, unsigned int rangeMin, unsigned int rangeMax, UnitField field)
 {
-    int i;
+    unsigned int i;
     std::vector<Unit*> inRange;
 
     i = 0;
@@ -269,56 +217,91 @@ std::vector<Unit*> Game::getInRange(int x, int y, int rangeMin, int rangeMax, Un
     return (inRange);
 }
 
+
+void Game::initPlayers()
+{
+    unsigned int i;
+    sf::VertexArray vertices;
+    sf::Texture tileset;
+    std::vector<Unit*> tmp_units;
+
+    i = 0;
+    while (i < getNbPlayer())
+    {
+        _players.push_back(new Player("Joueur" + std::to_string(i + 1), 10000));
+        i++;
+    }
+
+    i = 0;
+    while (i < _players.size())
+    {
+        tmp_units.push_back(new Hero(std::rand() % _map.getWidth() + 0, std::rand() % _map.getHeight() + 0, *_players[i]));
+
+        while (!addUnit(tmp_units[i]))
+        {
+            tmp_units[i]->setX(std::rand() % _map.getWidth() + 0);
+            tmp_units[i]->setY(std::rand() % _map.getWidth() + 0);
+        }
+        i++;
+    }
+}
+
+void Game::drawItems(sf::RenderWindow &window)
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < _units.size())
+    {
+        window.draw(*_units[i]);
+        i++;
+    }
+}
+
 int Game::Run(sf::RenderWindow &window)
 {
-    int i;
-    int posPlayer[2];
+    unsigned int i;
+    int numPlayer;
     bool Running;
     TileMap tilemap;
 
     Running = true;
-    createPlayers();
+
+    initPlayers();
+
     if (!tilemap.load("image/Map.png", sf::Vector2u(32, 32), _map, _map.getWidth(), _map.getHeight()))
     {
         return (CLOSE);
     }
 
     i = 0;
-    while (i < _players.size())
+    while (i < _units.size())
     {
-        if (!_players[i]->load("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+        if (!_units[i]->load("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
         {
             return (CLOSE);
         }
         i++;
     }
-
-    while (Running)
+    numPlayer = 0;
+    sf::Event event;
+    while (window.waitEvent(event))
     {
-        sf::Event event;
-        while (window.pollEvent(event))
+        if (event.type == sf::Event::Closed)
         {
-            if (event.type == sf::Event::Closed)
+            return (CLOSE);
+        }
+        else if (event.type == sf::Event::KeyPressed)
+        {
+            switch (event.key.code)
             {
-                return (CLOSE);
-            }
-            else if (event.type == sf::Event::KeyPressed)
-            {
-                switch (event.key.code)
-                {
-                    case sf::Keyboard::Return:
-                        return (CLOSE);
-                }
+                case sf::Keyboard::Return:
+                    return (CLOSE);
             }
         }
         window.clear();
         window.draw(tilemap);
-        i = 0;
-        while (i < _players.size())
-        {
-            window.draw(*_players[i]);
-            i++;
-        }
+        drawItems(window);
         window.display();
     }
     return (CLOSE);

@@ -6,9 +6,9 @@ Attack<T>::Attack(Game const& game, T& unit) : _game(game), _unit(unit)
 {}
 
 template<class T>
-void Attack<T>::perform(int x, int y)
+void Attack<T>::perform(unsigned int x, unsigned int y)
 {
-    int i;
+    unsigned int i;
     int pourcent;
     std::vector<Unit*> toAttack;
 
@@ -42,9 +42,9 @@ void Attack<T>::perform(int x, int y)
 Attack<Tank>::Attack(Game const& game, Tank& unit) : _game(game), _unit(unit)
 {}
 
-void Attack<Tank>::perform(int x, int y)
+void Attack<Tank>::perform(unsigned int x, unsigned int y)
 {
-    int i;
+    unsigned int i;
     int pourcent;
     std::vector<Unit*> toAttack;
 

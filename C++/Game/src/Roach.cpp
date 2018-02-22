@@ -5,22 +5,22 @@ UnitField Roach::getField() const
     return (Ground);
 }
 
-int Roach::getCost() const
+unsigned int Roach::getCost() const
 {
     return (150);
 }
 
-int Roach::getAttackRange() const
+unsigned int Roach::getAttackRange() const
 {
     return (2);
 }
 
-int Roach::getAttackMinRange() const
+unsigned int Roach::getAttackMinRange() const
 {
     return (1);
 }
 
-int Roach::getAttackArea() const
+unsigned int Roach::getAttackArea() const
 {
     return (1);
 }

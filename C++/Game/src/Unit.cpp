@@ -1,6 +1,6 @@
 #include "Unit.hh"
 
-Unit::Unit(const int x, const int y, Player& player) : _x(x), _y(y), _player(player)
+Unit::Unit(unsigned int x, unsigned int y, Player& player) : _x(x), _y(y), _player(player)
 {}
 
 bool Unit::isDead() const
@@ -8,52 +8,52 @@ bool Unit::isDead() const
     return (getHp() <= 0);
 }
 
-int Unit::getX() const
+unsigned int Unit::getX() const
 {
     return (_x);
 }
 
-int Unit::getY() const
+unsigned int Unit::getY() const
 {
     return (_y);
 }
 
-int Unit::getHp() const
+unsigned int Unit::getHp() const
 {
     return (_stats._hp);
 }
 
-int Unit::getPp() const
+unsigned int Unit::getPp() const
 {
     return (_stats._pp);
 }
 
-int Unit::getAp() const
+unsigned int Unit::getAp() const
 {
     return (_stats._ap);
 }
 
-int Unit::getMp() const
+unsigned int Unit::getMp() const
 {
     return (_stats._mp);
 }
 
-int Unit::getHpMax() const
+unsigned int Unit::getHpMax() const
 {
     return (_stats._hpMax);
 }
 
-int Unit::getPpMax() const
+unsigned int Unit::getPpMax() const
 {
     return (_stats._ppMax);
 }
 
-int Unit::getApMax() const
+unsigned int Unit::getApMax() const
 {
     return (_stats._apMax);
 }
 
-int Unit::getMpMax() const
+unsigned int Unit::getMpMax() const
 {
     return (_stats._mpMax);
 }
@@ -63,52 +63,55 @@ Player& Unit::getOwner()
     return (_player);
 }
 
-void Unit::setX(int x)
+void Unit::setX(unsigned int x)
 {
     _x = x;
 }
 
-void Unit::setY(int y)
+void Unit::setY(unsigned int y)
 {
     _y = y;
 }
 
-void Unit::setHp(int hp)
+void Unit::setHp(unsigned int hp)
 {
     _stats._hp = hp;
 }
 
-void Unit::setPp(int pp)
+void Unit::setPp(unsigned int pp)
 {
     _stats._pp = pp;
 }
 
-void Unit::setAp(int ap)
+void Unit::setAp(unsigned int ap)
 {
     _stats._ap = ap;
 }
 
-void Unit::setMp(int mp)
+void Unit::setMp(unsigned int mp)
 {
     _stats._mp = mp;
 }
 
-void Unit::setHpMax(int hp)
+void Unit::setHpMax(unsigned int hp)
 {
     _stats._hpMax = hp;
 }
 
-void Unit::setPpMax(int pp)
+void Unit::setPpMax(unsigned int pp)
 {
     _stats._ppMax = pp;
 }
 
-void Unit::setApMax(int ap)
+void Unit::setApMax(unsigned int ap)
 {
     _stats._apMax = ap;
 }
 
-void Unit::setMpMax(int mp)
+void Unit::setMpMax(unsigned int mp)
 {
     _stats._mpMax = mp;
 }
+
+
+

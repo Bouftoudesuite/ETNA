@@ -2,7 +2,6 @@
 #include <cstddef>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include "CellProperty.hh"
 #include "Map.hh"
 
@@ -15,19 +14,18 @@ Map::Map() :
 Map::~Map()
 {}
 
-int Map::getWidth() const
+unsigned int Map::getWidth() const
 {
     return (_width);
 }
 
-int Map::getHeight() const
+unsigned int Map::getHeight() const
 {
     return (_height);
 }
 
-CellType Map::getCell(const int x, const int y) const
+CellType Map::getCell(unsigned int x, unsigned int y) const
 {
-
     if (x < 0 || y < 0)
     {
         std::cout << "invalid cell coordinates" << std::endl;
@@ -35,15 +33,14 @@ CellType Map::getCell(const int x, const int y) const
     return (_cells[x][y]);
 }
 
-CellProperty Map::getCellProperties(const int x, const int y)
+CellProperty Map::getCellProperties(unsigned int x, unsigned int y)
 {
     int i;
     CellProperty cell;
-
-    i = getCellFlags(Map::getCell(x, y));
+    i = CellProperty::getCellFlags(getCell(x, y));
     if (i == FLYABLE)
     {
-        cell.CellProperty::setFlyable();
+        cell.setFlyable();
     }
     else if (i == WALKABLE)
     {
@@ -77,12 +74,12 @@ CellProperty Map::getCellProperties(const int x, const int y)
     return (cell);
 }
 
-bool Map::canGo(int x, int y, const Unit& unit)
+bool Map::canGo(unsigned int x, unsigned int y, const Unit& unit)
 {
     UnitField field;
     CellProperty property;
 
-    property = this->getCellProperties(x, y);
+    property = getCellProperties(x, y);
     field = unit.getField();
     if (field == Sky && property.isFlyable())
     {
@@ -99,7 +96,7 @@ bool Map::canGo(int x, int y, const Unit& unit)
     return (false);
 }
 
-CellType** parseMap(int* width, int* height)
+CellType** parseMap(unsigned int* width, unsigned int* height)
 {
     char tmp;
     unsigned int i;
@@ -160,10 +157,10 @@ CellType** parseMap(int* width, int* height)
     }
 }
 
-int Map::getDistanceBetween(int firstX, int firstY, int secondX, int secondY)
+unsigned int Map::getDistanceBetween(unsigned int firstX, unsigned int firstY, unsigned int secondX, unsigned int secondY)
 {
     int distance;
 
-    distance = std::abs(firstX - firstY) + std::abs(secondX - secondY);
+    distance = std::abs((int)firstX - (int)firstY) + std::abs((int)secondX - (int)secondY);
     return (distance);
 }

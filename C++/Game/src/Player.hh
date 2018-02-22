@@ -4,27 +4,17 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-class Player : public sf::Drawable, public sf::Transformable
+class Player
 {
 public:
-    Player(std::string const& name, int budget);
+    Player(std::string const& name, unsigned int budget);
     ~Player();
-    int getX() const;
-    int getY() const;
-    int getBudget() const;
+	unsigned int getBudget() const;
     const std::string& getName() const;
-    void setX(int x);
-    void setY(int y);
-    void setBudget(int budget);
-    bool load(const std::string& tileset, sf::Vector2u tileSize, int width, int height);
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void setBudget(unsigned int budget);
 private:
-    int _x;
-    int _y;
     std::string _name;
-    int _budget;
-    sf::VertexArray _vertices;
-    sf::Texture _tileset;
+	unsigned int _budget;
 };
 
 #endif

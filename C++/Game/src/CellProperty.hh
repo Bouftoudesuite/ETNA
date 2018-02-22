@@ -12,6 +12,7 @@ class CellProperty
 {
 public:
     CellProperty();
+    static int getCellFlags(CellType type);
     explicit CellProperty(CellType newCellType);
     bool isWalkable() const;
     bool isSwimmable() const;
@@ -36,7 +37,6 @@ private:
     bool _monster;
 };
 
-int getCellFlags(CellType type);
 bool operator==(CellProperty const& a, CellProperty const& b);
 bool operator!=(CellProperty const& a, CellProperty const& b);
 

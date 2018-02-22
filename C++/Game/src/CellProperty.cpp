@@ -1,21 +1,4 @@
-#include "Map.hh"
-
-int getCellFlags(CellType type)
-{
-    if (type == GrassCell)
-    {
-        return (SWIMMABLE | FLYABLE);
-    }
-    else if (type == WaterCell)
-    {
-        return (SWIMMABLE | WALKABLE);
-    }
-    else if (type == RockCell)
-    {
-        return (FLYABLE);
-    }
-    return (NO_FLAG);
-}
+#include "CellProperty.hh"
 
 CellProperty::CellProperty() :
     _walkable(false),
@@ -132,6 +115,23 @@ void CellProperty::setMonster()
 void CellProperty::setNotMonster()
 {
     _monster = false;
+}
+
+int CellProperty::getCellFlags(CellType type)
+{
+    if (type == WaterCell)
+    {
+        return (SWIMMABLE | FLYABLE);
+    }
+    else if (type == GrassCell)
+    {
+        return (SWIMMABLE | WALKABLE);
+    }
+    else if (type == RockCell)
+    {
+        return (FLYABLE);
+    }
+    return (NO_FLAG);
 }
 
 bool operator==(CellProperty const& a, CellProperty const& b)

@@ -5,22 +5,22 @@ UnitField Carrier::getField() const
     return (Sky);
 }
 
-int Carrier::getCost() const
+unsigned int Carrier::getCost() const
 {
     return (500);
 }
 
-int Carrier::getAttackRange() const
+unsigned int Carrier::getAttackRange() const
 {
     return (5);
 }
 
-int Carrier::getAttackMinRange() const
+unsigned int Carrier::getAttackMinRange() const
 {
     return (1);
 }
 
-int Carrier::getAttackArea() const
+unsigned int Carrier::getAttackArea() const
 {
     return (4);
 }

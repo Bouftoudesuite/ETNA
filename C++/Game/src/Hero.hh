@@ -1,12 +1,13 @@
-#ifndef _STALKER_HH_
-# define _STALKER_HH_
+#ifndef _HERO_HH_
+# define _HERO_HH_
 
+#include <SFML/Graphics.hpp>
 #include "Unit.hh"
-#include "Stats.hh"
 
-class Stalker : public Unit
+class Hero : public Unit
 {
 public:
+    using Unit::Unit;
     UnitField getField() const override;
 	unsigned int getCost() const override;
 	unsigned int getAttackRange() const override;
@@ -15,6 +16,8 @@ public:
     static Stats const& getBaseStats();
     void resetStats() override;
     void resetActions() override;
+    bool load(const std::string& tileset, sf::Vector2u tileSize, int width, int height) override;
 };
 
-#endif
+
+#endif //GAME_HERO_HH

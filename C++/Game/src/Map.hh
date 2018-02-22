@@ -9,19 +9,19 @@ class Map
 {
 public:
     Map();
-    int getWidth() const;
-    int getHeight() const;
-    CellType getCell(int x, int y) const;
-    CellProperty getCellProperties(int x, int y);
-    bool canGo(int x, int y, Unit const&);
-    static int getDistanceBetween(int firstX, int firstY, int secondX, int secondY);
+    unsigned int getWidth() const;
+    unsigned int getHeight() const;
+    CellType getCell(unsigned int x, unsigned int y) const;
+    CellProperty getCellProperties(unsigned int x, unsigned int y);
+    bool canGo(unsigned int x, unsigned int y, Unit const&);
+    static unsigned int getDistanceBetween(unsigned int firstX, unsigned int firstY, unsigned int secondX, unsigned int secondY);
     ~Map();
 private:
-    int _width;
-    int _height;
+    unsigned int _width;
+    unsigned int _height;
     CellType **_cells;
 };
 
-CellType** parseMap(int* width, int* height);
+CellType** parseMap(unsigned int* width, unsigned int* height);
 
 #endif

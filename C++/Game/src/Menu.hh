@@ -11,7 +11,7 @@
 class Menu : public Cscreen
 {
 public:
-    Menu(float width, float height);
+    Menu(unsigned int width, unsigned int height);
     ~Menu();
     int getSelectedItem() const;
     void draw(sf::RenderWindow &window);

@@ -5,22 +5,22 @@ UnitField Tank::getField() const
     return (Ground);
 }
 
-int Tank::getCost() const
+unsigned int Tank::getCost() const
 {
     return (300);
 }
 
-int Tank::getAttackRange() const
+unsigned int Tank::getAttackRange() const
 {
     return (5);
 }
 
-int Tank::getAttackMinRange() const
+unsigned int Tank::getAttackMinRange() const
 {
     return (2);
 }
 
-int Tank::getAttackArea() const
+unsigned int Tank::getAttackArea() const
 {
     return (4);
 }

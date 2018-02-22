@@ -10,7 +10,7 @@ class Attack
 {
 public:
     Attack(Game const& game, T& unit);
-    void perform(int x, int y);
+    void perform(unsigned int x, unsigned int y);
 private:
     Game _game;
     T& _unit;
@@ -21,7 +21,7 @@ class Attack<Tank>
 {
 public:
     Attack(Game const& game, Tank& unit);
-    void perform(int x, int y);
+    void perform(unsigned int x, unsigned int y);
 private:
     Game _game;
     Tank& _unit;
