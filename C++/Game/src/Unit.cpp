@@ -113,5 +113,14 @@ void Unit::setMpMax(unsigned int mp)
     _stats._mpMax = mp;
 }
 
+void Unit::setOwner(Player &player)
+{
+    _player = player;
+}
 
-
+void Unit::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    states.transform *= getTransform();
+    states.texture = &_tileset;
+    target.draw(_vertices, states);
+}

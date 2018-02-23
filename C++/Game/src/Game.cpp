@@ -103,11 +103,6 @@ void Game::newTurn()
     }
 }
 
-bool my_predicate(const Unit& item)
-{
-    return (item.getHp() <= 0);
-}
-
 bool Game::didLose(Player const& player)
 {
     unsigned int i;
@@ -158,7 +153,7 @@ void Game::moveUnit(Unit& unit, Direction direction, unsigned int n)
         while (j < _units.size())
         {
             if (_units[j]->getOwner().getName() != unit.getOwner().getName() && _units[j]->getField() == unit.getField()
-                && _units[j]->getX() == tmp_x && _units[j]->getY() == tmp_y && !stop) /*Monster in way*/
+                && _units[j]->getX() == tmp_x && _units[j]->getY() == tmp_y && !stop)
             {
                 std::cout << "message: invalid move: enemy in the way" << std::endl;
                 stop = true;
@@ -180,7 +175,7 @@ void Game::moveUnit(Unit& unit, Direction direction, unsigned int n)
     {
         std::cout << "invalid move: oob" << std::endl;
     }
-    else if (canPlaceUnit(tmp_x, tmp_y, unit) && !stop)
+    else if (!canPlaceUnit(tmp_x, tmp_y, unit) && !stop)
     {
         std::cout << "invalid move: cell occupied" << std::endl;
     }
@@ -244,6 +239,13 @@ void Game::initPlayers()
         }
         i++;
     }
+
+    i = 0;
+    while (i < _units.size())
+    {
+        _units[i]->resetStats();
+        i++;
+    }
 }
 
 void Game::drawItems(sf::RenderWindow &window)
@@ -258,32 +260,60 @@ void Game::drawItems(sf::RenderWindow &window)
     }
 }
 
-int Game::Run(sf::RenderWindow &window)
+bool Game::loadUnits(const std::string& tileset, sf::Vector2u tileSize, int width, int height)
 {
     unsigned int i;
-    int numPlayer;
-    bool Running;
-    TileMap tilemap;
-
-    Running = true;
-
-    initPlayers();
-
-    if (!tilemap.load("image/Map.png", sf::Vector2u(32, 32), _map, _map.getWidth(), _map.getHeight()))
-    {
-        return (CLOSE);
-    }
 
     i = 0;
     while (i < _units.size())
     {
         if (!_units[i]->load("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
         {
-            return (CLOSE);
+            return (false);
         }
         i++;
     }
-    numPlayer = 0;
+    return (true);
+}
+
+bool Game::reloadUnits(const std::string& tileset, sf::Vector2u tileSize, int width, int height)
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < _units.size())
+    {
+        if (!_units[i]->reload("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+        {
+            return (false);
+        }
+        i++;
+    }
+    return (true);
+}
+
+int Game::Run(sf::RenderWindow &window)
+{
+    int numPlayer;
+    int numUnits;
+    bool Running;
+    TileMap tilemap;
+
+    Running = true;
+	numPlayer = 0;
+    numUnits = 0;
+
+    initPlayers();
+    
+    if (!tilemap.load("image/Map.png", sf::Vector2u(32, 32), _map, _map.getWidth(), _map.getHeight()))
+    {
+        return (CLOSE);
+    }
+    if (!loadUnits("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+    {
+        return (CLOSE);
+    }
+
     sf::Event event;
     while (window.waitEvent(event))
     {
@@ -295,10 +325,36 @@ int Game::Run(sf::RenderWindow &window)
         {
             switch (event.key.code)
             {
-                case sf::Keyboard::Return:
-                    return (CLOSE);
+                case sf::Keyboard::Up:
+                    moveUnit(*_units[numUnits], North, 1);
+                    _units[numUnits]->turn(North);
+					break;
+                case sf::Keyboard::Down:
+                    moveUnit(*_units[numUnits], South, 1);
+                    _units[numUnits]->turn(South);
+                    break;
+                case sf::Keyboard::Left:
+                    moveUnit(*_units[numUnits], East, 1);
+                    _units[numUnits]->turn(East);
+                    break;
+                case sf::Keyboard::Right:
+                    moveUnit(*_units[numUnits], West, 1);
+                    _units[numUnits]->turn(West);
+                    break;
             }
         }
+
+        if (_units[numUnits]->getMp() <= 0)
+        {
+            numUnits++;
+        }
+        if (numUnits == _players.size())
+        {
+            numUnits = 0;
+            newTurn();
+        }
+
+        reloadUnits("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight());
         window.clear();
         window.draw(tilemap);
         drawItems(window);

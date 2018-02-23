@@ -5,6 +5,7 @@
 #include "UnitField.hh"
 #include "Player.hh"
 #include "Stats.hh"
+#include "Direction.hh"
 
 class Unit : public sf::Drawable, public sf::Transformable
 {
@@ -37,23 +38,18 @@ public:
     void setPpMax(unsigned int pp);
     void setApMax(unsigned int ap);
     void setMpMax(unsigned int mp);
-    void setOwner(Player& player)
-    {
-        _player = player;
-    }
-
+    void setOwner(Player& player);
     virtual void resetStats() = 0;
     virtual void resetActions() = 0;
+    virtual void turn(Direction direction) = 0;
     virtual bool load(const std::string& tileset, sf::Vector2u tileSize, int width, int height) = 0;
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
-    {
-        states.transform *= getTransform();
-        states.texture = &_tileset;
-        target.draw(_vertices, states);
-    }
+    virtual bool reload(const std::string& tileset, sf::Vector2u tileSize, int width, int height) = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 protected:
+    sf::Vertex *_quad;
     sf::VertexArray _vertices;
     sf::Texture _tileset;
+    unsigned int _tileNumber;
 private:
     unsigned int _x;
     unsigned int _y;

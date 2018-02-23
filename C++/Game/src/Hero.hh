@@ -16,7 +16,9 @@ public:
     static Stats const& getBaseStats();
     void resetStats() override;
     void resetActions() override;
+    void turn(Direction direction) override;
     bool load(const std::string& tileset, sf::Vector2u tileSize, int width, int height) override;
+    bool reload(const std::string& tileset, sf::Vector2u tileSize, int width, int height) override;
 };
 
 

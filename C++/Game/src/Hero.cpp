@@ -56,6 +56,95 @@ void Hero::resetActions()
     setMp(stats._mp);
 }
 
+void Hero::turn(Direction direction)
+{
+    if ((_tileNumber >= 0 && _tileNumber <= 2) || (_tileNumber >= 9 && _tileNumber <= 11)|| (_tileNumber >= 18 && _tileNumber <= 20))
+    {
+        switch (direction)
+        {
+            case North:
+                _tileNumber = 19;
+                break;
+
+            case South:
+                _tileNumber = 1;
+                break;
+
+            case East:
+                _tileNumber = 10;
+                break;
+
+            case West:
+                _tileNumber = 10;
+                break;
+        }
+    }
+    else if ((_tileNumber >= 3 && _tileNumber <= 5) || (_tileNumber >= 12 && _tileNumber <= 14)|| (_tileNumber >= 21 && _tileNumber <= 23))
+    {
+        switch (direction)
+        {
+            case North:
+                _tileNumber = 22;
+                break;
+
+            case South:
+                _tileNumber = 4;
+                break;
+
+            case East:
+                _tileNumber = 13;
+                break;
+
+            case West:
+                _tileNumber = 13;
+                break;
+        }
+    }
+    else if ((_tileNumber >= 27 && _tileNumber <= 29) || (_tileNumber >= 36 && _tileNumber <= 38)|| (_tileNumber >= 45 && _tileNumber <= 47))
+    {
+        switch (direction)
+        {
+            case North:
+                _tileNumber = 46;
+                break;
+
+            case South:
+                _tileNumber = 28;
+                break;
+
+            case East:
+                _tileNumber = 37;
+                break;
+
+            case West:
+                _tileNumber = 37;
+                break;
+        }
+    }
+    else if ((_tileNumber >= 30 && _tileNumber <= 32) || (_tileNumber >= 39 && _tileNumber <= 41)|| (_tileNumber >= 48 && _tileNumber <= 50))
+    {
+        switch (direction)
+        {
+            case North:
+                _tileNumber = 49;
+                break;
+
+            case South:
+                _tileNumber = 31;
+                break;
+
+            case East:
+                _tileNumber = 40;
+                break;
+
+            case West:
+                _tileNumber = 40;
+                break;
+        }
+    }
+}
+
+
 bool Hero::load(const std::string& tileset, sf::Vector2u tileSize, int width, int height)
 {
     int i = getX();
@@ -69,30 +158,56 @@ bool Hero::load(const std::string& tileset, sf::Vector2u tileSize, int width, in
     _vertices.setPrimitiveType(sf::Quads);
     _vertices.resize(width * height * 4);
 
-    int tileNumber = std::rand() % 4 + 1;
-    if (tileNumber == 2)
+    _tileNumber = (unsigned int)std::rand() % 4 + 1;
+    if (_tileNumber == 2)
     {
-        tileNumber = 31;
+        _tileNumber = 31;
     }
-    else if (tileNumber == 3)
+    else if (_tileNumber == 3)
     {
-        tileNumber = 28;
+        _tileNumber = 28;
     }
 
-    int tu = tileNumber % (_tileset.getSize().x / tileSize.x);
-    int tv = tileNumber / (_tileset.getSize().x / tileSize.x);
+    unsigned int tu = _tileNumber % (_tileset.getSize().x / tileSize.x);
+    unsigned int tv = _tileNumber / (_tileset.getSize().x / tileSize.x);
 
-    sf::Vertex *quad = &_vertices[(i + j * width) * 4];
+    _quad = &_vertices[(i + j * width) * 4];
 
-    quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
-    quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
-    quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
-    quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
+    _quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
+    _quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
+    _quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
+    _quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
 
-    quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
-    quad[1].texCoords = sf::Vector2f((tu + 1) * tileSize.x, tv * tileSize.y);
-    quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
-    quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
+    _quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
+    _quad[1].texCoords = sf::Vector2f((tu + 1) * tileSize.x, tv * tileSize.y);
+    _quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
+    _quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
+
+    return (true);
+}
+
+bool Hero::reload(const std::string& tileset, sf::Vector2u tileSize, int width, int height)
+{
+    int i = getX();
+    int j = getY();
+
+    if (!_tileset.loadFromFile(tileset))
+    {
+        return (false);
+    }
+
+    unsigned int tu = _tileNumber % (_tileset.getSize().x / tileSize.x);
+    unsigned int tv = _tileNumber / (_tileset.getSize().x / tileSize.x);
+
+    _quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
+    _quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
+    _quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
+    _quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
+
+    _quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
+    _quad[1].texCoords = sf::Vector2f((tu + 1) * tileSize.x, tv * tileSize.y);
+    _quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
+    _quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
 
     return (true);
 }
