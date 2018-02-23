@@ -4,7 +4,7 @@
 enum CellType
 {
 	GrassCell = 5,
-	WaterCell = 0,
+	WaterCell = 225,
 	RockCell = 6,
 	MountainCell = 81
 };

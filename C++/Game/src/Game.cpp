@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Game.hh"
 #include "Hero.hh"
-#include "TileMap.hh"
 #include "Menu.hh"
 
 Game::Game(unsigned int width, unsigned int height, unsigned int nbPlayer) : _width(width), _height(height), _nbPlayer(nbPlayer)
@@ -223,7 +222,7 @@ void Game::initPlayers()
     i = 0;
     while (i < getNbPlayer())
     {
-        _players.push_back(new Player("Joueur" + std::to_string(i + 1), 10000));
+        _players.push_back(new Player(i + 1, 10000));
         i++;
     }
 
@@ -267,7 +266,7 @@ bool Game::loadUnits(const std::string& tileset, sf::Vector2u tileSize, int widt
     i = 0;
     while (i < _units.size())
     {
-        if (!_units[i]->load("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+        if (!_units[i]->load(tileset, sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
         {
             return (false);
         }
@@ -283,7 +282,7 @@ bool Game::reloadUnits(const std::string& tileset, sf::Vector2u tileSize, int wi
     i = 0;
     while (i < _units.size())
     {
-        if (!_units[i]->reload("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
+        if (!_units[i]->reload(tileset, sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
         {
             return (false);
         }

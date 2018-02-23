@@ -3,11 +3,16 @@
 #include <iostream>
 #include "Player.hh"
 
-Player::Player(std::string const& name, unsigned int budget) : _name(name), _budget(budget)
+Player::Player(unsigned int id, unsigned int budget) : _id(id), _name("Joueur" + std::to_string(id)), _budget(budget)
 {}
 
 Player::~Player()
 {}
+
+unsigned int Player::getId() const
+{
+    return (_id);
+}
 
 unsigned int Player::getBudget() const
 {

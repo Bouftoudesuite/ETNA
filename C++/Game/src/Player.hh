@@ -7,12 +7,14 @@
 class Player
 {
 public:
-    Player(std::string const& name, unsigned int budget);
+    Player(unsigned int id, unsigned int budget);
     ~Player();
+	unsigned int getId() const;
 	unsigned int getBudget() const;
     const std::string& getName() const;
     void setBudget(unsigned int budget);
 private:
+	unsigned int _id;
     std::string _name;
 	unsigned int _budget;
 };
