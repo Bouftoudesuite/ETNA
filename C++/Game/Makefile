@@ -17,7 +17,6 @@ SRC		=	src/Attack.cpp \
 			src/Roach.cpp \
 			src/Stalker.cpp \
 			src/Tank.cpp \
-			src/TileMap.cpp \
 			src/Unit.cpp \
 			src/Ursadon.cpp
 

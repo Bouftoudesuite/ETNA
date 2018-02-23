@@ -297,7 +297,6 @@ int Game::Run(sf::RenderWindow &window)
     int numPlayer;
     int numUnits;
     bool Running;
-    TileMap tilemap;
 
     Running = true;
 	numPlayer = 0;
@@ -305,7 +304,7 @@ int Game::Run(sf::RenderWindow &window)
 
     initPlayers();
     
-    if (!tilemap.load("image/Map.png", sf::Vector2u(32, 32), _map, _map.getWidth(), _map.getHeight()))
+    if (!_map.load("image/Map.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight()))
     {
         return (CLOSE);
     }
@@ -356,7 +355,7 @@ int Game::Run(sf::RenderWindow &window)
 
         reloadUnits("image/Sprite.png", sf::Vector2u(32, 32), _map.getWidth(), _map.getHeight());
         window.clear();
-        window.draw(tilemap);
+        window.draw(_map);
         drawItems(window);
         window.display();
     }
