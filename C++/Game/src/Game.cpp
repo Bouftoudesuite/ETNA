@@ -194,7 +194,7 @@ std::vector<Unit*> Game::getInRange(unsigned int x, unsigned int y, unsigned int
     i = 0;
     while (i < _units.size())
     {
-        if (rangeMin < 0 || rangeMax < 0 || rangeMax < rangeMin)
+        if (rangeMax < rangeMin)
         {
             std::cout << "invalid range" << std::endl;
         }
@@ -338,6 +338,8 @@ int Game::Run(sf::RenderWindow &window)
                 case sf::Keyboard::Right:
                     moveUnit(*_units[numUnits], West, 1);
                     _units[numUnits]->turn(West);
+                    break;
+                default:
                     break;
             }
         }

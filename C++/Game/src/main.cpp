@@ -2,6 +2,7 @@
 #include "Game.hh"
 #include "Menu.hh"
 #include <ctime>
+#include "ResourcePath.hpp"
 
 int main()
 {

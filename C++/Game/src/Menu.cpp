@@ -117,6 +117,9 @@ int Menu::Run(sf::RenderWindow &window)
 
                 case sf::Keyboard::Return:
                     return (PLAY);
+                
+                default:
+                    break;
             }
         }
         window.clear();

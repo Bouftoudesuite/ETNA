@@ -26,10 +26,6 @@ unsigned int Map::getHeight() const
 
 CellType Map::getCell(unsigned int x, unsigned int y) const
 {
-    if (x < 0 || y < 0)
-    {
-        std::cout << "invalid cell coordinates" << std::endl;
-    }
     return (_cells[x][y]);
 }
 
