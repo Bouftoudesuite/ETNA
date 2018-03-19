@@ -9,5 +9,5 @@ Pour **utiliser** le programme, il suffit de taper la commande en root ou sudo:
 > $> prepget
 
 Pour plus d'information:
-$> prepget -h	ou
-$> prepget --help
+> $> prepget -h	ou
+> $> prepget --help
