@@ -1,4 +1,4 @@
-#PREPGET
+# PREPGET
 
 Prepget est un gestionnaire de paquet style Aptitude sur Debian Linux, il permet de telecharger des paquets, mais également d'en upload.
 
