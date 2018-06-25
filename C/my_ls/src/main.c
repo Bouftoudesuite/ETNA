@@ -1,5 +1,5 @@
 #include <flags.h>
-#include <my_ls.h>
+#include <my.h>
 #include <params.h>
 
 int main(int argc, char **argv)
@@ -15,7 +15,11 @@ int main(int argc, char **argv)
     path = list_params._first;
     while (path)
     {
-        if (list_params._size)
+        if (list_params._size > 1)
+        {
+            my_putstr(path->_key);
+            my_putstr(":\n");
+        }
         path = path->_next;
     }
     return (0);
