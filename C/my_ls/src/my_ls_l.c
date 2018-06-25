@@ -9,9 +9,6 @@
 */
 #include <dirent.h>
 #include <my.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <unistd.h>
 
 int						my_ls_l(const char *path)
