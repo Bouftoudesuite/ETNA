@@ -10,6 +10,9 @@
 #include <dirent.h>
 #include <my.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 int						my_ls_l(const char *path)
 {
@@ -21,10 +24,9 @@ int						my_ls_l(const char *path)
         return (0);
     while (( d = readdir(dir)))
     {
-        my_putstr(d->d_name);
-        my_putchar('\t');
+        my_putstr(d.);
+        my_putchar('\n');
     }
     closedir(dir);
-    my_putchar('\n');
     return (0);
 }

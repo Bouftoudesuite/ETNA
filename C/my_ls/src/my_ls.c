@@ -22,8 +22,7 @@ int						my_ls(const char *path)
 	while (( d = readdir(dir)))
 	{
 		my_putstr(d->d_name);
-		my_putchar('\t');
+		my_putchar('\n');
 	}
-    my_putchar('\n');
 	return (0);
 }
