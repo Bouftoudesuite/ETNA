@@ -21,7 +21,7 @@ int						my_ls_l(const char *path)
         return (0);
     while (( d = readdir(dir)))
     {
-        my_putstr(d.);
+        my_putstr(d->d_name);
         my_putchar('\n');
     }
     closedir(dir);

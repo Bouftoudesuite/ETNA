@@ -3,7 +3,7 @@
 
 typedef struct s_node_params
 {
-    char *_key;
+    const char *_path;
     struct s_node_params *_next;
 } t_node_params;
 
@@ -15,7 +15,8 @@ typedef struct s_list_params
 } t_list_params;
 
 void init_list_params(t_list_params *list);
-void push_back_param(t_list_params *list, char *key);
+void push_back_param(t_list_params *list, const char *path);
 void get_params(int argc, char **argv, t_list_params *list);
+void push_params_to_tab(char **to_ls, t_list_params *list);
 
 #endif //_PARAMS_H_
