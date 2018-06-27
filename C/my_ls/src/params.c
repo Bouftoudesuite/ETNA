@@ -68,24 +68,21 @@ void sort_param_by_type(char **tab, unsigned int size)
     char *temp;
     unsigned int i;
     unsigned int j;
-    unsigned int min;
 
     i = 0;
-    j = 0;
-    min = 0;
     while (i < size)
     {
+        j = 0;
         while (j < size)
         {
-            if (is_dir(tab[j]) && is_file(tab[min]))
-                min = j;
+            if (is_dir(tab[i]) && is_dir(tab[i + j]))
+            {
+                temp = tab[i];
+                tab[i] = tab[i + j];
+                tab[i + j] = temp;
+            }
             j++;
         }
-        temp = tab[i];
-        tab[i] = tab[min];
-        tab[min] = temp;
         i++;
-        j = i;
-        min = i;
     }
 }
