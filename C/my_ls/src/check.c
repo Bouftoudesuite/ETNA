@@ -3,30 +3,30 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-t_bool path_exist(t_node_params *param)
+t_bool path_exist(const char *path)
 {
     int exist;
     struct stat buffer;
 
-    exist = stat(param->_path, &buffer);
+    exist = stat(path, &buffer);
     if (exist == -1)
         return false;
     else
         return true;
 };
 
-t_bool is_file(t_node_params *param)
+t_bool is_file(const char *path)
 {
     struct stat buffer;
 
-    stat(param->_path, &buffer);
+    stat(path, &buffer);
     return ((t_bool)S_ISREG(buffer.st_mode));
 }
 
-t_bool is_dir(t_node_params *param)
+t_bool is_dir(const char *path)
 {
     struct stat buffer;
 
-    stat(param->_path, &buffer);
+    stat(path, &buffer);
     return ((t_bool)S_ISDIR(buffer.st_mode));
 }

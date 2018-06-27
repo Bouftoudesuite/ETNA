@@ -29,6 +29,7 @@ static void print_error(t_node_params *param)
 int main(int argc, char **argv)
 {
     char **to_ls;
+    char **directories;
     t_list_flags list_flags;
     t_list_params list_params;
     t_node_params *param;
@@ -39,6 +40,12 @@ int main(int argc, char **argv)
     get_params(argc, argv, &list_params);
     to_ls = malloc(list_params._size * sizeof(char));
     push_params_to_tab(to_ls, &list_params);
+    sort_param_by_type(to_ls, list_params._size);
+    for (int i = 0; i < list_params._size; i++)
+    {
+        my_putstr(to_ls[i]);
+        my_putchar('\n');
+    }
     /*param = list_params._first;
     while (param)
     {

@@ -1,3 +1,4 @@
+#include <check.h>
 #include <my.h>
 #include <params.h>
 #include <stdlib.h>
@@ -46,17 +47,6 @@ void get_params(int argc, char **argv, t_list_params *list)
         push_back_param(list, "./");
 }
 
-static void push_string(const char *src, char *dest)
-{
-    int len;
-
-    len = my_strlen(src) + 1;
-    dest = malloc((unsigned)len);
-    if(dest == NULL)
-        return ;
-    dest = my_strcpy(dest, src);
-    dest[len - 1] = '\0';
-}
 
 void push_params_to_tab(char **to_ls, t_list_params *list)
 {
@@ -67,8 +57,35 @@ void push_params_to_tab(char **to_ls, t_list_params *list)
     param = list->_first;
     while (i < list->_size && param)
     {
-        push_string(param->_path, to_ls[i]);
-        param->_next;
+        to_ls[i] = my_strdup(param->_path);
+        param = param->_next;
         i++;
+    }
+}
+
+void sort_param_by_type(char **tab, unsigned int size)
+{
+    char *temp;
+    unsigned int i;
+    unsigned int j;
+    unsigned int min;
+
+    i = 0;
+    j = 0;
+    min = 0;
+    while (i < size)
+    {
+        while (j < size)
+        {
+            if (is_dir(tab[j]) && is_file(tab[min]))
+                min = j;
+            j++;
+        }
+        temp = tab[i];
+        tab[i] = tab[min];
+        tab[min] = temp;
+        i++;
+        j = i;
+        min = i;
     }
 }
