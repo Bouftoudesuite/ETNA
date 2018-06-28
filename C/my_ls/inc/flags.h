@@ -17,7 +17,8 @@ typedef struct s_list_flags
 
 void init_list_flags(t_list_flags *list);
 void push_back_flag(t_list_flags *list, char key);
-void get_flags(int argc, char **argv, t_list_flags *list);
+void fill_flags(int argc, char **argv, t_list_flags *list);
+t_node_flags *get_flags(char key, t_list_flags *list);
 void free_list_flags(t_list_flags *list);
 
 #endif //_FLAGS_H_

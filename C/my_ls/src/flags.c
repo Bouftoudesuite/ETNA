@@ -31,7 +31,7 @@ void push_back_flag(t_list_flags *list, char key)
     list->_last = new_element;
 }
 
-void get_flags(int argc, char **argv, t_list_flags *list)
+void fill_flags(int argc, char **argv, t_list_flags *list)
 {
     int option;
 
@@ -40,6 +40,20 @@ void get_flags(int argc, char **argv, t_list_flags *list)
         if (option != '?')
             push_back_flag(list, (char)option);
     }
+}
+
+t_node_flags *get_flags(char key, t_list_flags *list)
+{
+    t_node_flags *node_flags;
+
+    node_flags = list->_first;
+    while (node_flags)
+    {
+        if (node_flags->_key == key)
+            return (node_flags);
+        node_flags = node_flags->_next;
+    }
+    return (NULL);
 }
 
 void free_list_flags(t_list_flags *list)

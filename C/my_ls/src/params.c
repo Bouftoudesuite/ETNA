@@ -32,7 +32,7 @@ void push_back_param(t_list_params *list, const char *path)
     list->_last = new_element;
 }
 
-void get_params(int argc, char **argv, t_list_params *list)
+void fill_params(int argc, char **argv, t_list_params *list)
 {
     int i;
 
@@ -56,14 +56,14 @@ void sort_param_by_type(char **tab, unsigned int size)
     i = 0;
     while (i < size)
     {
-        j = 0;
+        j = i + 1;
         while (j < size)
         {
-            if (is_dir(tab[i]) && is_file(tab[i + j]))
+            if ((is_dir(tab[j - 1]) && is_file(tab[j])) || (path_exist(tab[j - 1]) && !path_exist(tab[j])))
             {
-                temp = tab[i];
-                tab[i] = tab[i + j];
-                tab[i + j] = temp;
+                temp = tab[j];
+                tab[j] = tab[j - 1];
+                tab[j - 1] = temp;
             }
             j++;
         }

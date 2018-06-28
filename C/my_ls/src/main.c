@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 
     init_list_flags(&list_flags);
     init_list_params(&list_params);
-    get_flags(argc, argv, &list_flags);
-    get_params(argc, argv, &list_params);
+    fill_flags(argc, argv, &list_flags);
+    fill_params(argc, argv, &list_params);
     tols = malloc(list_params._size * sizeof(char*));
     push_params_to_tols(tols, &list_params);
     sort_param_by_type(tols, list_params._size);

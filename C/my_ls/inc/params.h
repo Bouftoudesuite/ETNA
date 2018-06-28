@@ -16,7 +16,7 @@ typedef struct s_list_params
 
 void init_list_params(t_list_params *list);
 void push_back_param(t_list_params *list, const char *path);
-void get_params(int argc, char **argv, t_list_params *list);
+void fill_params(int argc, char **argv, t_list_params *list);
 void sort_param_by_type(char **tab, unsigned int size);
 void free_list_params(t_list_params *list);
 
