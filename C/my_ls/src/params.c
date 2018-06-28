@@ -1,5 +1,3 @@
-#include <check.h>
-#include <my.h>
 #include <params.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -45,30 +43,6 @@ void fill_params(int argc, char **argv, t_list_params *list)
     }
     if (argc == 1)
         push_back_param(list, "./");
-}
-
-void sort_param_by_type(char **tab, unsigned int size)
-{
-    char *temp;
-    unsigned int i;
-    unsigned int j;
-
-    i = 0;
-    while (i < size)
-    {
-        j = i + 1;
-        while (j < size)
-        {
-            if ((path_exist(tab[j - 1]) && !path_exist(tab[j])) || (is_dir(tab[j - 1]) && is_file(tab[j])))
-            {
-                temp = my_strdup(tab[j]);
-                tab[j] = tab[j - 1];
-                tab[j - 1] = temp;
-            }
-            j++;
-        }
-        i++;
-    }
 }
 
 void free_list_params(t_list_params *list)

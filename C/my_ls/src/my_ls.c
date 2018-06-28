@@ -18,9 +18,9 @@ static void print_argv_only(const char *path)
 
 static void print_error(const char *path)
 {
-	my_putstr("./my_ls: ");
+	my_putstr("my_ls: cannot access '");
 	my_putstr(path);
-	my_putstr(": No such file or directory\n");
+	my_putstr("': No such file or directory\n");
 }
 
 void my_ls(t_list_flags *list_flags, char **tols, unsigned int size)
@@ -36,7 +36,6 @@ void my_ls(t_list_flags *list_flags, char **tols, unsigned int size)
 			print_argv_only(tols[i]);
 		else
 			print_error(tols[i]);
-		my_putchar('\n');
 		i++;
 	}
 }
