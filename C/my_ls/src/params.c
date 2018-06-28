@@ -59,9 +59,9 @@ void sort_param_by_type(char **tab, unsigned int size)
         j = i + 1;
         while (j < size)
         {
-            if ((is_dir(tab[j - 1]) && is_file(tab[j])) || (path_exist(tab[j - 1]) && !path_exist(tab[j])))
+            if ((path_exist(tab[j - 1]) && !path_exist(tab[j])) || (is_dir(tab[j - 1]) && is_file(tab[j])))
             {
-                temp = tab[j];
+                temp = my_strdup(tab[j]);
                 tab[j] = tab[j - 1];
                 tab[j - 1] = temp;
             }
