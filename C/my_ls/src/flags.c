@@ -41,3 +41,20 @@ void get_flags(int argc, char **argv, t_list_flags *list)
             push_back_flag(list, (char)option);
     }
 }
+
+void free_list_flags(t_list_flags *list)
+{
+    t_node_flags *tmp;
+    t_node_flags *p_elem;
+    if (list == NULL)
+        return ;
+    p_elem = list->_first;
+    while (p_elem != NULL)
+    {
+        tmp = p_elem;
+        p_elem = p_elem->_next;
+        free(tmp);
+    }
+    list->_first = NULL;
+    list->_last = NULL;
+}

@@ -2,7 +2,6 @@
 #define _CHECK_H_
 
 #include <my.h>
-#include <params.h>
 
 t_bool path_exist(const char *path);
 t_bool is_file(const char *path);

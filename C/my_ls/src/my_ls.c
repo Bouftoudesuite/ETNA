@@ -1,28 +1,42 @@
-/*
-** my_ls.c for my_ls in /Users/habi_a/Documents/ETNA/C/my_ls
-** 
-** Made by HABI Açal
-** Login   <habi_a@etna-alternance.net>
-**
-** Started on  Mon Mar 19 11:24:00 2018 HABI Açal
-** Last update Mon Mar 19 11:42:01 2018 HABI Açal
-*/
-#include <dirent.h>
-#include <my.h>
-#include <stdlib.h>
+#include <check.h>
+#include <my_ls.h>
 
-int						my_ls(const char *path)
+static void print_argv(unsigned int size, const char *path)
 {
-	struct dirent		*d;
-	DIR					*dir;
-
-	dir = opendir(path);
-	if (dir == NULL)
-		return (0);
-	while (( d = readdir(dir)))
+	if (size > 1 && is_dir(path))
 	{
-		my_putstr(d->d_name);
-		my_putchar('\n');
+		my_putstr(path);
+		my_putstr(":\n");
 	}
-	return (0);
+}
+
+static void print_argv_only(const char *path)
+{
+	my_putstr(path);
+	my_putchar('\n');
+}
+
+static void print_error(const char *path)
+{
+	my_putstr("./my_ls: ");
+	my_putstr(path);
+	my_putstr(": No such file or directory\n");
+}
+
+void my_ls(t_list_flags *list_flags, char **tols, unsigned int size)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (path_exist(tols[i]) && is_dir(tols[i]))
+			print_argv(size, tols[i]);
+		else if (path_exist(tols[i]))
+			print_argv_only(tols[i]);
+		else
+			print_error(tols[i]);
+		my_putchar('\n');
+		i++;
+	}
 }

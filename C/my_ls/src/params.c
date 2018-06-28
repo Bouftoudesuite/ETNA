@@ -47,22 +47,6 @@ void get_params(int argc, char **argv, t_list_params *list)
         push_back_param(list, "./");
 }
 
-
-void push_params_to_tab(char **to_ls, t_list_params *list)
-{
-    unsigned int i;
-    t_node_params *param;
-
-    i = 0;
-    param = list->_first;
-    while (i < list->_size && param)
-    {
-        to_ls[i] = my_strdup(param->_path);
-        param = param->_next;
-        i++;
-    }
-}
-
 void sort_param_by_type(char **tab, unsigned int size)
 {
     char *temp;
@@ -75,7 +59,7 @@ void sort_param_by_type(char **tab, unsigned int size)
         j = 0;
         while (j < size)
         {
-            if (is_dir(tab[i]) && is_dir(tab[i + j]))
+            if (is_dir(tab[i]) && is_file(tab[i + j]))
             {
                 temp = tab[i];
                 tab[i] = tab[i + j];
@@ -85,4 +69,21 @@ void sort_param_by_type(char **tab, unsigned int size)
         }
         i++;
     }
+}
+
+void free_list_params(t_list_params *list)
+{
+    t_node_params *tmp;
+    t_node_params *p_elem;
+    if (list == NULL)
+        return ;
+    p_elem = list->_first;
+    while (p_elem != NULL)
+    {
+        tmp = p_elem;
+        p_elem = p_elem->_next;
+        free(tmp);
+    }
+    list->_first = NULL;
+    list->_last = NULL;
 }

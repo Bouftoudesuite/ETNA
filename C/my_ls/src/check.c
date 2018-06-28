@@ -13,7 +13,7 @@ t_bool path_exist(const char *path)
         return false;
     else
         return true;
-};
+}
 
 t_bool is_file(const char *path)
 {
