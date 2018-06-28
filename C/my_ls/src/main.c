@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     push_params_to_tols(tols, &list_params);
     sort_tols_by_type(tols, list_params._size);
     sort_tols_by_alpha(tols, list_params._size);
-    my_ls(&list_flags, tols, list_params._size);
+    my_ls(tols, list_params._size);
     free_list_flags(&list_flags);
     free_list_params(&list_params);
     free_tols(tols, list_params._size);

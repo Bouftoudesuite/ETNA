@@ -23,7 +23,7 @@ static void print_error(const char *path)
 	my_putstr("': No such file or directory\n");
 }
 
-void my_ls(t_list_flags *list_flags, char **tols, unsigned int size)
+void my_ls(char **tols, unsigned int size)
 {
 	unsigned int i;
 
