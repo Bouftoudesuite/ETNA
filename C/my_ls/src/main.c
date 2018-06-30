@@ -17,9 +17,12 @@ int main(int argc, char **argv)
     fill_params(argc, argv, &list_params);
     tols = malloc(list_params._size * sizeof(char*));
     push_params_to_tols(tols, &list_params);
-    sort_tols_by_type(tols, list_params._size);
-    sort_tols_by_alpha(tols, list_params._size);
-    my_ls(tols, list_params._size);
+    sort_tols_by_type(tols, list_params._size, &list_flags);
+    if (!get_flags('r', &list_flags))
+        sort_tols_by_alpha(tols, list_params._size, &list_flags);
+    else
+        sort_tols_by_alpha_rev(tols, list_params._size, &list_flags);
+    my_ls(tols, list_params._size, &list_flags);
     free_list_flags(&list_flags);
     free_list_params(&list_params);
     free_tols(tols, list_params._size);

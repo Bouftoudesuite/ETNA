@@ -3,7 +3,7 @@
 
 #include <flags.h>
 
-void my_ls(char **to_ls, unsigned int size);
+void my_ls(char **to_ls, unsigned int size, t_list_flags *list_flags);
 int my_ls_l(const char *path);
 
 #endif /*_MY_LS_MY_LS_H_*/
