@@ -60,6 +60,7 @@ void free_list_flags(t_list_flags *list)
 {
     t_node_flags *tmp;
     t_node_flags *p_elem;
+
     if (list == NULL)
         return ;
     p_elem = list->_first;

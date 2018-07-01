@@ -9,7 +9,6 @@
 */
 #include <dirent.h>
 #include <my.h>
-#include <unistd.h>
 
 int						my_ls_l(const char *path)
 {
@@ -19,7 +18,7 @@ int						my_ls_l(const char *path)
     dir = opendir(path);
     if (dir == NULL)
         return (0);
-    while (( d = readdir(dir)))
+    while ((d = readdir(dir)))
     {
         my_putstr(d->d_name);
         my_putchar('\n');

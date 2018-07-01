@@ -17,6 +17,21 @@ void push_params_to_tols(char **tols, t_list_params *list)
     }
 }
 
+void push_results_to_resultab(char **resultab, t_list_results *list)
+{
+    unsigned int i;
+    t_node_results *result;
+
+    i = 0;
+    result = list->_first;
+    while (i < list->_size && result)
+    {
+        resultab[i] = my_strdup(result->_path);
+        result = result->_next;
+        i++;
+    }
+}
+
 void free_tols(char **tols, unsigned int size)
 {
     unsigned int i;
@@ -28,4 +43,17 @@ void free_tols(char **tols, unsigned int size)
         i++;
     }
     free(tols);
+}
+
+void free_resultab(char **resultab, unsigned int size)
+{
+    unsigned int i;
+
+    i = 0;
+    while (i < size)
+    {
+        free(resultab[i]);
+        i++;
+    }
+    free(resultab);
 }

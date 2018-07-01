@@ -1,18 +1,20 @@
-#include <params.h>
+#include <dirent.h>
+#include <my.h>
+#include <results.h>
 #include <stdlib.h>
 
-void init_list_params(t_list_params *list)
+void init_list_results(t_list_results *list)
 {
     list->_size = 0;
     list->_first = NULL;
     list->_last = NULL;
 }
 
-void push_back_param(t_list_params *list, const char *path)
+void push_back_result(t_list_results *list, const char *path)
 {
-    t_node_params *new_element;
+    t_node_results *new_element;
 
-    new_element = malloc(sizeof(t_node_params));
+    new_element = malloc(sizeof(t_node_results));
     if (new_element == NULL || list == NULL)
     {
         free(new_element);
@@ -29,25 +31,27 @@ void push_back_param(t_list_params *list, const char *path)
     list->_last = new_element;
 }
 
-void fill_params(int argc, char **argv, t_list_params *list)
+void fill_results(t_list_results *list_results, const char *path, t_list_flags *list_flags)
 {
-    int i;
+    struct dirent		*d;
+    DIR					*dir;
 
-    i = 0;
-    while (i < argc)
+    dir = opendir(path);
+    if (dir == NULL)
+        return;
+    while ((d = readdir(dir)))
     {
-        if (argv[i][0] != '-' && i)
-            push_back_param(list, argv[i]);
-        i++;
+
+        if (d->d_name[0] != '.' || get_flags('a', list_flags))
+            push_back_result(list_results, my_strdup(d->d_name));
     }
-    if (argc == 1)
-        push_back_param(list, "./");
+    closedir(dir);
 }
 
-void free_list_params(t_list_params *list)
+void free_list_results(t_list_results *list)
 {
-    t_node_params *tmp;
-    t_node_params *p_elem;
+    t_node_results *tmp;
+    t_node_results *p_elem;
 
     if (list == NULL)
         return ;
