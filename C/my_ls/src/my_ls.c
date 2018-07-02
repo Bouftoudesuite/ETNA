@@ -2,7 +2,6 @@
 #include <flags.h>
 #include <my_ls.h>
 #include <results.h>
-#include <sort.h>
 #include <stdlib.h>
 #include <tols.h>
 

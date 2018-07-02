@@ -44,6 +44,8 @@ void fill_results(t_list_results *list_results, const char *path, t_list_flags *
 
         if (d->d_name[0] != '.' || get_flags('a', list_flags))
             push_back_result(list_results, my_strdup(d->d_name));
+        else if (my_strcmp(d->d_name, ".") && my_strcmp(d->d_name, "..") && get_flags('A', list_flags))
+            push_back_result(list_results, my_strdup(d->d_name));
     }
     closedir(dir);
 }
