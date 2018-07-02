@@ -40,7 +40,7 @@ void fill_params(int argc, char **argv, t_list_params *list)
             push_back_param(list, argv[i]);
         i++;
     }
-    if (argc == 1)
+    if (list->_size == 0)
         push_back_param(list, "./");
 }
 

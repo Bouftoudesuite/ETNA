@@ -43,7 +43,7 @@ static void print_results(char **resultab, unsigned int size, t_list_flags *list
         my_putchar('\t');
         i++;
     }
-    my_putchar('\n');
+    my_putstr("\n\n");
 }
 
 void run(t_list_flags *list_flags, const char *path, unsigned int argc)
@@ -52,17 +52,15 @@ void run(t_list_flags *list_flags, const char *path, unsigned int argc)
     t_list_results list_results;
 
     init_list_results(&list_results);
-    resultab = malloc(list_results._size * sizeof(char*));
     fill_results(&list_results, path, list_flags);
+    resultab = malloc(list_results._size * sizeof(char*));
     push_results_to_resultab(resultab, &list_results);
-    /*if (!get_flags('r', list_flags))
-        sort_tab_by_alpha(resultab, list_results._size, list_flags);
-    else
-        sort_tab_by_alpha_rev(resultab, list_results._size, list_flags);*/
+    if (get_flags('r', list_flags))
+        my_sort_rev_str_tab(resultab, list_results._size);
     print_argv(argc, path);
     print_results(resultab, list_results._size, list_flags);
-    free_resultab(resultab, list_results._size);
     free_list_results(&list_results);
+    free_resultab(resultab, list_results._size);
 }
 
 void my_ls(char **tols, unsigned int size, t_list_flags *list_flags)

@@ -9,9 +9,11 @@ static char *get_basename(const char *str)
 
     i = 0;
     size_before = 0;
+    if (str == NULL)
+        return (NULL);
     while (str[size_before] == '.' || str[size_before] == '/')
         size_before++;
-    basename = malloc((my_strlen(str) - size_before) * sizeof(char));
+    basename = malloc((my_strlen(str) - size_before + 1) * sizeof(char));
     while (str[size_before])
     {
         basename[i] = str[size_before];
@@ -33,6 +35,8 @@ int strcmp_basename(const char *str1, const char *str2)
     i = 0;
     s1 = get_basename(str1);
     s2 = get_basename(str2);
+    if (!s1 || !s2)
+        return (0);
     while (s1[i] && s2[i] && my_lowcase(s1[i]) == my_lowcase(s2[i]))
         ++i;
     ch1 = s1[i];

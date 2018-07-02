@@ -2,6 +2,7 @@
 #include <check.h>
 #include <flags.h>
 #include <sort.h>
+#include <stdlib.h>
 
 void sort_tols_by_type(char **tab, unsigned int size, t_list_flags *list_flags)
 {
@@ -27,7 +28,7 @@ void sort_tols_by_type(char **tab, unsigned int size, t_list_flags *list_flags)
     }
 }
 
-void sort_tab_by_alpha(char **tab, unsigned int size, t_list_flags *list_flags)
+void sort_tols_by_alpha(char **tab, unsigned int size, t_list_flags *list_flags)
 {
     char *temp;
     unsigned int i;
@@ -44,6 +45,7 @@ void sort_tab_by_alpha(char **tab, unsigned int size, t_list_flags *list_flags)
                 && path_exist(tab[j]))
             {
                 temp = my_strdup(tab[j]);
+                free(tab[j]);
                 tab[j] = tab[j + 1];
                 tab[j + 1] = temp;
             }
@@ -53,7 +55,7 @@ void sort_tab_by_alpha(char **tab, unsigned int size, t_list_flags *list_flags)
     }
 }
 
-void sort_tab_by_alpha_rev(char **tab, unsigned int size, t_list_flags *list_flags)
+void sort_tols_by_alpha_rev(char **tab, unsigned int size, t_list_flags *list_flags)
 {
     char *temp;
     unsigned int i;
@@ -70,6 +72,7 @@ void sort_tab_by_alpha_rev(char **tab, unsigned int size, t_list_flags *list_fla
                 && path_exist(tab[j]))
             {
                 temp = my_strdup(tab[j]);
+                free(tab[j]);
                 tab[j] = tab[j + 1];
                 tab[j + 1] = temp;
             }
@@ -78,3 +81,4 @@ void sort_tab_by_alpha_rev(char **tab, unsigned int size, t_list_flags *list_fla
         i++;
     }
 }
+

@@ -7,11 +7,12 @@ LDFLAGS	= 	$(LIBMY)
 LIBMY	= 	-L ./ -lmy
 
 SRC	= 	src/main.c \
+		src/basename.c \
 		src/check.c \
 		src/flags.c \
 		src/my_ls.c \
-		src/my_ls_l.c \
 		src/params.c \
+		src/results.c \
 		src/tols.c \
 		src/sort.c \
 
