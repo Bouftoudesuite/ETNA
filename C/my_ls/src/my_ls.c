@@ -1,51 +1,12 @@
 #include <check.h>
 #include <flags.h>
 #include <my_ls.h>
+#include <print.h>
 #include <results.h>
 #include <stdlib.h>
 #include <tols.h>
 
-static void print_argv(unsigned int size, const char *path)
-{
-	if (size > 1 && is_dir(path))
-	{
-		my_putstr(path);
-		my_putstr(":\n");
-	}
-}
-
-static void print_argv_only(const char *path)
-{
-	my_putstr(path);
-	my_putchar('\n');
-}
-
-static void print_error(const char *path)
-{
-	my_putstr("my_ls: cannot access '");
-	my_putstr(path);
-	my_putstr("': No such file or directory\n");
-}
-
-static void print_results(char **resultab, unsigned int size, t_list_flags *list_flags)
-{
-    unsigned int i;
-
-    i = 0;
-    while (i < size)
-    {
-        if (get_flags('l', list_flags))
-        {
-            ;
-        }
-        my_putstr(resultab[i]);
-        my_putchar('\t');
-        i++;
-    }
-    my_putstr("\n\n");
-}
-
-void run(t_list_flags *list_flags, const char *path, unsigned int argc)
+static void run(t_list_flags *list_flags, const char *path, unsigned int argc)
 {
     char **resultab;
     t_list_results list_results;
