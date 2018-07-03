@@ -9,8 +9,8 @@ LIBMY	= 	-L ./ -lmy
 SRC	= 	src/main.c \
 		src/basename.c \
 		src/check.c \
-		src/chmod.c \
 		src/flags.c \
+		src/info.c \
 		src/my_ls.c \
 		src/params.c \
 		src/print.c \

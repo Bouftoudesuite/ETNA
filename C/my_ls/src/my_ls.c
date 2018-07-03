@@ -33,7 +33,7 @@ void my_ls(char **tols, unsigned int size, t_list_flags *list_flags)
 		if (path_exist(tols[i]) && is_dir(tols[i]) && !get_flags('d', list_flags))
             run(list_flags, tols[i], size);
 		else if (path_exist(tols[i]))
-			print_argv_only(tols[i]);
+			print_argv_only(tols[i], list_flags);
 		else
 			print_error(tols[i]);
 		i++;

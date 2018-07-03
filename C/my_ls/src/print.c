@@ -1,5 +1,5 @@
 #include <check.h>
-#include <chmod.h>
+#include <info.h>
 #include <my.h>
 #include <print.h>
 
@@ -12,8 +12,13 @@ void print_argv(unsigned int size, const char *path)
     }
 }
 
-void print_argv_only(const char *path)
+void print_argv_only(const char *path, t_list_flags *list_flags)
 {
+    if (get_flags('l', list_flags))
+    {
+        print_info(path);
+        my_putchar(' ');
+    }
     my_putstr(path);
     my_putchar('\n');
 }
@@ -27,8 +32,8 @@ void print_error(const char *path)
 
 static void print_ll(const char *name)
 {
-    print_chmod(name);
-    my_putchar('\t');
+    print_info(name);
+    my_putchar(' ');
     my_putstr(name);
     my_putchar('\n');
 }

@@ -1,6 +1,11 @@
+#include <grp.h>
 #include <my.h>
+#include <pwd.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
 
 static void print_type(struct stat *buffer)
 {
@@ -38,7 +43,7 @@ static void print_oth_right(struct stat *buffer)
 }
 
 
-void print_chmod(const char *path)
+void print_info(const char *path)
 {
     struct stat buffer;
 
@@ -51,4 +56,14 @@ void print_chmod(const char *path)
     print_usr_right(&buffer);
     print_grp_right(&buffer);
     print_oth_right(&buffer);
+    my_putchar(' ');
+    my_putnbr(buffer.st_nlink);
+    my_putchar(' ');
+    my_putstr(getpwuid(buffer.st_uid)->pw_name);
+    my_putchar(' ');
+    my_putstr(getgrgid(buffer.st_gid)->gr_name);
+    my_putchar(' ');
+    my_putnbr((unsigned int)buffer.st_size);
+    my_putchar(' ');
+    my_putstr(ctime(&buffer.st_mtime));
 }
