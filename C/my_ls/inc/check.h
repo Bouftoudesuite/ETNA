@@ -10,4 +10,4 @@ t_bool is_same_type(const char *path_one, const char *path_two);
 t_bool path_exist(const char *path);
 
 
-#endif //_CHECK_H_
+#endif /* _CHECK_H_ */

@@ -9,4 +9,4 @@ void push_results_to_resultab(char **tols, t_list_results *list);
 void free_tols(char **tols, unsigned int size);
 void free_resultab(char **resultab, unsigned int size);
 
-#endif //_TOLS_H_
+#endif /* _TOLS_H_ */

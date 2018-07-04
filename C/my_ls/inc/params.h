@@ -20,4 +20,4 @@ void fill_params(int argc, char **argv, t_list_params *list);
 void free_list_params(t_list_params *list);
 
 
-#endif //_PARAMS_H_
+#endif /* _PARAMS_H_ */

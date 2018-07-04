@@ -3,4 +3,4 @@
 
 int strcmp_basename(const char *str1, const char *str2);
 
-#endif //_BASENAME_H
+#endif /* _BASENAME_H */

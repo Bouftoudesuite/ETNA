@@ -21,4 +21,4 @@ void push_back_result(t_list_results *list, const char *path);
 void fill_results(t_list_results *list_results, const char *path, t_list_flags *list_flags);
 void free_list_results(t_list_results *list);
 
-#endif //_RESULTS_H_
+#endif /* _RESULTS_H_ */

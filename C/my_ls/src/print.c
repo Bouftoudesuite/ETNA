@@ -1,4 +1,5 @@
 #include <check.h>
+#include <flags.h>
 #include <info.h>
 #include <my.h>
 #include <print.h>
