@@ -3,6 +3,9 @@
 #include <info.h>
 #include <my.h>
 #include <print.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 void print_argv(unsigned int size, const char *path)
 {
@@ -13,14 +16,14 @@ void print_argv(unsigned int size, const char *path)
     }
 }
 
-void print_argv_only(const char *path, t_list_flags *list_flags)
+void print_argv_only(const char *name, t_list_flags *list_flags)
 {
     if (get_flags('l', list_flags))
     {
-        print_info(path);
+        print_info(name);
         my_putchar(' ');
     }
-    my_putstr(path);
+    my_putstr(name);
     my_putchar('\n');
 }
 
@@ -33,9 +36,25 @@ void print_error(const char *path)
 
 static void print_ll(const char *name)
 {
+    int size_buffer;
+    struct stat buffer;
+    char buffer_two[255];
+
+    if (lstat(name, &buffer) == -1)
+    {
+        my_putstr("./my_ls: error lstat");
+        return ;
+    }
     print_info(name);
-    my_putchar(' ');
+    my_putchar('\t');
     my_putstr(name);
+    if (S_ISLNK(buffer.st_mode))
+    {
+        size_buffer = (int)readlink(name, buffer_two, 254);
+        buffer_two[size_buffer] = '\0';
+        my_putstr(" -> ");
+        my_putstr(buffer_two);
+    }
     my_putchar('\n');
 }
 
