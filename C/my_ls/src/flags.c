@@ -21,7 +21,6 @@ void push_back_flag(t_list_flags *list, char key)
         return ;
     }
     new_element->_key = key;
-    new_element->_ptr_func = NULL;
     new_element->_next = NULL;
     list->_size++;
     if (list->_last != NULL)

@@ -20,7 +20,7 @@ void print_argv_only(const char *name, t_list_flags *list_flags)
 {
     if (get_flags('l', list_flags))
     {
-        print_info(name);
+        print_info(name, list_flags);
         my_putchar(' ');
     }
     my_putstr(name);
@@ -34,7 +34,7 @@ void print_error(const char *path)
     my_putstr("': No such file or directory\n");
 }
 
-static void print_ll(const char *name)
+static void print_ll(const char *name, t_list_flags *list_flags)
 {
     int size_buffer;
     struct stat buffer;
@@ -45,10 +45,10 @@ static void print_ll(const char *name)
         my_putstr("./my_ls: error lstat");
         return ;
     }
-    print_info(name);
+    print_info(name, list_flags);
     my_putchar('\t');
     my_putstr(name);
-    if (S_ISLNK(buffer.st_mode))
+    if (S_ISLNK(buffer.st_mode) && !get_flags('L', list_flags))
     {
         size_buffer = (int)readlink(name, buffer_two, 254);
         buffer_two[size_buffer] = '\0';
@@ -66,7 +66,7 @@ void print_results(char **resultab, unsigned int size, t_list_flags *list_flags)
     while (i < size)
     {
         if (get_flags('l', list_flags))
-            print_ll(resultab[i]);
+            print_ll(resultab[i], list_flags);
         else
         {
             my_putstr(resultab[i]);

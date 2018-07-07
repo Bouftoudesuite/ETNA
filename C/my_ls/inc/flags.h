@@ -4,7 +4,6 @@
 typedef struct s_node_flags
 {
     char _key;
-    void (*_ptr_func)(void);
     struct s_node_flags *_next;
 } t_node_flags;
 

@@ -1,4 +1,5 @@
 #include <grp.h>
+#include <info.h>
 #include <my.h>
 #include <pwd.h>
 #include <stdlib.h>
@@ -43,16 +44,12 @@ static void print_oth_right(struct stat *buffer)
 }
 
 
-void print_info(const char *path)
+void print_info(const char *path, t_list_flags *list_flags)
 {
     char *time;
     struct stat buffer;
 
-    if (lstat(path, &buffer) == -1)
-    {
-        my_putstr("./my_ls: error lstat");
-        return ;
-    }
+    (!get_flags('L', list_flags)) ? lstat(path, &buffer) : stat(path, &buffer);
     print_type(&buffer);
     print_usr_right(&buffer);
     print_grp_right(&buffer);

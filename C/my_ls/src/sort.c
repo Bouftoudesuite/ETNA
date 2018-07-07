@@ -1,5 +1,6 @@
 #include <basename.h>
 #include <check.h>
+#include <date.h>
 #include <flags.h>
 #include <sort.h>
 #include <stdlib.h>
@@ -82,3 +83,56 @@ void sort_tols_by_alpha_rev(char **tab, unsigned int size, t_list_flags *list_fl
     }
 }
 
+void sort_tols_by_date(char **tab, unsigned int size, t_list_flags *list_flags, t_node_months **list_months)
+{
+    char *temp;
+    unsigned int i;
+    unsigned int j;
+
+    i = 0;
+    while (i < size - 1)
+    {
+        j = 0;
+        while (j < size - i - 1)
+        {
+            if (strcmp_date(tab[j], tab[j + 1], list_months) < 0
+                && ((is_same_type(tab[j], tab[j + 1])  && !get_flags('d', list_flags)) || get_flags('d', list_flags))
+                && path_exist(tab[j]))
+            {
+                temp = my_strdup(tab[j]);
+                free(tab[j]);
+                tab[j] = tab[j + 1];
+                tab[j + 1] = temp;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void sort_tols_by_date_rev(char **tab, unsigned int size, t_list_flags *list_flags, t_node_months **arr_months)
+{
+    char *temp;
+    unsigned int i;
+    unsigned int j;
+
+    i = 0;
+    while (i < size - 1)
+    {
+        j = 0;
+        while (j < size - i - 1)
+        {
+            if (strcmp_date(tab[j], tab[j + 1], arr_months) < 0
+                && ((is_same_type(tab[j], tab[j + 1])  && !get_flags('d', list_flags)) || get_flags('d', list_flags))
+                && path_exist(tab[j]))
+            {
+                temp = my_strdup(tab[j]);
+                free(tab[j]);
+                tab[j] = tab[j + 1];
+                tab[j + 1] = temp;
+            }
+            j++;
+        }
+        i++;
+    }
+}

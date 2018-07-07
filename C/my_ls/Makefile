@@ -9,14 +9,17 @@ LIBMY	= 	-L ./ -lmy
 SRC	= 	src/main.c \
 		src/basename.c \
 		src/check.c \
+		src/date.c \
 		src/flags.c \
 		src/info.c \
+		src/months.c \
 		src/my_ls.c \
 		src/params.c \
 		src/print.c \
 		src/results.c \
-		src/tols.c \
 		src/sort.c \
+		src/sort_next.c \
+		src/tols.c \
 
 OBJ	= 	$(SRC:.c=.o)
 
