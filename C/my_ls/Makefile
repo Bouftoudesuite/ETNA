@@ -15,6 +15,7 @@ SRC	= 	src/main.c \
 		src/months.c \
 		src/my_ls.c \
 		src/params.c \
+		src/path.c \
 		src/print.c \
 		src/results.c \
 		src/sort.c \

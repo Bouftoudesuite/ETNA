@@ -17,11 +17,11 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     resultab = malloc(list_results._size * sizeof(char*));
     push_results_to_resultab(resultab, &list_results);
     if (get_flags('t', list_flags))
-        sort_results_by_date(resultab, list_results._size, arr_months);
+        sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);
     if (get_flags('r', list_flags))
         my_revert_tab(resultab, list_results._size);
     print_argv(argc, path);
-    print_results(resultab, list_results._size, list_flags);
+    print_results(resultab, list_results._size, list_flags, path);
     free_list_results(&list_results);
     free_resultab(resultab, list_results._size);
 }

@@ -2,7 +2,7 @@
 #include <my.h>
 #include <stdlib.h>
 
-void sort_results_by_date(char **tab, unsigned int size, t_node_months **list_months)
+void sort_results_by_date(char **tab, unsigned int size, t_list_flags *list_flags, t_node_months **list_months, const char *pwd)
 {
     char *temp;
     unsigned int i;
@@ -14,7 +14,7 @@ void sort_results_by_date(char **tab, unsigned int size, t_node_months **list_mo
         j = 0;
         while (j < size - i - 1)
         {
-            if (strcmp_date(tab[j], tab[j + 1], list_months) < 0)
+            if (strcmp_date(tab[j], tab[j + 1], pwd, list_months, list_flags) < 0)
             {
                 temp = my_strdup(tab[j]);
                 free(tab[j]);

@@ -1,5 +1,6 @@
 #include <flags.h>
 #include <months.h>
+#include <my.h>
 #include <my_ls.h>
 #include <params.h>
 #include <sort.h>
@@ -21,6 +22,9 @@ static void fill_list(t_list_flags *list_flags, t_list_params *list_params, int 
 
 static void sort_tols(char **tols, unsigned int size, t_list_flags *list_flags, t_node_months **arr_months)
 {
+    char *pwd;
+
+    pwd = my_strdup("./");
     sort_tols_by_type(tols, size, list_flags);
     if (!get_flags('t', list_flags))
     {
@@ -32,10 +36,11 @@ static void sort_tols(char **tols, unsigned int size, t_list_flags *list_flags, 
     else
     {
         if (!get_flags('r', list_flags))
-            sort_tols_by_date(tols, size, list_flags, arr_months);
+            sort_tols_by_date(tols, size, list_flags, arr_months, pwd);
         else
-            sort_tols_by_date_rev(tols, size, list_flags, arr_months);
+            sort_tols_by_date_rev(tols, size, list_flags, arr_months, pwd);
     }
+    free(pwd);
 }
 
 static void free_ptr(t_list_flags *list_flags, t_list_params *list_params, t_node_months **arr_months)

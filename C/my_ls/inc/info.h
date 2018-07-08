@@ -2,7 +2,9 @@
 # define _PRINT_H_
 
 #include <flags.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
-void print_info(const char *path, t_list_flags *list_flags);
+void print_info(struct stat *buffer);
 
 #endif /* _PRINT_H_ */
