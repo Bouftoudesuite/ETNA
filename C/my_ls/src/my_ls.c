@@ -15,6 +15,8 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     init_list_results(&list_results);
     fill_results(&list_results, path, list_flags);
     resultab = malloc(list_results._size * sizeof(char*));
+    if (resultab == NULL)
+        return ;
     push_results_to_resultab(resultab, &list_results);
     if (get_flags('t', list_flags))
         sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);

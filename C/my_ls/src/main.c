@@ -58,6 +58,8 @@ int main(int argc, char **argv)
     t_node_months **arr_months;
 
     arr_months = malloc(M_NUMBER * sizeof(t_node_months*));
+    if (arr_months == NULL)
+        return (1);
     init(&list_flags, &list_params, arr_months);
     fill_list(&list_flags, &list_params, argc, argv);
     fill_arr_months(arr_months);

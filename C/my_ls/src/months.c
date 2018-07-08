@@ -10,6 +10,8 @@ void init_arr_month(t_node_months **arr_month)
     while (i < M_NUMBER)
     {
         arr_month[i] = malloc(sizeof(t_node_months));
+        if (arr_month[i] == NULL)
+            return ;
         i++;
     }
 }

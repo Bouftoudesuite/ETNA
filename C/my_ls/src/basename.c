@@ -14,6 +14,8 @@ static char *get_basename(const char *str)
     while (str[size_before] == '.' || str[size_before] == '/')
         size_before++;
     basename = malloc((my_strlen(str) - size_before + 1) * sizeof(char));
+    if (basename == NULL)
+        return (NULL);
     while (str[size_before])
     {
         basename[i] = str[size_before];
