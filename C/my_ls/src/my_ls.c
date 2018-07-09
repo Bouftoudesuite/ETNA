@@ -1,11 +1,42 @@
 #include <check.h>
 #include <flags.h>
 #include <my_ls.h>
+#include <path.h>
 #include <print.h>
 #include <results.h>
 #include <sort.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <tols.h>
+
+static void print_total(char **resultab, unsigned int size, const char *pwd, t_list_flags *list_flags)
+{
+    char *full_path;
+    unsigned int i;
+    unsigned int total;
+    struct stat buffer;
+
+    i = 0;
+    total = 0;
+    while (i < size)
+    {
+        full_path = get_fullpath(resultab[i], pwd);
+        (!get_flags('L', list_flags)) ? lstat(full_path, &buffer) : stat(full_path, &buffer);
+        if (resultab[i][0] != '.' || get_flags('a', list_flags))
+            total += buffer.st_blocks;
+        else if (my_strcmp(resultab[i], ".") && my_strcmp(resultab[i], "..") && get_flags('A', list_flags))
+            total += buffer.st_blocks;
+        free(full_path);
+        i++;
+    }
+    if (i > 0)
+    {
+        my_putstr("total ");
+        my_putnbr(total);
+        my_putchar('\n');
+    }
+}
 
 static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t_node_months **arr_months)
 {
@@ -23,6 +54,8 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     if (get_flags('r', list_flags))
         my_revert_tab(resultab, list_results._size);
     print_argv(argc, path);
+    if (get_flags('l', list_flags))
+        print_total(resultab,list_results._size, path, list_flags);
     print_results(resultab, list_results._size, list_flags, path);
     free_list_results(&list_results);
     free_resultab(resultab, list_results._size);
