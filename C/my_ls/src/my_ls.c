@@ -10,6 +10,52 @@
 #include <sys/types.h>
 #include <tols.h>
 
+static unsigned int get_nb_directory(char **resultab, unsigned int result_size, const char *pwd)
+{
+    unsigned int i;
+    unsigned int new_size;
+    char* full_path;
+
+    i = 0;
+    new_size = 0;
+    while (i < result_size)
+    {
+        full_path = get_fullpath(resultab[i], pwd);
+        if (is_dir(full_path))
+            new_size++;
+        free(full_path);
+        i++;
+    }
+    return (new_size);
+}
+
+static void recursivity(char **resultab, unsigned int result_size, const char *pwd, t_list_flags *list_flags, t_node_months **arr_months)
+{
+    unsigned int i;
+    unsigned int j;
+    unsigned int new_size;
+    char *full_path;
+    char **new_tols;
+
+    i = 0;
+    j = 0;
+    new_size = get_nb_directory(resultab, result_size, pwd);
+    new_tols = malloc(new_size * sizeof(char*));
+    while (i < result_size)
+    {
+        full_path = get_fullpath(resultab[i], pwd);
+        if (is_dir(full_path))
+        {
+            new_tols[j] = my_strdup(full_path);
+            j++;
+        }
+        free(full_path);
+        i++;
+    }
+    if (j > 0)
+        my_ls(new_tols, new_size, list_flags, arr_months);
+}
+
 static void print_total(char **resultab, unsigned int size, const char *pwd, t_list_flags *list_flags)
 {
     char *full_path;
@@ -33,7 +79,7 @@ static void print_total(char **resultab, unsigned int size, const char *pwd, t_l
     if (i > 0)
     {
         my_putstr("total ");
-        my_putnbr(total);
+        my_putnbr(total / 2);
         my_putchar('\n');
     }
 }
@@ -57,6 +103,8 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     if (get_flags('l', list_flags))
         print_total(resultab,list_results._size, path, list_flags);
     print_results(resultab, list_results._size, list_flags, path);
+    if (get_flags('R', list_flags))
+        recursivity(resultab, list_results._size, path, list_flags, arr_months);
     free_list_results(&list_results);
     free_resultab(resultab, list_results._size);
 }
