@@ -68,6 +68,6 @@ int main(int argc, char **argv)
     sort_tols(tols, list_params._size, &list_flags, arr_months);
     my_ls(tols, list_params._size, &list_flags, arr_months);
     free_ptr(&list_flags, &list_params, arr_months);
-    free_tols(tols, list_params._size);
+    free_tab(tols, list_params._size);
     return (0);
 }

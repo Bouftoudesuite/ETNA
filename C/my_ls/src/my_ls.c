@@ -53,7 +53,11 @@ static void recursivity(char **resultab, unsigned int result_size, const char *p
         i++;
     }
     if (j > 0)
+    {
+        push_back_flag(list_flags, '&');
         my_ls(new_tols, new_size, list_flags, arr_months);
+    }
+    free_tab(new_tols, new_size);
 }
 
 static void print_total(char **resultab, unsigned int size, const char *pwd, t_list_flags *list_flags)
@@ -99,14 +103,14 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
         sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);
     if (get_flags('r', list_flags))
         my_revert_tab(resultab, list_results._size);
-    print_argv(argc, path);
+    print_argv(argc, path, list_flags);
     if (get_flags('l', list_flags))
         print_total(resultab,list_results._size, path, list_flags);
     print_results(resultab, list_results._size, list_flags, path);
     if (get_flags('R', list_flags))
         recursivity(resultab, list_results._size, path, list_flags, arr_months);
     free_list_results(&list_results);
-    free_resultab(resultab, list_results._size);
+    free_tab(resultab, list_results._size);
 }
 
 void my_ls(char **tols, unsigned int size, t_list_flags *list_flags, t_node_months **arr_months)

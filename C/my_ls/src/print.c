@@ -6,9 +6,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void print_argv(unsigned int size, const char *path)
+void print_argv(unsigned int size, const char *path, t_list_flags *list_flags)
 {
-    if (size > 1 && is_dir(path))
+    if (is_dir(path) && (size > 1 || get_flags('&', list_flags)))
     {
         my_putchar('\n');
         my_putstr(path);

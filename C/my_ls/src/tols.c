@@ -32,28 +32,15 @@ void push_results_to_resultab(char **resultab, t_list_results *list)
     }
 }
 
-void free_tols(char **tols, unsigned int size)
+void free_tab(char **tab, unsigned int size)
 {
     unsigned int i;
 
     i = 0;
     while (i < size)
     {
-        free(tols[i]);
+        free(tab[i]);
         i++;
     }
-    free(tols);
-}
-
-void free_resultab(char **resultab, unsigned int size)
-{
-    unsigned int i;
-
-    i = 0;
-    while (i < size)
-    {
-        free(resultab[i]);
-        i++;
-    }
-    free(resultab);
+    free(tab);
 }
