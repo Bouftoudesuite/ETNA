@@ -21,7 +21,7 @@ static unsigned int get_nb_directory(char **resultab, unsigned int result_size, 
     while (i < result_size)
     {
         full_path = get_fullpath(resultab[i], pwd);
-        if (is_dir(full_path))
+        if (is_dir(full_path) && my_strcmp(".", resultab[i]) && my_strcmp("..", resultab[i]))
             new_size++;
         free(full_path);
         i++;
@@ -32,29 +32,19 @@ static unsigned int get_nb_directory(char **resultab, unsigned int result_size, 
 static void recursivity(char **resultab, unsigned int result_size, const char *pwd, t_list_flags *list_flags, t_node_months **arr_months)
 {
     unsigned int i;
-    unsigned int j;
     unsigned int new_size;
-    char *full_path;
     char **new_tols;
 
-    i = 0;
-    j = 0;
     new_size = get_nb_directory(resultab, result_size, pwd);
     new_tols = malloc(new_size * sizeof(char*));
-    while (i < result_size)
-    {
-        full_path = get_fullpath(resultab[i], pwd);
-        if (is_dir(full_path))
-        {
-            new_tols[j] = my_strdup(full_path);
-            j++;
-        }
-        free(full_path);
-        i++;
-    }
-    if (j > 0)
+    i = push_resultab_to_newtols(new_tols, resultab, result_size, pwd);
+    if (i > 0)
     {
         push_back_flag(list_flags, '&');
+        if (get_flags('t', list_flags))
+            sort_results_by_date(new_tols, new_size, list_flags, arr_months, "./");
+        if (get_flags('r', list_flags))
+            my_revert_tab(new_tols, new_size);
         my_ls(new_tols, new_size, list_flags, arr_months);
     }
     free_tab(new_tols, new_size);
@@ -99,9 +89,9 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     if (resultab == NULL)
         return ;
     push_results_to_resultab(resultab, &list_results);
-    if (get_flags('t', list_flags))
+    if (get_flags('t', list_flags) && list_results._size > 0)
         sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);
-    if (get_flags('r', list_flags))
+    if (get_flags('r', list_flags) && list_results._size > 0)
         my_revert_tab(resultab, list_results._size);
     print_argv(argc, path, list_flags);
     if (get_flags('l', list_flags))
