@@ -1,3 +1,12 @@
+##
+## Makefile for my_ls in /Users/habi_a/Documents/ETNA/C
+##
+## Made by HABI Açal
+## Login   <habi_a@etna-alternance.net>
+##
+## Started on  Thu Jul 12 14:25:31 2018 HABI Açal
+## Last update Thu Jul 12 14:26:00 2018 HABI Açal
+##
 CC	= 	gcc
 CFLAGS	+= 	-Wall -Wextra -Werror -Wpedantic
 CFLAGS	+= 	-I $(LIBPATH)inc
