@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 16:47:36 2018 HABI Açal
 */
 #include <flags.h>
 #include <months.h>
@@ -16,22 +16,28 @@
 #include <stdlib.h>
 #include <tols.h>
 
-static void init(t_list_flags *list_flags, t_list_params *list_params, t_node_months **arr_months)
+static void		init(t_list_flags *list_flags,
+			     t_list_params *list_params,
+			     t_node_months **arr_months)
 {
     init_list_flags(list_flags);
     init_list_params(list_params);
     init_arr_month(arr_months);
 }
 
-static void fill_list(t_list_flags *list_flags, t_list_params *list_params, int argc, char **argv)
+static void		fill_list(t_list_flags *list_flags,
+				  t_list_params *list_params,
+				  int argc, char **argv)
 {
     fill_flags(argc, argv, list_flags);
     fill_params(argc, argv, list_params);
 }
 
-static void sort_tols(char **tols, unsigned int size, t_list_flags *list_flags, t_node_months **arr_months)
+static void		sort_tols(char **tols, unsigned int size,
+				  t_list_flags *list_flags,
+				  t_node_months **arr_months)
 {
-    char *pwd;
+    char		*pwd;
 
     pwd = my_strdup("./");
     sort_tols_by_type(tols, size, list_flags);
@@ -45,26 +51,30 @@ static void sort_tols(char **tols, unsigned int size, t_list_flags *list_flags, 
     else
     {
         if (!get_flags('r', list_flags))
-            sort_tols_by_date(tols, size, list_flags, arr_months, pwd);
+            sort_tols_by_date(tols, size, list_flags,
+			      arr_months, pwd);
         else
-            sort_tols_by_date_rev(tols, size, list_flags, arr_months, pwd);
+            sort_tols_by_date_rev(tols, size, list_flags,
+				  arr_months, pwd);
     }
     free(pwd);
 }
 
-static void free_ptr(t_list_flags *list_flags, t_list_params *list_params, t_node_months **arr_months)
+static void		free_ptr(t_list_flags *list_flags, 
+				 t_list_params *list_params, 
+				 t_node_months **arr_months)
 {
     free_list_flags(list_flags);
     free_list_params(list_params);
     free_arr_months(arr_months);
 }
 
-int main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
-    char **tols;
-    t_list_flags list_flags;
-    t_list_params list_params;
-    t_node_months **arr_months;
+    char		**tols;
+    t_list_flags	list_flags;
+    t_list_params	list_params;
+    t_node_months	**arr_months;
 
     arr_months = malloc(M_NUMBER * sizeof(t_node_months*));
     if (arr_months == NULL)

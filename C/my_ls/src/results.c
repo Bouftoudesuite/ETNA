@@ -5,23 +5,23 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 17:18:35 2018 HABI Açal
 */
 #include <dirent.h>
 #include <my.h>
 #include <results.h>
 #include <stdlib.h>
 
-void init_list_results(t_list_results *list)
+void			init_list_results(t_list_results *list)
 {
     list->_size = 0;
     list->_first = NULL;
     list->_last = NULL;
 }
 
-void push_back_result(t_list_results *list, const char *path)
+void			push_back_result(t_list_results *list, const char *path)
 {
-    t_node_results *new_element;
+    t_node_results	*new_element;
 
     new_element = malloc(sizeof(t_node_results));
     if (new_element == NULL || list == NULL)
@@ -40,31 +40,34 @@ void push_back_result(t_list_results *list, const char *path)
     list->_last = new_element;
 }
 
-void fill_results(t_list_results *list_results, const char *path, t_list_flags *list_flags)
+void			fill_results(t_list_results *list_results,
+				     const char *path, t_list_flags *list_flags)
 {
-    struct dirent		*d;
-    DIR					*dir;
+    struct dirent	*d;
+    DIR			*dir;
 
     dir = opendir(path);
     if (dir == NULL)
         return ;
     while ((d = readdir(dir)))
     {
-        if (d->d_name[my_strlen(d->d_name) - 1] != '~' || !get_flags('B', list_flags))
+        if (d->d_name[my_strlen(d->d_name) - 1] != '~'
+	    || !get_flags('B', list_flags))
         {
             if (d->d_name[0] != '.' || get_flags('a', list_flags))
                 push_back_result(list_results, my_strdup(d->d_name));
-            else if (my_strcmp(d->d_name, ".") && my_strcmp(d->d_name, "..") && get_flags('A', list_flags))
+            else if (my_strcmp(d->d_name, ".") && my_strcmp(d->d_name, "..")
+		     && get_flags('A', list_flags))
                 push_back_result(list_results, my_strdup(d->d_name));
         }
     }
     closedir(dir);
 }
 
-void free_list_results(t_list_results *list)
+void			free_list_results(t_list_results *list)
 {
-    t_node_results *tmp;
-    t_node_results *p_elem;
+    t_node_results	*tmp;
+    t_node_results	*p_elem;
 
     if (list == NULL)
         return ;

@@ -5,15 +5,15 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 16:50:37 2018 HABI Açal
 */
 #include <months.h>
 #include <my.h>
 #include <stdlib.h>
 
-void init_arr_month(t_node_months **arr_month)
+void			init_arr_month(t_node_months **arr_month)
 {
-    unsigned int i;
+    unsigned int	i;
 
     i = 0;
     while (i < M_NUMBER)
@@ -25,7 +25,7 @@ void init_arr_month(t_node_months **arr_month)
     }
 }
 
-void fill_arr_months(t_node_months **arr_month)
+void			fill_arr_months(t_node_months **arr_month)
 {
     arr_month[0]->_key = "Jan";
     arr_month[0]->_value = "01";
@@ -53,9 +53,9 @@ void fill_arr_months(t_node_months **arr_month)
     arr_month[11]->_value = "12";
 }
 
-t_node_months *get_months(const char *key, t_node_months **arr_month)
+t_node_months		*get_months(const char *key, t_node_months **arr_month)
 {
-    unsigned int i;
+    unsigned int	i;
 
     i = 0;
     while (arr_month[i])
@@ -67,9 +67,9 @@ t_node_months *get_months(const char *key, t_node_months **arr_month)
     return (NULL);
 }
 
-void free_arr_months(t_node_months **arr_months)
+void			free_arr_months(t_node_months **arr_months)
 {
-    unsigned int i;
+    unsigned int	i;
 
     i = 0;
     while (i < M_NUMBER)

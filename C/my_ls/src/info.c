@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 16:38:32 2018 HABI Açal
 */
 #include <grp.h>
 #include <info.h>
@@ -17,7 +17,7 @@
 #include <time.h>
 #include <unistd.h>
 
-static void print_type(struct stat *buffer)
+static void	print_type(struct stat *buffer)
 {
     if (S_ISDIR(buffer->st_mode))
         my_putchar('d');
@@ -31,29 +31,28 @@ static void print_type(struct stat *buffer)
         my_putchar('-');
 }
 
-static void print_usr_right(struct stat *buffer)
+static void	print_usr_right(struct stat *buffer)
 {
     my_putchar((buffer->st_mode & S_IRUSR) ? 'r' : '-');
     my_putchar((buffer->st_mode & S_IWUSR) ? 'w' : '-');
     my_putchar((buffer->st_mode & S_IXUSR) ? 'x' : '-');
 }
 
-static void print_grp_right(struct stat *buffer)
+static void	print_grp_right(struct stat *buffer)
 {
     my_putchar((buffer->st_mode & S_IRGRP) ? 'r' : '-');
     my_putchar((buffer->st_mode & S_IWGRP) ? 'w' : '-');
     my_putchar((buffer->st_mode & S_IXGRP) ? 'x' : '-');
 }
 
-static void print_oth_right(struct stat *buffer)
+static void	print_oth_right(struct stat *buffer)
 {
     my_putchar((buffer->st_mode & S_IROTH) ? 'r' : '-');
     my_putchar((buffer->st_mode & S_IWOTH) ? 'w' : '-');
     my_putchar((buffer->st_mode & S_IXOTH) ? 'x' : '-');
 }
 
-
-void print_info(struct stat *buffer, t_list_flags *list_flags)
+void		print_info(struct stat *buffer, t_list_flags *list_flags)
 {
     print_type(buffer);
     print_usr_right(buffer);

@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 17:14:36 2018 HABI Açal
 */
 #include <check.h>
 #include <flags.h>
@@ -15,7 +15,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void print_argv(unsigned int size, const char *path, t_list_flags *list_flags)
+void			print_argv(unsigned int size, const char *path,
+				   t_list_flags *list_flags)
 {
     if (is_dir(path) && (size > 1 || get_flags('&', list_flags)))
     {
@@ -25,13 +26,15 @@ void print_argv(unsigned int size, const char *path, t_list_flags *list_flags)
     }
 }
 
-void print_argv_only(const char *name, t_list_flags *list_flags)
+void			print_argv_only(const char *name,
+					t_list_flags *list_flags)
 {
-    struct stat buffer;
+    struct stat		buffer;
 
     if (get_flags('l', list_flags))
     {
-        (!get_flags('L', list_flags)) ? lstat(name, &buffer) : stat(name, &buffer);
+        (!get_flags('L', list_flags)) ?
+	  lstat(name, &buffer) : stat(name, &buffer);
         print_info(&buffer, list_flags);
         my_putchar(' ');
     }
@@ -39,22 +42,24 @@ void print_argv_only(const char *name, t_list_flags *list_flags)
     my_putchar('\n');
 }
 
-void print_error(const char *path)
+void			print_error(const char *path)
 {
     my_putstr("my_ls: cannot access '");
     my_putstr(path);
     my_putstr("': No such file or directory\n");
 }
 
-static void print_ll(const char *name, t_list_flags *list_flags, const char *pwd)
+static void		print_ll(const char *name, t_list_flags *list_flags,
+				 const char *pwd)
 {
-    int size_buffer;
-    char *full_path;
-    char buffer_two[255];
-    struct stat buffer;
+    int			size_buffer;
+    char		*full_path;
+    char		buffer_two[255];
+    struct stat		buffer;
 
     full_path = get_fullpath(name, pwd);
-    (!get_flags('L', list_flags)) ? lstat(full_path, &buffer) : stat(full_path, &buffer);
+    (!get_flags('L', list_flags)) ? 
+      lstat(full_path, &buffer) : stat(full_path, &buffer);
     print_info(&buffer, list_flags);
     my_putstr(name);
     if (S_ISLNK(buffer.st_mode) && !get_flags('L', list_flags))
@@ -67,9 +72,10 @@ static void print_ll(const char *name, t_list_flags *list_flags, const char *pwd
     free(full_path);
 }
 
-void print_results(char **resultab, unsigned int size, t_list_flags *list_flags, const char *pwd)
+void			print_results(char **resultab, unsigned int size,
+				      t_list_flags *list_flags, const char *pwd)
 {
-    unsigned int i;
+    unsigned int	i;
 
     i = 0;
     while (i < size)
@@ -85,7 +91,8 @@ void print_results(char **resultab, unsigned int size, t_list_flags *list_flags,
             if (get_flags('1', list_flags))
                 my_putchar('\n');
             else
-                (get_flags('m', list_flags) && i != size - 1) ? my_putstr(",\t") : my_putchar('\t');
+                (get_flags('m', list_flags) && i != size - 1) ?
+		  my_putstr(",\t") : my_putchar('\t');
         }
         i++;
     }

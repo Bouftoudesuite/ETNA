@@ -5,17 +5,20 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 17:32:07 2018 HABI Açal
 */
 #include <date.h>
 #include <my.h>
 #include <stdlib.h>
 
-void sort_results_by_date(char **tab, unsigned int size, t_list_flags *list_flags, t_node_months **list_months, const char *pwd)
+void			sort_results_by_date(char **tab, unsigned int size,
+					     t_list_flags *list_flags,
+					     t_node_months **list_months,
+					     const char *pwd)
 {
-    char *temp;
-    unsigned int i;
-    unsigned int j;
+    char		*temp;
+    unsigned int	i;
+    unsigned int	j;
 
     i = 0;
     while (i < size - 1)
@@ -23,7 +26,8 @@ void sort_results_by_date(char **tab, unsigned int size, t_list_flags *list_flag
         j = 0;
         while (j < size - i - 1)
         {
-            if (strcmp_date(tab[j], tab[j + 1], pwd, list_months, list_flags) < 0)
+            if (strcmp_date(tab[j], tab[j + 1], pwd, list_months, list_flags)
+		< 0)
             {
                 temp = my_strdup(tab[j]);
                 free(tab[j]);

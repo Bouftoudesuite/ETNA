@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 17:41:14 2018 HABI Açal
 */
 #include <date.h>
 #include <my.h>
@@ -14,12 +14,12 @@
 #include <sys/stat.h>
 #include <time.h>
 
-static char *format_date(t_node_months **arr_month, char *time)
+static char	*format_date(t_node_months **arr_month, char *time)
 {
-    char *month;
-    char *month_g;
-    char *rest;
-    char *result;
+    char	*month;
+    char	*month_g;
+    char	*rest;
+    char	*result;
 
     month = my_strndup(time, 3);
     month_g = (char*)get_months(month, arr_month)->_value;
@@ -35,12 +35,13 @@ static char *format_date(t_node_months **arr_month, char *time)
     return (result);
 }
 
-static int help_format_date(struct stat *buffer, struct stat *buffer_two, t_node_months **arr_month, int result)
+static int	help_format_date(struct stat *buffer, struct stat *buffer_two,
+				 t_node_months **arr_month, int result)
 {
-    char *time;
-    char *time_two;
-    char *result_one;
-    char *result_two;
+    char	*time;
+    char	*time_two;
+    char	*result_one;
+    char	*result_two;
 
     time = my_strrdup(ctime(&buffer->st_mtime), 4);
     time_two = my_strrdup(ctime(&buffer_two->st_mtime), 4);
@@ -54,19 +55,23 @@ static int help_format_date(struct stat *buffer, struct stat *buffer_two, t_node
     return (result);
 }
 
-int strcmp_date(const char *path, const char *path_two, const char *pwd, t_node_months **arr_month, t_list_flags *list_flags)
+int		strcmp_date(const char *path, const char *path_two,
+			    const char *pwd, t_node_months **arr_month,
+			    t_list_flags *list_flags)
 {
-    int result;
-    struct stat buffer;
-    struct stat buffer_two;
-    char *full_path;
-    char *full_path_two;
+    int		result;
+    char	*full_path;
+    char	*full_path_two;
+    struct stat	buffer;
+    struct stat	buffer_two;
 
     result = 0;
     full_path = get_fullpath(path, pwd);
     full_path_two = get_fullpath(path_two, pwd);
-    (!get_flags('L', list_flags)) ? lstat(full_path, &buffer) : stat(full_path, &buffer);
-    (!get_flags('L', list_flags)) ? lstat(full_path_two, &buffer_two) : stat(full_path_two, &buffer_two);
+    (!get_flags('L', list_flags)) ?
+      lstat(full_path, &buffer) : stat(full_path, &buffer);
+    (!get_flags('L', list_flags)) ?
+      lstat(full_path_two, &buffer_two) : stat(full_path_two, &buffer_two);
     result = help_format_date(&buffer, &buffer_two, arr_month, result);
     free(full_path);
     free(full_path_two);

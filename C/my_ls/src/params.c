@@ -5,21 +5,21 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 17:08:51 2018 HABI Açal
 */
 #include <params.h>
 #include <stdlib.h>
 
-void init_list_params(t_list_params *list)
+void			init_list_params(t_list_params *list)
 {
     list->_size = 0;
     list->_first = NULL;
     list->_last = NULL;
 }
 
-void push_back_param(t_list_params *list, const char *path)
+void			push_back_param(t_list_params *list, const char *path)
 {
-    t_node_params *new_element;
+    t_node_params	*new_element;
 
     new_element = malloc(sizeof(t_node_params));
     if (new_element == NULL || list == NULL)
@@ -38,9 +38,9 @@ void push_back_param(t_list_params *list, const char *path)
     list->_last = new_element;
 }
 
-void fill_params(int argc, char **argv, t_list_params *list)
+void			fill_params(int argc, char **argv, t_list_params *list)
 {
-    int i;
+    unsigned int	i;
 
     i = 0;
     while (i < argc)
@@ -53,10 +53,10 @@ void fill_params(int argc, char **argv, t_list_params *list)
         push_back_param(list, "./");
 }
 
-void free_list_params(t_list_params *list)
+void			free_list_params(t_list_params *list)
 {
-    t_node_params *tmp;
-    t_node_params *p_elem;
+    t_node_params	*tmp;
+    t_node_params	*p_elem;
 
     if (list == NULL)
         return ;

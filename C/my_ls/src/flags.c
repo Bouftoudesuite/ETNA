@@ -5,22 +5,22 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 16:37:29 2018 HABI Açal
 */
 #include <flags.h>
 #include <getopt.h>
 #include <stdlib.h>
 
-void init_list_flags(t_list_flags *list)
+void			init_list_flags(t_list_flags *list)
 {
     list->_size = 0;
     list->_first = NULL;
     list->_last = NULL;
 }
 
-void push_back_flag(t_list_flags *list, char key)
+void			push_back_flag(t_list_flags *list, char key)
 {
-    t_node_flags *new_element;
+    t_node_flags	*new_element;
 
     new_element = malloc(sizeof(t_node_flags));
     if (new_element == NULL || list == NULL)
@@ -39,9 +39,9 @@ void push_back_flag(t_list_flags *list, char key)
     list->_last = new_element;
 }
 
-void fill_flags(int argc, char **argv, t_list_flags *list)
+void			fill_flags(int argc, char **argv, t_list_flags *list)
 {
-    int option;
+    int			option;
 
     while ((option = getopt(argc, argv, "lRrdtaALgGUf1moB")) != -1)
     {
@@ -62,9 +62,9 @@ void fill_flags(int argc, char **argv, t_list_flags *list)
         push_back_flag(list, 'l');
 }
 
-t_node_flags *get_flags(char key, t_list_flags *list)
+t_node_flags		*get_flags(char key, t_list_flags *list)
 {
-    t_node_flags *node_flags;
+    t_node_flags	*node_flags;
 
     node_flags = list->_first;
     while (node_flags)
@@ -76,10 +76,10 @@ t_node_flags *get_flags(char key, t_list_flags *list)
     return (NULL);
 }
 
-void free_list_flags(t_list_flags *list)
+void			free_list_flags(t_list_flags *list)
 {
-    t_node_flags *tmp;
-    t_node_flags *p_elem;
+    t_node_flags	*tmp;
+    t_node_flags	*p_elem;
 
     if (list == NULL)
         return ;

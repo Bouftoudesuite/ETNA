@@ -5,16 +5,16 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Fri Apr  6 10:02:16 2018 HABI Açal
-** Last update Fri Apr  6 10:02:21 2018 HABI Açal
+** Last update Thu Jul 12 16:28:45 2018 HABI Açal
 */
 #include <my.h>
 #include <stdlib.h>
 
-static char *get_basename(const char *str)
+static char		*get_basename(const char *str)
 {
-    char *basename;
-    unsigned int i;
-    unsigned int size_before;
+    char		*basename;
+    unsigned int	i;
+    unsigned int	size_before;
 
     i = 0;
     size_before = 0;
@@ -35,13 +35,13 @@ static char *get_basename(const char *str)
     return (basename);
 }
 
-int strcmp_basename(const char *str1, const char *str2)
+int			strcmp_basename(const char *str1, const char *str2)
 {
-    char ch1;
-    char ch2;
-    char *s1;
-    char *s2;
-    unsigned int i;
+    char		ch1;
+    char		ch2;
+    char		*s1;
+    char		*s2;
+    unsigned int	i;
 
     i = 0;
     s1 = get_basename(str1);
