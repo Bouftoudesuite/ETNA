@@ -65,7 +65,8 @@ int main(int argc, char **argv)
     fill_arr_months(arr_months);
     tols = malloc(list_params._size * sizeof(char*));
     push_params_to_tols(tols, &list_params);
-    sort_tols(tols, list_params._size, &list_flags, arr_months);
+    if (!get_flags('U', &list_flags))
+        sort_tols(tols, list_params._size, &list_flags, arr_months);
     my_ls(tols, list_params._size, &list_flags, arr_months);
     free_ptr(&list_flags, &list_params, arr_months);
     free_tab(tols, list_params._size);

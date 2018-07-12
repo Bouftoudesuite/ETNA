@@ -23,7 +23,7 @@ void print_argv_only(const char *name, t_list_flags *list_flags)
     if (get_flags('l', list_flags))
     {
         (!get_flags('L', list_flags)) ? lstat(name, &buffer) : stat(name, &buffer);
-        print_info(&buffer);
+        print_info(&buffer, list_flags);
         my_putchar(' ');
     }
     my_putstr(name);
@@ -46,7 +46,7 @@ static void print_ll(const char *name, t_list_flags *list_flags, const char *pwd
 
     full_path = get_fullpath(name, pwd);
     (!get_flags('L', list_flags)) ? lstat(full_path, &buffer) : stat(full_path, &buffer);
-    print_info(&buffer);
+    print_info(&buffer, list_flags);
     my_putstr(name);
     if (S_ISLNK(buffer.st_mode) && !get_flags('L', list_flags))
     {
@@ -73,10 +73,13 @@ void print_results(char **resultab, unsigned int size, t_list_flags *list_flags,
         else
         {
             my_putstr(resultab[i]);
-            my_putchar('\t');
+            if (get_flags('1', list_flags))
+                my_putchar('\n');
+            else
+                (get_flags('m', list_flags) && i != size - 1) ? my_putstr(",\t") : my_putchar('\t');
         }
         i++;
     }
-    if (!get_flags('l', list_flags))
+    if (!get_flags('l', list_flags) && !get_flags('1', list_flags))
         my_putchar('\n');
 }

@@ -41,9 +41,9 @@ static void recursivity(char **resultab, unsigned int result_size, const char *p
     if (i > 0)
     {
         push_back_flag(list_flags, '&');
-        if (get_flags('t', list_flags))
+        if (get_flags('t', list_flags) && !get_flags('U', list_flags))
             sort_results_by_date(new_tols, new_size, list_flags, arr_months, "./");
-        if (get_flags('r', list_flags))
+        if (get_flags('r', list_flags) && !get_flags('U', list_flags))
             my_revert_tab(new_tols, new_size);
         my_ls(new_tols, new_size, list_flags, arr_months);
     }
@@ -89,12 +89,15 @@ static void run(t_list_flags *list_flags, const char *path, unsigned int argc, t
     if (resultab == NULL)
         return ;
     push_results_to_resultab(resultab, &list_results);
-    if (get_flags('t', list_flags) && list_results._size > 0)
-        sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);
-    if (get_flags('r', list_flags) && list_results._size > 0)
-        my_revert_tab(resultab, list_results._size);
+    if (!get_flags('U', list_flags))
+    {
+        if (get_flags('t', list_flags) && list_results._size > 0)
+            sort_results_by_date(resultab, list_results._size, list_flags, arr_months, path);
+        if (get_flags('r', list_flags) && list_results._size > 0)
+            my_revert_tab(resultab, list_results._size);
+    }
     print_argv(argc, path, list_flags);
-    if (get_flags('l', list_flags))
+    if (get_flags('l', list_flags) || get_flags('g', list_flags))
         print_total(resultab,list_results._size, path, list_flags);
     print_results(resultab, list_results._size, list_flags, path);
     if (get_flags('R', list_flags))

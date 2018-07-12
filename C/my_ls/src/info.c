@@ -44,10 +44,8 @@ static void print_oth_right(struct stat *buffer)
 }
 
 
-void print_info(struct stat *buffer)
+void print_info(struct stat *buffer, t_list_flags *list_flags)
 {
-    char *time;
-
     print_type(buffer);
     print_usr_right(buffer);
     print_grp_right(buffer);
@@ -55,15 +53,18 @@ void print_info(struct stat *buffer)
     my_putchar('\t');
     my_putnbr(buffer->st_nlink);
     my_putchar('\t');
-    my_putstr(getpwuid(buffer->st_uid)->pw_name);
-    my_putchar('\t');
-    my_putstr(getgrgid(buffer->st_gid)->gr_name);
-    my_putchar('\t');
+    if (!get_flags('g', list_flags))
+    {
+        my_putstr(getpwuid(buffer->st_uid)->pw_name);
+        my_putchar('\t');
+    }
+    if (!get_flags('G', list_flags))
+    {
+        my_putstr(getgrgid(buffer->st_gid)->gr_name);
+        my_putchar('\t');
+    }
     my_putnbr((unsigned int)buffer->st_size);
     my_putchar('\t');
-    time = my_strrdup(ctime(&buffer->st_mtime), 4);
-    time[my_strlen(time) - 9] = '\0';
-    my_putstr(time);
+    write(1, ctime(&buffer->st_mtime) + 4, 12);
     my_putchar('\t');
-    free(time);
 }

@@ -34,11 +34,23 @@ void fill_flags(int argc, char **argv, t_list_flags *list)
 {
     int option;
 
-    while ((option = getopt(argc, argv, "lRrdtaAL")) != -1)
+    while ((option = getopt(argc, argv, "lRrdtaALgGUf1moB")) != -1)
     {
         if (option != '?')
             push_back_flag(list, (char)option);
     }
+    if (get_flags('f', list))
+    {
+        push_back_flag(list, 'a');
+        push_back_flag(list, 'U');
+    }
+    if (get_flags('o', list))
+    {
+        push_back_flag(list, 'l');
+        push_back_flag(list, 'G');
+    }
+    if (get_flags('g', list))
+        push_back_flag(list, 'l');
 }
 
 t_node_flags *get_flags(char key, t_list_flags *list)
