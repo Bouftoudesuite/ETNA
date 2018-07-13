@@ -43,7 +43,7 @@ void			fill_params(int argc, char **argv, t_list_params *list)
     unsigned int	i;
 
     i = 0;
-    while (i < argc)
+    while (i < (unsigned)argc)
     {
         if (argv[i][0] != '-' && i)
             push_back_param(list, argv[i]);
