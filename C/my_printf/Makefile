@@ -1,50 +1,58 @@
 ##
-## Makefile for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+## Makefile for my_ls in /Users/habi_a/Documents/
 ## 
 ## Made by HABI Açal
 ## Login   <habi_a@etna-alternance.net>
 ## 
-## Started on  Tue Dec 26 13:24:00 2017 HABI Açal
-## Last update Mon Jan 29 22:05:06 2018 HABI Açal
+## Started on  Thu Jul 19 09:37:45 2018 HABI Açal
+## Last update Thu Jul 19 12:19:06 2018 HABI Açal
 ##
-CC	=	gcc
 
-NAME	=	my_printf.a
+CC	 =	gcc
+CFLAGS 	 += 	-Wall -Wextra -Wpedantic -Werror
+CFLAFS	 +=	-fPIC
+CFLAGS 	 += 	-I ./inc
+CFLAGS 	 += 	-I $(LIBPATH)inc
 
-SRC     =   	my_check_pourcent.c \
-		my_pos_pourcent.c \
-		my_printf.c \
-		my_put_nbr.c \
-		my_putchar.c \
-		my_putstr.c \
-		my_ptr_func.c \
-		my_strlen.c \
-		my_put_nbr_base.c \
-		my_put.c \
-		my_convert_letter_into_nb.c \
-		my_nbrlen.c \
-		my_put_bis.c
+LIBPATH	 = 	./libmy/
 
-CFLAGS 	 = 	-W -Wall -Werror -Wextra -pedantic -I./
+NAME	 = 	libmy_printf_`uname -m`-`uname -s`
+NAME_STC = 	$(NAME).a
+NAME_DYN = 	$(NAME).so
 
-LDFLAGS  = 	-lmy
+SRC      = 	src/my_printf.c \
+		src/my_put.c \
+		src/my_put_next.c \
+		src/pourcents.c \
+		libmy/src/my_getnbr.c \
+		libmy/src/my_nbrlen.c \
+		libmy/src/my_putchar.c \
+		libmy/src/my_putnbr.c \
+		libmy/src/my_putnbr_base.c \
+		libmy/src/my_putstr.c \
+		libmy/src/my_strcpy.c \
+		libmy/src/my_strdup.c \
+		libmy/src/my_strlen.c
+
+OBJ	 =	$(SRC:.c=.o)
 
 RM	 =	rm -f
 
-all:		create
+all:		my_printf_static my_printf_dynamic
 
-create:
-		$(CC) $(CFLAGS) $(LDFLAGS) -c $(SRC)
-		ar rc $(NAME) *.o
-		ranlib $(NAME)
+my_printf_static:	$(OBJ)
+	ar rc $(NAME_STC) $(OBJ)
+	ranlib $(NAME_STC)
 
-clean:			
-		$(RM) *.o
-		$(RM) *~
+my_printf_dynamic:	$(OBJ)
+	$(CC) -shared $(OBJ) $(CFLAGS) -o $(NAME_DYN)
+
+clean:
+	$(RM) $(OBJ)
 
 fclean:		clean
-		$(RM) $(NAME)
+	$(RM) $(NAME_STC) $(NAME_DYN)
 
 re:		fclean all
 
-.PHONY:		all re clean fclean
+.PHONY	 = 	all my_printf_static my_printf_dynamic clean fclean re
