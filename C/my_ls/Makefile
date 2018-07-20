@@ -43,7 +43,7 @@ LN	= 	ln -s
 all:		$(LIBNAME) $(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) $(CPPFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 $(LIBNAME):	$(OBJ)
 	make -C $(LIBPATH)

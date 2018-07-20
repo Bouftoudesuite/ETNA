@@ -92,7 +92,7 @@ void			print_results(char **resultab, unsigned int size,
                 my_putchar('\n');
             else
                 (get_flags('m', list_flags) && i != size - 1) ?
-		  my_putstr(",\t") : my_putchar('\t');
+		  my_putstr(", ") : my_putchar('\t');
         }
         i++;
     }

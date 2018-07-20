@@ -76,13 +76,18 @@ int			main(int argc, char **argv)
     t_list_params	list_params;
     t_node_months	**arr_months;
 
-    arr_months = malloc(M_NUMBER * sizeof(t_node_months*));
+    arr_months = malloc(M_NUMBER * sizeof(t_node_months *));
     if (arr_months == NULL)
         return (1);
     init(&list_flags, &list_params, arr_months);
     fill_list(&list_flags, &list_params, argc, argv);
+	if (get_flags('h', &list_flags))
+	{
+	    my_putstr("Usage: ls [-ABGLRUadfghlmort1] [file ...]\n");
+		return (0);
+	}
     fill_arr_months(arr_months);
-    tols = malloc(list_params._size * sizeof(char*));
+    tols = malloc(list_params._size * sizeof(char *));
     push_params_to_tols(tols, &list_params);
     if (!get_flags('U', &list_flags))
         sort_tols(tols, list_params._size, &list_flags, arr_months);

@@ -76,7 +76,7 @@ void			free_list_results(t_list_results *list)
     {
         tmp = p_elem;
         p_elem = p_elem->_next;
-        free((char*)tmp->_path);
+        free((char *)tmp->_path);
         free(tmp);
     }
     list->_first = NULL;

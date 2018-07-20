@@ -43,7 +43,7 @@ void			fill_flags(int argc, char **argv, t_list_flags *list)
 {
     int			option;
 
-    while ((option = getopt(argc, argv, "lRrdtaALgGUf1moB")) != -1)
+    while ((option = getopt(argc, argv, "lRrdtaALgGUf1moBh")) != -1)
     {
         if (option != '?')
             push_back_flag(list, (char)option);

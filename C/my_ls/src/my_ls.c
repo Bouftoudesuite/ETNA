@@ -107,7 +107,7 @@ static void		run(t_list_flags *list_flags, const char *path,
     resultab = malloc(list_results._size * sizeof(char*));
     if (resultab == NULL)
         return ;
-    push_results_to_resultab(resultab, &list_results);
+    push_results_to_resultab(resultab, &list_results, list_flags);
     if (!get_flags('U', list_flags))
     {
         if (get_flags('t', list_flags) && list_results._size > 0)

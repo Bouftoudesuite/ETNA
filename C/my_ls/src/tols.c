@@ -10,6 +10,7 @@
 #include <check.h>
 #include <my.h>
 #include <path.h>
+#include <sort.h>
 #include <stdlib.h>
 #include <tols.h>
 
@@ -29,7 +30,8 @@ void			push_params_to_tols(char **tols, t_list_params *list)
 }
 
 void			push_results_to_resultab(char **resultab,
-						 t_list_results *list)
+						 t_list_results *list,
+						 t_list_flags *list_f)
 {
     unsigned int	i;
     t_node_results	*result;
@@ -42,6 +44,8 @@ void			push_results_to_resultab(char **resultab,
         result = result->_next;
         i++;
     }
+    if (!get_flags('U', list_f))
+      sort_results_by_alpha(resultab, list->_size);
 }
 
 unsigned int		push_resultab_to_newtols(char **new_tols,

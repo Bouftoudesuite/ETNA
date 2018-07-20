@@ -22,7 +22,7 @@ static char	*format_date(t_node_months **arr_month, char *time)
     char	*result;
 
     month = my_strndup(time, 3);
-    month_g = (char*)get_months(month, arr_month)->_value;
+    month_g = (char *)get_months(month, arr_month)->_value;
     rest = my_strrdup(time, 3);
     result = malloc(21 * sizeof(char));
     if (result == NULL)
