@@ -1,5 +1,5 @@
 /*
-** my_printf.c for my_ls in /Users/habi_a/Documents
+** my_printf.c for my_printf in /Users/habi_a/Documents
 ** 
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>

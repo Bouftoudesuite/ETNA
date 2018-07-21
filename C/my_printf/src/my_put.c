@@ -1,5 +1,5 @@
 /*
-** my_put.c for my_printf in /cygdrive/c/Users/Habi/Documents/ETNA/C/my_printf
+** my_put.c for my_printf in /Users/habi_a/Documents
 ** 
 ** Made by HABI Açal
 ** Login   <habi_a@etna-alternance.net>
