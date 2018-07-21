@@ -10,7 +10,7 @@
 
 CC	 =	gcc
 CFLAGS 	 += 	-Wall -Wextra -Wpedantic -Werror
-CFLAFS	 +=	-fPIC
+CFLAGS	 +=	-fPIC
 CFLAGS 	 += 	-I ./inc
 CFLAGS 	 += 	-I $(LIBPATH)inc
 
@@ -26,6 +26,7 @@ SRC      = 	src/my_printf.c \
 		src/pourcents.c \
 		libmy/src/my_getnbr.c \
 		libmy/src/my_nbrlen.c \
+		libmy/src/my_nbrlen_base.c \
 		libmy/src/my_putchar.c \
 		libmy/src/my_putnbr.c \
 		libmy/src/my_putnbr_base.c \

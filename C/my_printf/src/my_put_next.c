@@ -10,14 +10,20 @@
 
 #include <my.h>
 #include <my_puts.h>
+#include <stdlib.h>
 
 unsigned int		my_put_o(va_list variables, unsigned int count)
 {
     unsigned int	var;
+    unsigned int *buffer_size;
 
+    buffer_size = malloc(sizeof(unsigned int));
+    *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "01234567");
-    count += my_nbrlen(var);
+    my_un_nbrlen_base(var, "01234567", buffer_size);
+    count += *buffer_size;
+    free(buffer_size);
     return (count);
 }
 
@@ -27,27 +33,37 @@ unsigned int		my_put_u(va_list variables, unsigned int count)
 
     var = va_arg(variables, unsigned int);
     my_put_un_nbr(var);
-    count += my_nbrlen(var);
+    count += my_un_nbrlen(var);
     return (count);
 }
 
 unsigned int		my_put_x(va_list variables, unsigned int count)
 {
     unsigned int	var;
+    unsigned int *buffer_size;
 
+    buffer_size = malloc(sizeof(unsigned int));
+    *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "0123456789abcdef");
-    count += my_nbrlen(var);
+    my_un_nbrlen_base(var, "0123456789abcdef", buffer_size);
+    count += *buffer_size;
+    free(buffer_size);
     return (count);
 }
 
 unsigned int		my_put_X(va_list variables, unsigned int count)
 {
     unsigned int	var;
+    unsigned int *buffer_size;
 
+    buffer_size = malloc(sizeof(unsigned int));
+    *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "0123456789ABCDEF");
-    count += my_nbrlen(var);
+    my_un_nbrlen_base(var, "0123456789abcdef", buffer_size);
+    count += *buffer_size;
+    free(buffer_size);
     return (count);
 }
 
