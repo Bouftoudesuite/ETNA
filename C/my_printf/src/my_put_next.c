@@ -61,7 +61,7 @@ unsigned int		my_put_X(va_list variables, unsigned int count)
     *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "0123456789ABCDEF");
-    my_un_nbrlen_base(var, "0123456789ABCDEF, buffer_size);
+    my_un_nbrlen_base(var, "0123456789ABCDEF", buffer_size);
     count += *buffer_size;
     free(buffer_size);
     return (count);
