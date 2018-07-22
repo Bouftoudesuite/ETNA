@@ -16,6 +16,7 @@ unsigned int		my_put_no_flag(va_list variables, unsigned int count)
 {
     (void) variables;
     my_putchar('%');
+    count++;
     return (count);
 }
 
