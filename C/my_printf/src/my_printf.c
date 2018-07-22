@@ -13,7 +13,7 @@
 #include <my_puts.h>
 #include <pourcents.h>
 
-static const t_flags g_flags[] =
+static const t_flags	g_flags[] =
 {
     {'%', &my_put_no_flag},
     {'c', &my_put_c},
