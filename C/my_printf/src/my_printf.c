@@ -23,7 +23,9 @@ static const t_flags	g_flags[] =
     {'o', &my_put_o},
     {'u', &my_put_u},
     {'x', &my_put_x},
-    {'X', &my_put_X}
+    {'X', &my_put_X},
+    {'p', &my_put_p},
+    {'b', &my_put_b}
 };
 
 static t_flags		get_flag(char key)

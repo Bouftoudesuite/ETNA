@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 ** 
 ** Started on  Thu Jul 19 10:09:54 2018 HABI Açal
-** Last update Thu Jul 19 11:45:51 2018 HABI Açal
+** Last update Mon Jul 23 17:35:13 2018 HABI Açal
 */
 
 #include <my.h>
@@ -67,8 +67,19 @@ unsigned int		my_put_X(va_list variables, unsigned int count)
     return (count);
 }
 
-unsigned int		my_put_error(va_list variables, unsigned int count)
+unsigned int		my_put_p(va_list variables, unsigned int count)
 {
-    (void) variables;
+    long		var;
+    unsigned int	*buffer_size;
+
+    buffer_size = malloc(sizeof(unsigned int));
+    *buffer_size = 0;
+    var = va_arg(variables, long);
+    my_putstr("0x");
+    count += 2;
+    my_put_long_nbr_base(var, "0123456789abcdef");
+    my_long_nbrlen_base(var, "0123456789abcdef", buffer_size);
+    count += *buffer_size;
+    free(buffer_size);
     return (count);
 }

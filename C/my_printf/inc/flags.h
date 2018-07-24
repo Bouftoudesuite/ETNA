@@ -11,7 +11,7 @@
 #ifndef			_FLAGS_H_
 # define		_FLAGS_H_
 
-# define		NB_FLAGS 9
+# define		NB_FLAGS 11
 # include		<my_puts.h>
 
 typedef struct		s_flags

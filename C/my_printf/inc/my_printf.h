@@ -5,7 +5,7 @@
 ** Login   <habi_a@etna-alternance.net>
 **
 ** Started on  Tue Dec 26 14:17:41 2017 HABI Açal
-** Last update Thu Jul 19 09:42:05 2018 HABI Açal
+** Last update Tue Jul 24 09:37:00 2018 HABI Açal
 */
 
 #ifndef		_MY_PRINTF_H_
@@ -13,4 +13,4 @@
 
 int		my_printf(const char *format, ...);
 
-#endif		/* !_MY_PRINTF_H_ */
+#endif		/* _MY_PRINTF_H_ */

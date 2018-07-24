@@ -5,7 +5,7 @@
 ## Login   <habi_a@etna-alternance.net>
 ## 
 ## Started on  Thu Jul 19 09:37:45 2018 HABI Açal
-## Last update Thu Jul 19 12:19:06 2018 HABI Açal
+## Last update Mon Jul 23 17:29:40 2018 HABI Açal
 ##
 
 CC	 =	gcc
@@ -23,6 +23,7 @@ NAME_DYN = 	$(NAME).so
 SRC      = 	src/my_printf.c \
 		src/my_put.c \
 		src/my_put_next.c \
+		src/my_put_next_bis.c \
 		src/pourcents.c \
 		libmy/src/my_getnbr.c \
 		libmy/src/my_nbrlen.c \
