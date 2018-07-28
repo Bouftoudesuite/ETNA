@@ -12,6 +12,7 @@
 #include <my.h>
 #include <my_puts.h>
 #include <pourcents.h>
+#include <stdlib.h>
 
 static const t_flags	g_flags[] =
 {
@@ -25,7 +26,8 @@ static const t_flags	g_flags[] =
     {'x', &my_put_x},
     {'X', &my_put_X},
     {'p', &my_put_p},
-    {'b', &my_put_b}
+    {'b', &my_put_b},
+    {'S', &my_put_S}
 };
 
 static t_flags		get_flag(char key)
@@ -57,7 +59,8 @@ static unsigned int	run(const char *str, t_list_pourcents *list_pourcents,
     current_pourcent = list_pourcents->_first;
     while (str[i] != '\0')
     {
-        if (current_pourcent && i == current_pourcent->_position)
+        if (current_pourcent && i == current_pourcent->_position
+	    && get_flag(current_pourcent->_letter)._key)
         {
             count = get_flag(current_pourcent->_letter)
 	      .p_my_put(variables, count);

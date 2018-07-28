@@ -55,6 +55,8 @@ unsigned int		my_put_s(va_list variables, unsigned int count)
     char		*var;
 
     var = my_strdup(va_arg(variables, char *));
+    if (var == NULL)
+        return (count);
     my_putstr(var);
     count += my_strlen(var);
     free(var);

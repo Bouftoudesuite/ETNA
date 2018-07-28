@@ -26,6 +26,7 @@ SRC      = 	src/my_printf.c \
 		src/my_put_next_bis.c \
 		src/pourcents.c \
 		libmy/src/my_getnbr.c \
+		libmy/src/my_isprintable.c \
 		libmy/src/my_nbrlen.c \
 		libmy/src/my_nbrlen_base.c \
 		libmy/src/my_putchar.c \

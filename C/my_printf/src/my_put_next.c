@@ -18,6 +18,8 @@ unsigned int		my_put_o(va_list variables, unsigned int count)
     unsigned int	*buffer_size;
 
     buffer_size = malloc(sizeof(unsigned int));
+    if (buffer_size == NULL)
+        return (count);
     *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "01234567");
@@ -43,6 +45,8 @@ unsigned int		my_put_x(va_list variables, unsigned int count)
     unsigned int	*buffer_size;
 
     buffer_size = malloc(sizeof(unsigned int));
+    if (buffer_size == NULL)
+        return (count);
     *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "0123456789abcdef");
@@ -58,6 +62,8 @@ unsigned int		my_put_X(va_list variables, unsigned int count)
     unsigned int	*buffer_size;
 
     buffer_size = malloc(sizeof(unsigned int));
+    if (buffer_size == NULL)
+        return (count);
     *buffer_size = 0;
     var = va_arg(variables, unsigned int);
     my_put_un_nbr_base(var, "0123456789ABCDEF");
@@ -73,6 +79,8 @@ unsigned int		my_put_p(va_list variables, unsigned int count)
     unsigned int	*buffer_size;
 
     buffer_size = malloc(sizeof(unsigned int));
+    if (buffer_size == NULL)
+        return (count);
     *buffer_size = 0;
     var = va_arg(variables, long);
     my_putstr("0x");
