@@ -78,7 +78,12 @@ unsigned int		my_put_S(va_list variables, unsigned int count)
     *buffer_size = 0;
     var_string = my_strdup(va_arg(variables, char *));
     if (var_string == NULL)
+    {
+        my_putstr("(null)");
+        count += 6;
+        free(buffer_size);
         return (count);
+    }
     my_putstr_S(var_string, buffer_size);
     count += *buffer_size;
     free(buffer_size);

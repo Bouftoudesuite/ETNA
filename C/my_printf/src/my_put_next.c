@@ -83,6 +83,13 @@ unsigned int		my_put_p(va_list variables, unsigned int count)
         return (count);
     *buffer_size = 0;
     var = va_arg(variables, long);
+    if (!var)
+    {
+        my_putstr("(nil)");
+        count += 5;
+        free(buffer_size);
+        return (count);
+    }
     my_putstr("0x");
     count += 2;
     my_put_long_nbr_base(var, "0123456789abcdef");
