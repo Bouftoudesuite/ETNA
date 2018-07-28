@@ -24,7 +24,7 @@ unsigned int		my_put_c(va_list variables, unsigned int count)
 {
     char		var;
 
-    var = (char)va_arg(variables, int);
+    var = (char) va_arg(variables, int);
     my_putchar(var);
     count++;
     return (count);

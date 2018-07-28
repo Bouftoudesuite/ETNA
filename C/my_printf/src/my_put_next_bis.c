@@ -29,7 +29,7 @@ unsigned int		my_put_b(va_list variables, unsigned int count)
     return (count);
 }
 
-static void my_putchar_S(const char c, unsigned int *buffer_size)
+static void		my_putchar_S(const char c, unsigned int *buffer_size)
 {
     if (c < 10 && c > 0)
     {
@@ -49,9 +49,9 @@ static void my_putchar_S(const char c, unsigned int *buffer_size)
     *buffer_size = *buffer_size + 4;
 }
 
-static void my_putstr_S(const char *str, unsigned int *buffer_size)
+static void		my_putstr_S(const char *str, unsigned int *buffer_size)
 {
-    unsigned int i;
+    unsigned int	i;
 
     i = 0;
     while (str[i] != '\0')
