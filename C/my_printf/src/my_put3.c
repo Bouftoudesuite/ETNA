@@ -90,9 +90,3 @@ unsigned int		my_put_S(va_list variables, unsigned int count)
     free(var_string);
     return (count);
 }
-
-unsigned int		my_put_error(va_list variables, unsigned int count)
-{
-    (void) variables;
-    return (count);
-}

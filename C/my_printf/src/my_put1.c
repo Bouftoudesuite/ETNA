@@ -12,7 +12,7 @@
 #include <my_puts.h>
 #include <stdlib.h>
 
-unsigned int		my_put_no_flag(va_list variables, unsigned int count)
+unsigned int		my_put_percent(va_list variables, unsigned int count)
 {
     (void) variables;
     my_putchar('%');

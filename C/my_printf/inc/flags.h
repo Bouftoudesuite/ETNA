@@ -16,7 +16,7 @@
 
 typedef struct		s_flags
 {
-    char		_key;
+    char		key;
     t_ptr_my_put	p_my_put;
 }			t_flags;
 

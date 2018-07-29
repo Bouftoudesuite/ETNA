@@ -15,7 +15,7 @@
 
 typedef unsigned int	(*t_ptr_my_put)(va_list, unsigned int);
 
-unsigned int		my_put_no_flag(va_list variables, unsigned int count);
+unsigned int		my_put_percent(va_list variables, unsigned int count);
 unsigned int		my_put_c(va_list variables, unsigned int count);
 unsigned int		my_put_i(va_list variables, unsigned int count);
 unsigned int		my_put_d(va_list variables, unsigned int count);
@@ -27,7 +27,5 @@ unsigned int		my_put_X(va_list variables, unsigned int count);
 unsigned int		my_put_p(va_list variables, unsigned int count);
 unsigned int		my_put_b(va_list variables, unsigned int count);
 unsigned int		my_put_S(va_list variables, unsigned int count);
-unsigned int		my_put_error(va_list variables, unsigned int count);
-
 
 #endif			/* _MY_PUTS_H_ */

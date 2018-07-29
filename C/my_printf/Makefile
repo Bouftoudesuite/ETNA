@@ -21,10 +21,9 @@ NAME_STC = 	$(NAME).a
 NAME_DYN = 	$(NAME).so
 
 SRC      = 	src/my_printf.c \
-		src/my_put.c \
-		src/my_put_next.c \
-		src/my_put_next_bis.c \
-		src/pourcents.c \
+		src/my_put1.c \
+		src/my_put2.c \
+		src/my_put3.c \
 		libmy/src/my_getnbr.c \
 		libmy/src/my_isprintable.c \
 		libmy/src/my_nbrlen.c \
