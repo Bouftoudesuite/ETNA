@@ -90,3 +90,13 @@ unsigned int		my_put_S(va_list variables, unsigned int count)
     free(var_string);
     return (count);
 }
+
+unsigned int		my_put_l(va_list variables, unsigned int count)
+{
+    long	var;
+
+    var = va_arg(variables, long);
+    my_put_long_nbr(var);
+    count += my_long_nbrlen(var);
+    return (count);
+}
