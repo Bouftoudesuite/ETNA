@@ -53,6 +53,8 @@ int			my_printf(const char *format, ...)
     unsigned int	count;
     va_list		variables;
 
+    if (format == NULL)
+        return (-1);
     i = 0;
     count = 0;
     va_start(variables, format);
